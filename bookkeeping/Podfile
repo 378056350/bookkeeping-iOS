@@ -1,0 +1,14 @@
+platform :ios, '9.0'
+
+target ‘bookkeeping’ do
+    pod 'PINCache', '3.0.1-beta.7'
+    pod 'pop', '1.0.12'
+    pod 'SDWebImage', '4.4.3'
+    pod 'JPush', '3.1.1.1'
+    pod 'Masonry', '1.1.0'
+    pod 'MJExtension', '3.0.15'
+    pod 'AFNetworking', '3.2.1'
+    pod 'JGProgressHUD', '2.0.3'
+    pod 'SDCycleScrollView', '1.75'
+    pod 'ReactiveObjC', '3.1.0'
+end
