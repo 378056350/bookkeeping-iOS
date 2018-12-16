@@ -18,6 +18,7 @@ PODS:
   - JGProgressHUD (2.0.3)
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
+  - JZNavigationExtension (2.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.15)
   - PINCache (3.0.1-beta.7):
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - AFNetworking (= 3.2.1)
   - JGProgressHUD (= 2.0.3)
   - JPush (= 3.1.1.1)
+  - JZNavigationExtension (= 2.1)
   - Masonry (= 1.1.0)
   - MJExtension (= 3.0.15)
   - PINCache (= 3.0.1-beta.7)
@@ -54,6 +56,7 @@ SPEC REPOS:
     - JCore
     - JGProgressHUD
     - JPush
+    - JZNavigationExtension
     - Masonry
     - MJExtension
     - PINCache
@@ -68,6 +71,7 @@ SPEC CHECKSUMS:
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
+  JZNavigationExtension: 45284fc63ba48a9e55b020656d39c86b01ff6a63
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 3f039575db1b135a20699ad298713b26acec1528
   PINCache: 7cb9ae068c8f655717f7c644ef1dff9fd573e979
@@ -77,6 +81,6 @@ SPEC CHECKSUMS:
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 8dffb3f276469cdf8fe4f089ce82dbc435566de5
+PODFILE CHECKSUM: 8f1b53455bc9ac210274cf0173b57e9e4ae06899
 
 COCOAPODS: 1.6.0.beta.2

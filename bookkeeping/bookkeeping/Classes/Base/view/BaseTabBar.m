@@ -57,7 +57,7 @@
 
 - (void)click:(NSInteger)index {
     NSArray<NSArray *> *image = @[
-                                  @[@"首页",@"分类",@"消息",@"购物车",@"我的"],
+                                  @[@"明细",@"图表",@"记账",@"发现",@"我的"],
                                   @[@"cm4_btm_icn_discovery",
                                     @"cm4_btm_icn_music_new",
                                     @"cm4_btm_icn_account",
@@ -123,7 +123,7 @@
         _views = [[NSMutableArray alloc] init];
         
         NSArray<NSArray *> *image = @[
-                                      @[@"首页",@"分类",@"消息",@"购物车",@"我的"],
+                                      @[@"明细",@"图表",@"记账",@"发现",@"我的"],
                                       @[@"cm4_btm_icn_discovery",
                                         @"cm4_btm_icn_music_new",
                                         @"cm4_btm_icn_account",

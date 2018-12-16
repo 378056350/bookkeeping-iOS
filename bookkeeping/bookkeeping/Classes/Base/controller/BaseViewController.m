@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.titleLabel.font = font;
         [btn setFrame:CGRectMake(0, 0, maxSize.width, 40)];
-        [btn setTitleColor:kColor_White forState:UIControlStateNormal];
+        [btn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
         [btn setTitle:navTitle forState:UIControlStateNormal];
         btn;
     });
@@ -90,13 +90,14 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
 - (void)setLeftBtn {
     UIButton *btn = ({
         UIButton *btn = [UIButton new];
-        [btn setImage:[UIImage imageNamed:@"cm2_act_view_btn_back"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"cm2_act_view_btn_back_prs"] forState:UIControlStateHighlighted];
+        [btn setImage:[UIImage imageNamed:@"nav_back_n"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"nav_back_n"] forState:UIControlStateHighlighted];
         [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [btn addTarget:self action:@selector(leftButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [btn setFrame:CGRectMake(0, 0, 40, 40)];
         [btn setContentMode:UIViewContentModeLeft];
         [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [btn setContentEdgeInsets:UIEdgeInsetsMake(8, -4, 8, 16)];
         btn;
     });
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -106,35 +107,26 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
 
 
 
-//    if ([self isKindOfClass:[HomeController class]] ||
-//        [self isKindOfClass:[SortController class]] ||
-//        [self isKindOfClass:[MessageController class]] ||
-//        [self isKindOfClass:[CartController class]] ||
-//        [self isKindOfClass:[MineController class]]) {
-//        self.leftButton.hidden = YES;
-//    } else {
-//        self.leftButton.hidden = NO;
-//    }
-
-//    if ([self isKindOfClass:[HomeController class]] ||
-//        [self isKindOfClass:[SheetController class]] ||
-//        [self isKindOfClass:[MineController class]]) {
-//        self.leftButton.hidden = YES;
-//    }
-//    else {
-//        self.leftButton.hidden = NO;
-//    }
+    if ([self isKindOfClass:[HomeController class]] ||
+        [self isKindOfClass:[ChartController class]] ||
+        [self isKindOfClass:[BookController class]] ||
+        [self isKindOfClass:[FindController class]] ||
+        [self isKindOfClass:[MineController class]]) {
+        self.leftButton.hidden = YES;
+    } else {
+        self.leftButton.hidden = NO;
+    }\
 
 }
 // 设置右侧按钮
 - (void)setRightBtn {
     UIButton *btn = ({
         UIButton *btn = [UIButton new];
-        [btn setImage:[UIImage imageNamed:@"cm2_live_btn_back"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"cm2_live_btn_back_prs"] forState:UIControlStateHighlighted];
         [btn.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [btn addTarget:self action:@selector(rightButtonClick) forControlEvents:UIControlEventTouchUpInside];
-//        [btn setContentEdgeInsets:UIEdgeInsetsMake(8, 16, 8, -4)];
+        [btn setContentEdgeInsets:UIEdgeInsetsMake(8, 16, 8, -4)];
+        [btn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
+        [btn setTitleColor:kColor_Text_Black forState:UIControlStateSelected];
         [btn sizeToFit];
         btn;
     });
@@ -160,20 +152,19 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
     [self.navigationController.navigationBar setShadowImage:nil];
 }
 
+
 #pragma mark - 系统
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self hideNavigationBarLine];
-
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
 //    BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
 //    if ([self isKindOfClass:[HomeController class]] ||
-//        [self isKindOfClass:[SortController class]] ||
-//        [self isKindOfClass:[MessageController class]] ||
-//        [self isKindOfClass:[CartController class]] ||
+//        [self isKindOfClass:[ChartController class]] ||
+////        [self isKindOfClass:[BookController class]] ||
+//        [self isKindOfClass:[FindController class]] ||
 //        [self isKindOfClass:[MineController class]]) {
 //        [tab hideTabbar:NO];
 //    }

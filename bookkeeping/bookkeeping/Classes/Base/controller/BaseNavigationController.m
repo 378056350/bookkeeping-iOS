@@ -16,28 +16,28 @@
 #pragma mark - 初始化
 + (instancetype)initWithRootViewController:(UIViewController *)vc {
     BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//    nav.jz_navigationBarTransitionStyle = JZNavigationBarTransitionStyleSystem;
+    nav.jz_navigationBarTransitionStyle = JZNavigationBarTransitionStyleSystem;
     return nav;
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-////    BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-//    if ([viewController isKindOfClass:[HomeController class]] ||
-//        [viewController isKindOfClass:[SortController class]] ||
-//        [viewController isKindOfClass:[MessageController class]] ||
-//        [viewController isKindOfClass:[CartController class]] ||
-//        [viewController isKindOfClass:[MineController class]]) {
-//        BaseViewController *vc = (BaseViewController *)viewController;
-//        vc.leftButton.hidden = YES;
-//        
-////        [tab hideTabbar:NO];
-//    }
-//    else {
-//        BaseViewController *vc = (BaseViewController *)viewController;
-//        vc.leftButton.hidden = NO;
-////        [tab hideTabbar:YES];
-//    }
+    BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([viewController isKindOfClass:[HomeController class]] ||
+        [viewController isKindOfClass:[ChartController class]] ||
+        [viewController isKindOfClass:[BookController class]] ||
+        [viewController isKindOfClass:[FindController class]] ||
+        [viewController isKindOfClass:[MineController class]]) {
+        BaseViewController *vc = (BaseViewController *)viewController;
+        vc.leftButton.hidden = YES;
+        [tab hideTabbar:NO];
+    }
+    else {
+        BaseViewController *vc = (BaseViewController *)viewController;
+        vc.leftButton.hidden = NO;
+        vc.hidesBottomBarWhenPushed = YES;
+        [tab hideTabbar:YES];
+    }
     
-//    viewController.hidesBottomBarWhenPushed = YES;
+    
     
     [super pushViewController:viewController animated:animated];
 }

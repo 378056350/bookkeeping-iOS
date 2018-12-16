@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uTn-RG-bd8" customClass="MineHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzW-ih-onf">
+                    <rect key="frame" x="0.0" y="36" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="aao-jP-xyk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="okS-xp-vQC" firstAttribute="trailing" secondItem="ZzW-ih-onf" secondAttribute="trailing" id="fNR-HU-gaC"/>
+                <constraint firstItem="okS-xp-vQC" firstAttribute="bottom" secondItem="ZzW-ih-onf" secondAttribute="bottom" id="h9J-7V-r6b"/>
+                <constraint firstItem="ZzW-ih-onf" firstAttribute="leading" secondItem="okS-xp-vQC" secondAttribute="leading" id="hgZ-RM-6NP"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="okS-xp-vQC"/>
+            <connections>
+                <outlet property="nameLab" destination="ZzW-ih-onf" id="FpR-ND-KXM"/>
+            </connections>
+            <point key="canvasLocation" x="-134" y="13"/>
+        </view>
+    </objects>
+</document>

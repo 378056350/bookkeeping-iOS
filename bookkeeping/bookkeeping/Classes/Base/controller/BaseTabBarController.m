@@ -24,20 +24,20 @@
     [super viewDidLoad];
     
     
-//    HomeController *home = [[HomeController alloc] init];
-//    [self addChildViewController:home title:@"首页" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
-//
-//    SortController *sort = [[SortController alloc] init];
-//    [self addChildViewController:sort title:@"分类" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
-//
-//    MessageController *message = [[MessageController alloc] init];
-//    [self addChildViewController:message title:@"消息" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
-//
-//    CartController *cart = [[CartController alloc] init];
-//    [self addChildViewController:cart title:@"购物车" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
-//
-//    MineController *mine = [[MineController alloc] init];
-//    [self addChildViewController:mine title:@"个人" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
+    HomeController *home = [[HomeController alloc] init];
+    [self addChildViewController:home title:@"明细" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
+
+    ChartController *sort = [[ChartController alloc] init];
+    [self addChildViewController:sort title:@"图表" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
+
+    BaseViewController *message = [[BaseViewController alloc] init];
+    [self addChildViewController:message title:@"记账" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
+
+    FindController *cart = [[FindController alloc] init];
+    [self addChildViewController:cart title:@"发现" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
+
+    MineController *mine = [[MineController alloc] init];
+    [self addChildViewController:mine title:@"我的" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
     
     
 //    [self setSelectedIndex:1];
@@ -60,8 +60,6 @@
     childVc.navTitle = title;
     
     
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[kColor_Text_Black colorWithAlphaComponent:0.5], NSForegroundColorAttributeName, [UIFont systemFontOfSize:AdjustFont(10)],NSFontAttributeName,nil] forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MainColor, NSForegroundColorAttributeName, [UIFont systemFontOfSize:AdjustFont(10)],NSFontAttributeName,nil] forState:UIControlStateSelected];
     index++;
     
     // 让子控制器包装一个导航控制器
@@ -87,24 +85,15 @@
         
         _bar = [[BaseTabBar alloc] init];
         [_bar setClick:^(NSInteger index) {
-            // 个人页面
-            if (index == 4) {
-//                // 登录了
-//                if ([UserInfo isLogin]) {
-//                    [weakSelf setSelectedIndex:index];
-//                    [weakSelf.bar setIndex:index];
-//                }
-//                // 未登录
-//                else {
-//                    LoginController *vc = [[LoginController alloc] init];
-//                    [vc setLoginBlock:^{
-//                        [weakSelf setSelectedIndex:4];
-//                        [weakSelf.bar setIndex:4];
-//                    }];
-//                    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//                    [weakSelf presentViewController:nav animated:YES completion:nil];
-//                }
-            } else {
+            // 记账
+            if (index == 2) {
+                BookController *vc = [[BookController alloc] init];
+                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+                [weakSelf presentViewController:nav animated:YES completion:^{
+                    
+                }];
+            }
+            else {
                 [weakSelf setSelectedIndex:index];
                 [weakSelf.bar setIndex:index];
             }

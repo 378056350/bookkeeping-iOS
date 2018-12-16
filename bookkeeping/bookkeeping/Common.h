@@ -12,8 +12,9 @@
 //================================= Third ===================================//
 //#import <MBProgressHUD/MBProgressHUD.h>
 //#import <MJExtension/MJExtension.h>
-//#import <JZNavigationExtension/JZNavigationExtension.h>
-//#import <SDCycleScrollView/SDCycleScrollView.h>
+#import <JZNavigationExtension/JZNavigationExtension.h>
+#import <SDCycleScrollView/SDCycleScrollView.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 //#import <MJRefresh/MJRefresh.h>
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/UIButton+WebCache.h>
@@ -80,7 +81,6 @@
 
 //================================= Base =====================================//
 #import "BaseView.h"
-//#import "BaseItem.h"
 #import "BaseModel.h"
 #import "BaseTableView.h"
 #import "BaseTableCellProtocol.h"
@@ -93,14 +93,12 @@
 
 
 //================================= Controller ===============================//
-//#import "HomeController.h"
-//#import "SortController.h"
-//#import "MessageController.h"
-//#import "CartController.h"
-//#import "MineController.h"
-//#import "GoodsController.h"
-//#import "LoginController.h"
-//#import "RegisterController.h"
+#import "HomeController.h"
+#import "ChartController.h"
+#import "BookController.h"
+#import "FindController.h"
+#import "MineController.h"
+
 
 
 
