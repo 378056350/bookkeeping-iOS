@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="BaseReusableHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG6-f2-1Lb">
+                    <rect key="frame" x="15" y="0.0" width="42" height="50"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssq-Lh-gi6">
+                    <rect key="frame" x="62" y="0.0" width="42" height="50"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="Ssq-Lh-gi6" secondAttribute="bottom" id="8YX-Pb-3YI"/>
+                <constraint firstItem="Ssq-Lh-gi6" firstAttribute="leading" secondItem="VG6-f2-1Lb" secondAttribute="trailing" constant="5" id="KLj-qU-943"/>
+                <constraint firstItem="VG6-f2-1Lb" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="Rh8-zl-C7d"/>
+                <constraint firstItem="VG6-f2-1Lb" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" constant="15" id="Vyt-Wa-gIw"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="VG6-f2-1Lb" secondAttribute="bottom" id="Wlf-J2-Czz"/>
+                <constraint firstItem="Ssq-Lh-gi6" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="vUo-KV-h8I"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
+            <connections>
+                <outlet property="detailLab" destination="Ssq-Lh-gi6" id="KIb-Zx-vin"/>
+                <outlet property="nameLab" destination="VG6-f2-1Lb" id="n6u-n6-ozH"/>
+            </connections>
+            <point key="canvasLocation" x="234" y="12"/>
+        </collectionReusableView>
+    </objects>
+</document>

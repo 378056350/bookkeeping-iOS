@@ -1,5 +1,5 @@
 /**
- * item
+ * 添加分类
  * @author 郑业强 2018-12-17 创建文件
  */
 
@@ -7,9 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChartSubDateCell : BaseCollectionCell
-
-@property (nonatomic, assign) BOOL choose;
+@interface ACACollectionCell : BaseCollectionCell
 
 @end
 

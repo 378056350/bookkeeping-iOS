@@ -18,9 +18,20 @@
 
 
 - (void)initUI {
-    self.lab.font = [UIFont systemFontOfSize:AdjustFont(14)];
-    self.lab.textColor = kColor_Text_Black;
+    self.lab.font = [UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight];
 }
+
+
+#pragma mark - set
+- (void)setChoose:(BOOL)choose {
+    _choose = choose;
+    if (choose == YES) {
+        _lab.textColor = kColor_Text_Black;
+    } else {
+        _lab.textColor = kColor_Text_Gary;
+    }
+}
+
 
 
 @end

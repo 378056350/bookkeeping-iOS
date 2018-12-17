@@ -7,5 +7,6 @@
 #define MINE_EVENT_MANAGER_h
 
 #define MINE_DID_SCROLL @"MINE_DID_SCROLL"  // scroll 滚动
+#define MINE_CELL_CLICK @"MINE_CELL_CLICK"  // cell 点击
 
 #endif

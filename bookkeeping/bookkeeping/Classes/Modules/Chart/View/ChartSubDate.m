@@ -11,6 +11,7 @@
 
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) UIView *line;
+@property (nonatomic, strong) NSIndexPath *selectIndex;
 
 @end
 
@@ -20,8 +21,10 @@
 
 
 - (void)initUI {
+    _selectIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     [self collection];
     [self line];
+    [self borderForColor:kColor_Line_Color borderWidth:1.f borderType:UIBorderSideTypeBottom];
 }
 
 
@@ -31,8 +34,11 @@
         _collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.height) collectionViewLayout:({
             UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
             flow.itemSize = CGSizeMake(80, self.height);
+            flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
             flow;
         })];
+        [_collection setShowsHorizontalScrollIndicator:NO];
+        [_collection setBackgroundColor:kColor_BG];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
         [_collection registerNib:[UINib nibWithNibName:@"ChartSubDateCell" bundle:nil] forCellWithReuseIdentifier:@"ChartSubDateCell"];
@@ -57,15 +63,42 @@
 
 
 #pragma mark - UICollectionViewDataSource
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChartSubDateCell *cell = [ChartSubDateCell loadItem:collectionView index:indexPath];
+    cell.choose = [_selectIndex isEqual:indexPath];
     return cell;
 }
+
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // 移动
+    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    
+    [collectionView reloadItemsAtIndexPaths:({
+        NSIndexPath *lastIndex = _selectIndex;
+        _selectIndex = indexPath;
+        NSMutableArray *arr = [NSMutableArray array];
+        if (lastIndex) {
+            [arr addObject:lastIndex];
+        }
+        [arr addObject:_selectIndex];
+        arr;
+    })];
+    
+    
+    // 刷新
+    ChartSubDateCell *cell = (ChartSubDateCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [UIView animateWithDuration:.3f animations:^{
+        _line.width = 20;
+        _line.centerX = cell.centerX;
+    }];
+}
+
 
 
 @end
