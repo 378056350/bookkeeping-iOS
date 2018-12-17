@@ -22,7 +22,10 @@
                                font:(UIFont *)font
                          lineHeight:(CGFloat)lineHeight;
 
-
+// 数字, 整数和小数字体不一样
++ (NSAttributedString *)createMath:(NSString *)string
+                           integer:(UIFont *)integerFont
+                           decimal:(UIFont *)decimalFont;
 
 
 @end

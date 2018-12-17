@@ -40,7 +40,7 @@
     [self addChildViewController:mine title:@"我的" image:@"cm4_btm_icn_discovery" selImage:@"cm4_btm_icn_discovery_prs"];
     
     
-//    [self setSelectedIndex:1];
+    [self setSelectedIndex:1];
 }
 
 - (void)hideTabbar:(BOOL)hidden {

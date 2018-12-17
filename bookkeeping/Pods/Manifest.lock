@@ -21,6 +21,7 @@ PODS:
   - JZNavigationExtension (2.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.15)
+  - MJRefresh (3.1.15.7)
   - PINCache (3.0.1-beta.7):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.7)
     - PINCache/Core (= 3.0.1-beta.7)
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - JZNavigationExtension (= 2.1)
   - Masonry (= 1.1.0)
   - MJExtension (= 3.0.15)
+  - MJRefresh (= 3.1.15.7)
   - PINCache (= 3.0.1-beta.7)
   - pop (= 1.0.12)
   - ReactiveObjC (= 3.1.0)
@@ -59,6 +61,7 @@ SPEC REPOS:
     - JZNavigationExtension
     - Masonry
     - MJExtension
+    - MJRefresh
     - PINCache
     - PINOperation
     - pop
@@ -74,6 +77,7 @@ SPEC CHECKSUMS:
   JZNavigationExtension: 45284fc63ba48a9e55b020656d39c86b01ff6a63
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 3f039575db1b135a20699ad298713b26acec1528
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   PINCache: 7cb9ae068c8f655717f7c644ef1dff9fd573e979
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 8f1b53455bc9ac210274cf0173b57e9e4ae06899
+PODFILE CHECKSUM: 16e61ab250a5ff3a9e82441697eab436cc65d510
 
 COCOAPODS: 1.6.0.beta.2

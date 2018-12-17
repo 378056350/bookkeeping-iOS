@@ -6,6 +6,8 @@
 #import "MineTableView.h"
 #import "MineTableCell.h"
 #import "MineTableHeader.h"
+#import "MINE_EVENT_MANAGER.h"
+
 
 #pragma mark - 声明
 @interface MineTableView()<UITableViewDelegate, UITableViewDataSource>
@@ -29,6 +31,17 @@
     [table setTableHeaderView:[table header]];
     [table setShowsVerticalScrollIndicator:NO];
     [table setShowsHorizontalScrollIndicator:NO];
+    [table setBackgroundColor:kColor_BG];
+    [table setBackgroundView:({
+        UIView *back = [[UIView alloc] initWithFrame:table.bounds];
+        [back setBackgroundColor:kColor_BG];
+        [back addSubview:({
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, table.header.height)];
+            view.backgroundColor = kColor_Main_Color;
+            view;
+        })];
+        back;
+    })];
     return table;
 }
 
@@ -63,17 +76,24 @@
     return [UIView new];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [UIView new];
+    UIView *view = [UIView new];
+    view.backgroundColor = kColor_BG;
+    return view;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self routerEventWithName:MINE_DID_SCROLL data:scrollView];
+}
+
+
 #pragma mark - get
 - (MineTableHeader *)header {
     if (!_header) {
-        _header = [MineTableHeader loadCode:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH / 3 * 2)];
+        _header = [MineTableHeader loadCode:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH / 2)];
     }
     return _header;
 }

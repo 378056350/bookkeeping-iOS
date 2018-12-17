@@ -6,6 +6,8 @@
 #import "HomeController.h"
 #import "HomeHeader.h"
 #import "HomeList.h"
+#import "LoginController.h"
+
 
 #pragma mark - 声明
 @interface HomeController()

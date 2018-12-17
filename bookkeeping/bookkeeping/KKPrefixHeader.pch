@@ -33,6 +33,7 @@
 // 线条
 #define kColor_Line_Night          HexColor(@"27262A")       // Cell 线条
 #define kColor_Main_Color          RGBA(255,217,68,1)
+#define kColor_Main_Dark_Color     RGBA(241,206,65,1)
 
 
 

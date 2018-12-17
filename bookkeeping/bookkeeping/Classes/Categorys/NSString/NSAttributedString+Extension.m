@@ -57,6 +57,18 @@
 }
 
 
+// 数字, 整数和小数字体不一样
++ (NSAttributedString *)createMath:(NSString *)string
+                           integer:(UIFont *)integerFont
+                           decimal:(UIFont *)decimalFont {
+    NSString *integerStr = [NSString stringWithFormat:@"%@.", [string componentsSeparatedByString:@"."][0]];
+    NSString *decimalStr = [string componentsSeparatedByString:@"."][1];
+    NSAttributedString *attr1 = [[NSAttributedString alloc] initWithString:integerStr attributes:@{NSFontAttributeName: integerFont, NSForegroundColorAttributeName: kColor_Text_Black}];
+    NSAttributedString *attr2 = [[NSAttributedString alloc] initWithString:decimalStr attributes:@{NSFontAttributeName: decimalFont, NSForegroundColorAttributeName: kColor_Text_Black}];
+    NSMutableAttributedString *attrm = [[NSMutableAttributedString alloc] initWithAttributedString:attr1];
+    [attrm appendAttributedString:attr2];
+    return attrm;
+}
 
 
 

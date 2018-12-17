@@ -41,20 +41,29 @@
 }
 
 
+#pragma mark - 操作
+// 刷新index
+- (void)reloadSelectIndex {
+    _selectIndex = nil;
+    [self reloadData];
+}
+
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 90;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BookCollectionCell *cell = [BookCollectionCell loadItem:collectionView index:indexPath];
-    cell.choose = [_selectIndex isEqual:indexPath];
+    cell.choose = _selectIndex && (_selectIndex.row == indexPath.row) && (_selectIndex.section == indexPath.section);
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    _selectIndex = indexPath;
+    [self reloadData];
 }
 
 

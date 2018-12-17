@@ -104,7 +104,10 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
                              alpha:1.0];
 }
 + (UIImage*) createImageWithColor: (UIColor*) color {
-    CGRect rect=CGRectMake(0,0, 1, 1);
+    return [self createImageWithColor:color size:CGSizeMake(1, 1)];
+}
++ (UIImage*) createImageWithColor: (UIColor*) color size:(CGSize)size {
+    CGRect rect=CGRectMake(0,0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
@@ -113,4 +116,6 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
     UIGraphicsEndImageContext();
     return theImage;
 }
+
+
 @end

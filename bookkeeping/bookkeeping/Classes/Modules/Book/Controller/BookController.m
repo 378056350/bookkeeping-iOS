@@ -5,12 +5,15 @@
 
 #import "BookController.h"
 #import "BookCollectionView.h"
+#import "BOOK_EVENT_MANAGER.h"
+
 
 #pragma mark - 声明
-@interface BookController()
+@interface BookController()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) NSMutableArray<BookCollectionView *> *collections;
+@property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
 
@@ -31,10 +34,31 @@
 }
 
 
+#pragma mark - 点击
 - (void)rightButtonClick {
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+
+#pragma mark - 事件
+- (void)routerEventWithName:(NSString *)eventName data:(id)data {
+    [self handleEventWithName:eventName data:data];
+}
+- (void)handleEventWithName:(NSString *)eventName data:(id)data {
+    NSInvocation *invocation = self.eventStrategy[eventName];
+    [invocation setArgument:&data atIndex:2];
+    [invocation invoke];
+    [super routerEventWithName:eventName data:data];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    for (BookCollectionView *collection in self.collections) {
+        [collection reloadSelectIndex];
+    }
 }
 
 
@@ -48,6 +72,7 @@
             CGFloat height = SCREEN_HEIGHT - NavigationBarHeight;
             CGRectMake(left, top, width, height);
         })];
+        [_scroll setDelegate:self];
         [_scroll setShowsHorizontalScrollIndicator:NO];
         [_scroll setPagingEnabled:YES];
         [self.view addSubview:_scroll];
@@ -70,6 +95,14 @@
         }
     }
     return _collections;
+}
+- (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
+    if (!_eventStrategy) {
+        _eventStrategy = @{
+//                           BOOK_CLICK_ITEM: [self createInvocationWithSelector:@selector(bookItemClick:)],
+                           };
+    }
+    return _eventStrategy;
 }
 
 

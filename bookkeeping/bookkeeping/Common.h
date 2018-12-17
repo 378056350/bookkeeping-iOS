@@ -15,7 +15,7 @@
 #import <JZNavigationExtension/JZNavigationExtension.h>
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-//#import <MJRefresh/MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/UIButton+WebCache.h>
 //#import <pop/POP.h>

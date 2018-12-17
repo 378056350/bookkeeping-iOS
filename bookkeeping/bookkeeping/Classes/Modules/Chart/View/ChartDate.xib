@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0Xv-5w-BpB" customClass="ChartDate">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Eb-bL-KnP">
+                    <rect key="frame" x="15" y="21" width="409" height="29"/>
+                    <segments>
+                        <segment title="周"/>
+                        <segment title="月"/>
+                        <segment title="年"/>
+                    </segments>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="2Eb-bL-KnP" firstAttribute="centerY" secondItem="0Xv-5w-BpB" secondAttribute="centerY" id="Br5-5T-ogX"/>
+                <constraint firstItem="2Eb-bL-KnP" firstAttribute="centerX" secondItem="0Xv-5w-BpB" secondAttribute="centerX" id="Y28-Go-DWz"/>
+                <constraint firstItem="2Eb-bL-KnP" firstAttribute="leading" secondItem="5Ak-o7-Cye" secondAttribute="leading" constant="15" id="mf2-f3-du5"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="5Ak-o7-Cye"/>
+            <connections>
+                <outlet property="seg" destination="2Eb-bL-KnP" id="44u-gY-9XY"/>
+            </connections>
+            <point key="canvasLocation" x="-484" y="-312.14392803598201"/>
+        </view>
+    </objects>
+</document>
