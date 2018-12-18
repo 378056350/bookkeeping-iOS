@@ -6,11 +6,13 @@
 #import "BookController.h"
 #import "BookCollectionView.h"
 #import "BOOK_EVENT_MANAGER.h"
+#import "BookNavigation.h"
 
 
 #pragma mark - 声明
 @interface BookController()<UIScrollViewDelegate>
 
+@property (nonatomic, strong) BookNavigation *navigation;
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) NSMutableArray<BookCollectionView *> *collections;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
@@ -24,13 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setJz_navigationBarTintColor:kColor_Main_Color];
+    [self setJz_navigationBarHidden:YES];
     [self setTitle:@"记账"];
+    [self navigation];
     [self scroll];
     [self collections];
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:[UIView new]]];
-    [self.rightButton setTitle:@"取消" forState:UIControlStateNormal];
-    [self.rightButton setHidden:NO];
 }
 
 
@@ -78,6 +78,13 @@
         [self.view addSubview:_scroll];
     }
     return _scroll;
+}
+- (BookNavigation *)navigation {
+    if (!_navigation) {
+        _navigation = [BookNavigation loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, NavigationBarHeight)];
+        [self.view addSubview:_navigation];
+    }
+    return _navigation;
 }
 - (NSMutableArray<BookCollectionView *> *)collections {
     if (!_collections) {
