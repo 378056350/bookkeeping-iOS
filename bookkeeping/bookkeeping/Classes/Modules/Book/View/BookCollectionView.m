@@ -5,6 +5,8 @@
 
 #import "BookCollectionView.h"
 #import "BookCollectionCell.h"
+#import "BOOK_EVENT_MANAGER.h"
+
 
 #pragma mark - 声明
 @interface BookCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -64,7 +66,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectIndex = indexPath;
     [self reloadData];
+    [self routerEventWithName:BOOK_CLICK_ITEM data:indexPath];
 }
+
 
 
 @end

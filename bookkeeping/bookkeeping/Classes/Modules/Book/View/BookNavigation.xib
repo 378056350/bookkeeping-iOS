@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="qse-rG-apa" customClass="BookNavigation">
-            <rect key="frame" x="0.0" y="0.0" width="471" height="99"/>
+            <rect key="frame" x="0.0" y="0.0" width="471" height="78"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAu-Du-Kh0">
-                    <rect key="frame" x="155.5" y="0.0" width="80" height="99"/>
+                    <rect key="frame" x="155.5" y="0.0" width="80" height="78"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="TxB-3k-Rp5"/>
                     </constraints>
@@ -25,17 +25,25 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i82-gE-Gvb">
-                    <rect key="frame" x="235.5" y="0.0" width="80" height="99"/>
+                    <rect key="frame" x="235.5" y="0.0" width="80" height="78"/>
                     <state key="normal" title="支出">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pR-Ha-Hfh">
-                    <rect key="frame" x="0.0" y="98" width="235.5" height="1"/>
+                    <rect key="frame" x="0.0" y="77" width="235.5" height="1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="hEW-bN-Rf3"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cow-ru-Ysj">
+                    <rect key="frame" x="411" y="38" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Yzj-g1-MVB"/>
+                        <constraint firstAttribute="height" constant="40" id="uv4-H9-6Q4"/>
+                    </constraints>
+                    <state key="normal" title="取消"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -44,7 +52,9 @@
                 <constraint firstItem="i82-gE-Gvb" firstAttribute="leading" secondItem="UAu-Du-Kh0" secondAttribute="trailing" id="FOV-wU-ZfP"/>
                 <constraint firstItem="i82-gE-Gvb" firstAttribute="width" secondItem="UAu-Du-Kh0" secondAttribute="width" id="MF7-Ib-Gvg"/>
                 <constraint firstItem="UAu-Du-Kh0" firstAttribute="trailing" secondItem="3pR-Ha-Hfh" secondAttribute="trailing" id="Pin-KB-06K"/>
+                <constraint firstAttribute="bottom" secondItem="Cow-ru-Ysj" secondAttribute="bottom" id="Vfj-XU-lUm"/>
                 <constraint firstAttribute="bottom" secondItem="UAu-Du-Kh0" secondAttribute="bottom" id="bls-QG-OKX"/>
+                <constraint firstAttribute="trailing" secondItem="Cow-ru-Ysj" secondAttribute="trailing" id="dA1-an-YAb"/>
                 <constraint firstItem="3pR-Ha-Hfh" firstAttribute="leading" secondItem="qse-rG-apa" secondAttribute="leading" id="hTU-pV-u9p"/>
                 <constraint firstItem="3pR-Ha-Hfh" firstAttribute="width" secondItem="qse-rG-apa" secondAttribute="width" multiplier="1/2" id="kFz-cN-qKf"/>
                 <constraint firstItem="3pR-Ha-Hfh" firstAttribute="bottom" secondItem="qse-rG-apa" secondAttribute="bottom" id="kif-S5-R33"/>
@@ -55,10 +65,11 @@
             <connections>
                 <outlet property="btn1" destination="UAu-Du-Kh0" id="dAR-gf-01l"/>
                 <outlet property="btn2" destination="i82-gE-Gvb" id="xNO-3L-BmV"/>
+                <outlet property="cancleBtn" destination="Cow-ru-Ysj" id="wX9-JH-FXb"/>
                 <outlet property="nameConstraintT" destination="7od-06-JAb" id="X0c-98-eni"/>
                 <outlet property="nameConstraintW" destination="TxB-3k-Rp5" id="oYT-jl-HgV"/>
             </connections>
-            <point key="canvasLocation" x="137" y="-640"/>
+            <point key="canvasLocation" x="-290.39999999999998" y="-641.37931034482767"/>
         </view>
     </objects>
 </document>

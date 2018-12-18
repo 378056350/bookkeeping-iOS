@@ -108,11 +108,19 @@
 		4BA68B0621C7F6FB0063A5C2 /* ACACollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68B0421C7F6FB0063A5C2 /* ACACollectionCell.xib */; };
 		4BA68B0A21C7F75B0063A5C2 /* ACAReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68B0821C7F75B0063A5C2 /* ACAReusableHeader.m */; };
 		4BA68B0B21C7F75B0063A5C2 /* ACAReusableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68B0921C7F75B0063A5C2 /* ACAReusableHeader.xib */; };
+		4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC781FF21C917FA00760DF9 /* BookKeyboard.m */; };
+		4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC7820121C918F200760DF9 /* BookKeyboard.xib */; };
 		4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7845F21C6791E00B8EC46 /* HomeController.m */; };
 		4BE7846321C6796900B8EC46 /* ChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846221C6796900B8EC46 /* ChartController.m */; };
 		4BE7846621C6799200B8EC46 /* BookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846521C6799200B8EC46 /* BookController.m */; };
 		4BE7846921C679BD00B8EC46 /* FindController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846821C679BD00B8EC46 /* FindController.m */; };
 		4BE7846C21C679F500B8EC46 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846B21C679F500B8EC46 /* MineController.m */; };
+		4BE8CC0021C93960007935E2 /* BaseView+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CBE221C93960007935E2 /* BaseView+Popup.m */; };
+		4BE8CC0121C93960007935E2 /* KKPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CBE321C93960007935E2 /* KKPopup.m */; };
+		4BE8CC1021C93999007935E2 /* KKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC0F21C93999007935E2 /* KKDate.m */; };
+		4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1121C93AC0007935E2 /* KKDate.xib */; };
+		4BE8CC1821C93F21007935E2 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1521C93F21007935E2 /* NSDate+Utilities.m */; };
+		4BE8CC1921C93F21007935E2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */; };
 		4BF574A321C6A59A001890D1 /* HomeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF574A221C6A59A001890D1 /* HomeList.m */; };
 		F5982707CC838EDD0692E0E0 /* libPods-bookkeeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */; };
 /* End PBXBuildFile section */
@@ -301,6 +309,9 @@
 		4BA68B0721C7F75B0063A5C2 /* ACAReusableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACAReusableHeader.h; sourceTree = "<group>"; };
 		4BA68B0821C7F75B0063A5C2 /* ACAReusableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACAReusableHeader.m; sourceTree = "<group>"; };
 		4BA68B0921C7F75B0063A5C2 /* ACAReusableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACAReusableHeader.xib; sourceTree = "<group>"; };
+		4BC781FE21C917FA00760DF9 /* BookKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookKeyboard.h; sourceTree = "<group>"; };
+		4BC781FF21C917FA00760DF9 /* BookKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookKeyboard.m; sourceTree = "<group>"; };
+		4BC7820121C918F200760DF9 /* BookKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookKeyboard.xib; sourceTree = "<group>"; };
 		4BE7845E21C6791E00B8EC46 /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		4BE7845F21C6791E00B8EC46 /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		4BE7846121C6796900B8EC46 /* ChartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartController.h; sourceTree = "<group>"; };
@@ -311,6 +322,17 @@
 		4BE7846821C679BD00B8EC46 /* FindController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindController.m; sourceTree = "<group>"; };
 		4BE7846A21C679F500B8EC46 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		4BE7846B21C679F500B8EC46 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		4BE8CBE121C93960007935E2 /* KKPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPopup.h; sourceTree = "<group>"; };
+		4BE8CBE221C93960007935E2 /* BaseView+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseView+Popup.m"; sourceTree = "<group>"; };
+		4BE8CBE321C93960007935E2 /* KKPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPopup.m; sourceTree = "<group>"; };
+		4BE8CBEA21C93960007935E2 /* BaseView+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaseView+Popup.h"; sourceTree = "<group>"; };
+		4BE8CC0E21C93999007935E2 /* KKDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKDate.h; sourceTree = "<group>"; };
+		4BE8CC0F21C93999007935E2 /* KKDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKDate.m; sourceTree = "<group>"; };
+		4BE8CC1121C93AC0007935E2 /* KKDate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KKDate.xib; sourceTree = "<group>"; };
+		4BE8CC1421C93F21007935E2 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		4BE8CC1521C93F21007935E2 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		4BE8CC1721C93F21007935E2 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		4BF574A121C6A59A001890D1 /* HomeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeList.h; sourceTree = "<group>"; };
 		4BF574A221C6A59A001890D1 /* HomeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeList.m; sourceTree = "<group>"; };
 		A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookkeeping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +438,7 @@
 		3219839121C6436A00311885 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8CBD921C93960007935E2 /* Popup */,
 				327CEC3221C89897001D0086 /* BookChart */,
 				3257AED521C8761200787A34 /* BottomButton */,
 			);
@@ -512,6 +535,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				4BE8CC1321C93F21007935E2 /* NSDate */,
 				321983C421C6460100311885 /* UIImage */,
 				321983C721C6460100311885 /* UIResponder */,
 				321983CA21C6460100311885 /* UIColor */,
@@ -1175,6 +1199,9 @@
 				4B132AA621C68F4300D5B489 /* BookCollectionCell.h */,
 				4B132AA721C68F4300D5B489 /* BookCollectionCell.m */,
 				4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */,
+				4BC781FE21C917FA00760DF9 /* BookKeyboard.h */,
+				4BC781FF21C917FA00760DF9 /* BookKeyboard.m */,
+				4BC7820121C918F200760DF9 /* BookKeyboard.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1212,6 +1239,39 @@
 				327CEC2021C88D81001D0086 /* Table */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4BE8CBD921C93960007935E2 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8CBE121C93960007935E2 /* KKPopup.h */,
+				4BE8CBE321C93960007935E2 /* KKPopup.m */,
+				4BE8CBEA21C93960007935E2 /* BaseView+Popup.h */,
+				4BE8CBE221C93960007935E2 /* BaseView+Popup.m */,
+				4BE8CC0D21C93986007935E2 /* KKDate */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		4BE8CC0D21C93986007935E2 /* KKDate */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8CC0E21C93999007935E2 /* KKDate.h */,
+				4BE8CC0F21C93999007935E2 /* KKDate.m */,
+				4BE8CC1121C93AC0007935E2 /* KKDate.xib */,
+			);
+			path = KKDate;
+			sourceTree = "<group>";
+		};
+		4BE8CC1321C93F21007935E2 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				4BE8CC1421C93F21007935E2 /* NSDate+Extension.h */,
+				4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */,
+				4BE8CC1721C93F21007935E2 /* NSDate+Utilities.h */,
+				4BE8CC1521C93F21007935E2 /* NSDate+Utilities.m */,
+			);
+			path = NSDate;
 			sourceTree = "<group>";
 		};
 		5BA81AE5E9A23B63357F8783 /* Frameworks */ = {
@@ -1294,6 +1354,7 @@
 				3219838121C642BC00311885 /* LaunchScreen.storyboard in Resources */,
 				324484B721C74BDE0051B8B6 /* HomeListCell.xib in Resources */,
 				4B48530D21C69F6E00891096 /* MineHeader.xib in Resources */,
+				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				327CEC2E21C89201001D0086 /* ChartSectionHeader.xib in Resources */,
 				3219837E21C642BC00311885 /* Assets.xcassets in Resources */,
 				4BA68B0621C7F6FB0063A5C2 /* ACACollectionCell.xib in Resources */,
@@ -1301,6 +1362,7 @@
 				4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */,
 				32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */,
 				4BA68ACD21C7E88F0063A5C2 /* BaseReusableHeader.xib in Resources */,
+				4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */,
 				327CEC1821C882A6001D0086 /* HomeListSubCell.xib in Resources */,
 				327CEC1F21C88A10001D0086 /* HomeListHeader.xib in Resources */,
 				4B252CE621C6A37C002CD83D /* HomeHeader.xib in Resources */,
@@ -1380,6 +1442,7 @@
 			files = (
 				4B48530121C6984400891096 /* MineTableCell.m in Sources */,
 				327CEC2421C88D9D001D0086 /* ChartTableView.m in Sources */,
+				4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */,
 				327CEC1D21C88A04001D0086 /* HomeListHeader.m in Sources */,
 				321983B921C6459B00311885 /* BaseTabBarController.m in Sources */,
 				321983FF21C6460100311885 /* UIView+Visuals.m in Sources */,
@@ -1419,6 +1482,7 @@
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,
 				4BE7846921C679BD00B8EC46 /* FindController.m in Sources */,
 				4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */,
+				4BE8CC1021C93999007935E2 /* KKDate.m in Sources */,
 				4BA68B0521C7F6FB0063A5C2 /* ACACollectionCell.m in Sources */,
 				3219840821C6460100311885 /* NSString+Extension.m in Sources */,
 				4BF574A321C6A59A001890D1 /* HomeList.m in Sources */,
@@ -1428,8 +1492,11 @@
 				324484A321C726E90051B8B6 /* BadgeController.m in Sources */,
 				327CEC3121C89479001D0086 /* BookChart.m in Sources */,
 				4BA68AE321C7EB1D0063A5C2 /* CategoryHeader.m in Sources */,
+				4BE8CC0121C93960007935E2 /* KKPopup.m in Sources */,
 				3219838421C642BC00311885 /* main.m in Sources */,
+				4BE8CC0021C93960007935E2 /* BaseView+Popup.m in Sources */,
 				4BE7846C21C679F500B8EC46 /* MineController.m in Sources */,
+				4BE8CC1921C93F21007935E2 /* NSDate+Extension.m in Sources */,
 				32751F0921C8E93000D9F415 /* BookNavigation.m in Sources */,
 				3219840421C6460100311885 /* UICollectionReusableView+Extension.m in Sources */,
 				3219840021C6460100311885 /* UIView+Extension.m in Sources */,
@@ -1444,6 +1511,7 @@
 				3219837621C642BB00311885 /* AppDelegate.m in Sources */,
 				4BA68B0A21C7F75B0063A5C2 /* ACAReusableHeader.m in Sources */,
 				324484AE21C728C00051B8B6 /* LoginController.m in Sources */,
+				4BE8CC1821C93F21007935E2 /* NSDate+Utilities.m in Sources */,
 				3219840621C6460100311885 /* NSAttributedString+Extension.m in Sources */,
 				4BA68AFC21C7F5DB0063A5C2 /* ACATextField.m in Sources */,
 				3257AED821C8774400787A34 /* TITableView.m in Sources */,

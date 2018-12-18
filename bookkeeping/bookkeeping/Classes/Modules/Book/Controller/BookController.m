@@ -5,8 +5,9 @@
 
 #import "BookController.h"
 #import "BookCollectionView.h"
-#import "BOOK_EVENT_MANAGER.h"
 #import "BookNavigation.h"
+#import "BookKeyboard.h"
+#import "BOOK_EVENT_MANAGER.h"
 
 
 #pragma mark - 声明
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) BookNavigation *navigation;
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) NSMutableArray<BookCollectionView *> *collections;
+@property (nonatomic, strong) BookKeyboard *keyboard;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -31,6 +33,7 @@
     [self navigation];
     [self scroll];
     [self collections];
+    [self keyboard];
 }
 
 
@@ -52,13 +55,23 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 点击item
+- (void)bookClickItem:(NSIndexPath *)indexPath {
+    [self.keyboard show];
+    for (BookCollectionView *collection in self.collections) {
+        [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
+    }
+}
 
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     for (BookCollectionView *collection in self.collections) {
         [collection reloadSelectIndex];
+        [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight];
     }
+    [self.keyboard hide];
+    [self.navigation setOffsetX:scrollView.contentOffset.x];
 }
 
 
@@ -103,10 +116,17 @@
     }
     return _collections;
 }
+- (BookKeyboard *)keyboard {
+    if (!_keyboard) {
+        _keyboard = [BookKeyboard init];
+        [self.view addSubview:_keyboard];
+    }
+    return _keyboard;
+}
 - (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
     if (!_eventStrategy) {
         _eventStrategy = @{
-//                           BOOK_CLICK_ITEM: [self createInvocationWithSelector:@selector(bookItemClick:)],
+                           BOOK_CLICK_ITEM: [self createInvocationWithSelector:@selector(bookClickItem:)],
                            };
     }
     return _eventStrategy;

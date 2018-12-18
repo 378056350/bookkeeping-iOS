@@ -9,6 +9,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BookNavigation : BaseView
 
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) CGFloat offsetX;
+
 @end
 
 NS_ASSUME_NONNULL_END
