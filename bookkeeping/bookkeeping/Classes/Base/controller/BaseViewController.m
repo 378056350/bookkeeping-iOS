@@ -21,31 +21,18 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
 
 @end
 
+
 #pragma mark - 实现
 @implementation BaseViewController
 
+
 #pragma mark - 初始化
-- (instancetype)init {
-    if (self = [super init]) {
-//        if ([self isKindOfClass:[HomeController class]] ||
-//            [self isKindOfClass:[SortController class]] ||
-//            [self isKindOfClass:[MessageController class]] ||
-//            [self isKindOfClass:[CartController class]] ||
-//            [self isKindOfClass:[MineController class]]) {
-//            self.hidesBottomBarWhenPushed = NO;
-//        }
-//        else {
-//            self.hidesBottomBarWhenPushed = YES;
-//        }
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setJz_navigationBarTransitionStyle:JZNavigationBarTransitionStyleSystem];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
-    [self.navigationController.interactivePopGestureRecognizer setDelegate:self];
+//    [self.navigationController.interactivePopGestureRecognizer setDelegate:self];
     [self.view setBackgroundColor:kColor_BG];
     [self initUI];
 }
@@ -67,11 +54,7 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
     });
     self.navigationItem.titleView = btn;
 }
-//
-//- (void)loadView {
-//    self.view = [[BaseView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-//    self.content = (BaseView *)self.view;
-//}
+
 
 #pragma mark - 点击
 // 点击了返回按钮
@@ -84,6 +67,7 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
 - (void)rightButtonClick {
 
 }
+
 
 #pragma mark - set
 // 设置返回按钮
@@ -115,7 +99,7 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
         self.leftButton.hidden = YES;
     } else {
         self.leftButton.hidden = NO;
-    }\
+    }
 
 }
 // 设置右侧按钮
@@ -136,11 +120,6 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
     self.rightButton.titleLabel.font = [UIFont systemFontOfSize:AdjustFont(14)];
     self.rightButton.hidden = YES;
 }
-// 请求进度
-- (void)setProgress:(CGFloat)progress {
-    _progress = progress;
-//    self.view.progress = progress;
-}
 
 
 
@@ -158,24 +137,11 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
     [super viewWillAppear:animated];
     [self hideNavigationBarLine];
 }
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-//    BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-//    if ([self isKindOfClass:[HomeController class]] ||
-//        [self isKindOfClass:[ChartController class]] ||
-////        [self isKindOfClass:[BookController class]] ||
-//        [self isKindOfClass:[FindController class]] ||
-//        [self isKindOfClass:[MineController class]]) {
-//        [tab hideTabbar:NO];
-//    }
-//    else {
-//        [tab hideTabbar:YES];
-//    }
-}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 @end
 

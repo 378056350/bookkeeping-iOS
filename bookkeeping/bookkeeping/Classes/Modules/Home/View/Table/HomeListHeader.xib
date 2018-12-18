@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="shk-5s-fAd" customClass="HomeListHeader">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQF-3R-aOB">
+                    <rect key="frame" x="15" y="0.0" width="42" height="68"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oue-Do-TWE">
+                    <rect key="frame" x="0.0" y="67.5" width="387" height="0.5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="l7r-LE-l2T"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsW-gQ-Tib">
+                    <rect key="frame" x="330" y="0.0" width="42" height="67.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Oue-Do-TWE" firstAttribute="leading" secondItem="shk-5s-fAd" secondAttribute="leading" id="L5c-8A-gYb"/>
+                <constraint firstItem="hQF-3R-aOB" firstAttribute="top" secondItem="kT4-6H-zaa" secondAttribute="top" id="LpV-6Q-YiO"/>
+                <constraint firstItem="hQF-3R-aOB" firstAttribute="leading" secondItem="kT4-6H-zaa" secondAttribute="leading" constant="15" id="OGq-MT-9rh"/>
+                <constraint firstAttribute="trailing" secondItem="Oue-Do-TWE" secondAttribute="trailing" id="RyU-WU-hkD"/>
+                <constraint firstAttribute="bottom" secondItem="Oue-Do-TWE" secondAttribute="bottom" id="kdg-ju-Kga"/>
+                <constraint firstItem="HsW-gQ-Tib" firstAttribute="top" secondItem="shk-5s-fAd" secondAttribute="top" id="m8s-hB-nYm"/>
+                <constraint firstItem="kT4-6H-zaa" firstAttribute="trailing" secondItem="HsW-gQ-Tib" secondAttribute="trailing" constant="15" id="s0S-Af-JxW"/>
+                <constraint firstItem="kT4-6H-zaa" firstAttribute="bottom" secondItem="hQF-3R-aOB" secondAttribute="bottom" id="uVJ-ho-VTu"/>
+                <constraint firstItem="Oue-Do-TWE" firstAttribute="top" secondItem="HsW-gQ-Tib" secondAttribute="bottom" id="vLI-FE-n8z"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="kT4-6H-zaa"/>
+            <connections>
+                <outlet property="detailLab" destination="HsW-gQ-Tib" id="4mu-bR-Zx2"/>
+                <outlet property="detaileConstraintR" destination="s0S-Af-JxW" id="j5O-5i-yVV"/>
+                <outlet property="line" destination="Oue-Do-TWE" id="YNq-iE-HVl"/>
+                <outlet property="nameConstraintL" destination="OGq-MT-9rh" id="zxn-4y-f10"/>
+                <outlet property="nameLab" destination="hQF-3R-aOB" id="XwT-gf-bbT"/>
+            </connections>
+            <point key="canvasLocation" x="-201" y="-153"/>
+        </view>
+    </objects>
+</document>

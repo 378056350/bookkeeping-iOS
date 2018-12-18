@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_down" translatesAutoresizingMaskIntoConstraints="NO" id="JEL-2G-tpD" customClass="time_down">
-                    <rect key="frame" x="220" y="0.0" width="15" height="58"/>
+                    <rect key="frame" x="215" y="0.0" width="15" height="58"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="jeD-0j-bGd"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2U-eq-6bW">
-                    <rect key="frame" x="182" y="18.5" width="35" height="21"/>
+                    <rect key="frame" x="177" y="18.5" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="k2U-eq-6bW" firstAttribute="centerX" secondItem="55m-r8-Oau" secondAttribute="centerX" constant="5" id="OPA-ee-bfE"/>
+                <constraint firstItem="k2U-eq-6bW" firstAttribute="centerX" secondItem="55m-r8-Oau" secondAttribute="centerX" id="OPA-ee-bfE"/>
                 <constraint firstItem="k2U-eq-6bW" firstAttribute="centerY" secondItem="55m-r8-Oau" secondAttribute="centerY" id="ctb-iU-gcl"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="bottom" secondItem="9pf-rF-cnd" secondAttribute="bottom" id="d6g-d9-Dq0"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="leading" secondItem="k2U-eq-6bW" secondAttribute="trailing" constant="3" id="jbZ-a6-Tgw"/>

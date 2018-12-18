@@ -3,25 +3,23 @@
  * @author 郑业强 2018-12-17 创建文件
  */
 
-#import "CategoryButton.h"
+#import "BottomButton.h"
 #import "CATEGORY_EVENT.h"
 
 
 #pragma mark - 声明
-@interface CategoryButton()
+@interface BottomButton()
 
 @end
 
 
 #pragma mark - 实现
-@implementation CategoryButton
+@implementation BottomButton
 
 
 + (instancetype)initWithFrame:(CGRect)frame {
-    CategoryButton *button = [CategoryButton buttonWithType:UIButtonTypeCustom];
+    BottomButton *button = [BottomButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:frame];
-    [button setTitle:@"添加类别" forState:UIControlStateNormal];
-    [button setTitle:@"添加类别" forState:UIControlStateHighlighted];
     [button setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [button setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
     [button.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
@@ -35,6 +33,11 @@
         [button routerEventWithName:CATEGORY_BTN_CLICK data:nil];
     }];
     return button;
+}
+- (void)setName:(NSString *)name {
+    _name = name;
+    [self setTitle:name forState:UIControlStateNormal];
+    [self setTitle:name forState:UIControlStateHighlighted];
 }
 
 

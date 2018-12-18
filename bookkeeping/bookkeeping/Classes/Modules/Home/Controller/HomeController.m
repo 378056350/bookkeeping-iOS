@@ -24,6 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationItem setTitleView:({
+        UIImageView *image = [[UIImageView alloc] init];
+        image.image = [UIImage imageNamed:@"detail_share_shark"];
+        image;
+    })];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self header];
     [self list];

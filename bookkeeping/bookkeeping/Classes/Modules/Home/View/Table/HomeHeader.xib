@@ -57,7 +57,7 @@
                         <constraint firstAttribute="height" constant="30" id="fnv-i9-ccf"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJd-JJ-JrV">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_down" translatesAutoresizingMaskIntoConstraints="NO" id="dJd-JJ-JrV">
                     <rect key="frame" x="53" y="34.5" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="dJd-JJ-JrV" secondAttribute="height" multiplier="1:1" id="1Xg-NM-Uq5"/>
@@ -114,7 +114,10 @@
                 <outlet property="setValueLab" destination="0om-hQ-90f" id="Lh2-MD-6DB"/>
                 <outlet property="yearLab" destination="zNL-Pc-CEq" id="Aps-l5-WSf"/>
             </connections>
-            <point key="canvasLocation" x="712" y="-312.59370314842579"/>
+            <point key="canvasLocation" x="517" y="-318"/>
         </view>
     </objects>
+    <resources>
+        <image name="time_down" width="100" height="100"/>
+    </resources>
 </document>

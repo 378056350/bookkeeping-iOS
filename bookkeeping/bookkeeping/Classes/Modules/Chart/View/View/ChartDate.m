@@ -9,12 +9,14 @@
 @interface ChartDate()
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *segConstraintL;
 
 @end
 
 
 #pragma mark - 实现
 @implementation ChartDate
+
 
 - (void)initUI {
     CGFloat height = 28;
@@ -32,11 +34,14 @@
     [self.seg setTitleTextAttributes:dic1 forState:UIControlStateNormal];
     NSDictionary *dic2 = @{NSForegroundColorAttributeName: kColor_Main_Color};
     [self.seg setTitleTextAttributes:dic2 forState:UIControlStateSelected];
-    [self.seg.layer setCornerRadius:5];
+    [self.seg.layer setCornerRadius:4];
     [self.seg.layer setMasksToBounds:YES];
     [self.seg.layer setBorderWidth:1];
     [self.seg.layer setBorderColor:kColor_Text_Black.CGColor];
     [self.seg setTintColor:kColor_Text_Black];
+    
+    [self.segConstraintL setConstant:countcoordinatesX(10)];
 }
+
 
 @end

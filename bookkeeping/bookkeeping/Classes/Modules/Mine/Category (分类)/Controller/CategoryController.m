@@ -6,7 +6,7 @@
 #import "CategoryController.h"
 #import "CategoryHeader.h"
 #import "CategoryTable.h"
-#import "CategoryButton.h"
+#import "BottomButton.h"
 #import "CATEGORY_EVENT.h"
 #import "ACAController.h"
 
@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) CategoryHeader *header;
 @property (nonatomic, strong) CategoryTable *table;
-@property (nonatomic, strong) CategoryButton *bootom;
+@property (nonatomic, strong) BottomButton *bootom;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -71,13 +71,14 @@
     }
     return _table;
 }
-- (CategoryButton *)bootom {
+- (BottomButton *)bootom {
     if (!_bootom) {
-        _bootom = [CategoryButton initWithFrame:({
+        _bootom = [BottomButton initWithFrame:({
             CGFloat height = countcoordinatesX(50) + SafeAreaBottomHeight;
             CGFloat top = SCREEN_HEIGHT - height;
             CGRectMake(0, top, SCREEN_WIDTH, height);
         })];
+        [_bootom setName:@"添加类别"];
         [self.view addSubview:_bootom];
     }
     return _bootom;

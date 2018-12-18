@@ -17,6 +17,19 @@
 @implementation ACACollection
 
 
++ (instancetype)initWithFrame:(CGRect)frame {
+    ACACollection *collection = [[ACACollection alloc] initWithFrame:frame collectionViewLayout:({
+        UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+        flow.itemSize = CGSizeMake(SCREEN_WIDTH / 5, SCREEN_WIDTH / 5);
+        flow.minimumLineSpacing = 0;
+        flow.minimumInteritemSpacing = 0;
+        flow;
+    })];
+    collection.delegate = collection;
+    collection.dataSource = collection;
+    collection.backgroundColor = kColor_BG;
+    return collection;
+}
 - (void)initUI {
     [self registerNib:[UINib nibWithNibName:@"ACACollectionCell" bundle:nil] forCellWithReuseIdentifier:@"ACACollectionCell"];
 }
@@ -28,8 +41,13 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ACACollectionCell *cell = [ACACollectionCell loadItem:collectionView index:indexPath];
+    cell.backgroundColor = kColor_Text_Red;
     return cell;
 }
+
+
+#pragma mark - UICollectionViewDelegate
+
 
 
 @end

@@ -28,13 +28,13 @@
         [viewController isKindOfClass:[MineController class]]) {
         BaseViewController *vc = (BaseViewController *)viewController;
         vc.leftButton.hidden = YES;
-        [tab hideTabbar:NO];
+//        [tab hideTabbar:NO];
     }
     else {
         BaseViewController *vc = (BaseViewController *)viewController;
         vc.leftButton.hidden = NO;
         vc.hidesBottomBarWhenPushed = YES;
-        [tab hideTabbar:YES];
+//        [tab hideTabbar:YES];
     }
     
     

@@ -15,10 +15,6 @@
 @property (nonatomic, strong) NSString *navTitle;
 // 是否允许侧滑返回
 @property (nonatomic, assign, getter=isAllowBack) BOOL allowPanBack;
-//// 内容
-//@property (nonatomic, weak  ) BaseView *content;
-// 请求进度
-@property (nonatomic, assign) CGFloat progress;
 // 按钮
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UIButton *rightButton;

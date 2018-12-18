@@ -36,8 +36,9 @@
             <viewLayoutGuide key="safeArea" id="5Ak-o7-Cye"/>
             <connections>
                 <outlet property="seg" destination="2Eb-bL-KnP" id="44u-gY-9XY"/>
+                <outlet property="segConstraintL" destination="mf2-f3-du5" id="kMO-bR-Rdy"/>
             </connections>
-            <point key="canvasLocation" x="-484" y="-312.14392803598201"/>
+            <point key="canvasLocation" x="-268" y="-331"/>
         </view>
     </objects>
 </document>

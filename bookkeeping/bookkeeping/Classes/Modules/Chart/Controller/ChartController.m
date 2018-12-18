@@ -7,6 +7,7 @@
 #import "ChartNavigation.h"
 #import "ChartDate.h"
 #import "ChartSubDate.h"
+#import "ChartTableView.h"
 
 
 #pragma mark - 声明
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) ChartNavigation *navigation;
 @property (nonatomic, strong) ChartDate *date;
 @property (nonatomic, strong) ChartSubDate *subdate;
+@property (nonatomic, strong) ChartTableView *table;
 
 @end
 
@@ -29,6 +31,7 @@
     [self.navigationItem setTitleView:self.navigation];
     [self date];
     [self subdate];
+    [self table];
 }
 
 
@@ -52,6 +55,17 @@
         [self.view addSubview:_subdate];
     }
     return _subdate;
+}
+- (ChartTableView *)table {
+    if (!_table) {
+        _table = [ChartTableView initWithFrame:({
+            CGFloat top = self.subdate.bottom;
+            CGFloat height = SCREEN_HEIGHT - top - TabbarHeight;
+            CGRectMake(0, top, SCREEN_WIDTH, height);
+        })];
+        [self.view addSubview:_table];
+    }
+    return _table;
 }
 
 

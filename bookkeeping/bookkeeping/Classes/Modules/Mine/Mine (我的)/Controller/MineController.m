@@ -7,6 +7,7 @@
 #import "MineView.h"
 #import "BadgeController.h"
 #import "CategoryController.h"
+#import "TIController.h"
 #import "MINE_EVENT_MANAGER.h"
 
 
@@ -42,14 +43,21 @@
 }
 - (void)mineCellClick:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        // 徽章
         if (indexPath.row == 0) {
             BadgeController *vc = [[BadgeController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
     else if (indexPath.section == 1) {
+        // 类别
         if (indexPath.row == 0) {
             CategoryController *vc = [[CategoryController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        // 定时
+        else if (indexPath.row == 1) {
+            TIController *vc = [[TIController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

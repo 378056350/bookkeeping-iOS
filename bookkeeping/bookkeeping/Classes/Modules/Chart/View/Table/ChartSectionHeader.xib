@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ukw-cA-mg4" customClass="ChartSectionHeader">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-w1-OlC">
+                    <rect key="frame" x="15" y="0.0" width="42" height="71"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="EHx-w1-OlC" firstAttribute="top" secondItem="Z2G-BL-jUo" secondAttribute="top" id="H5D-uN-4d4"/>
+                <constraint firstItem="Z2G-BL-jUo" firstAttribute="bottom" secondItem="EHx-w1-OlC" secondAttribute="bottom" id="LJe-wm-QBW"/>
+                <constraint firstItem="EHx-w1-OlC" firstAttribute="leading" secondItem="Z2G-BL-jUo" secondAttribute="leading" constant="15" id="aU8-qn-5xD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Z2G-BL-jUo"/>
+            <connections>
+                <outlet property="nameLab" destination="EHx-w1-OlC" id="2hG-el-fm5"/>
+            </connections>
+            <point key="canvasLocation" x="-164" y="-287"/>
+        </view>
+    </objects>
+</document>
