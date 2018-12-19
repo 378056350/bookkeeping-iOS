@@ -7,8 +7,8 @@
 #import "CategoryHeader.h"
 #import "CategoryTable.h"
 #import "BottomButton.h"
-#import "CATEGORY_EVENT.h"
 #import "ACAController.h"
+#import "CATEGORY_EVENT.h"
 
 
 #pragma mark - 声明
@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"类别设置"];
+    [self setNavTitle:@"类别设置"];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self header];
@@ -50,6 +50,7 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 添加类别
 - (void)categoryBtnClick:(id)data {
     ACAController *vc = [[ACAController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
@@ -87,7 +88,6 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            CATEGORY_BTN_CLICK: [self createInvocationWithSelector:@selector(categoryBtnClick:)],
-                           
                            };
     }
     return _eventStrategy;

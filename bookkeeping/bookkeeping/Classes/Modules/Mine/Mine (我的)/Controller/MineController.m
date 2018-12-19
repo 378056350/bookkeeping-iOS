@@ -41,6 +41,7 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 列表点击
 - (void)mineCellClick:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         // 徽章
@@ -62,6 +63,26 @@
         }
     }
 }
+// 头像点击
+- (void)headerIconClick:(id)data {
+    
+}
+// 打卡点击
+- (void)punchClick:(id)data {
+    
+}
+// 连续打卡点击
+- (void)headerPunchClick:(id)data {
+    
+}
+// 总天数点击
+- (void)headerDayClick:(id)data {
+    
+}
+// 总笔数点击
+- (void)headerNumberClick:(id)data {
+    
+}
 
 
 #pragma mark - get
@@ -76,7 +97,11 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            MINE_CELL_CLICK: [self createInvocationWithSelector:@selector(mineCellClick:)],
-                           
+                           MINE_HEADER_ICON_CLICK: [self createInvocationWithSelector:@selector(headerIconClick:)],
+                           MINE_PUNCH_CLICK: [self createInvocationWithSelector:@selector(punchClick:)],
+                           MINE_HEADER_PUNCH_CLICK: [self createInvocationWithSelector:@selector(headerPunchClick:)],
+                           MINE_HEADER_DAY_CLICK: [self createInvocationWithSelector:@selector(headerDayClick:)],
+                           MINE_HEADER_NUMBER_CLICK: [self createInvocationWithSelector:@selector(headerNumberClick:)]
                            };
     }
     return _eventStrategy;

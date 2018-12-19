@@ -18,9 +18,9 @@
 
 
 - (void)initUI {
-    self.alpha = 0;
     self.backgroundColor = kColor_Main_Color;
-    self.nameLab.font = [UIFont boldSystemFontOfSize:AdjustFont(15)];
+    self.alpha = 0;
+    self.nameLab.font = [UIFont systemFontOfSize:AdjustFont(16)];
     self.nameLab.textColor = kColor_Text_Black;
 }
 

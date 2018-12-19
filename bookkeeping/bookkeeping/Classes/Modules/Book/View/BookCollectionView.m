@@ -92,8 +92,6 @@
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    NSLog(@"123");
-    NSLog(@"%.2f", scrollView.contentOffset.y);
     if (scrollView.contentOffset.y < -54) {
         [self.viewController dismissViewControllerAnimated:YES completion:nil];
     }

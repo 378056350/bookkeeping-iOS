@@ -10,8 +10,6 @@
 
 // 单色
 #define kColor_White               HexColor(@"#FFFFFF")     // 白色
-#define MainColor                  HexColor(@"#FE6E6F")     // 主要颜色
-#define MainColor_Black            HexColor(@"#D22828")     // 主要颜色 深
 
 // 背景色
 #define kColor_BG                  RGBA(250,250,250,1)      // 日间背景色

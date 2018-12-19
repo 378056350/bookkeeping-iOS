@@ -77,6 +77,10 @@
 		4B132AA521C68DE500D5B489 /* BookCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA421C68DE500D5B489 /* BookCollectionView.m */; };
 		4B132AA921C68F4300D5B489 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA721C68F4300D5B489 /* BookCollectionCell.m */; };
 		4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */; };
+		4B1E127F21CA8041001F5B36 /* MineTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1E127E21CA8041001F5B36 /* MineTableHeader.xib */; };
+		4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */; };
+		4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */; };
+		4B1E128821CA9410001F5B36 /* CategorySectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1E128721CA9410001F5B36 /* CategorySectionHeader.xib */; };
 		4B252CE121C6A288002CD83D /* MineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B252CE021C6A288002CD83D /* MineView.m */; };
 		4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B252CE321C6A35D002CD83D /* HomeHeader.m */; };
 		4B252CE621C6A37C002CD83D /* HomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B252CE521C6A37C002CD83D /* HomeHeader.xib */; };
@@ -262,6 +266,12 @@
 		4B132AA621C68F4300D5B489 /* BookCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCollectionCell.h; sourceTree = "<group>"; };
 		4B132AA721C68F4300D5B489 /* BookCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCollectionCell.m; sourceTree = "<group>"; };
 		4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionCell.xib; sourceTree = "<group>"; };
+		4B1E127E21CA8041001F5B36 /* MineTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableHeader.xib; sourceTree = "<group>"; };
+		4B1E128121CA8BD3001F5B36 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
+		4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
+		4B1E128421CA93C1001F5B36 /* CategorySectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategorySectionHeader.h; sourceTree = "<group>"; };
+		4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategorySectionHeader.m; sourceTree = "<group>"; };
+		4B1E128721CA9410001F5B36 /* CategorySectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySectionHeader.xib; sourceTree = "<group>"; };
 		4B252CDF21C6A288002CD83D /* MineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineView.h; sourceTree = "<group>"; };
 		4B252CE021C6A288002CD83D /* MineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineView.m; sourceTree = "<group>"; };
 		4B252CE221C6A35D002CD83D /* HomeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeader.h; sourceTree = "<group>"; };
@@ -541,6 +551,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				4B1E128021CA8BC3001F5B36 /* UIScrollView */,
 				4BE8CC1321C93F21007935E2 /* NSDate */,
 				321983C421C6460100311885 /* UIImage */,
 				321983C721C6460100311885 /* UIResponder */,
@@ -857,6 +868,7 @@
 				4B48530C21C69F6E00891096 /* MineHeader.xib */,
 				4B48530621C69A2E00891096 /* MineTableHeader.h */,
 				4B48530721C69A2E00891096 /* MineTableHeader.m */,
+				4B1E127E21CA8041001F5B36 /* MineTableHeader.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -871,6 +883,15 @@
 				4B48530021C6984400891096 /* MineTableCell.xib */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		4B1E128021CA8BC3001F5B36 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4B1E128121CA8BD3001F5B36 /* UIScrollView+Extension.h */,
+				4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */,
+			);
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		4BA68ACE21C7EA930063A5C2 /* About (关于) */ = {
@@ -939,6 +960,9 @@
 				4BA68AE421C7EB550063A5C2 /* CategoryHeader.xib */,
 				4BA68AE621C7EC890063A5C2 /* CategoryTable.h */,
 				4BA68AE721C7EC890063A5C2 /* CategoryTable.m */,
+				4B1E128421CA93C1001F5B36 /* CategorySectionHeader.h */,
+				4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */,
+				4B1E128721CA9410001F5B36 /* CategorySectionHeader.xib */,
 				4BA68AEC21C7EEAA0063A5C2 /* CategoryCell.h */,
 				4BA68AED21C7EEAA0063A5C2 /* CategoryCell.m */,
 				4BA68AEE21C7EEAA0063A5C2 /* CategoryCell.xib */,
@@ -1129,9 +1153,9 @@
 		4BE7845121C678FB00B8EC46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				32D0B2B321C76CC50030F5B2 /* View */,
 				32D0B2B421C76CC50030F5B2 /* Header */,
 				32D0B2B521C76CC60030F5B2 /* Table */,
-				32D0B2B321C76CC50030F5B2 /* View */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1390,7 +1414,9 @@
 				4B48530221C6984400891096 /* MineTableCell.xib in Resources */,
 				4B4852F921C6938D00891096 /* cc_entertainmente_climbing_s@3x.png in Resources */,
 				32751F0B21C8E97300D9F415 /* BookNavigation.xib in Resources */,
+				4B1E127F21CA8041001F5B36 /* MineTableHeader.xib in Resources */,
 				327CEC2921C88E45001D0086 /* ChartTableCell.xib in Resources */,
+				4B1E128821CA9410001F5B36 /* CategorySectionHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1464,6 +1490,7 @@
 				321983BC21C6459B00311885 /* BaseTableCell.m in Sources */,
 				321983C121C6459B00311885 /* BaseCollectionReusableView.m in Sources */,
 				3257AED421C8750800787A34 /* TIController.m in Sources */,
+				4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */,
 				321983C021C6459B00311885 /* BaseCollectionCell.m in Sources */,
 				321983F921C6460100311885 /* UIImage+Extension.m in Sources */,
 				327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */,
@@ -1492,6 +1519,7 @@
 				3299035A21CA6895000F4C14 /* BookRefreshHeader.m in Sources */,
 				321983FD21C6460100311885 /* UIView+BlockGesture.m in Sources */,
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,
+				4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */,
 				4BE7846921C679BD00B8EC46 /* FindController.m in Sources */,
 				4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */,
 				4BE8CC1021C93999007935E2 /* KKDate.m in Sources */,
