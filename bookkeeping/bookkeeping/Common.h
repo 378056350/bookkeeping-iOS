@@ -48,6 +48,7 @@
 #import "CALayer+Extension.h"
 #import "NSDate+Extension.h"
 #import "NSDate+Utilities.h"
+#import "NSString+Calculation.h"
 //#import "PINCache+Extension.h"
 //#import "UIView+JGProgressHUD.h"
 //#import "UIViewController+JGProgressHUD.h"

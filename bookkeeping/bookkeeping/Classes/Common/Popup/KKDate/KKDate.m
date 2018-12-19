@@ -23,12 +23,14 @@
 
 
 - (void)initUI {
-    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(16)]];
+    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(16) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];
     [self.cancleBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.cancleBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
+    [self.cancleBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
     [self.confirmBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.confirmBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
+    [self.confirmBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
     
     [self.nameConstraintH setConstant:countcoordinatesX(50)];
     [self.dateConstraintB setConstant:SafeAreaBottomHeight];
@@ -53,7 +55,7 @@
 #pragma mark - KKPopupDelegate
 // 创建Rect
 + (CGRect)createContentFrame {
-    return CGRectMake(0, 0, SCREEN_WIDTH, 220 + SafeAreaBottomHeight + countcoordinatesX(50));
+    return CGRectMake(0, 0, SCREEN_WIDTH, 216 + SafeAreaBottomHeight + countcoordinatesX(50));
 }
 // 创建样式
 + (KKPopupStatus)createStatus {

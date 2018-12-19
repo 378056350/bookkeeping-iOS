@@ -41,6 +41,7 @@
 		3219840D21C6460100311885 /* CALayer+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983F821C6460100311885 /* CALayer+Extension.m */; };
 		3219841421C6474600311885 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219841021C6474500311885 /* UserInfo.m */; };
 		3219841521C6474600311885 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219841121C6474500311885 /* UserModel.m */; };
+		32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32258E7D21CA29AC0017254D /* NSString+Calculation.m */; };
 		324484A321C726E90051B8B6 /* BadgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484A221C726E80051B8B6 /* BadgeController.m */; };
 		324484AE21C728C00051B8B6 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484AC21C728C00051B8B6 /* LoginController.m */; };
 		324484AF21C728C00051B8B6 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324484AD21C728C00051B8B6 /* LoginController.xib */; };
@@ -197,6 +198,8 @@
 		3219841121C6474500311885 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		3219841221C6474500311885 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		3219841321C6474500311885 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		32258E7C21CA29AC0017254D /* NSString+Calculation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Calculation.h"; sourceTree = "<group>"; };
+		32258E7D21CA29AC0017254D /* NSString+Calculation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Calculation.m"; sourceTree = "<group>"; };
 		3244849B21C721B90051B8B6 /* MINE_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINE_EVENT_MANAGER.h; sourceTree = "<group>"; };
 		324484A121C726E80051B8B6 /* BadgeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeController.h; sourceTree = "<group>"; };
 		324484A221C726E80051B8B6 /* BadgeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeController.m; sourceTree = "<group>"; };
@@ -624,12 +627,14 @@
 		321983E621C6460100311885 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				321983E721C6460100311885 /* NSAttributedString+Extension.m */,
+				32258E7C21CA29AC0017254D /* NSString+Calculation.h */,
+				32258E7D21CA29AC0017254D /* NSString+Calculation.m */,
 				321983E821C6460100311885 /* NSString+Extension.h */,
-				321983E921C6460100311885 /* NSString+Encryption.m */,
-				321983EA21C6460100311885 /* NSAttributedString+Extension.h */,
 				321983EB21C6460100311885 /* NSString+Extension.m */,
 				321983EC21C6460100311885 /* NSString+Encryption.h */,
+				321983E921C6460100311885 /* NSString+Encryption.m */,
+				321983EA21C6460100311885 /* NSAttributedString+Extension.h */,
+				321983E721C6460100311885 /* NSAttributedString+Extension.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1464,6 +1469,7 @@
 				3219840521C6460100311885 /* UICollectionView+Extension.m in Sources */,
 				4BA68AF721C7F1D10063A5C2 /* ACAController.m in Sources */,
 				3219841521C6474600311885 /* UserModel.m in Sources */,
+				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
 				4BA68AEB21C7ED550063A5C2 /* BottomButton.m in Sources */,

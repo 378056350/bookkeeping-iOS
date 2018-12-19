@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UIView *textContent;
 
-@property (nonatomic, assign) BOOL isPlus;      // 加
 @property (nonatomic, assign) BOOL isLess;      // 减
 @property (nonatomic, assign) BOOL animation;   // 动画中
 
@@ -44,14 +43,17 @@
     return view;
 }
 - (void)initUI {
+    [self borderForColor:kColor_BG borderWidth:1.f borderType:UIBorderSideTypeTop];
     [self setAnimation:NO];
-    [self setIsPlus:NO];
     [self setIsLess:NO];
     
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
-    [self.nameLab setTextColor:kColor_Text_Black];
+    [self.nameLab setTextColor:kColor_Text_Gary];
     [self.markField setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
-    [self.moneyLab setFont:[UIFont systemFontOfSize:AdjustFont(20)]];
+    [self.moneyLab setFont:[UIFont systemFontOfSize:AdjustFont(18)]];
+    [self.markField setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
+    [self.markField setTintColor:kColor_Main_Color];
+    [self.markField setTextColor:kColor_Text_Gary];
     
     [self.textConstraintH setConstant:countcoordinatesX(60)];
     [self.keyConstraintB setConstant:SafeAreaBottomHeight];
@@ -137,6 +139,7 @@
     }
     _animation = YES;
     
+    [self.markField endEditing:YES];
     [self setHidden:NO];
     [UIView animateWithDuration:.3f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [self setTop:SCREEN_HEIGHT];
@@ -161,10 +164,14 @@
     [self pointBtnClick:btn];
     // 加
     [self plusBtnClick:btn];
+    // 减
+    [self lessBtnClick:btn];
     // 时间
     [self dateBtnClick:btn];
     // 删除
     [self deleteBtnClick:btn];
+    // 完成/等于
+    [self calculationClick:btn];
     
     // 刷新
     [self reloadCompleteButton];
@@ -175,41 +182,41 @@
 - (void)mathBtnClick:(UIButton *)btn {
     // 数字
     if (IS_MATH(btn.tag)) {
-        // 超过10位
-        if (_money.length >= 10) {
-            return;
-        }
-        
         
         NSInteger math = [self getMath:btn.tag];
         NSString *str = ({
             NSString *str;
-            if (_isPlus == true) {
+            if ([_money componentsSeparatedByString:@"+"].count == 2) {
                 str = [_money componentsSeparatedByString:@"+"][1];
             } else {
                 str = _money;
             }
             str;
         });
-        NSArray<NSString *> *arr = [str componentsSeparatedByString:@"."];
-        if (arr.count != 2 || (arr.count == 2 && arr[1].length < 2)) {
-            [_money appendString:[@(math) description]];
+        
+        
+        
+        // 是否可以输入
+        if ([self isAllowMath:str]) {
+            if (_money.length == 0 || [_money isEqualToString:@"0"]) {
+                _money = [NSMutableString stringWithString:[@(math) description]];
+            } else {
+                [_money appendString:[@(math) description]];
+            }
             [self setMoney:_money];
         }
+        
     }
 }
 // 点
 - (void)pointBtnClick:(UIButton *)btn {
     // 点
     if (btn.tag == POINT_TAG) {
-        // 超过10位
-        if (_money.length >= 10) {
-            return;
-        }
-        
-        
-        NSString *str = [_money containsString:@"+"] ? [_money componentsSeparatedByString:@"+"][1] : _money;
-        if (![str containsString:@"."] && str.length != 0) {
+        // 是否可以输入
+        if ([self isAllowPoint:_money]) {
+            if (_money.length == 0) {
+                [_money appendString:@"0"];
+            }
             [_money appendString:@"."];
             [self setMoney:_money];
         }
@@ -223,14 +230,24 @@
             _money = [NSMutableString stringWithString:@"0"];
         }
         
-        NSString *lastStr = [_money substringWithRange:NSMakeRange(_money.length - 1, 1)];
-        if ([lastStr isEqualToString:@"+"]) {
-            return;
+        if ([self isAllowPlusOrLess:_money]) {
+            [_money appendString:@"+"];
+            [self setMoney:_money];
+        }
+    }
+}
+// 减
+- (void)lessBtnClick:(UIButton *)btn {
+    // 减
+    if (btn.tag == LESS_TAG) {
+        if (_money.length == 0) {
+            _money = [NSMutableString stringWithString:@"0"];
         }
         
-        [_money appendString:@"+"];
-        [self setMoney:_money];
-        _isPlus = true;
+        if ([self isAllowPlusOrLess:_money]) {
+            [_money appendString:@"-"];
+            [self setMoney:_money];
+        }
     }
 }
 // 时间
@@ -245,6 +262,7 @@
                 NSString *dateStr = [date formatYMD];
                 [btn setTitle:dateStr forState:UIControlStateNormal];
                 [btn setTitle:dateStr forState:UIControlStateHighlighted];
+                [btn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12)]];
             }
         }];
     }
@@ -259,6 +277,14 @@
             _money = [NSMutableString string];
             _moneyLab.text = @"0";
         }
+    }
+}
+// 计算
+- (void)calculationClick:(UIButton *)btn {
+    if (btn.tag == FINISH_TAG) {
+        [_money appendString:@"="];
+        [self setMoney:_money];
+        [self calculationMath];
     }
 }
 
@@ -287,7 +313,7 @@
         [btn setTitle:@"完成" forState:UIControlStateHighlighted];
     } else {
         NSString *lastStr = [_money substringWithRange:NSMakeRange(_money.length - 1, 1)];
-        if (_isPlus == true && ![lastStr isEqualToString:@"+"]) {
+        if (([_money containsString:@"+"] || [_money containsString:@"-"]) && ![lastStr isEqualToString:@"+"] && ![lastStr isEqualToString:@"-"]) {
             UIButton *btn = [self viewWithTag:FINISH_TAG];
             [btn setTitle:@"=" forState:UIControlStateNormal];
             [btn setTitle:@"=" forState:UIControlStateHighlighted];
@@ -298,15 +324,220 @@
         }
     }
 }
+
+
 // 计算
 - (void)calculationMath {
-    BOOL condition1 = [_money containsString:@"+"] && [_money containsString:@"-"]; // 加减
-    BOOL condition2 = [_money componentsSeparatedByString:@"+"].count == 3;         // 加加
-    BOOL condition3 = [_money componentsSeparatedByString:@"-"].count == 3;         // 减减
-    // 需要计算
-    if (condition1 == true || condition2 == true || condition3 == true) {
-        NSMutableArray *arrm = [NSMutableArray array];
+    if (_money.length == 0) {
+        return;
     }
+    
+    
+    BOOL condition1 = [_money hasSuffix:@"="];
+    BOOL condition2 = [_money componentsSeparatedByString:@"+"].count == 3;
+    BOOL condition3 = ([_money hasPrefix:@"-"] && [NSString getDuplicateSubStrCountInCompleteStr:_money withSubStr:@"-"] == 3) ||
+                      (![_money hasPrefix:@"-"] && [NSString getDuplicateSubStrCountInCompleteStr:_money withSubStr:@"-"] == 2);
+    BOOL condition4 = [_money containsString:@"+"] &&
+                      (([_money hasPrefix:@"-"] && [NSString getDuplicateSubStrCountInCompleteStr:_money withSubStr:@"-"] == 2) ||
+                       (![_money hasPrefix:@"-"] && [NSString getDuplicateSubStrCountInCompleteStr:_money withSubStr:@"-"] == 1));
+    if (condition1 == true || condition2 == true || condition3 == true || condition4 == true) {
+        NSMutableString *strm = [NSMutableString stringWithString:[NSString calcComplexFormulaString:_money]];
+        // 没小数
+        if (![self hasDecimal:strm]) {
+            strm = [NSMutableString stringWithString:[strm componentsSeparatedByString:@"."][0]];
+        }
+        // 加
+        if ([_money hasSuffix:@"+"]) {
+            [strm appendString:@"+"];
+        }
+        // 减
+        if ([_money hasSuffix:@"-"]) {
+            [strm appendString:@"-"];
+        }
+        [self setMoney:strm];
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    // 等于
+//    if ([[_money substringWithRange:NSMakeRange(_money.length - 1, 1)] isEqualToString:@"="]) {
+//        NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
+//        // 加
+//        if ([str containsString:@"+"]) {
+//            NSArray *arr = [str componentsSeparatedByString:@"+"];
+//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:true];
+//            _money = [NSMutableString stringWithString:newStr];
+//            [self setMoney:_money];
+//        }
+//        // 减
+//        else if ([str containsString:@"-"]) {
+//            NSArray *arr = [str componentsSeparatedByString:@"-"];
+//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:false];
+//            _money = [NSMutableString stringWithString:newStr];
+//            [self setMoney:_money];
+//        }
+//
+//    }
+//
+//
+//
+//    BOOL condition1 =
+//    ([_money containsString:@"+"]) &&
+//    (([_money componentsSeparatedByString:@"-"].count == 2 && ![[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ||
+//     ([_money componentsSeparatedByString:@"-"].count == 3 && [[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"])); // 加减
+//    BOOL condition2 = [_money componentsSeparatedByString:@"+"].count == 3;         // 加加
+//    BOOL condition3 = ([_money componentsSeparatedByString:@"-"].count == 3 &&
+//                       ![[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ||
+//                      ([_money componentsSeparatedByString:@"-"].count == 4 &&
+//                       [[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ;         // 减减
+//    // 需要计算
+//    if (condition1 == true || condition2 == true || condition3 == true) {
+//        if (condition1 == true) {
+//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
+//            NSArray<NSString *> *arr = [self getNumberWithString:str];
+//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:[str containsString:@"+"]];
+//
+//
+////            NSArray *arr = [str containsString:@"+"] ? [str componentsSeparatedByString:@"+"] : [str componentsSeparatedByString:@"-"];
+////            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:[str containsString:@"+"]];
+//            _money = [NSMutableString stringWithFormat:@"%@%@", newStr, [_money substringFromIndex:_money.length - 1]];
+//            [self setMoney:_money];
+//        }
+//        else if (condition2 == true) {
+//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
+//            NSArray *arr = [str componentsSeparatedByString:@"+"];
+//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:true];
+//            newStr = [newStr stringByAppendingString:@"+"];
+//            _money = [NSMutableString stringWithString:newStr];
+//            [self setMoney:_money];
+//        }
+//        else if (condition3 == true) {
+//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
+//            NSArray *arr = [str componentsSeparatedByString:@"-"];
+//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:false];
+//            newStr = [newStr stringByAppendingString:@"-"];
+//            _money = [NSMutableString stringWithString:newStr];
+//            [self setMoney:_money];
+//        }
+//    }
+}
+
+
+// 两数加减
+- (NSString *)calculation:(NSString *)str1 math:(NSString *)str2 isPlus:(BOOL)isPlus {
+    CGFloat number1 = [str1 floatValue];
+    CGFloat number2 = [str2 floatValue];
+    NSString *newNumber = [NSString stringWithFormat:@"%.2f", (isPlus ? number1 + number2 : number1 - number2)];
+    if (![self hasDecimal:newNumber]) {
+        newNumber = [newNumber substringWithRange:NSMakeRange(0, newNumber.length - 3)];
+    }
+    return newNumber;
+}
+// 是否有小数
+- (BOOL)hasDecimal:(NSString *)number {
+    NSArray<NSString *> *arr = [number componentsSeparatedByString:@"."];
+    NSString *decimal = arr[1];
+    if ([decimal integerValue] == 0) {
+        return false;
+    }
+    return true;
+}
+// 获取字符串中的数字
+- (NSArray<NSString *> *)getNumberWithString:(NSString *)string {
+    // 第一个数是负数
+    BOOL isNegative = [[string substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"];
+    if (isNegative == true) {
+        string = [string substringFromIndex:1];
+    }
+    
+    NSString *lastStr = [string substringWithRange:NSMakeRange(string.length - 1, 1)];
+    if ([lastStr isEqualToString:@"+"] || [lastStr isEqualToString:@"-"]) {
+        string = [string substringToIndex:string.length - 1];
+    }
+    
+    
+    NSMutableArray *arrm;
+    // 加法
+    if ([string containsString:@"+"]) {
+        arrm = [NSMutableArray arrayWithArray:[string componentsSeparatedByString:@"+"]];
+    }
+    // 减法
+    else if ([string containsString:@"-"]) {
+        arrm = [NSMutableArray arrayWithArray:[string componentsSeparatedByString:@"-"]];
+    }
+    // 第一个数是负数
+    if (isNegative == true) {
+        NSString *str = [NSString stringWithFormat:@"-%@", arrm[0]];
+        [arrm replaceObjectAtIndex:0 withObject:str];
+    }
+    NSLog(@"%@", arrm);
+    NSLog(@"123");
+    return @[];
+    
+}
+
+// 是否可以输入数字
+- (BOOL)isAllowMath:(NSString *)str {
+    // 超过10位
+    if (_money.length >= 15) {
+        return false;
+    }
+    
+    
+    if (!str || str.length == 0) {
+        return true;
+    }
+    
+    NSString *lastStr = [str substringFromIndex:str.length - 1];
+    // 最后输入的是数字
+    if ([lastStr isEqualToString:@"+"] || [lastStr isEqualToString:@"-"] || [lastStr isEqualToString:@"="]) {
+        return true;
+    }
+    // 最后输入的是数字/点
+    else {
+        if ([str containsString:@"+"]) {
+            str = [str componentsSeparatedByString:@"+"][1];
+        } else if ([str containsString:@"-"]) {
+            str = [str componentsSeparatedByString:@"-"][1];
+        }
+        NSArray<NSString *> *arr = [str componentsSeparatedByString:@"."];
+        if (arr.count != 2 || (arr.count == 2 && arr[1].length < 2)) {
+            return true;
+        }
+        return false;
+    }
+}
+// 是否可以输入点
+- (BOOL)isAllowPoint:(NSString *)str {
+    // 超过10位
+    if (_money.length >= 15) {
+        return false;
+    }
+    
+    
+    // 是否可以输入
+    for (int i=0; i<3; i++) {
+        str = [str containsString:@"+"] ? [str componentsSeparatedByString:@"+"][1] : str;
+        str = [str containsString:@"-"] ? [str componentsSeparatedByString:@"-"][1] : str;
+    }
+    if (![str containsString:@"."]) {
+        return true;
+    }
+    return false;
+}
+// 是否可以输入加号减号
+- (BOOL)isAllowPlusOrLess:(NSString *)str {
+    NSString *lastStr = [str substringWithRange:NSMakeRange(_money.length - 1, 1)];
+    if ([lastStr isEqualToString:@"+"] || [lastStr isEqualToString:@"-"]) {
+        return false;
+    }
+    return true;
 }
 
 
@@ -343,6 +574,8 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+
 
 
 @end

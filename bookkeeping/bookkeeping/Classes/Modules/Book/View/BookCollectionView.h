@@ -11,8 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSIndexPath *selectIndex;
 
-- (void)reloadSelectIndex;
+// 初始化
 + (instancetype)initWithFrame:(CGRect)frame;
+// 刷新当前选中
+- (void)reloadSelectIndex;
+// 滚动scroll
+- (void)scrollToIndex:(NSIndexPath *)indexPath;
 
 @end
 

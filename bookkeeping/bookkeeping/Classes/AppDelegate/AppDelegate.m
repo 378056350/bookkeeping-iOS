@@ -35,6 +35,7 @@
 }
 // 配置
 - (void)makeConfig {
+    [[UITextField appearance] setTintColor:kColor_Main_Color];
 //    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : kColor_Text_Gary, NSFontAttributeName : [UIFont systemFontOfSize:AdjustFont(18)]}];
     
 //    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[kColor_Text_Black colorWithAlphaComponent:0.5], NSForegroundColorAttributeName, [UIFont systemFontOfSize:AdjustFont(10)],NSFontAttributeName,nil] forState:UIControlStateNormal];

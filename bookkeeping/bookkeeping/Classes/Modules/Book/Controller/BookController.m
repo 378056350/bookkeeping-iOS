@@ -58,9 +58,11 @@
 // 点击item
 - (void)bookClickItem:(NSIndexPath *)indexPath {
     [self.keyboard show];
-    for (BookCollectionView *collection in self.collections) {
-        [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
-    }
+    
+    NSInteger page = _scroll.contentOffset.x / SCREEN_WIDTH;
+    BookCollectionView *collection = self.collections[page];
+    [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
+    [collection scrollToIndex:indexPath];
 }
 
 

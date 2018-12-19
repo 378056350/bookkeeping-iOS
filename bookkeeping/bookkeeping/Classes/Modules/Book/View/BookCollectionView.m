@@ -7,6 +7,10 @@
 #import "BookCollectionCell.h"
 #import "BOOK_EVENT_MANAGER.h"
 
+#define PADDING countcoordinatesX(10)
+#define ROW 4
+#define CELL_W (SCREEN_WIDTH - PADDING * 2) / ROW
+#define CELL_H CELL_W
 
 #pragma mark - 声明
 @interface BookCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -21,13 +25,8 @@
 #pragma mark - 初始化
 + (instancetype)initWithFrame:(CGRect)frame {
     BookCollectionView *collection = [[BookCollectionView alloc] initWithFrame:frame collectionViewLayout:({
-        CGFloat padding = countcoordinatesX(10);
-        CGFloat count = 4;
-        CGFloat width = (SCREEN_WIDTH - padding * 2) / count;
-        CGFloat height = width;
-        
         UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-        flow.itemSize = CGSizeMake(width, height);
+        flow.itemSize = CGSizeMake(CELL_W, CELL_H);
         flow.minimumLineSpacing = 0;
         flow.minimumInteritemSpacing = 0;
         flow;
@@ -48,6 +47,15 @@
 - (void)reloadSelectIndex {
     _selectIndex = nil;
     [self reloadData];
+}
+// 滚动scroll
+- (void)scrollToIndex:(NSIndexPath *)indexPath {
+    NSInteger col = indexPath.row / ROW + 1;
+    CGFloat bottomOffsetY = col * CELL_H - (self.height);
+    CGFloat topOffsetY = (col - 1) * CELL_H;
+    
+    
+    [self setContentOffset:CGPointMake(-self.contentInset.left, topOffsetY) animated:YES];
 }
 
 
