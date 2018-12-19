@@ -5,15 +5,20 @@
 
 #import "BookCollectionView.h"
 #import "BookCollectionCell.h"
+#import "BookRefreshHeader.h"
 #import "BOOK_EVENT_MANAGER.h"
 
-#define PADDING countcoordinatesX(10)
-#define ROW 4
-#define CELL_W (SCREEN_WIDTH - PADDING * 2) / ROW
-#define CELL_H CELL_W
+
+#define PADDING countcoordinatesX(10)               // 间距
+#define ROW 4                                       // 每行几个
+#define CELL_W (SCREEN_WIDTH - PADDING * 2) / ROW   // cell宽度
+#define CELL_H CELL_W                               // cell高度
+
 
 #pragma mark - 声明
-@interface BookCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface BookCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) BookRefreshHeader *mHeader;
 
 @end
 
@@ -34,10 +39,10 @@
     [collection setShowsVerticalScrollIndicator:NO];
     [collection setShowsHorizontalScrollIndicator:NO];
     [collection setBackgroundColor:kColor_BG];
-    [collection setContentInset:UIEdgeInsetsMake(countcoordinatesX(10), countcoordinatesX(10), SafeAreaBottomHeight + countcoordinatesX(10), countcoordinatesX(10))];
     [collection setDelegate:collection];
     [collection setDataSource:collection];
     [collection registerNib:[UINib nibWithNibName:@"BookCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"BookCollectionCell"];
+    [collection setMj_header:[collection mHeader]];
     return collection;
 }
 
@@ -54,8 +59,13 @@
     CGFloat bottomOffsetY = col * CELL_H - (self.height);
     CGFloat topOffsetY = (col - 1) * CELL_H;
     
-    
-    [self setContentOffset:CGPointMake(-self.contentInset.left, topOffsetY) animated:YES];
+    if (self.contentOffset.y > topOffsetY || self.contentOffset.y < bottomOffsetY) {
+        if (ABS(self.contentOffset.y - topOffsetY) < ABS(self.contentOffset.y - bottomOffsetY)) {
+            [self setContentOffset:CGPointMake(-self.contentInset.left, topOffsetY) animated:YES];
+        } else {
+            [self setContentOffset:CGPointMake(-self.contentInset.left, bottomOffsetY) animated:YES];
+        }
+    }
 }
 
 
@@ -76,7 +86,28 @@
     [self reloadData];
     [self routerEventWithName:BOOK_CLICK_ITEM data:indexPath];
 }
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(countcoordinatesX(10), countcoordinatesX(10), countcoordinatesX(10), countcoordinatesX(10));
+}
 
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"123");
+    NSLog(@"%.2f", scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y < -54) {
+        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+#pragma mark - get
+- (BookRefreshHeader *)mHeader {
+    if (!_mHeader) {
+        _mHeader = [BookRefreshHeader headerWithRefreshingBlock:^{
+            [self.mj_header endRefreshing];
+        }];
+    }
+    return _mHeader;
+}
 
 
 @end

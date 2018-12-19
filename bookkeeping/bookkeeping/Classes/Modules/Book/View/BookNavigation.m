@@ -4,6 +4,7 @@
  */
 
 #import "BookNavigation.h"
+#import "BOOK_EVENT_MANAGER.h"
 
 #define BTN_FONT [UIFont systemFontOfSize:AdjustFont(16)]
 
@@ -34,11 +35,11 @@
     @weakify(self)
     [[self.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self)
-        [self setIndex:0];
+        [self routerEventWithName:BOOK_CLICK_NAVIGATION data:@(0)];
     }];
     [[self.btn2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self)
-        [self setIndex:1];
+        [self routerEventWithName:BOOK_CLICK_NAVIGATION data:@(1)];
     }];
     [self.cancleBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.cancleBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
@@ -55,12 +56,20 @@
 }
 
 - (void)setIndex:(NSInteger)index {
+    [self setIndex:index animation:NO];
+}
+- (void)setIndex:(NSInteger)index animation:(BOOL)animation {
     _index = index;
-    if (index == 0) {
-        _line.centerX = _btn1.left + _btn1.width / 2;
-    } else if (index == 1) {
-        _line.centerX = _btn2.left + _btn2.width / 2;
-    }
+    NSTimeInterval time = animation == true ? 0.3f : 0;
+    @weakify(self)
+    [UIView animateWithDuration:time animations:^{
+        @strongify(self)
+        if (index == 0) {
+            self.line.centerX = self.btn1.left + self.btn1.width / 2;
+        } else if (index == 1) {
+            self.line.centerX = self.btn2.left + self.btn2.width / 2;
+        }
+    }];
 }
 - (void)setOffsetX:(CGFloat)offsetX {
     offsetX = offsetX / SCREEN_WIDTH * countcoordinatesX(60);

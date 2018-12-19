@@ -64,6 +64,7 @@
 		327CEC2E21C89201001D0086 /* ChartSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327CEC2D21C89201001D0086 /* ChartSectionHeader.xib */; };
 		327CEC3121C89479001D0086 /* BookChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3021C89479001D0086 /* BookChart.m */; };
 		327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3721C89920001D0086 /* ChartTableHeader.m */; };
+		3299035A21CA6895000F4C14 /* BookRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299035921CA6895000F4C14 /* BookRefreshHeader.m */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -237,6 +238,8 @@
 		327CEC3021C89479001D0086 /* BookChart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookChart.m; sourceTree = "<group>"; };
 		327CEC3621C89920001D0086 /* ChartTableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartTableHeader.h; sourceTree = "<group>"; };
 		327CEC3721C89920001D0086 /* ChartTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartTableHeader.m; sourceTree = "<group>"; };
+		3299035821CA6895000F4C14 /* BookRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookRefreshHeader.h; sourceTree = "<group>"; };
+		3299035921CA6895000F4C14 /* BookRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookRefreshHeader.m; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT_MANAGER.h; sourceTree = "<group>"; };
@@ -1207,6 +1210,8 @@
 				4BC781FE21C917FA00760DF9 /* BookKeyboard.h */,
 				4BC781FF21C917FA00760DF9 /* BookKeyboard.m */,
 				4BC7820121C918F200760DF9 /* BookKeyboard.xib */,
+				3299035821CA6895000F4C14 /* BookRefreshHeader.h */,
+				3299035921CA6895000F4C14 /* BookRefreshHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1484,6 +1489,7 @@
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				321983FB21C6460100311885 /* UIColor+HEX.m in Sources */,
 				4B132AA921C68F4300D5B489 /* BookCollectionCell.m in Sources */,
+				3299035A21CA6895000F4C14 /* BookRefreshHeader.m in Sources */,
 				321983FD21C6460100311885 /* UIView+BlockGesture.m in Sources */,
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,
 				4BE7846921C679BD00B8EC46 /* FindController.m in Sources */,

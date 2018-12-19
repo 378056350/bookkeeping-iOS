@@ -6,6 +6,7 @@
 #ifndef BOOK_EVENT_MANAGER_h
 #define BOOK_EVENT_MANAGER_h
 
+#define BOOK_CLICK_NAVIGATION @"BOOK_CLICK_NAVIGATION"  // 点击导航栏
 #define BOOK_CLICK_ITEM @"BOOK_CLICK_ITEM"  // 点击Item
 
 #endif

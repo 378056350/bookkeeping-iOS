@@ -55,6 +55,10 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 点击导航栏
+- (void)bookClickNavigation:(NSNumber *)index {
+    [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * [index integerValue], 0) animated:YES];
+}
 // 点击item
 - (void)bookClickItem:(NSIndexPath *)indexPath {
     [self.keyboard show];
@@ -129,6 +133,7 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            BOOK_CLICK_ITEM: [self createInvocationWithSelector:@selector(bookClickItem:)],
+                           BOOK_CLICK_NAVIGATION: [self createInvocationWithSelector:@selector(bookClickNavigation:)],
                            };
     }
     return _eventStrategy;

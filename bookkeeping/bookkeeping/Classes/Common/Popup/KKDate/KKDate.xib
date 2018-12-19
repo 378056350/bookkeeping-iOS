@@ -80,7 +80,7 @@
                     <date key="maximumDate" timeIntervalSinceReferenceDate="631105200">
                         <!--2020-12-31 11:00:00 +0000-->
                     </date>
-                    <locale key="locale" localeIdentifier="zh"/>
+                    <locale key="locale" localeIdentifier="zh-Hans"/>
                 </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,7 +104,7 @@
                 <outlet property="nameLab" destination="QsB-3S-7IW" id="6ug-Nm-3vK"/>
                 <outlet property="picker" destination="Jch-rx-iG9" id="TI6-uz-A9M"/>
             </connections>
-            <point key="canvasLocation" x="283" y="-354"/>
+            <point key="canvasLocation" x="-86" y="-354"/>
         </view>
     </objects>
 </document>
