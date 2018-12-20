@@ -95,7 +95,7 @@
 #pragma mark - get
 - (MineTableHeader *)header {
     if (!_header) {
-        _header = [MineTableHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH / 5 * 3)];
+        _header = [MineTableHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(240))];
     }
     return _header;
 }

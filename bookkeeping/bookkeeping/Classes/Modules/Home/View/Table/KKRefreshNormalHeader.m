@@ -27,6 +27,7 @@
     [header.lastUpdatedTimeLabel setHidden:YES];
     [header.arrowView setHidden:YES];
     [header setOnlyText:NO];
+    [header.stateLabel setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     return header;
 }
 

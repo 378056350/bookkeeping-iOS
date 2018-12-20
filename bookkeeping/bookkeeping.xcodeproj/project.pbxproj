@@ -65,6 +65,12 @@
 		327CEC3121C89479001D0086 /* BookChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3021C89479001D0086 /* BookChart.m */; };
 		327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3721C89920001D0086 /* ChartTableHeader.m */; };
 		3299035A21CA6895000F4C14 /* BookRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299035921CA6895000F4C14 /* BookRefreshHeader.m */; };
+		32A4C21A21CB14DB00DF4327 /* BookDetailChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21921CB14DB00DF4327 /* BookDetailChart.m */; };
+		32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */; };
+		32A4C22321CB15B100DF4327 /* JHCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21F21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.m */; };
+		32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */; };
+		32A4C22721CB189100DF4327 /* BadgeReusableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22621CB189100DF4327 /* BadgeReusableFooter.m */; };
+		32A4C22A21CB2F2E00DF4327 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22921CB2F2E00DF4327 /* UITableViewCell+Extension.m */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -97,8 +103,8 @@
 		4BA68AC121C7E3960063A5C2 /* BadgeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68ABF21C7E3960063A5C2 /* BadgeCollectionCell.xib */; };
 		4BA68AC421C7E5690063A5C2 /* 1_s@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68AC221C7E5690063A5C2 /* 1_s@3x.png */; };
 		4BA68AC521C7E5690063A5C2 /* 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68AC321C7E5690063A5C2 /* 1@3x.png */; };
-		4BA68ACC21C7E88F0063A5C2 /* BaseReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68ACA21C7E88F0063A5C2 /* BaseReusableHeader.m */; };
-		4BA68ACD21C7E88F0063A5C2 /* BaseReusableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68ACB21C7E88F0063A5C2 /* BaseReusableHeader.xib */; };
+		4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68ACA21C7E88F0063A5C2 /* BadgeReusableHeader.m */; };
+		4BA68ACD21C7E88F0063A5C2 /* BadgeReusableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68ACB21C7E88F0063A5C2 /* BadgeReusableHeader.xib */; };
 		4BA68AE021C7EAAA0063A5C2 /* CategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68ADF21C7EAAA0063A5C2 /* CategoryController.m */; };
 		4BA68AE321C7EB1D0063A5C2 /* CategoryHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA68AE221C7EB1D0063A5C2 /* CategoryHeader.m */; };
 		4BA68AE521C7EB550063A5C2 /* CategoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68AE421C7EB550063A5C2 /* CategoryHeader.xib */; };
@@ -244,6 +250,18 @@
 		327CEC3721C89920001D0086 /* ChartTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartTableHeader.m; sourceTree = "<group>"; };
 		3299035821CA6895000F4C14 /* BookRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookRefreshHeader.h; sourceTree = "<group>"; };
 		3299035921CA6895000F4C14 /* BookRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookRefreshHeader.m; sourceTree = "<group>"; };
+		32A4C21821CB14DB00DF4327 /* BookDetailChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailChart.h; sourceTree = "<group>"; };
+		32A4C21921CB14DB00DF4327 /* BookDetailChart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailChart.m; sourceTree = "<group>"; };
+		32A4C21C21CB15B000DF4327 /* JHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		32A4C21D21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCollectionReusableView.m; sourceTree = "<group>"; };
+		32A4C21F21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		32A4C22121CB15B000DF4327 /* JHCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionReusableView.h; sourceTree = "<group>"; };
+		32A4C22521CB189100DF4327 /* BadgeReusableFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeReusableFooter.h; sourceTree = "<group>"; };
+		32A4C22621CB189100DF4327 /* BadgeReusableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeReusableFooter.m; sourceTree = "<group>"; };
+		32A4C22821CB2F2E00DF4327 /* UITableViewCell+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Extension.h"; sourceTree = "<group>"; };
+		32A4C22921CB2F2E00DF4327 /* UITableViewCell+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Extension.m"; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT_MANAGER.h; sourceTree = "<group>"; };
@@ -296,9 +314,9 @@
 		4BA68ABF21C7E3960063A5C2 /* BadgeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeCollectionCell.xib; sourceTree = "<group>"; };
 		4BA68AC221C7E5690063A5C2 /* 1_s@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_s@3x.png"; sourceTree = "<group>"; };
 		4BA68AC321C7E5690063A5C2 /* 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@3x.png"; sourceTree = "<group>"; };
-		4BA68AC921C7E88F0063A5C2 /* BaseReusableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseReusableHeader.h; sourceTree = "<group>"; };
-		4BA68ACA21C7E88F0063A5C2 /* BaseReusableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseReusableHeader.m; sourceTree = "<group>"; };
-		4BA68ACB21C7E88F0063A5C2 /* BaseReusableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseReusableHeader.xib; sourceTree = "<group>"; };
+		4BA68AC921C7E88F0063A5C2 /* BadgeReusableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeReusableHeader.h; sourceTree = "<group>"; };
+		4BA68ACA21C7E88F0063A5C2 /* BadgeReusableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeReusableHeader.m; sourceTree = "<group>"; };
+		4BA68ACB21C7E88F0063A5C2 /* BadgeReusableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeReusableHeader.xib; sourceTree = "<group>"; };
 		4BA68ADE21C7EAAA0063A5C2 /* CategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryController.h; sourceTree = "<group>"; };
 		4BA68ADF21C7EAAA0063A5C2 /* CategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryController.m; sourceTree = "<group>"; };
 		4BA68AE121C7EB1D0063A5C2 /* CategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
@@ -429,6 +447,7 @@
 		3219838E21C6436A00311885 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				32A4C21B21CB15B000DF4327 /* JHCollectionViewDelegateFlowLayout */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -656,8 +675,10 @@
 		321983ED21C6460100311885 /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
-				321983EE21C6460100311885 /* UITableView+Extension.m */,
 				321983EF21C6460100311885 /* UITableView+Extension.h */,
+				321983EE21C6460100311885 /* UITableView+Extension.m */,
+				32A4C22821CB2F2E00DF4327 /* UITableViewCell+Extension.h */,
+				32A4C22921CB2F2E00DF4327 /* UITableViewCell+Extension.m */,
 			);
 			path = UITableView;
 			sourceTree = "<group>";
@@ -724,9 +745,11 @@
 			children = (
 				4BA68ABA21C7E2D70063A5C2 /* BadgeCollection.h */,
 				4BA68ABB21C7E2D70063A5C2 /* BadgeCollection.m */,
-				4BA68AC921C7E88F0063A5C2 /* BaseReusableHeader.h */,
-				4BA68ACA21C7E88F0063A5C2 /* BaseReusableHeader.m */,
-				4BA68ACB21C7E88F0063A5C2 /* BaseReusableHeader.xib */,
+				4BA68AC921C7E88F0063A5C2 /* BadgeReusableHeader.h */,
+				4BA68ACA21C7E88F0063A5C2 /* BadgeReusableHeader.m */,
+				4BA68ACB21C7E88F0063A5C2 /* BadgeReusableHeader.xib */,
+				32A4C22521CB189100DF4327 /* BadgeReusableFooter.h */,
+				32A4C22621CB189100DF4327 /* BadgeReusableFooter.m */,
 				4BA68ABD21C7E3960063A5C2 /* BadgeCollectionCell.h */,
 				4BA68ABE21C7E3960063A5C2 /* BadgeCollectionCell.m */,
 				4BA68ABF21C7E3960063A5C2 /* BadgeCollectionCell.xib */,
@@ -847,8 +870,23 @@
 			children = (
 				327CEC2F21C89479001D0086 /* BookChart.h */,
 				327CEC3021C89479001D0086 /* BookChart.m */,
+				32A4C21821CB14DB00DF4327 /* BookDetailChart.h */,
+				32A4C21921CB14DB00DF4327 /* BookDetailChart.m */,
 			);
 			path = BookChart;
+			sourceTree = "<group>";
+		};
+		32A4C21B21CB15B000DF4327 /* JHCollectionViewDelegateFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C22121CB15B000DF4327 /* JHCollectionReusableView.h */,
+				32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */,
+				32A4C21C21CB15B000DF4327 /* JHCollectionViewFlowLayout.h */,
+				32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */,
+				32A4C21D21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.h */,
+				32A4C21F21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.m */,
+			);
+			path = JHCollectionViewDelegateFlowLayout;
 			sourceTree = "<group>";
 		};
 		32D0B2B321C76CC50030F5B2 /* View */ = {
@@ -1395,7 +1433,7 @@
 				324484AF21C728C00051B8B6 /* LoginController.xib in Resources */,
 				4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */,
 				32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */,
-				4BA68ACD21C7E88F0063A5C2 /* BaseReusableHeader.xib in Resources */,
+				4BA68ACD21C7E88F0063A5C2 /* BadgeReusableHeader.xib in Resources */,
 				4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */,
 				327CEC1821C882A6001D0086 /* HomeListSubCell.xib in Resources */,
 				327CEC1F21C88A10001D0086 /* HomeListHeader.xib in Resources */,
@@ -1490,9 +1528,11 @@
 				321983BC21C6459B00311885 /* BaseTableCell.m in Sources */,
 				321983C121C6459B00311885 /* BaseCollectionReusableView.m in Sources */,
 				3257AED421C8750800787A34 /* TIController.m in Sources */,
+				32A4C22721CB189100DF4327 /* BadgeReusableFooter.m in Sources */,
 				4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */,
 				321983C021C6459B00311885 /* BaseCollectionCell.m in Sources */,
 				321983F921C6460100311885 /* UIImage+Extension.m in Sources */,
+				32A4C21A21CB14DB00DF4327 /* BookDetailChart.m in Sources */,
 				327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */,
 				321983B721C6459B00311885 /* BaseViewController.m in Sources */,
 				3219840321C6460100311885 /* UIFont+Extension.m in Sources */,
@@ -1512,7 +1552,7 @@
 				4B252CE121C6A288002CD83D /* MineView.m in Sources */,
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
-				4BA68ACC21C7E88F0063A5C2 /* BaseReusableHeader.m in Sources */,
+				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				321983FB21C6460100311885 /* UIColor+HEX.m in Sources */,
 				4B132AA921C68F4300D5B489 /* BookCollectionCell.m in Sources */,
@@ -1535,14 +1575,18 @@
 				4BE8CC0121C93960007935E2 /* KKPopup.m in Sources */,
 				3219838421C642BC00311885 /* main.m in Sources */,
 				4BE8CC0021C93960007935E2 /* BaseView+Popup.m in Sources */,
+				32A4C22321CB15B100DF4327 /* JHCollectionViewLayoutAttributes.m in Sources */,
 				4BE7846C21C679F500B8EC46 /* MineController.m in Sources */,
+				32A4C22A21CB2F2E00DF4327 /* UITableViewCell+Extension.m in Sources */,
 				4BE8CC1921C93F21007935E2 /* NSDate+Extension.m in Sources */,
 				32751F0921C8E93000D9F415 /* BookNavigation.m in Sources */,
 				3219840421C6460100311885 /* UICollectionReusableView+Extension.m in Sources */,
 				3219840021C6460100311885 /* UIView+Extension.m in Sources */,
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
+				32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */,
 				4BA68ABC21C7E2D70063A5C2 /* BadgeCollection.m in Sources */,
+				32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */,
 				321983BE21C6459B00311885 /* BaseCollectionView.m in Sources */,
 				4BA68AE821C7EC890063A5C2 /* CategoryTable.m in Sources */,
 				32D0B2C221C77ACD0030F5B2 /* ChartDate.m in Sources */,

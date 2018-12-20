@@ -16,6 +16,7 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <MJRefresh/MJRefresh.h>
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SDWebImage/UIButton+WebCache.h>
 #import <pop/POP.h>
@@ -50,6 +51,7 @@
 #import "NSDate+Utilities.h"
 #import "NSString+Calculation.h"
 #import "UIScrollView+Extension.h"
+#import "UITableViewCell+Extension.h"
 //#import "PINCache+Extension.h"
 //#import "UIView+JGProgressHUD.h"
 //#import "UIViewController+JGProgressHUD.h"

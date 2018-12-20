@@ -25,19 +25,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-PP-acL">
-                        <rect key="frame" x="259" y="0.0" width="46" height="128.5"/>
-                        <state key="normal" title="Button"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-PP-acL">
+                        <rect key="frame" x="275" y="0.0" width="45" height="128.5"/>
+                        <state key="normal" image="guide_sort"/>
+                        <state key="highlighted" image="guide_sort"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2it-Yq-D9v">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_catering_apple" translatesAutoresizingMaskIntoConstraints="NO" id="2it-Yq-D9v">
                         <rect key="frame" x="55" y="0.0" width="25" height="128.5"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMZ-fS-e9X">
                         <rect key="frame" x="15" y="0.0" width="25" height="128.5"/>
-                        <color key="backgroundColor" red="1" green="0.16876094059999999" blue="0.11974024599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="yHr-j4-m8m"/>
                         </constraints>
+                        <state key="normal" image="category_delete"/>
+                        <connections>
+                            <action selector="actionClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="u6f-e8-JOt"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -49,7 +53,7 @@
                     <constraint firstItem="9ZK-jL-W8r" firstAttribute="leading" secondItem="2it-Yq-D9v" secondAttribute="trailing" constant="15" id="dqK-EK-xyd"/>
                     <constraint firstAttribute="bottom" secondItem="2it-Yq-D9v" secondAttribute="bottom" id="eOZ-fB-zvq"/>
                     <constraint firstItem="2it-Yq-D9v" firstAttribute="leading" secondItem="UMZ-fS-e9X" secondAttribute="trailing" constant="15" id="iXj-a5-xUK"/>
-                    <constraint firstAttribute="trailing" secondItem="8Da-PP-acL" secondAttribute="trailing" constant="15" id="iye-MK-NxW"/>
+                    <constraint firstAttribute="trailing" secondItem="8Da-PP-acL" secondAttribute="trailing" id="iye-MK-NxW"/>
                     <constraint firstItem="2it-Yq-D9v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="k7Y-e6-81c"/>
                     <constraint firstItem="9ZK-jL-W8r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="moh-M8-AlS"/>
                     <constraint firstItem="UMZ-fS-e9X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qcq-LZ-aL9"/>
@@ -58,12 +62,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="actionBtn" destination="UMZ-fS-e9X" id="f8L-pe-jya"/>
+                <outlet property="actionBtn" destination="UMZ-fS-e9X" id="PuA-6B-w4H"/>
                 <outlet property="icon" destination="2it-Yq-D9v" id="DUe-o2-yF1"/>
-                <outlet property="mentBtn" destination="8Da-PP-acL" id="dd9-EF-eQR"/>
+                <outlet property="menuBtn" destination="8Da-PP-acL" id="GQY-0v-b8C"/>
                 <outlet property="nameLab" destination="9ZK-jL-W8r" id="bth-oS-Avk"/>
             </connections>
-            <point key="canvasLocation" x="-138" y="-9"/>
+            <point key="canvasLocation" x="312" y="42"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="category_delete" width="115" height="115"/>
+        <image name="cc_catering_apple" width="55" height="55"/>
+        <image name="guide_sort" width="45" height="30"/>
+    </resources>
 </document>

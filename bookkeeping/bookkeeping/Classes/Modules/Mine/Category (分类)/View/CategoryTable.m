@@ -55,22 +55,24 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     [table setSeparatorColor:kColor_BG];
     [table setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(10))]];
     [table setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(20))]];
+    [table setShowsVerticalScrollIndicator:NO];
     return table;
 }
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 2;
+    //    return 2;
     return self.datas.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 10;
+    //    return 10;
     NSMutableArray *data = self.datas[section];
     return data.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryCell *cell = [CategoryCell loadFirstNib:tableView];
+    cell.indexPath = indexPath;
     return cell;
 }
 
@@ -116,13 +118,13 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 // 长按cell
 - (void)longGesture:(UILongPressGestureRecognizer *)longPress {
     UIGestureRecognizerState longPressState = longPress.state;
-    //长按的cell在tableView中的位置
+    // 长按的cell在tableView中的位置
     self.longLocation = [longPress locationInView:self];
-    //手指按住位置对应的indexPath，可能为nil
+    // 手指按住位置对应的indexPath，可能为nil
     self.newestIndexPath = [self indexPathForRowAtPoint:self.longLocation];
     switch (longPressState) {
         case UIGestureRecognizerStateBegan:{
-            //手势开始，对被选中cell截图，隐藏原cell
+            // 手势开始，对被选中cell截图，隐藏原cell
             self.oldIndexPath = [self indexPathForRowAtPoint:self.longLocation];
             if (self.oldIndexPath) {
                 [self snapshotCellAtIndexPath:self.oldIndexPath];
@@ -154,6 +156,22 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
         }
     }
 }
+// 删除/添加cell
+- (void)actionCellClick:(CategoryCell *)cell {
+    // 删除
+    if (cell.indexPath.section == 0) {
+        [cell showSwipe:MGSwipeDirectionRightToLeft animated:YES];
+    }
+    // 添加
+    else if (cell.indexPath.section == 1) {
+        
+    }
+}
+// 删除cell
+- (void)deleteCellClick:(CategoryCell *)cell {
+    NSLog(@"123");
+}
+
 
 #pragma mark - 截图对应的cell
 - (UIView *)snapshotView:(UIView *)inputView {
@@ -175,15 +193,14 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     return snapshot;
 }
 
-
 #pragma mark - 对cell进行截图，并且隐藏
--(void)snapshotCellAtIndexPath:(NSIndexPath *)indexPath{
+- (void)snapshotCellAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     /// 截图
     UIView *snapshot = [self snapshotView:cell];
     /// 添加在UITableView上
     [self addSubview:snapshot];
-    self.snapshotView = snapshot;
+    [self setSnapshotView:snapshot];
     /// 隐藏cell
     cell.hidden = YES;
     CGPoint center = self.snapshotView.center;
@@ -191,14 +208,13 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     /// 移动截图
     [UIView animateWithDuration:0.2 animations:^{
         self.snapshotView.transform = CGAffineTransformMakeScale(1.03, 1.03);
-        self.snapshotView.alpha = 0.98;
+        self.snapshotView.alpha = 0.8;
         self.snapshotView.center = center;
     }];
 }
 
-
 #pragma mark - 检查截图是否到达边缘，并作出响应
-- (BOOL)checkIfSnapshotMeetsEdge{
+- (BOOL)checkIfSnapshotMeetsEdge {
     CGFloat minY = CGRectGetMinY(self.snapshotView.frame);
     CGFloat maxY = CGRectGetMaxY(self.snapshotView.frame);
     if (minY < self.contentOffset.y) {
@@ -211,7 +227,6 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     }
     return NO;
 }
-
 
 #pragma mark - 开始自动滚动
 - (void)startAutoScroll {
@@ -251,9 +266,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     }
 }
 
-
 #pragma mark - 拖拽结束，显示cell，并移除截图
-- (void)didEndDraging{
+- (void)didEndDraging {
     UITableViewCell *cell = [self cellForRowAtIndexPath:self.oldIndexPath];
     cell.hidden = NO;
     cell.alpha = 0;
@@ -283,14 +297,13 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     }
 }
 
-
 #pragma mark - 当截图到了新的位置，先改变数据源，然后将cell移动过去
-- (void)cellRelocatedToNewIndexPath:(NSIndexPath *)indexPath{
-    //更新数据源并返回给外部
+- (void)cellRelocatedToNewIndexPath:(NSIndexPath *)indexPath {
+    // 更新数据源并返回给外部
     [self updateData];
-    //交换移动cell位置
+    // 交换移动cell位置
     [self moveRowAtIndexPath:self.oldIndexPath toIndexPath:indexPath];
-    //更新cell的原始indexPath为当前indexPath
+    // 更新cell的原始indexPath为当前indexPath
     self.oldIndexPath = indexPath;
     
     UITableViewCell *cell = [self cellForRowAtIndexPath:_oldIndexPath];
@@ -298,7 +311,7 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 }
 
 #pragma mark - 检测是否是多重数组
-- (BOOL)arrayCheck:(NSArray *)array{
+- (BOOL)arrayCheck:(NSArray *)array {
     for (id obj in array) {
         if ([obj isKindOfClass:[NSArray class]]) {
             return YES;
@@ -307,9 +320,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     return NO;
 }
 
-
 #pragma mark - 将可变数组中的一个对象移动到该数组中的另外一个位置
-- (void)moveObjectInMutableArray:(NSMutableArray *)array fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex{
+- (void)moveObjectInMutableArray:(NSMutableArray *)array fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
     if (fromIndex < toIndex) {
         for (NSInteger i = fromIndex; i < toIndex; i ++) {
             [array exchangeObjectAtIndex:i withObjectAtIndex:i + 1];
@@ -322,24 +334,26 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 }
 
 #pragma mark - 更新数据源
--(void)updateData {
-    //通过DataSource代理获得原始数据源数组
+- (void)updateData {
+    // 通过DataSource代理获得原始数据源数组
     NSMutableArray *tempArray = self.datas;
-    
-    //判断原始数据源是否为多重数组
-    if ([self arrayCheck:tempArray]) {//是嵌套数组
-        if (self.oldIndexPath.section == self.newestIndexPath.section) {//在同一个section内
+    // 判断原始数据源是否为多重数组
+    if ([self arrayCheck:tempArray]) {
+        // 是嵌套数组
+        if (self.oldIndexPath.section == self.newestIndexPath.section) {
+            // 在同一个section内
             [self moveObjectInMutableArray:tempArray[self.oldIndexPath.section] fromIndex:self.oldIndexPath.row toIndex:self.newestIndexPath.row];
-        }else{                                                          //不在同一个section内
+        } else {
+            // 不在同一个section内
             id originalObj = tempArray[self.oldIndexPath.section][self.oldIndexPath.item];
             [tempArray[self.newestIndexPath.section] insertObject:originalObj atIndex:self.newestIndexPath.item];
             [tempArray[self.oldIndexPath.section] removeObjectAtIndex:self.oldIndexPath.item];
         }
-    }else{                                  //不是嵌套数组
+    }else{
+        // 不是嵌套数组
         [self moveObjectInMutableArray:tempArray fromIndex:self.oldIndexPath.row toIndex:self.newestIndexPath.row];
     }
 }
-
 
 
 #pragma mark - get
@@ -347,6 +361,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     if (!_eventStrategy) {
         _eventStrategy = @{
                            CATEGORY_LONG_GESTURE: [self createInvocationWithSelector:@selector(longGesture:)],
+                           CATEGORY_ACTION_CLICK: [self createInvocationWithSelector:@selector(actionCellClick:)],
+                           CATEGORY_ACTION_DELETE_CLICK: [self createInvocationWithSelector:@selector(deleteCellClick:)],
                            };
     }
     return _eventStrategy;

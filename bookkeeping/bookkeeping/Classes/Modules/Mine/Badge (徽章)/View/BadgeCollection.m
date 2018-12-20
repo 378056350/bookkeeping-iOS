@@ -5,11 +5,13 @@
 
 #import "BadgeCollection.h"
 #import "BadgeCollectionCell.h"
-#import "BaseReusableHeader.h"
+#import "BadgeReusableHeader.h"
+#import "BadgeReusableFooter.h"
+#import "JHCollectionViewFlowLayout.h"
 
 
 #pragma mark - 声明
-@interface BadgeCollection()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface BadgeCollection()<UICollectionViewDataSource, UICollectionViewDelegate, JHCollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collection;
 
@@ -27,7 +29,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 4;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 5;
@@ -44,13 +46,26 @@
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
-        BaseReusableHeader *header = [BaseReusableHeader initWithCollection:collectionView kind:kind indexPath:indexPath];
+        BadgeReusableHeader *header = [BadgeReusableHeader initWithCollection:collectionView kind:kind indexPath:indexPath];
         return header;
+    } else if (kind == UICollectionElementKindSectionFooter) {
+        BadgeReusableFooter *footer = [BadgeReusableFooter initWithCollection:collectionView kind:kind indexPath:indexPath];
+        return footer;
     }
     return nil;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(SCREEN_WIDTH, countcoordinatesX(40));
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(SCREEN_WIDTH, countcoordinatesX(10));
+}
+
+
+
+#pragma mark - JHCollectionViewDelegateFlowLayout
+- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout backgroundColorForSection:(NSInteger)section {
+    return kColor_White;
 }
 
 
@@ -58,17 +73,21 @@
 - (UICollectionView *)collection {
     if (!_collection) {
         _collection = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:({
-            UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-            flow.itemSize = CGSizeMake(SCREEN_WIDTH / 3, SCREEN_WIDTH / 3);
+            JHCollectionViewFlowLayout *flow = [[JHCollectionViewFlowLayout alloc] init];
+            flow.scrollDirection = UICollectionViewScrollDirectionVertical;
+            flow.itemSize = CGSizeMake(SCREEN_WIDTH / 3, countcoordinatesX(135));
             flow.minimumLineSpacing = 0;
             flow.minimumInteritemSpacing = 0;
             flow;
         })];
+        [_collection setShowsVerticalScrollIndicator:NO];
+        [_collection setShowsHorizontalScrollIndicator:NO];
         [_collection setBackgroundColor:kColor_BG];
         [_collection setDelegate:self];
         [_collection setDataSource:self];
-        [_collection registerNib:[UINib nibWithNibName:@"BaseReusableHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BaseReusableHeader"];
+        [_collection registerNib:[UINib nibWithNibName:@"BadgeReusableHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeReusableHeader"];
         [_collection registerNib:[UINib nibWithNibName:@"BadgeCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"BadgeCollectionCell"];
+        [_collection registerClass:[BadgeReusableFooter class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"BadgeReusableFooter"];
         [self addSubview:_collection];
     }
     return _collection;

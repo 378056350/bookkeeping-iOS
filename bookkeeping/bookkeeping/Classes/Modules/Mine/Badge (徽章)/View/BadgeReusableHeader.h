@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseReusableHeader : BaseCollectionReusableView
+@interface BadgeReusableHeader : BaseCollectionReusableView
 
 @end
 

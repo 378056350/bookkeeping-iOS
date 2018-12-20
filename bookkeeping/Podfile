@@ -13,4 +13,5 @@ target ‘bookkeeping’ do
     pod 'ReactiveObjC', '3.1.0'
     pod 'JZNavigationExtension', '2.1'
     pod 'MJRefresh', '3.1.15.7'
+    pod 'MGSwipeTableCell', '1.6.8'
 end
