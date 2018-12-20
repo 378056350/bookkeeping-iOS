@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *punchConstraintH;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UIView *back;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shareConstraintH;
 
 @end
 
@@ -42,6 +43,7 @@
     [self.shareBtn.layer setMasksToBounds:YES];
     
     [self.punchConstraintH setConstant:countcoordinatesX(80)];
+    [self.shareConstraintH setConstant:countcoordinatesX(35)];
 }
 
 - (void)createLabel:(UIView *)view {

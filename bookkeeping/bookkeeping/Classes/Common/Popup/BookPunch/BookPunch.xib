@@ -126,9 +126,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kij-8w-vxF">
-                    <rect key="frame" x="10" y="255" width="238" height="28"/>
+                    <rect key="frame" x="10" y="253" width="238" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="sd8-pJ-Qvu"/>
+                        <constraint firstAttribute="height" constant="30" id="sd8-pJ-Qvu"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="炫耀一下">
@@ -157,8 +157,9 @@
                 <outlet property="back" destination="yb1-aY-6bu" id="aUu-fX-0eL"/>
                 <outlet property="closeBtn" destination="ufY-2g-jPv" id="Kzx-qc-v2F"/>
                 <outlet property="icon" destination="19m-m5-ub9" id="eSG-ku-1Dh"/>
-                <outlet property="punchConstraintH" destination="50l-RI-eA2" id="1Bf-Xw-lbn"/>
+                <outlet property="punchConstraintH" destination="50l-RI-eA2" id="UXR-Y9-bjz"/>
                 <outlet property="shareBtn" destination="kij-8w-vxF" id="Pef-iI-awN"/>
+                <outlet property="shareConstraintH" destination="sd8-pJ-Qvu" id="JW9-LS-DWX"/>
                 <outlet property="successLab" destination="cPN-DA-JI9" id="tge-og-UFI"/>
             </connections>
             <point key="canvasLocation" x="-264" y="-109.74512743628186"/>

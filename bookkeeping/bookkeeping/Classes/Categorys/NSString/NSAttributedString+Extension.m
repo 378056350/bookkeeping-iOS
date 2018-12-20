@@ -61,7 +61,7 @@
 + (NSAttributedString *)createMath:(NSString *)string
                            integer:(UIFont *)integerFont
                            decimal:(UIFont *)decimalFont {
-    return [self createMath:string integer:integerFont decimal:decimalFont color:kColor_Red_Color];
+    return [self createMath:string integer:integerFont decimal:decimalFont color:kColor_Text_Black];
 }
 
 + (NSAttributedString *)createMath:(NSString *)string
