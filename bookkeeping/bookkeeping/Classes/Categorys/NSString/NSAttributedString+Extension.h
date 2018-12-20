@@ -27,5 +27,10 @@
                            integer:(UIFont *)integerFont
                            decimal:(UIFont *)decimalFont;
 
++ (NSAttributedString *)createMath:(NSString *)string
+                           integer:(UIFont *)integerFont
+                           decimal:(UIFont *)decimalFont
+                             color:(UIColor *)color;
+
 
 @end

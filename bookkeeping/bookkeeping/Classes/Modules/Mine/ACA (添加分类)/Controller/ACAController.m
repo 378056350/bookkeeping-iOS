@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"添加支出类别"];
+    [self setNavTitle:@"添加支出类别"];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];

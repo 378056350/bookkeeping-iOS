@@ -61,7 +61,7 @@ static NSString *_clsName;
         scaleAnimation.fromValue = @(self.contentv.height);
         scaleAnimation.toValue = @(0);
         scaleAnimation.beginTime = CACurrentMediaTime();
-        scaleAnimation.duration = 0.4f;
+        scaleAnimation.duration = 0.2f;
         [scaleAnimation setAnimationDidStartBlock:^(POPAnimation *anim) {
             weak.contentv.alpha = 1;
         }];
@@ -71,7 +71,7 @@ static NSString *_clsName;
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(1);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
         
@@ -90,14 +90,14 @@ static NSString *_clsName;
         scaleAnimation.fromValue = [NSValue valueWithCGSize:CGSizeMake(0.2, 0.2f)];
         scaleAnimation.toValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
         scaleAnimation.beginTime = CACurrentMediaTime();
-        scaleAnimation.duration = 0.4;
+        scaleAnimation.duration = 0.2f;
         [self.contentv.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
         
         
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(1);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.contentv pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
@@ -118,7 +118,7 @@ static NSString *_clsName;
         scaleAnimation.fromValue = @(-self.contentv.height);
         scaleAnimation.toValue = @(0);
         scaleAnimation.beginTime = CACurrentMediaTime();
-        scaleAnimation.duration = 0.4;
+        scaleAnimation.duration = 0.2f;
         [scaleAnimation setAnimationDidStartBlock:^(POPAnimation *anim) {
             weak.contentv.alpha = 1;
         }];
@@ -127,7 +127,7 @@ static NSString *_clsName;
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(1);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
         [alphaAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
@@ -155,7 +155,7 @@ static NSString *_clsName;
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(0);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
         
@@ -178,7 +178,7 @@ static NSString *_clsName;
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(0);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.contentv pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
@@ -194,13 +194,13 @@ static NSString *_clsName;
         POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
         scaleAnimation.toValue = @(-self.contentv.height);
         scaleAnimation.beginTime = CACurrentMediaTime();
-        scaleAnimation.duration = 0.4;
+        scaleAnimation.duration = 0.2f;
         [self.contentv.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
         
         POPBasicAnimation *alphaAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         alphaAnimation.toValue  = @(0);
         alphaAnimation.beginTime = CACurrentMediaTime();
-        alphaAnimation.duration = 0.4f;
+        alphaAnimation.duration = 0.2f;
         [self.shadow pop_addAnimation:alphaAnimation forKey:@"alphaAnimation"];
         
         [alphaAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finished) {

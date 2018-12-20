@@ -71,6 +71,18 @@
 		32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */; };
 		32A4C22721CB189100DF4327 /* BadgeReusableFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22621CB189100DF4327 /* BadgeReusableFooter.m */; };
 		32A4C22A21CB2F2E00DF4327 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22921CB2F2E00DF4327 /* UITableViewCell+Extension.m */; };
+		32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C23421CB3F8200DF4327 /* ShareController.m */; };
+		32A4C23821CB445700DF4327 /* ShareBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C23721CB445700DF4327 /* ShareBottom.m */; };
+		32A4C23B21CB6ABD00DF4327 /* ShareShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C23A21CB6ABD00DF4327 /* ShareShot.m */; };
+		32A4C23D21CB6AE400DF4327 /* ShareShot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C23C21CB6AE400DF4327 /* ShareShot.xib */; };
+		32A4C24121CB749B00DF4327 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C24021CB749B00DF4327 /* WebVC.m */; };
+		32A4C24421CB75DD00DF4327 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C24321CB75DD00DF4327 /* AboutController.m */; };
+		32A4C24721CB7D5900DF4327 /* ShareOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C24621CB7D5900DF4327 /* ShareOrder.m */; };
+		32A4C24921CB7D6000DF4327 /* ShareOrder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C24821CB7D6000DF4327 /* ShareOrder.xib */; };
+		32A4C24D21CB834100DF4327 /* BookPunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C24C21CB834100DF4327 /* BookPunch.m */; };
+		32A4C24F21CB846E00DF4327 /* BookPunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C24E21CB846E00DF4327 /* BookPunch.xib */; };
+		32A4C25221CB84BA00DF4327 /* signin_gif@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */; };
+		32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -262,6 +274,25 @@
 		32A4C22621CB189100DF4327 /* BadgeReusableFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeReusableFooter.m; sourceTree = "<group>"; };
 		32A4C22821CB2F2E00DF4327 /* UITableViewCell+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Extension.h"; sourceTree = "<group>"; };
 		32A4C22921CB2F2E00DF4327 /* UITableViewCell+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Extension.m"; sourceTree = "<group>"; };
+		32A4C23321CB3F8200DF4327 /* ShareController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareController.h; sourceTree = "<group>"; };
+		32A4C23421CB3F8200DF4327 /* ShareController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareController.m; sourceTree = "<group>"; };
+		32A4C23621CB445700DF4327 /* ShareBottom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareBottom.h; sourceTree = "<group>"; };
+		32A4C23721CB445700DF4327 /* ShareBottom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareBottom.m; sourceTree = "<group>"; };
+		32A4C23921CB6ABD00DF4327 /* ShareShot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareShot.h; sourceTree = "<group>"; };
+		32A4C23A21CB6ABD00DF4327 /* ShareShot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareShot.m; sourceTree = "<group>"; };
+		32A4C23C21CB6AE400DF4327 /* ShareShot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareShot.xib; sourceTree = "<group>"; };
+		32A4C23F21CB749B00DF4327 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		32A4C24021CB749B00DF4327 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
+		32A4C24221CB75DD00DF4327 /* AboutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		32A4C24321CB75DD00DF4327 /* AboutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		32A4C24521CB7D5900DF4327 /* ShareOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareOrder.h; sourceTree = "<group>"; };
+		32A4C24621CB7D5900DF4327 /* ShareOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareOrder.m; sourceTree = "<group>"; };
+		32A4C24821CB7D6000DF4327 /* ShareOrder.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareOrder.xib; sourceTree = "<group>"; };
+		32A4C24B21CB834100DF4327 /* BookPunch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookPunch.h; sourceTree = "<group>"; };
+		32A4C24C21CB834100DF4327 /* BookPunch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookPunch.m; sourceTree = "<group>"; };
+		32A4C24E21CB846E00DF4327 /* BookPunch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPunch.xib; sourceTree = "<group>"; };
+		32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@2x.gif"; sourceTree = "<group>"; };
+		32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@3x.gif"; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT_MANAGER.h; sourceTree = "<group>"; };
@@ -455,6 +486,8 @@
 		3219838F21C6436A00311885 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */,
+				32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */,
 				4BA68AC221C7E5690063A5C2 /* 1_s@3x.png */,
 				4BA68AC321C7E5690063A5C2 /* 1@3x.png */,
 				4B4852F721C6938D00891096 /* cc_entertainmente_climbing_s@3x.png */,
@@ -498,6 +531,7 @@
 				4BE7845621C678FB00B8EC46 /* Book */,
 				4BE7845221C678FB00B8EC46 /* Find */,
 				4BE7844E21C678FB00B8EC46 /* Mine */,
+				32A4C22B21CB3F3700DF4327 /* Other */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -889,6 +923,75 @@
 			path = JHCollectionViewDelegateFlowLayout;
 			sourceTree = "<group>";
 		};
+		32A4C22B21CB3F3700DF4327 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C23E21CB749B00DF4327 /* Web */,
+				32A4C22C21CB3F4A00DF4327 /* Share */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		32A4C22C21CB3F4A00DF4327 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C22D21CB3F4A00DF4327 /* Controller */,
+				32A4C22E21CB3F4A00DF4327 /* Model */,
+				32A4C22F21CB3F4A00DF4327 /* View */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		32A4C22D21CB3F4A00DF4327 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C23321CB3F8200DF4327 /* ShareController.h */,
+				32A4C23421CB3F8200DF4327 /* ShareController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32A4C22E21CB3F4A00DF4327 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32A4C22F21CB3F4A00DF4327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C23921CB6ABD00DF4327 /* ShareShot.h */,
+				32A4C23A21CB6ABD00DF4327 /* ShareShot.m */,
+				32A4C23C21CB6AE400DF4327 /* ShareShot.xib */,
+				32A4C24521CB7D5900DF4327 /* ShareOrder.h */,
+				32A4C24621CB7D5900DF4327 /* ShareOrder.m */,
+				32A4C24821CB7D6000DF4327 /* ShareOrder.xib */,
+				32A4C23621CB445700DF4327 /* ShareBottom.h */,
+				32A4C23721CB445700DF4327 /* ShareBottom.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32A4C23E21CB749B00DF4327 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C23F21CB749B00DF4327 /* WebVC.h */,
+				32A4C24021CB749B00DF4327 /* WebVC.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		32A4C24A21CB833B00DF4327 /* BookPunch */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C24B21CB834100DF4327 /* BookPunch.h */,
+				32A4C24C21CB834100DF4327 /* BookPunch.m */,
+				32A4C24E21CB846E00DF4327 /* BookPunch.xib */,
+			);
+			path = BookPunch;
+			sourceTree = "<group>";
+		};
 		32D0B2B321C76CC50030F5B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -945,6 +1048,8 @@
 		4BA68ACF21C7EA930063A5C2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				32A4C24221CB75DD00DF4327 /* AboutController.h */,
+				32A4C24321CB75DD00DF4327 /* AboutController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1004,37 +1109,6 @@
 				4BA68AEC21C7EEAA0063A5C2 /* CategoryCell.h */,
 				4BA68AED21C7EEAA0063A5C2 /* CategoryCell.m */,
 				4BA68AEE21C7EEAA0063A5C2 /* CategoryCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4BA68AD621C7EA930063A5C2 /* Help (帮助) */ = {
-			isa = PBXGroup;
-			children = (
-				4BA68AD721C7EA930063A5C2 /* Controller */,
-				4BA68AD821C7EA930063A5C2 /* Model */,
-				4BA68AD921C7EA930063A5C2 /* View */,
-			);
-			path = "Help (帮助)";
-			sourceTree = "<group>";
-		};
-		4BA68AD721C7EA930063A5C2 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		4BA68AD821C7EA930063A5C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4BA68AD921C7EA930063A5C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1166,7 +1240,6 @@
 				4BA68AF121C7F1A70063A5C2 /* ACA (添加分类) */,
 				4BA68ADA21C7EA930063A5C2 /* Timing (定时) */,
 				4BA68ACE21C7EA930063A5C2 /* About (关于) */,
-				4BA68AD621C7EA930063A5C2 /* Help (帮助) */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1320,6 +1393,7 @@
 				4BE8CBE321C93960007935E2 /* KKPopup.m */,
 				4BE8CBEA21C93960007935E2 /* BaseView+Popup.h */,
 				4BE8CBE221C93960007935E2 /* BaseView+Popup.m */,
+				32A4C24A21CB833B00DF4327 /* BookPunch */,
 				4BE8CC0D21C93986007935E2 /* KKDate */,
 			);
 			path = Popup;
@@ -1423,9 +1497,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA68AC521C7E5690063A5C2 /* 1@3x.png in Resources */,
+				32A4C25221CB84BA00DF4327 /* signin_gif@2x.gif in Resources */,
 				3219838121C642BC00311885 /* LaunchScreen.storyboard in Resources */,
 				324484B721C74BDE0051B8B6 /* HomeListCell.xib in Resources */,
 				4B48530D21C69F6E00891096 /* MineHeader.xib in Resources */,
+				32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */,
 				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				327CEC2E21C89201001D0086 /* ChartSectionHeader.xib in Resources */,
 				3219837E21C642BC00311885 /* Assets.xcassets in Resources */,
@@ -1437,16 +1513,19 @@
 				4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */,
 				327CEC1821C882A6001D0086 /* HomeListSubCell.xib in Resources */,
 				327CEC1F21C88A10001D0086 /* HomeListHeader.xib in Resources */,
+				32A4C24921CB7D6000DF4327 /* ShareOrder.xib in Resources */,
 				4B252CE621C6A37C002CD83D /* HomeHeader.xib in Resources */,
 				32D0B2C721C77B240030F5B2 /* ChartDate.xib in Resources */,
 				4BA68AC121C7E3960063A5C2 /* BadgeCollectionCell.xib in Resources */,
 				4B4852FA21C6938D00891096 /* cc_entertainmente_climbing@3x.png in Resources */,
 				4BA68B0B21C7F75B0063A5C2 /* ACAReusableHeader.xib in Resources */,
 				4BA68AE521C7EB550063A5C2 /* CategoryHeader.xib in Resources */,
+				32A4C23D21CB6AE400DF4327 /* ShareShot.xib in Resources */,
 				4BA68AC421C7E5690063A5C2 /* 1_s@3x.png in Resources */,
 				4BA68B0121C7F66A0063A5C2 /* ACATextField.xib in Resources */,
 				4BA68AF021C7EEAA0063A5C2 /* CategoryCell.xib in Resources */,
 				3219837C21C642BB00311885 /* Main.storyboard in Resources */,
+				32A4C24F21CB846E00DF4327 /* BookPunch.xib in Resources */,
 				32D0B2CC21C782270030F5B2 /* ChartSubDateCell.xib in Resources */,
 				3257AEDD21C877E500787A34 /* TITableCell.xib in Resources */,
 				4B48530221C6984400891096 /* MineTableCell.xib in Resources */,
@@ -1517,6 +1596,7 @@
 				4B48530121C6984400891096 /* MineTableCell.m in Sources */,
 				327CEC2421C88D9D001D0086 /* ChartTableView.m in Sources */,
 				4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */,
+				32A4C24121CB749B00DF4327 /* WebVC.m in Sources */,
 				327CEC1D21C88A04001D0086 /* HomeListHeader.m in Sources */,
 				321983B921C6459B00311885 /* BaseTabBarController.m in Sources */,
 				321983FF21C6460100311885 /* UIView+Visuals.m in Sources */,
@@ -1539,6 +1619,7 @@
 				3219840D21C6460100311885 /* CALayer+Extension.m in Sources */,
 				321983BA21C6459B00311885 /* BaseView.m in Sources */,
 				3219840521C6460100311885 /* UICollectionView+Extension.m in Sources */,
+				32A4C24721CB7D5900DF4327 /* ShareOrder.m in Sources */,
 				4BA68AF721C7F1D10063A5C2 /* ACAController.m in Sources */,
 				3219841521C6474600311885 /* UserModel.m in Sources */,
 				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
@@ -1550,6 +1631,7 @@
 				4BE7846321C6796900B8EC46 /* ChartController.m in Sources */,
 				321983B821C6459B00311885 /* BaseNavigationController.m in Sources */,
 				4B252CE121C6A288002CD83D /* MineView.m in Sources */,
+				32A4C24D21CB834100DF4327 /* BookPunch.m in Sources */,
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
 				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
@@ -1562,6 +1644,7 @@
 				4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */,
 				4BE7846921C679BD00B8EC46 /* FindController.m in Sources */,
 				4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */,
+				32A4C23821CB445700DF4327 /* ShareBottom.m in Sources */,
 				4BE8CC1021C93999007935E2 /* KKDate.m in Sources */,
 				4BA68B0521C7F6FB0063A5C2 /* ACACollectionCell.m in Sources */,
 				3219840821C6460100311885 /* NSString+Extension.m in Sources */,
@@ -1583,11 +1666,13 @@
 				3219840421C6460100311885 /* UICollectionReusableView+Extension.m in Sources */,
 				3219840021C6460100311885 /* UIView+Extension.m in Sources */,
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
+				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
 				32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */,
 				4BA68ABC21C7E2D70063A5C2 /* BadgeCollection.m in Sources */,
 				32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */,
 				321983BE21C6459B00311885 /* BaseCollectionView.m in Sources */,
+				32A4C23B21CB6ABD00DF4327 /* ShareShot.m in Sources */,
 				4BA68AE821C7EC890063A5C2 /* CategoryTable.m in Sources */,
 				32D0B2C221C77ACD0030F5B2 /* ChartDate.m in Sources */,
 				327CEC2821C88E45001D0086 /* ChartTableCell.m in Sources */,
@@ -1604,6 +1689,7 @@
 				4B132AA521C68DE500D5B489 /* BookCollectionView.m in Sources */,
 				32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */,
 				4B48530B21C69F2800891096 /* MineHeader.m in Sources */,
+				32A4C24421CB75DD00DF4327 /* AboutController.m in Sources */,
 				4BE7846621C6799200B8EC46 /* BookController.m in Sources */,
 				4B4852FD21C6974800891096 /* MineTableView.m in Sources */,
 				321983FC21C6460100311885 /* UIButton+BarButtonItem.m in Sources */,

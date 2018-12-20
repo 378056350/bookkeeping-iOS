@@ -54,11 +54,6 @@
         @strongify(self)
         [self routerEventWithName:MINE_HEADER_ICON_CLICK data:nil];
     }];
-    // 打卡
-    [self.punchView addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        @strongify(self)
-        [self routerEventWithName:MINE_PUNCH_CLICK data:nil];
-    }];
     // 连续打卡
     [self.punchView addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
         @strongify(self)
@@ -103,6 +98,8 @@
     
     [sender setImage:nil forState:UIControlStateNormal];
     [sender setImage:nil forState:UIControlStateHighlighted];
+    
+    [self routerEventWithName:MINE_PUNCH_CLICK data:nil];
 }
 
 

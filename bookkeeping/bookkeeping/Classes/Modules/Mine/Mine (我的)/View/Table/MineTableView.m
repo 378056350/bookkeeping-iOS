@@ -32,6 +32,7 @@
     [table setShowsVerticalScrollIndicator:NO];
     [table setShowsHorizontalScrollIndicator:NO];
     [table setBackgroundColor:kColor_BG];
+    [table setContentInset:UIEdgeInsetsMake(0, 0, countcoordinatesX(50), 0)];
     [table setBackgroundView:({
         UIView *back = [[UIView alloc] initWithFrame:table.bounds];
         [back setBackgroundColor:kColor_BG];

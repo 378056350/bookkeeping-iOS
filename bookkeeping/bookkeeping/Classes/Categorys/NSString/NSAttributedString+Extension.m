@@ -61,15 +61,22 @@
 + (NSAttributedString *)createMath:(NSString *)string
                            integer:(UIFont *)integerFont
                            decimal:(UIFont *)decimalFont {
+    return [self createMath:string integer:integerFont decimal:decimalFont color:kColor_Red_Color];
+}
+
++ (NSAttributedString *)createMath:(NSString *)string
+                           integer:(UIFont *)integerFont
+                           decimal:(UIFont *)decimalFont
+                             color:(UIColor *)color {
+    
     NSString *integerStr = [NSString stringWithFormat:@"%@.", [string componentsSeparatedByString:@"."][0]];
     NSString *decimalStr = [string componentsSeparatedByString:@"."][1];
-    NSAttributedString *attr1 = [[NSAttributedString alloc] initWithString:integerStr attributes:@{NSFontAttributeName: integerFont, NSForegroundColorAttributeName: kColor_Text_Black}];
-    NSAttributedString *attr2 = [[NSAttributedString alloc] initWithString:decimalStr attributes:@{NSFontAttributeName: decimalFont, NSForegroundColorAttributeName: kColor_Text_Black}];
+    NSAttributedString *attr1 = [[NSAttributedString alloc] initWithString:integerStr attributes:@{NSFontAttributeName: integerFont, NSForegroundColorAttributeName: color}];
+    NSAttributedString *attr2 = [[NSAttributedString alloc] initWithString:decimalStr attributes:@{NSFontAttributeName: decimalFont, NSForegroundColorAttributeName: color}];
     NSMutableAttributedString *attrm = [[NSMutableAttributedString alloc] initWithAttributedString:attr1];
     [attrm appendAttributedString:attr2];
     return attrm;
 }
-
 
 
 @end

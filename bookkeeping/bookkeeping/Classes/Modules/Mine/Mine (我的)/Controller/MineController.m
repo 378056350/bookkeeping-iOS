@@ -8,6 +8,9 @@
 #import "BadgeController.h"
 #import "CategoryController.h"
 #import "TIController.h"
+#import "ShareController.h"
+#import "WebVC.h"
+#import "AboutController.h"
 #import "MINE_EVENT_MANAGER.h"
 
 
@@ -62,6 +65,25 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
+    else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            
+        }
+        else if (indexPath.row == 1) {
+            
+        }
+        // 帮助
+        else if (indexPath.row == 2) {
+            WebVC *vc = [[WebVC alloc] init];
+            [vc setNavTitle:@"帮助"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        // 关于
+        else if (indexPath.row == 3) {
+            AboutController *vc = [[AboutController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
 // 头像点击
 - (void)headerIconClick:(id)data {
@@ -69,11 +91,17 @@
 }
 // 打卡点击
 - (void)punchClick:(id)data {
-    
+    KKPopup *popup = [KKPopup initNib:@"BookPunch"];
+    [popup show];
+    [popup setClick:^(id  _Nonnull data, KKPopup * _Nonnull popup) {
+        [popup hide];
+    }];
 }
 // 连续打卡点击
 - (void)headerPunchClick:(id)data {
-    
+    ShareController *vc = [[ShareController alloc] init];
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 // 总天数点击
 - (void)headerDayClick:(id)data {
