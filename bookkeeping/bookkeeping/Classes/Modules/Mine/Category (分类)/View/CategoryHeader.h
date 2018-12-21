@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CategoryHeader : BaseView
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
+
 @end
 
 NS_ASSUME_NONNULL_END

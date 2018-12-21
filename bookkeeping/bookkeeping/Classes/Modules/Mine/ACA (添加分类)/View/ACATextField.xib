@@ -16,32 +16,50 @@
             <rect key="frame" x="0.0" y="0.0" width="397" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-o9-FSx">
-                    <rect key="frame" x="15" y="0.0" width="50" height="90"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-o9-FSx">
+                    <rect key="frame" x="15" y="0.0" width="40" height="90"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="nG6-II-vZg"/>
+                        <constraint firstAttribute="width" constant="40" id="nG6-II-vZg"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入类别名称(不超过4个汉字)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-4Z-gJa">
-                    <rect key="frame" x="75" y="0.0" width="307" height="90"/>
+                    <rect key="frame" x="65" y="0.0" width="317" height="90"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="0td-82-S3Q" id="Dbn-aO-wpg"/>
+                    </connections>
                 </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-NT-JTI">
+                    <rect key="frame" x="0.0" y="89" width="397" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Ivq-Ue-l73"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="0o9-o9-FSx" firstAttribute="top" secondItem="0td-82-S3Q" secondAttribute="top" id="9YG-vc-C2n"/>
                 <constraint firstItem="KA8-4Z-gJa" firstAttribute="leading" secondItem="0o9-o9-FSx" secondAttribute="trailing" constant="10" id="MMM-5s-4Ni"/>
+                <constraint firstAttribute="bottom" secondItem="dR4-NT-JTI" secondAttribute="bottom" id="VQi-VV-sC6"/>
+                <constraint firstItem="dR4-NT-JTI" firstAttribute="trailing" secondItem="7Jp-Vm-mEw" secondAttribute="trailing" id="Wyg-jK-pV8"/>
                 <constraint firstAttribute="bottom" secondItem="0o9-o9-FSx" secondAttribute="bottom" id="ZzZ-2F-5NO"/>
                 <constraint firstItem="KA8-4Z-gJa" firstAttribute="top" secondItem="7Jp-Vm-mEw" secondAttribute="top" id="aDZ-TJ-2kT"/>
                 <constraint firstItem="0o9-o9-FSx" firstAttribute="leading" secondItem="7Jp-Vm-mEw" secondAttribute="leading" constant="15" id="djz-9l-oUf"/>
                 <constraint firstItem="7Jp-Vm-mEw" firstAttribute="trailing" secondItem="KA8-4Z-gJa" secondAttribute="trailing" constant="15" id="hPX-rT-KrA"/>
+                <constraint firstItem="dR4-NT-JTI" firstAttribute="leading" secondItem="0td-82-S3Q" secondAttribute="leading" id="nVo-Lh-pYQ"/>
                 <constraint firstItem="7Jp-Vm-mEw" firstAttribute="bottom" secondItem="KA8-4Z-gJa" secondAttribute="bottom" id="qWo-Z0-K8o"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="7Jp-Vm-mEw"/>
-            <point key="canvasLocation" x="204" y="-272"/>
+            <connections>
+                <outlet property="icon" destination="0o9-o9-FSx" id="sbF-Tv-G3b"/>
+                <outlet property="line" destination="dR4-NT-JTI" id="Zbu-l8-gJ2"/>
+                <outlet property="textField" destination="KA8-4Z-gJa" id="M6F-63-Kch"/>
+            </connections>
+            <point key="canvasLocation" x="-594.39999999999998" y="-213.19340329835083"/>
         </view>
     </objects>
 </document>

@@ -22,15 +22,20 @@
     self.lab.font = [UIFont systemFontOfSize:AdjustFont(12)];
     self.lab.textColor = kColor_Text_Gary;
 }
+- (void)setModel:(BookModel *)model {
+    _model = model;
+    [_lab setText:model.name];
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+}
 - (void)setChoose:(BOOL)choose {
     _choose = choose;
     // 选中
     if (choose == YES) {
-        self.icon.image = [UIImage imageNamed:@"cc_entertainmente_climbing_s"];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
     }
     // 未选中
     else {
-        self.icon.image = [UIImage imageNamed:@"cc_entertainmente_climbing"];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
     }
 }
 

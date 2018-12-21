@@ -19,18 +19,20 @@
 
 
 - (void)initUI {
-    self.lab.font = [UIFont systemFontOfSize:AdjustFont(14)];
+    self.lab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightThin];
     self.lab.textColor = kColor_Text_Gary;
 }
 
 
 #pragma mark - set
-- (void)setChoose:(BOOL)choose {
-    _choose = choose;
-    if (choose == true) {
-        _icon.image = [UIImage imageNamed:@"1_s"];
+- (void)setModel:(BadgeModel *)model {
+    _model = model;
+    if (model.has_own == true) {
+        [_lab setText:model.name];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_s)]];
     } else {
-        _icon.image = [UIImage imageNamed:@"1"];
+        [_lab setText:model.name];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
     }
 }
 

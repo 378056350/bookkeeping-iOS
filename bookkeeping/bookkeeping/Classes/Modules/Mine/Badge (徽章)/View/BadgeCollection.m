@@ -7,6 +7,8 @@
 #import "BadgeCollectionCell.h"
 #import "BadgeReusableHeader.h"
 #import "BadgeReusableFooter.h"
+#import "KKBadge.h"
+#import "ShareController.h"
 #import "JHCollectionViewFlowLayout.h"
 
 
@@ -29,24 +31,42 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 4;
+    return self.models.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return self.models[section].list.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BadgeCollectionCell *cell = [BadgeCollectionCell loadItem:collectionView index:indexPath];
+    cell.model = self.models[indexPath.section].list[indexPath.row];
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    @weakify(self)
+    BadgeModel *model = _models[indexPath.section].list[indexPath.row];
+    KKPopup *popup = [KKPopup initNib:@"KKBadge"];
+    KKBadge *badge = (KKBadge *)popup.contentv;
+    [badge setBackgroundColor:[UIColor clearColor]];
+    [badge setModel:model];
+    [popup show];
+    [popup setClick:^(NSNumber *number, KKPopup *popup) {
+        @strongify(self)
+        [popup hide:^{
+            if ([number integerValue] == 1) {
+                ShareController *vc = [[ShareController alloc] init];
+                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+                [self.viewController presentViewController:nav animated:YES completion:nil];
+            }
+        }];
+    }];
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         BadgeReusableHeader *header = [BadgeReusableHeader initWithCollection:collectionView kind:kind indexPath:indexPath];
+        header.model = self.models[indexPath.section];
         return header;
     } else if (kind == UICollectionElementKindSectionFooter) {
         BadgeReusableFooter *footer = [BadgeReusableFooter initWithCollection:collectionView kind:kind indexPath:indexPath];
@@ -60,7 +80,6 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(SCREEN_WIDTH, countcoordinatesX(10));
 }
-
 
 
 #pragma mark - JHCollectionViewDelegateFlowLayout
@@ -92,7 +111,6 @@
     }
     return _collection;
 }
-
 
 
 

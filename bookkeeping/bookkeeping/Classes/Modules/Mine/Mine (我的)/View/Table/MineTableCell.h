@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, MineTableCellStatus) {
 @property (weak, nonatomic) IBOutlet UILabel *detailLab;
 @property (weak, nonatomic) IBOutlet UIImageView *nextIcn;
 @property (nonatomic, assign) MineTableCellStatus status;
+@property (nonatomic, assign) NSInteger badgeCount;
 
 @end
 

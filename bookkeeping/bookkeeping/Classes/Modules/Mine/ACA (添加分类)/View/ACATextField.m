@@ -4,9 +4,14 @@
  */
 
 #import "ACATextField.h"
+#import "ACA_EVENT_MANAGER.h"
 
 #pragma mark - 声明
-@interface ACATextField()
+@interface ACATextField()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UIView *line;
 
 @end
 
@@ -16,7 +21,30 @@
 
 
 - (void)initUI {
-    
+    [self.line setBackgroundColor:kColor_Line_Color];
+    [self setBackgroundColor:kColor_BG];
+    [self.textField addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
+}
+
+
+- (void)textChange:(UITextField *)textField {
+    if (textField.text.length > 4) {
+        textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
+    }
+}
+
+
+#pragma mark - set
+- (void)setModel:(ACAModel *)model {
+    _model = model;
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_s)]];
+}
+
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
 }
 
 

@@ -6,6 +6,7 @@
 #import "ShareController.h"
 #import "ShareShot.h"
 #import "ShareOrder.h"
+#import "ShareBadge.h"
 #import "ShareBottom.h"
 #import "BookRefreshHeader.h"
 
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) ShareShot *shot1;
 @property (nonatomic, strong) ShareOrder *shot2;
+@property (nonatomic, strong) ShareBadge *shot3;
 @property (nonatomic, strong) ShareBottom *bottom;
 @property (nonatomic, strong) BookRefreshHeader *mHeader;
 
@@ -39,9 +41,10 @@
     [self scroll];
     [self shot1];
     [self shot2];
+    [self shot3];
     [self bottom];
+    _shot1.hidden = YES;
     _shot2.hidden = YES;
-    
 }
 
 
@@ -89,6 +92,13 @@
         [self.scroll addSubview:_shot2];
     }
     return _shot2;
+}
+- (ShareBadge *)shot3 {
+    if (!_shot3) {
+        _shot3 = [ShareBadge loadFirstNib:self.shot1.frame];
+        [self.scroll addSubview:_shot3];
+    }
+    return _shot3;
 }
 - (ShareBottom *)bottom {
     if (!_bottom) {

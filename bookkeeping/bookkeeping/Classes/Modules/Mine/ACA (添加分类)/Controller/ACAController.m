@@ -6,6 +6,8 @@
 #import "ACAController.h"
 #import "ACATextField.h"
 #import "ACACollection.h"
+#import "ACAListModel.h"
+#import "ACA_EVENT_MANAGER.h"
 
 
 #pragma mark - 声明
@@ -13,6 +15,8 @@
 
 @property (nonatomic, strong) ACATextField *textField;
 @property (nonatomic, strong) ACACollection *collection;
+@property (nonatomic, strong) NSArray<ACAListModel *> *models;
+@property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
 
@@ -31,6 +35,7 @@
     [self.rightButton setHidden:NO];
     [self textField];
     [self collection];
+    [self getCategoryListRequest];
 }
 
 - (void)rightButtonClick {
@@ -38,10 +43,57 @@
 }
 
 
+#pragma mark - 事件
+- (void)routerEventWithName:(NSString *)eventName data:(id)data {
+    [self handleEventWithName:eventName data:data];
+}
+- (void)handleEventWithName:(NSString *)eventName data:(id)data {
+    NSInvocation *invocation = self.eventStrategy[eventName];
+    [invocation setArgument:&data atIndex:2];
+    [invocation invoke];
+    [super routerEventWithName:eventName data:data];
+}
+// 点击item
+- (void)itemClick:(ACAModel *)model {
+    [self.textField setModel:model];
+}
+
+
+#pragma mark - 请求
+// 添加类别列表
+- (void)getCategoryListRequest {
+    @weakify(self)
+    [self.collection createRequest:InsertCategoryListRequest params:@{} complete:^(APPResult * result) {
+        @strongify(self)
+        [self setModels:[ACAListModel mj_objectArrayWithKeyValuesArray:result.data]];
+    }];
+}
+// 添加新类别
+- (void)addCategoryRequest {
+    @weakify(self)
+    [AFNManager POST:AddInsertCategoryListRequest complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            
+        } else {
+            
+        }
+    }];
+}
+
+
+
+#pragma mark - set
+- (void)setModels:(NSArray<ACAListModel *> *)models {
+    _models = models;
+    _collection.models = models;
+}
+
+
 #pragma mark - get
 - (ACATextField *)textField {
     if (!_textField) {
-        _textField = [ACATextField loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
+        _textField = [ACATextField loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(60))];
         [self.view addSubview:_textField];
     }
     return _textField;
@@ -53,7 +105,15 @@
     }
     return _collection;
 }
-
+- (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
+    if (!_eventStrategy) {
+        _eventStrategy = @{
+                           ACA_CLICK_ITEM: [self createInvocationWithSelector:@selector(itemClick:)],
+                           
+                           };
+    }
+    return _eventStrategy;
+}
 
 
 @end

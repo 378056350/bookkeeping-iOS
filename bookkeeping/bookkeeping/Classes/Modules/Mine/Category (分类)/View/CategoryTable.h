@@ -4,10 +4,13 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "CategoryListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CategoryTable : UITableView
+
+@property (nonatomic, strong) CategoryListModel *model;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

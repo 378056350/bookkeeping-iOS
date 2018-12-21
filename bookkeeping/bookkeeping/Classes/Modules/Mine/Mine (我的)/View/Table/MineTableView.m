@@ -59,6 +59,8 @@
     cell.nameLab.text = self.datas[0][indexPath.section][indexPath.row];
     cell.icon.image = [UIImage imageNamed:self.datas[1][indexPath.section][indexPath.row]];
     cell.status = [self.datas[2][indexPath.section][indexPath.row] integerValue];
+    cell.detailLab.hidden = indexPath.section != 0;
+    cell.badgeCount = 12;
     return cell;
 }
 
@@ -109,9 +111,9 @@
                        @[@"去App Store给鲨鱼记账评分",@"意见反馈",@"帮助",@"关于鲨鱼记账"],
                        ],
                    @[
-                       @[@"111"],
-                       @[@"111",@"111",@"111",@"111"],
-                       @[@"111",@"111",@"111",@"111",@"111"],
+                       @[@"mine_badge"],
+                       @[@"mine_tallytype",@"mine_remind",@"mine_sound",@"mine_detail"],
+                       @[@"mine_rating",@"mine_feedback",@"mine_help",@"mine_about"],
                        ],
                    @[
                        @[@(0)],

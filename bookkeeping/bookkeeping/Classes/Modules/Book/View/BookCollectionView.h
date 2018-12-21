@@ -4,11 +4,13 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "BookListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookCollectionView : UICollectionView
 
+@property (nonatomic, strong) BookListModel *model;
 @property (nonatomic, strong) NSIndexPath *selectIndex;
 
 // 初始化

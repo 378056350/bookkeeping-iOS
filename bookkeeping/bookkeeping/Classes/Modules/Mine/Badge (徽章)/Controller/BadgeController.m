@@ -5,11 +5,13 @@
 
 #import "BadgeController.h"
 #import "BadgeCollection.h"
+#import "BadgeListModel.h"
 
 #pragma mark - 声明
 @interface BadgeController()
 
 @property (nonatomic, strong) BadgeCollection *collection;
+@property (nonatomic, strong) NSArray<BadgeListModel *> *models;
 
 @end
 
@@ -24,6 +26,25 @@
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self collection];
+    [self getBadgeListRequest];
+}
+
+
+#pragma mark - 请求
+// 获取我的徽章
+- (void)getBadgeListRequest {
+    @weakify(self)
+    [self.collection createRequest:BadgeListRequest params:@{} complete:^(APPResult * result) {
+        @strongify(self)
+        [self setModels:[BadgeListModel mj_objectArrayWithKeyValuesArray:result.data]];
+    }];
+}
+
+
+#pragma mark - set
+- (void)setModels:(NSArray<BadgeListModel *> *)models {
+    _models = models;
+    _collection.models = models;
 }
 
 

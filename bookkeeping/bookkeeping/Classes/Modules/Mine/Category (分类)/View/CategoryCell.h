@@ -4,10 +4,13 @@
  */
 
 #import "BaseTableCell.h"
+#import "CategoryListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CategoryCell : MGSwipeTableCell
+
+@property (nonatomic, strong) BookModel *model;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 

@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9NE-EU-N3f">
-                        <rect key="frame" x="0.0" y="25" width="92" height="55"/>
+                        <rect key="frame" x="0.0" y="20" width="92" height="55"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="9NE-EU-N3f" secondAttribute="height" multiplier="5:3" id="ab4-Z9-HJ5"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0h-VX-TFW">
-                        <rect key="frame" x="0.0" y="83" width="92" height="21"/>
+                        <rect key="frame" x="0.0" y="78" width="92" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                 <constraint firstItem="g0h-VX-TFW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZJa-cx-ZCD"/>
                 <constraint firstItem="9NE-EU-N3f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rfm-7p-CJS"/>
                 <constraint firstItem="g0h-VX-TFW" firstAttribute="top" secondItem="9NE-EU-N3f" secondAttribute="bottom" constant="3" id="tTx-ll-eAG"/>
-                <constraint firstItem="9NE-EU-N3f" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-10" id="zM1-x8-LxN"/>
+                <constraint firstItem="9NE-EU-N3f" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-15" id="zM1-x8-LxN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="92" height="125"/>
@@ -47,7 +47,7 @@
                 <outlet property="icon" destination="9NE-EU-N3f" id="0dm-oG-0EO"/>
                 <outlet property="lab" destination="g0h-VX-TFW" id="42g-f1-W2f"/>
             </connections>
-            <point key="canvasLocation" x="320" y="27"/>
+            <point key="canvasLocation" x="110" y="27"/>
         </collectionViewCell>
     </objects>
 </document>

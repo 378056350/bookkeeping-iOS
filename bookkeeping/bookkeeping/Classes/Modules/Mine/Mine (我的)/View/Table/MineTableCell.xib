@@ -20,9 +20,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JS2-U9-yrW">
-                        <rect key="frame" x="15" y="0.0" width="25" height="43.5"/>
+                        <rect key="frame" x="15" y="0.0" width="20" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="SvD-Gc-4f7"/>
+                            <constraint firstAttribute="width" constant="20" id="SvD-Gc-4f7"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTd-UV-M2p">
@@ -37,8 +37,8 @@
                             <constraint firstAttribute="width" constant="10" id="Wr0-Px-dFW"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGk-cH-p1V">
-                        <rect key="frame" x="248" y="0.0" width="42" height="43.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGk-cH-p1V">
+                        <rect key="frame" x="290" y="0.0" width="0.0" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                     <constraint firstItem="eNN-1k-0Cf" firstAttribute="leading" secondItem="GGk-cH-p1V" secondAttribute="trailing" constant="5" id="sZn-Z7-ur8"/>
                     <constraint firstAttribute="trailing" secondItem="eNN-1k-0Cf" secondAttribute="trailing" constant="15" id="v8y-62-six"/>
                     <constraint firstItem="eNN-1k-0Cf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wyf-Ze-u2D"/>
-                    <constraint firstItem="fTd-UV-M2p" firstAttribute="leading" secondItem="JS2-U9-yrW" secondAttribute="trailing" constant="5" id="zNq-7v-Tn7"/>
+                    <constraint firstItem="fTd-UV-M2p" firstAttribute="leading" secondItem="JS2-U9-yrW" secondAttribute="trailing" constant="10" id="zNq-7v-Tn7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

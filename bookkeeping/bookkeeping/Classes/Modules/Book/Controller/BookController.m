@@ -7,6 +7,7 @@
 #import "BookCollectionView.h"
 #import "BookNavigation.h"
 #import "BookKeyboard.h"
+#import "BookListModel.h"
 #import "BOOK_EVENT_MANAGER.h"
 
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UIScrollView *scroll;
 @property (nonatomic, strong) NSMutableArray<BookCollectionView *> *collections;
 @property (nonatomic, strong) BookKeyboard *keyboard;
+@property (nonatomic, strong) NSArray<BookListModel *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -34,6 +36,7 @@
     [self scroll];
     [self collections];
     [self keyboard];
+    [self getCategoryListRequest];
 }
 
 
@@ -42,6 +45,26 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+
+#pragma mark - 请求
+// 获取我的分类
+- (void)getCategoryListRequest {
+    @weakify(self)
+    [self.scroll createRequest:CategoryListRequest params:@{} complete:^(APPResult *result) {
+        @strongify(self)
+        [self setModels:[BookListModel mj_objectArrayWithKeyValuesArray:result.data]];
+    }];
+}
+
+
+#pragma mark - set
+- (void)setModels:(NSArray<BookListModel *> *)models {
+    _models = models;
+    for (int i=0; i<models.count; i++) {
+        self.collections[i].model = models[i];
+    }
 }
 
 

@@ -4,10 +4,13 @@
  */
 
 #import "BaseCollectionReusableView.h"
+#import "ACAListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ACAReusableHeader : BaseCollectionReusableView
+
+@property (nonatomic, strong) ACAListModel *model;
 
 @end
 

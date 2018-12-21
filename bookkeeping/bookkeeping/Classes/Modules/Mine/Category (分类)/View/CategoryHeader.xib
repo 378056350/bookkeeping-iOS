@@ -22,6 +22,9 @@
                         <segment title="支出"/>
                         <segment title="收入"/>
                     </segments>
+                    <connections>
+                        <action selector="segValueChange:" destination="uaN-hy-GZ6" eventType="valueChanged" id="Ky3-do-0ak"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

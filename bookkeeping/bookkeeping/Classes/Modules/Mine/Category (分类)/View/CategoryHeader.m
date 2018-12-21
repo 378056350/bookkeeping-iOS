@@ -4,11 +4,10 @@
  */
 
 #import "CategoryHeader.h"
+#import "CATEGORY_EVENT.h"
 
 #pragma mark - 声明
 @interface CategoryHeader()
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
 @end
 
@@ -37,6 +36,11 @@
     [self.seg.layer setBorderWidth:1];
     [self.seg.layer setBorderColor:kColor_Text_Black.CGColor];
     [self.seg setTintColor:kColor_Text_Black];
+}
+
+
+- (IBAction)segValueChange:(UISegmentedControl *)sender {
+    [self routerEventWithName:CATEGORY_SEG_CHANGE data:@(sender.selectedSegmentIndex)];
 }
 
 

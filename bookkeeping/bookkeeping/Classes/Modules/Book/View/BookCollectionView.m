@@ -47,6 +47,13 @@
 }
 
 
+#pragma mark - set
+- (void)setModel:(BookListModel *)model {
+    _model = model;
+    [self reloadData];
+}
+
+
 #pragma mark - 操作
 // 刷新index
 - (void)reloadSelectIndex {
@@ -71,11 +78,12 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 90;
+    return self.model.list.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BookCollectionCell *cell = [BookCollectionCell loadItem:collectionView index:indexPath];
-    cell.choose = _selectIndex && (_selectIndex.row == indexPath.row) && (_selectIndex.section == indexPath.section);
+    cell.model = self.model.list[indexPath.row];
+    cell.choose = [_selectIndex isEqual:indexPath];
     return cell;
 }
 

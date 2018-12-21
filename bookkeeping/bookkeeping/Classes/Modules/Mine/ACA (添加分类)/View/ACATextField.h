@@ -4,10 +4,14 @@
  */
 
 #import "BaseView.h"
+#import "ACAListModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ACATextField : BaseView
+
+@property (nonatomic, strong) ACAModel *model;
 
 @end
 

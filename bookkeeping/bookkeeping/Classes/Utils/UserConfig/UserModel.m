@@ -11,11 +11,11 @@
 @implementation UserModel
 
 + (void)load {
-//    [UserModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-//        return @{
-//                 @"Id": @"id"
-//                 };
-//    }];
+    [UserModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"Id": @"id"
+                 };
+    }];
 }
 
 @end

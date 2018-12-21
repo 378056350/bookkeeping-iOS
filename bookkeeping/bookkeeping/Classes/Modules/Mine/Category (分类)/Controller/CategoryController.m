@@ -8,6 +8,7 @@
 #import "CategoryTable.h"
 #import "BottomButton.h"
 #import "ACAController.h"
+#import "CategoryListModel.h"
 #import "CATEGORY_EVENT.h"
 
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) CategoryHeader *header;
 @property (nonatomic, strong) CategoryTable *table;
 @property (nonatomic, strong) BottomButton *bootom;
+@property (nonatomic, strong) NSArray<CategoryListModel *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -37,6 +39,25 @@
     [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
     [self.rightButton setTitle:@"完成" forState:UIControlStateHighlighted];
     [self.view bringSubviewToFront:self.bootom];
+    [self getCategoryListRequest];
+}
+
+
+#pragma mark - 请求
+// 获取我的分类
+- (void)getCategoryListRequest {
+    @weakify(self)
+    [self.table createRequest:CategorySetListRequest params:@{} complete:^(APPResult *result) {
+        @strongify(self)
+        [self setModels:[CategoryListModel mj_objectArrayWithKeyValuesArray:result.data]];
+    }];
+}
+
+
+#pragma mark - set
+- (void)setModels:(NSArray<CategoryListModel *> *)models {
+    _models = models;
+    _table.model = _models[_header.seg.selectedSegmentIndex];
 }
 
 
@@ -54,6 +75,10 @@
 - (void)categoryBtnClick:(id)data {
     ACAController *vc = [[ACAController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+// 值改变
+- (void)segValueChange:(NSNumber *)number {
+    _table.model = _models[[number integerValue]];
 }
 
 
@@ -88,6 +113,7 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            CATEGORY_BTN_CLICK: [self createInvocationWithSelector:@selector(categoryBtnClick:)],
+                           CATEGORY_SEG_CHANGE: [self createInvocationWithSelector:@selector(segValueChange:)],
                            };
     }
     return _eventStrategy;

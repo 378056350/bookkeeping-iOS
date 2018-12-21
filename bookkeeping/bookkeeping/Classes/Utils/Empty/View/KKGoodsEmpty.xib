@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EiK-7v-1Co" customClass="KKGoodsEmpty">
+            <rect key="frame" x="0.0" y="0.0" width="263" height="562"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hsh-Bj-z0y">
+                    <rect key="frame" x="0.0" y="0.0" width="263" height="263"/>
+                    <color key="backgroundColor" red="0.84281225000000004" green="0.84281225000000004" blue="0.84281225000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hsh-Bj-z0y" secondAttribute="height" multiplier="1:1" id="TlG-fZ-IKZ"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gem-yA-rWw">
+                    <rect key="frame" x="0.0" y="273" width="263" height="130"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUy-es-NCC">
+                            <rect key="frame" x="10" y="10" width="80" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="Nql-Ic-KJs"/>
+                                <constraint firstAttribute="width" constant="80" id="gfc-15-WdQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-hr-0Bp">
+                            <rect key="frame" x="10" y="33" width="130" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="Cr7-0l-Jep"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWN-WE-9fg">
+                            <rect key="frame" x="10" y="56" width="50" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="YZq-bf-LsH"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbq-ds-Eys">
+                            <rect key="frame" x="70" y="56" width="143" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIg-Zf-dpS">
+                            <rect key="frame" x="10" y="79" width="140" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="140" id="x5A-m0-4Qd"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUW-rp-HAq">
+                            <rect key="frame" x="10" y="101" width="60" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="O6H-16-NL7"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Now-QE-oab">
+                            <rect key="frame" x="193" y="101" width="60" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIp-6T-deq">
+                            <rect key="frame" x="101.5" y="101" width="60" height="14"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Now-QE-oab" secondAttribute="trailing" constant="10" id="4Rm-g3-y1a"/>
+                        <constraint firstItem="HIp-6T-deq" firstAttribute="width" secondItem="sUW-rp-HAq" secondAttribute="width" id="55h-Gc-rT6"/>
+                        <constraint firstItem="pIg-Zf-dpS" firstAttribute="leading" secondItem="QWN-WE-9fg" secondAttribute="leading" id="8c4-C1-5J3"/>
+                        <constraint firstItem="sUW-rp-HAq" firstAttribute="leading" secondItem="pIg-Zf-dpS" secondAttribute="leading" id="Au6-if-05v"/>
+                        <constraint firstItem="Now-QE-oab" firstAttribute="width" secondItem="sUW-rp-HAq" secondAttribute="width" id="DYL-UZ-qpS"/>
+                        <constraint firstItem="vUy-es-NCC" firstAttribute="top" secondItem="Gem-yA-rWw" secondAttribute="top" constant="10" id="Iuc-CZ-Ztz"/>
+                        <constraint firstAttribute="height" constant="130" id="LJ3-xN-hMg"/>
+                        <constraint firstItem="fbq-ds-Eys" firstAttribute="height" secondItem="QWN-WE-9fg" secondAttribute="height" id="M60-Gz-z1n"/>
+                        <constraint firstItem="pIg-Zf-dpS" firstAttribute="height" secondItem="QWN-WE-9fg" secondAttribute="height" id="MF0-Lu-8xN"/>
+                        <constraint firstItem="O4N-hr-0Bp" firstAttribute="top" secondItem="vUy-es-NCC" secondAttribute="bottom" constant="9" id="On0-2v-Hj3"/>
+                        <constraint firstItem="fbq-ds-Eys" firstAttribute="leading" secondItem="QWN-WE-9fg" secondAttribute="trailing" constant="10" id="PMF-aE-fNd"/>
+                        <constraint firstItem="sUW-rp-HAq" firstAttribute="height" secondItem="pIg-Zf-dpS" secondAttribute="height" id="Q2y-Pr-ycP"/>
+                        <constraint firstAttribute="trailing" secondItem="fbq-ds-Eys" secondAttribute="trailing" constant="50" id="QyR-ZY-x84"/>
+                        <constraint firstItem="Now-QE-oab" firstAttribute="height" secondItem="sUW-rp-HAq" secondAttribute="height" id="S5E-XF-1dI"/>
+                        <constraint firstItem="QWN-WE-9fg" firstAttribute="top" secondItem="O4N-hr-0Bp" secondAttribute="bottom" constant="9" id="SF1-6N-Ag7"/>
+                        <constraint firstItem="vUy-es-NCC" firstAttribute="leading" secondItem="Gem-yA-rWw" secondAttribute="leading" constant="10" id="UkK-BV-sap"/>
+                        <constraint firstItem="O4N-hr-0Bp" firstAttribute="height" secondItem="vUy-es-NCC" secondAttribute="height" id="WOk-hd-PjY"/>
+                        <constraint firstItem="O4N-hr-0Bp" firstAttribute="leading" secondItem="vUy-es-NCC" secondAttribute="leading" id="XBI-cf-Z7a"/>
+                        <constraint firstItem="QWN-WE-9fg" firstAttribute="height" secondItem="O4N-hr-0Bp" secondAttribute="height" id="aHE-IG-5Aw"/>
+                        <constraint firstItem="HIp-6T-deq" firstAttribute="centerY" secondItem="sUW-rp-HAq" secondAttribute="centerY" id="bi1-pJ-gQ5"/>
+                        <constraint firstAttribute="bottom" secondItem="sUW-rp-HAq" secondAttribute="bottom" constant="15" id="fya-aC-Gex"/>
+                        <constraint firstItem="HIp-6T-deq" firstAttribute="height" secondItem="sUW-rp-HAq" secondAttribute="height" id="h47-9o-0fp"/>
+                        <constraint firstItem="HIp-6T-deq" firstAttribute="centerX" secondItem="Gem-yA-rWw" secondAttribute="centerX" id="m3y-L7-YEI"/>
+                        <constraint firstItem="QWN-WE-9fg" firstAttribute="leading" secondItem="O4N-hr-0Bp" secondAttribute="leading" id="pVz-ee-Qg5"/>
+                        <constraint firstItem="pIg-Zf-dpS" firstAttribute="top" secondItem="QWN-WE-9fg" secondAttribute="bottom" constant="9" id="rJJ-lE-hMv"/>
+                        <constraint firstItem="fbq-ds-Eys" firstAttribute="centerY" secondItem="QWN-WE-9fg" secondAttribute="centerY" id="wf2-V3-67C"/>
+                        <constraint firstItem="Now-QE-oab" firstAttribute="centerY" secondItem="sUW-rp-HAq" secondAttribute="centerY" id="zu7-4Z-ttu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hsh-Bj-z0y" firstAttribute="top" secondItem="EiK-7v-1Co" secondAttribute="top" id="FMd-n4-Yvb"/>
+                <constraint firstItem="Gem-yA-rWw" firstAttribute="top" secondItem="hsh-Bj-z0y" secondAttribute="bottom" constant="10" id="GLC-VR-d6o"/>
+                <constraint firstAttribute="trailing" secondItem="Gem-yA-rWw" secondAttribute="trailing" id="cJA-8B-Pk2"/>
+                <constraint firstItem="Gem-yA-rWw" firstAttribute="leading" secondItem="EiK-7v-1Co" secondAttribute="leading" id="dcC-AT-5ek"/>
+                <constraint firstItem="hsh-Bj-z0y" firstAttribute="leading" secondItem="EiK-7v-1Co" secondAttribute="leading" id="mD9-2B-aEk"/>
+                <constraint firstAttribute="trailing" secondItem="hsh-Bj-z0y" secondAttribute="trailing" id="yjS-M0-147"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-1673" y="-145"/>
+        </view>
+    </objects>
+</document>

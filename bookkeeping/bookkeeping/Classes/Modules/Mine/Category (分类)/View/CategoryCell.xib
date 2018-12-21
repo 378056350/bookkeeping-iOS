@@ -43,11 +43,19 @@
                             <action selector="actionClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="u6f-e8-JOt"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自定义" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4N-ba-fNg">
+                        <rect key="frame" x="142" y="0.0" width="52" height="128.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="9ZK-jL-W8r" secondAttribute="bottom" id="63J-Zg-xxM"/>
                     <constraint firstAttribute="bottom" secondItem="8Da-PP-acL" secondAttribute="bottom" id="6wX-ae-BCp"/>
                     <constraint firstItem="8Da-PP-acL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="F39-eR-buZ"/>
+                    <constraint firstItem="J4N-ba-fNg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Fi2-Zf-w1b"/>
+                    <constraint firstAttribute="bottom" secondItem="J4N-ba-fNg" secondAttribute="bottom" id="VXY-Jj-iBU"/>
                     <constraint firstAttribute="bottom" secondItem="UMZ-fS-e9X" secondAttribute="bottom" id="ZXD-ho-5mI"/>
                     <constraint firstItem="2it-Yq-D9v" firstAttribute="width" secondItem="UMZ-fS-e9X" secondAttribute="width" id="ZYh-R7-Zmz"/>
                     <constraint firstItem="9ZK-jL-W8r" firstAttribute="leading" secondItem="2it-Yq-D9v" secondAttribute="trailing" constant="15" id="dqK-EK-xyd"/>
@@ -57,17 +65,19 @@
                     <constraint firstItem="2it-Yq-D9v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="k7Y-e6-81c"/>
                     <constraint firstItem="9ZK-jL-W8r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="moh-M8-AlS"/>
                     <constraint firstItem="UMZ-fS-e9X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qcq-LZ-aL9"/>
+                    <constraint firstItem="J4N-ba-fNg" firstAttribute="leading" secondItem="9ZK-jL-W8r" secondAttribute="trailing" constant="5" id="vGv-Rm-YQP"/>
                     <constraint firstItem="UMZ-fS-e9X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vjL-Ci-iJ9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="actionBtn" destination="UMZ-fS-e9X" id="PuA-6B-w4H"/>
+                <outlet property="detailLab" destination="J4N-ba-fNg" id="ld4-j3-WFf"/>
                 <outlet property="icon" destination="2it-Yq-D9v" id="DUe-o2-yF1"/>
                 <outlet property="menuBtn" destination="8Da-PP-acL" id="GQY-0v-b8C"/>
                 <outlet property="nameLab" destination="9ZK-jL-W8r" id="bth-oS-Avk"/>
             </connections>
-            <point key="canvasLocation" x="312" y="42"/>
+            <point key="canvasLocation" x="-174" y="44"/>
         </tableViewCell>
     </objects>
     <resources>

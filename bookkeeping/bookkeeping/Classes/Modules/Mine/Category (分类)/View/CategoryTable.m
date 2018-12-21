@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 @property (nonatomic, strong) CADisplayLink *scrollTimer;
 /// 滚动方向
 @property (nonatomic, assign) LYFTableViewType scrollType;
-/// 数据
-@property (nonatomic, strong) NSMutableArray *datas;
+///// 数据
+//@property (nonatomic, strong) NSMutableArray *datas;
 
 @end
 
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     [table setDataSource:table];
     [table lineHide];
     [table lineAll];
-    table.datas = [NSMutableArray arrayWithArray:@[[NSMutableArray arrayWithArray:@[@"老大", @"老二", @"老三", @"老四", @"老五", @"老六", @"老七", @"老八", @"老九", @"老十"]], [NSMutableArray arrayWithArray:@[@"老1", @"老2", @"老3", @"老4", @"老5", @"老6", @"老7", @"老8", @"老9", @"老10"]]]];
+//    table.datas = [NSMutableArray arrayWithArray:@[[NSMutableArray arrayWithArray:@[@"老大", @"老二", @"老三", @"老四", @"老五", @"老六", @"老七", @"老八", @"老九", @"老十"]], [NSMutableArray arrayWithArray:@[@"老1", @"老2", @"老3", @"老4", @"老5", @"老6", @"老7", @"老8", @"老9", @"老10"]]]];
     [table setBackgroundColor:kColor_BG];
     [table setSeparatorColor:kColor_BG];
     [table setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(10))]];
@@ -60,18 +60,28 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 }
 
 
+#pragma mark - set
+- (void)setModel:(CategoryListModel *)model {
+    _model = model;
+    [self reloadData];
+}
+
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //    return 2;
-    return self.datas.count;
+    return _model.remove.count == 0 ? 1 : 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //    return 10;
-    NSMutableArray *data = self.datas[section];
-    return data.count;
+    if (section == 0) {
+        return _model.insert.count;
+    } else if (section == 1) {
+        return _model.remove.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CategoryCell *cell = [CategoryCell loadFirstNib:tableView];
+    cell.model = indexPath.section == 0 ? _model.insert[indexPath.row] : _model.remove[indexPath.row];
     cell.indexPath = indexPath;
     return cell;
 }
@@ -336,7 +346,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
 #pragma mark - 更新数据源
 - (void)updateData {
     // 通过DataSource代理获得原始数据源数组
-    NSMutableArray *tempArray = self.datas;
+//    NSMutableArray *tempArray = self.datas;
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:@[_model.insert, _model.remove]];
     // 判断原始数据源是否为多重数组
     if ([self arrayCheck:tempArray]) {
         // 是嵌套数组
@@ -349,7 +360,7 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
             [tempArray[self.newestIndexPath.section] insertObject:originalObj atIndex:self.newestIndexPath.item];
             [tempArray[self.oldIndexPath.section] removeObjectAtIndex:self.oldIndexPath.item];
         }
-    }else{
+    } else {
         // 不是嵌套数组
         [self moveObjectInMutableArray:tempArray fromIndex:self.oldIndexPath.row toIndex:self.newestIndexPath.row];
     }

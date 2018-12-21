@@ -4,12 +4,14 @@
  */
 
 #import "BaseCollectionCell.h"
+#import "BadgeListModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BadgeCollectionCell : BaseCollectionCell
 
-@property (nonatomic, assign) BOOL choose;
+@property (nonatomic, strong) BadgeModel *model;
 
 @end
 

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *actionBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UILabel *detailLab;
 @property (weak, nonatomic) IBOutlet UIButton *menuBtn;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longG;
 
@@ -25,8 +26,10 @@
 
 - (void)initUI {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
+    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];
+    [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightUltraLight]];
+    [self.detailLab setTextColor:kColor_Text_Gary];
     [self.actionBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self longG];
     
@@ -56,10 +59,18 @@
     if (indexPath.section == 0) {
         [self.actionBtn setImage:[UIImage imageNamed:@"category_delete"] forState:UIControlStateNormal];
         [self.actionBtn setImage:[UIImage imageNamed:@"category_delete"] forState:UIControlStateHighlighted];
+        [self.menuBtn setHidden:NO];
     } else {
         [self.actionBtn setImage:[UIImage imageNamed:@"category_add"] forState:UIControlStateNormal];
         [self.actionBtn setImage:[UIImage imageNamed:@"category_add"] forState:UIControlStateHighlighted];
+        [self.menuBtn setHidden:YES];
     }
+}
+- (void)setModel:(BookModel *)model {
+    _model = model;
+    [_nameLab setText:model.name];
+    [_detailLab setText:model.is_system == false ? @"(自定义)" : @""];
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
 }
 
 

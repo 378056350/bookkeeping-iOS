@@ -8,6 +8,9 @@
 #pragma mark - 声明
 @interface ACACollectionCell()
 
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintL;
+
 @end
 
 
@@ -16,8 +19,22 @@
 
 
 - (void)initUI {
-    
+    [self.iconConstraintL setConstant:countcoordinatesX(15)];
 }
+
+#pragma mark - set
+- (void)setModel:(ACAModel *)model {
+    _model = model;
+}
+- (void)setChoose:(BOOL)choose {
+    _choose = choose;
+    if (choose == YES) {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
+    } else {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+    }
+}
+
 
 
 @end

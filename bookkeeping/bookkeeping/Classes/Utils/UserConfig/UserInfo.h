@@ -4,7 +4,7 @@
  */
 
 #import <Foundation/Foundation.h>
-//#import <PINCache/PINDiskCache.h>
+#import <PINCache/PINDiskCache.h>
 #import "UserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

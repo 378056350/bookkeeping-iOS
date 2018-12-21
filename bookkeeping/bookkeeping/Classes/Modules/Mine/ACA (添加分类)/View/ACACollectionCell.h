@@ -4,10 +4,14 @@
  */
 
 #import "BaseCollectionCell.h"
+#import "ACAListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ACACollectionCell : BaseCollectionCell
+
+@property (nonatomic, strong) ACAModel *model;
+@property (nonatomic, assign) BOOL choose;
 
 @end
 

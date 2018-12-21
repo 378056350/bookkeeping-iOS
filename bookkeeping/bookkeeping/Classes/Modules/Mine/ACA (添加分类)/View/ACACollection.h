@@ -4,10 +4,13 @@
  */
 
 #import "BaseCollectionView.h"
+#import "ACAListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ACACollection : BaseCollectionView
+
+@property (nonatomic, strong) NSArray<ACAListModel *> *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 
