@@ -80,7 +80,18 @@
         }
     }];
 }
-
+// 添加原有类别
+- (void)addAleardyCategoryRequest {
+    @weakify(self)
+    [AFNManager POST:AddAleardyCategoryRequest complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            
+        } else {
+            
+        }
+    }];
+}
 
 
 #pragma mark - set

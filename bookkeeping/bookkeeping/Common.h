@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 //================================= Third ===================================//
-//#import <MBProgressHUD/MBProgressHUD.h>
+#import <JGProgressHUD/JGProgressHUD.h>
 #import <MJExtension/MJExtension.h>
 #import <JZNavigationExtension/JZNavigationExtension.h>
 #import <SDCycleScrollView/SDCycleScrollView.h>
@@ -52,9 +52,9 @@
 #import "UIScrollView+Extension.h"
 #import "UITableViewCell+Extension.h"
 //#import "PINCache+Extension.h"
-//#import "UIView+JGProgressHUD.h"
-//#import "UIViewController+JGProgressHUD.h"
-//#import "UIWindow+JGProgressHUD.h"
+#import "UIView+JGProgressHUD.h"
+#import "UIViewController+JGProgressHUD.h"
+#import "UIWindow+JGProgressHUD.h"
 
 
 //================================= Util =====================================//

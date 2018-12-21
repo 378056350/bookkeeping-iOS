@@ -21,5 +21,7 @@
 #define AddInsertCategoryListRequest Request(@"/shayu/addInsertCategoryRequest.action")
 // 记账列表
 #define CategoryListRequest Request(@"/shayu/getCategoryRequest.action")
+// 添加原有记账
+#define AddAleardyCategoryRequest Request(@"/shayu/addAleardyCategoryRequest.action")
 // 类别设置列表
 #define CategorySetListRequest Request(@"/shayu/getCategorySetRequest.action")

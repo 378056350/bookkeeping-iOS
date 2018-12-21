@@ -97,6 +97,10 @@
 		4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */; };
 		4B1917B021CD333000137215 /* BookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BookListModel.m */; };
 		4B1917B321CD391000137215 /* CategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917B221CD391000137215 /* CategoryListModel.m */; };
+		4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917C621CD45C900137215 /* UIView+JGProgressHUD.m */; };
+		4B1917CE21CD45C900137215 /* UIViewController+JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917C721CD45C900137215 /* UIViewController+JGProgressHUD.m */; };
+		4B1917CF21CD45C900137215 /* UIWindow+JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917C821CD45C900137215 /* UIWindow+JGProgressHUD.m */; };
+		4B1917D021CD45C900137215 /* NSObject+JGRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917CA21CD45C900137215 /* NSObject+JGRuntime.m */; };
 		4B1E127F21CA8041001F5B36 /* MineTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1E127E21CA8041001F5B36 /* MineTableHeader.xib */; };
 		4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */; };
 		4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */; };
@@ -341,6 +345,14 @@
 		4B1917AF21CD333000137215 /* BookListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListModel.m; sourceTree = "<group>"; };
 		4B1917B121CD391000137215 /* CategoryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryListModel.h; sourceTree = "<group>"; };
 		4B1917B221CD391000137215 /* CategoryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryListModel.m; sourceTree = "<group>"; };
+		4B1917C521CD45C900137215 /* NSObject+JGRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JGRuntime.h"; sourceTree = "<group>"; };
+		4B1917C621CD45C900137215 /* UIView+JGProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JGProgressHUD.m"; sourceTree = "<group>"; };
+		4B1917C721CD45C900137215 /* UIViewController+JGProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JGProgressHUD.m"; sourceTree = "<group>"; };
+		4B1917C821CD45C900137215 /* UIWindow+JGProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+JGProgressHUD.m"; sourceTree = "<group>"; };
+		4B1917C921CD45C900137215 /* UIView+JGProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JGProgressHUD.h"; sourceTree = "<group>"; };
+		4B1917CA21CD45C900137215 /* NSObject+JGRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JGRuntime.m"; sourceTree = "<group>"; };
+		4B1917CB21CD45C900137215 /* UIViewController+JGProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JGProgressHUD.h"; sourceTree = "<group>"; };
+		4B1917CC21CD45C900137215 /* UIWindow+JGProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+JGProgressHUD.h"; sourceTree = "<group>"; };
 		4B1E127E21CA8041001F5B36 /* MineTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineTableHeader.xib; sourceTree = "<group>"; };
 		4B1E128121CA8BD3001F5B36 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
 		4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
@@ -545,6 +557,7 @@
 		3219838E21C6436A00311885 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				4B1917C421CD45C900137215 /* JGProgressHUD */,
 				32A4C21B21CB15B000DF4327 /* JHCollectionViewDelegateFlowLayout */,
 			);
 			path = Third;
@@ -1107,6 +1120,21 @@
 				4B48530021C6984400891096 /* MineTableCell.xib */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		4B1917C421CD45C900137215 /* JGProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4B1917C521CD45C900137215 /* NSObject+JGRuntime.h */,
+				4B1917CA21CD45C900137215 /* NSObject+JGRuntime.m */,
+				4B1917C921CD45C900137215 /* UIView+JGProgressHUD.h */,
+				4B1917C621CD45C900137215 /* UIView+JGProgressHUD.m */,
+				4B1917CB21CD45C900137215 /* UIViewController+JGProgressHUD.h */,
+				4B1917C721CD45C900137215 /* UIViewController+JGProgressHUD.m */,
+				4B1917CC21CD45C900137215 /* UIWindow+JGProgressHUD.h */,
+				4B1917C821CD45C900137215 /* UIWindow+JGProgressHUD.m */,
+			);
+			path = JGProgressHUD;
 			sourceTree = "<group>";
 		};
 		4B1E128021CA8BC3001F5B36 /* UIScrollView */ = {
@@ -1772,6 +1800,7 @@
 				32A4C24721CB7D5900DF4327 /* ShareOrder.m in Sources */,
 				4BA68AF721C7F1D10063A5C2 /* ACAController.m in Sources */,
 				3219841521C6474600311885 /* UserModel.m in Sources */,
+				4B1917CE21CD45C900137215 /* UIViewController+JGProgressHUD.m in Sources */,
 				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
@@ -1814,6 +1843,7 @@
 				324484A321C726E90051B8B6 /* BadgeController.m in Sources */,
 				327CEC3121C89479001D0086 /* BookChart.m in Sources */,
 				4BA68AE321C7EB1D0063A5C2 /* CategoryHeader.m in Sources */,
+				4B1917CF21CD45C900137215 /* UIWindow+JGProgressHUD.m in Sources */,
 				4B35F1A321CCC641007271BE /* UIViewController+APPViewRequest.m in Sources */,
 				4B35F1A421CCC641007271BE /* APPViewRequest.m in Sources */,
 				4BE8CC0121C93960007935E2 /* KKPopup.m in Sources */,
@@ -1828,6 +1858,7 @@
 				3219840421C6460100311885 /* UICollectionReusableView+Extension.m in Sources */,
 				3219840021C6460100311885 /* UIView+Extension.m in Sources */,
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
+				4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */,
 				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
 				32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */,
@@ -1850,6 +1881,7 @@
 				3257AEDC21C877E500787A34 /* TITableCell.m in Sources */,
 				32D0B2CB21C782270030F5B2 /* ChartSubDateCell.m in Sources */,
 				4B132AA521C68DE500D5B489 /* BookCollectionView.m in Sources */,
+				4B1917D021CD45C900137215 /* NSObject+JGRuntime.m in Sources */,
 				32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */,
 				4B48530B21C69F2800891096 /* MineHeader.m in Sources */,
 				32A4C24421CB75DD00DF4327 /* AboutController.m in Sources */,
