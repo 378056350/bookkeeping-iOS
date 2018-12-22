@@ -1,10 +1,7 @@
-//
-//  AppDelegate.h
-//  bookkeeping
-//
-//  Created by zhongke on 2018/12/16.
-//  Copyright © 2018年 kk. All rights reserved.
-//
+/**
+ * 系统配置
+ * @author 郑业强 2018-12-16 创建文件
+ */
 
 #import <UIKit/UIKit.h>
 

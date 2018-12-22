@@ -38,6 +38,22 @@ PODS:
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
+  - UMCCommon (1.5.3)
+  - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.5):
+    - UMCCommon
+  - UMCShare/Social/ReducedQQ (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/SMS (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
 
 DEPENDENCIES:
   - AFNetworking (= 3.2.1)
@@ -53,6 +69,12 @@ DEPENDENCIES:
   - ReactiveObjC (= 3.1.0)
   - SDCycleScrollView (= 1.75)
   - SDWebImage (= 4.4.3)
+  - UMCCommon
+  - UMCSecurityPlugins
+  - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedSina
+  - UMCShare/Social/ReducedWeChat
+  - UMCShare/Social/SMS
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -71,6 +93,9 @@ SPEC REPOS:
     - ReactiveObjC
     - SDCycleScrollView
     - SDWebImage
+    - UMCCommon
+    - UMCSecurityPlugins
+    - UMCShare
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -88,7 +113,10 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
 
-PODFILE CHECKSUM: 6c80ff4c7bbc552fd735cafef853592fb9687b98
+PODFILE CHECKSUM: 0109436b66260ef3da63b576f2ca7b8404b99751
 
 COCOAPODS: 1.6.0.beta.2

@@ -5,7 +5,6 @@
 
 
 #import "MineView.h"
-#import "MineTableView.h"
 #import "MineHeader.h"
 #import "MINE_EVENT_MANAGER.h"
 
@@ -14,7 +13,6 @@
 @interface MineView()
 
 @property (nonatomic, strong) MineHeader *header;
-@property (nonatomic, strong) MineTableView *table;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end

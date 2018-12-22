@@ -8,6 +8,8 @@
 #import "BookNavigation.h"
 #import "BookKeyboard.h"
 #import "BookListModel.h"
+#import "CategoryController.h"
+#import "KKRefreshGifHeader.h"
 #import "BOOK_EVENT_MANAGER.h"
 
 
@@ -83,13 +85,37 @@
     [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * [index integerValue], 0) animated:YES];
 }
 // 点击item
-- (void)bookClickItem:(NSIndexPath *)indexPath {
-    [self.keyboard show];
-    
-    NSInteger page = _scroll.contentOffset.x / SCREEN_WIDTH;
-    BookCollectionView *collection = self.collections[page];
-    [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
-    [collection scrollToIndex:indexPath];
+- (void)bookClickItem:(BookCollectionView *)collection {
+    NSIndexPath *indexPath = collection.selectIndex;
+    BookListModel *listModel = _models[collection.tag];
+    // 选择类别
+    if (indexPath.row != (listModel.list.count - 1)) {
+        // 显示键盘
+        [self.keyboard show];
+        // 刷新
+        NSInteger page = _scroll.contentOffset.x / SCREEN_WIDTH;
+        BookCollectionView *collection = self.collections[page];
+        [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
+        [collection scrollToIndex:indexPath];
+    }
+    // 设置
+    else {
+        // 隐藏键盘
+        for (BookCollectionView *collection in self.collections) {
+            [collection reloadSelectIndex];
+            [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight];
+        }
+        [self.keyboard hide];
+        // 刷新
+        CategoryController *vc = [[CategoryController alloc] init];
+        [vc setIs_income:collection.tag];
+        [vc setComplete:^{
+            [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {
+                [self setModels:[BookListModel mj_objectArrayWithKeyValuesArray:result.data]];
+            }];
+        }];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
@@ -138,6 +164,7 @@
                 CGFloat height = SCREEN_HEIGHT - NavigationBarHeight;
                 CGRectMake(left, 0, width, height);
             })];
+            [collection setTag:i];
             [_scroll setContentSize:CGSizeMake(SCREEN_WIDTH * 2, 0)];
             [_scroll addSubview:collection];
             [_collections addObject:collection];
@@ -161,6 +188,7 @@
     }
     return _eventStrategy;
 }
+
 
 
 @end

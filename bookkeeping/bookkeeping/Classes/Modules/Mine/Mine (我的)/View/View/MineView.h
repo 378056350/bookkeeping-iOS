@@ -4,10 +4,13 @@
  */
 
 #import "BaseView.h"
+#import "MineTableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MineView : BaseView
+
+@property (nonatomic, strong) MineTableView *table;
 
 @end
 

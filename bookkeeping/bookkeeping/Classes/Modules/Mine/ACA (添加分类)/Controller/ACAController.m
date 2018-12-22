@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) ACATextField *textField;
 @property (nonatomic, strong) ACACollection *collection;
+@property (nonatomic, strong) ACAModel *selectModel;
 @property (nonatomic, strong) NSArray<ACAListModel *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
@@ -27,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:@"添加支出类别"];
+    [self setNavTitle:_is_income == true ? @"添加收入类别" : @"添加支出类别"];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.rightButton setTitle:@"完成" forState:UIControlStateNormal];
@@ -39,7 +40,7 @@
 }
 
 - (void)rightButtonClick {
-    
+    [self addCategoryRequest];
 }
 
 
@@ -55,6 +56,7 @@
 }
 // 点击item
 - (void)itemClick:(ACAModel *)model {
+    _selectModel = model;
     [self.textField setModel:model];
 }
 
@@ -68,30 +70,48 @@
         [self setModels:[ACAListModel mj_objectArrayWithKeyValuesArray:result.data]];
     }];
 }
-// 添加新类别
+// 添加自定义类别
 - (void)addCategoryRequest {
+    if (_textField.textField.text.length == 0) {
+        [self showTextHUD:@"类别名称不能为空" delay:1.f];
+        return;
+    }
+    
     @weakify(self)
-    [AFNManager POST:AddInsertCategoryListRequest complete:^(APPResult *result) {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           _textField.textField.text, @"name",
+                           @(_selectModel.Id), @"category_insert_id",
+                           @(1), @"customer_id",
+                           @(_is_income), @"is_income", nil];
+    [self showProgressHUD];
+    [AFNManager POST:AddInsertCategoryListRequest params:param complete:^(APPResult * _Nonnull result) {
         @strongify(self)
+        [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
-            
+            [self showTextHUD:result.message delay:1.5f];
+            if (self.complete) {
+                self.complete();
+            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
         } else {
-            
+            [self showTextHUD:result.message delay:1.5f];
         }
     }];
 }
-// 添加原有类别
-- (void)addAleardyCategoryRequest {
-    @weakify(self)
-    [AFNManager POST:AddAleardyCategoryRequest complete:^(APPResult *result) {
-        @strongify(self)
-        if (result.status == ServiceCodeSuccess) {
-            
-        } else {
-            
-        }
-    }];
-}
+//// 添加原有类别
+//- (void)addAleardyCategoryRequest {
+//    @weakify(self)
+//    [AFNManager POST:AddAleardyCategoryRequest complete:^(APPResult *result) {
+//        @strongify(self)
+//        if (result.status == ServiceCodeSuccess) {
+//
+//        } else {
+//
+//        }
+//    }];
+//}
 
 
 #pragma mark - set

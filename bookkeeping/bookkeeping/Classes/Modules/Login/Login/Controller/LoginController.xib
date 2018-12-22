@@ -18,6 +18,7 @@
                 <outlet property="moreBtnConstraintB" destination="Ucg-1X-Qmf" id="Hu7-FD-jUC"/>
                 <outlet property="nameIcn" destination="41F-Lt-L2T" id="H9o-bH-c3b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wxConstraintH" destination="mbY-8T-7Ax" id="63o-HX-EIZ"/>
                 <outlet property="wxLoginBtn" destination="Y4A-rR-Y0k" id="JlL-6J-4yX"/>
             </connections>
         </placeholder>
@@ -27,30 +28,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55f-rS-dGE">
-                    <rect key="frame" x="325" y="40" width="40" height="40"/>
-                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="325" y="30" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="WMZ-rn-ch0"/>
                         <constraint firstAttribute="width" secondItem="55f-rS-dGE" secondAttribute="height" multiplier="1:1" id="ehW-4v-Ffi"/>
                     </constraints>
+                    <state key="normal" image="login_close"/>
+                    <state key="highlighted" image="login_close_h"/>
                     <connections>
                         <action selector="closeBtnClick:" destination="-1" eventType="touchUpInside" id="mKw-Bm-qtZ"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-4z-ZXd">
-                    <rect key="frame" x="0.0" y="110" width="375" height="125"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-4z-ZXd">
+                    <rect key="frame" x="0.0" y="100" width="375" height="125"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ic0-4z-ZXd" secondAttribute="height" multiplier="3:1" id="ohh-bU-tjx"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="41F-Lt-L2T">
-                    <rect key="frame" x="0.0" y="255" width="375" height="50"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detail_share_shark" translatesAutoresizingMaskIntoConstraints="NO" id="41F-Lt-L2T">
+                    <rect key="frame" x="0.0" y="245" width="375" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="57N-Iu-Su7"/>
+                        <constraint firstAttribute="height" constant="30" id="57N-Iu-Su7"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4A-rR-Y0k">
-                    <rect key="frame" x="30" y="553" width="315" height="40"/>
+                    <rect key="frame" x="30" y="533" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="mbY-8T-7Ax"/>
                     </constraints>
@@ -76,11 +78,11 @@
                 <constraint firstItem="Ic0-4z-ZXd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="9iz-bF-haP"/>
                 <constraint firstItem="41F-Lt-L2T" firstAttribute="top" secondItem="Ic0-4z-ZXd" secondAttribute="bottom" constant="20" id="FOt-mb-oQ6"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="41F-Lt-L2T" secondAttribute="trailing" id="LLe-mR-Fz4"/>
-                <constraint firstItem="5jn-Kz-Fb5" firstAttribute="top" secondItem="Y4A-rR-Y0k" secondAttribute="bottom" constant="20" id="Sa3-mO-TQv"/>
+                <constraint firstItem="5jn-Kz-Fb5" firstAttribute="top" secondItem="Y4A-rR-Y0k" secondAttribute="bottom" constant="40" id="Sa3-mO-TQv"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="5jn-Kz-Fb5" secondAttribute="bottom" constant="20" id="Ucg-1X-Qmf"/>
                 <constraint firstItem="Ic0-4z-ZXd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ViL-gf-l7g"/>
                 <constraint firstItem="41F-Lt-L2T" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XFW-4C-KIA"/>
-                <constraint firstItem="55f-rS-dGE" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="e1N-i2-6nQ"/>
+                <constraint firstItem="55f-rS-dGE" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="e1N-i2-6nQ"/>
                 <constraint firstItem="5jn-Kz-Fb5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="m0l-gQ-Dhm"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="55f-rS-dGE" secondAttribute="trailing" constant="10" id="pdI-ki-Rd6"/>
                 <constraint firstItem="Y4A-rR-Y0k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qMb-8F-5j9"/>
@@ -91,4 +93,10 @@
             <point key="canvasLocation" x="237.59999999999999" y="63.418290854572717"/>
         </view>
     </objects>
+    <resources>
+        <image name="detail_share_shark" width="72" height="22"/>
+        <image name="login_close" width="22" height="22"/>
+        <image name="login_close_h" width="22" height="22"/>
+        <image name="share_icon" width="51" height="51"/>
+    </resources>
 </document>

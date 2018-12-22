@@ -7,6 +7,8 @@
 #define KKPrefixHeader_pch
 
 
+#define kUMengAppKey @"5c1dfcc9b465f5828200050f"
+
 
 // 单色
 #define kColor_White               HexColor(@"#FFFFFF")     // 白色

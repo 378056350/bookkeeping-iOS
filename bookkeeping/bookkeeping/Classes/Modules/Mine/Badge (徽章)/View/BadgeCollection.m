@@ -29,6 +29,13 @@
 }
 
 
+#pragma mark - set
+- (void)setModels:(NSArray<BadgeListModel *> *)models {
+    _models = models;
+    [self.collection reloadData];
+}
+
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.models.count;

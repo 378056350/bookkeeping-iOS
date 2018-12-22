@@ -9,7 +9,6 @@
 #pragma mark - 声明
 @interface ACATextField()<UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UIView *line;
 

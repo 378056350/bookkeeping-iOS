@@ -14,4 +14,10 @@ target ‘bookkeeping’ do
     pod 'JZNavigationExtension', '2.1'
     pod 'MJRefresh', '3.1.15.7'
     pod 'MGSwipeTableCell', '1.6.8'
+    pod 'UMCCommon', '1.5.3'
+    pod 'UMCSecurityPlugins', '1.0.6'
+    pod 'UMCShare/Social/ReducedWeChat'
+    pod 'UMCShare/Social/ReducedQQ'
+    pod 'UMCShare/Social/ReducedSina'
+    pod 'UMCShare/Social/SMS'
 end

@@ -6,6 +6,7 @@
 #import "BookCollectionView.h"
 #import "BookCollectionCell.h"
 #import "BookRefreshHeader.h"
+#import "CategoryController.h"
 #import "BOOK_EVENT_MANAGER.h"
 
 
@@ -49,6 +50,10 @@
 
 #pragma mark - set
 - (void)setModel:(BookListModel *)model {
+    BookModel *set = [BookModel createSetModel];
+    NSMutableArray<BookModel *> *list = model.list;
+    [list addObject:set];
+    
     _model = model;
     [self reloadData];
 }
@@ -90,20 +95,28 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    _selectIndex = indexPath;
-    [self reloadData];
-    [self routerEventWithName:BOOK_CLICK_ITEM data:indexPath];
+    // 记账
+    if (indexPath.row != (_model.list.count - 1)) {
+        _selectIndex = indexPath;
+        [self reloadData];
+        [self routerEventWithName:BOOK_CLICK_ITEM data:self];
+    }
+    // 设置
+    else {
+        _selectIndex = indexPath;
+        [self routerEventWithName:BOOK_CLICK_ITEM data:self];
+    }
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(countcoordinatesX(10), countcoordinatesX(10), countcoordinatesX(10), countcoordinatesX(10));
 }
-
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView.contentOffset.y < -54) {
         [self.viewController dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
 
 #pragma mark - get
 - (BookRefreshHeader *)mHeader {

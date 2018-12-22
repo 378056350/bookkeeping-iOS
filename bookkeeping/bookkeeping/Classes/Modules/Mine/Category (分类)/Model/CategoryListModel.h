@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CategoryListModel : BaseModel
 
 @property (nonatomic, assign) BOOL is_income;
-@property (nonatomic, strong) NSArray<BookModel *> *insert;
-@property (nonatomic, strong) NSArray<BookModel *> *remove;
+@property (nonatomic, strong) NSMutableArray<BookModel *> *insert;
+@property (nonatomic, strong) NSMutableArray<BookModel *> *remove;
 
 @end
 

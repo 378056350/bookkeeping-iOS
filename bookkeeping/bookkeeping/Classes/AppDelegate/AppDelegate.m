@@ -1,12 +1,10 @@
-//
-//  AppDelegate.m
-//  bookkeeping
-//
-//  Created by zhongke on 2018/12/16.
-//  Copyright © 2018年 kk. All rights reserved.
-//
+/**
+ * 系统配置
+ * @author 郑业强 2018-12-16 创建文件
+ */
 
 #import "AppDelegate.h"
+#import "AppDelegate+UMeng.h"
 
 #pragma mark - 声明
 @interface AppDelegate ()
@@ -21,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self makeRootController];
     [self makeConfig];
+    [self shareUMengConfig];
     return YES;
 }
 // 根控制器
@@ -36,11 +35,20 @@
 // 配置
 - (void)makeConfig {
     [[UITextField appearance] setTintColor:kColor_Main_Color];
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : kColor_Text_Gary, NSFontAttributeName : [UIFont systemFontOfSize:AdjustFont(18)]}];
-    
-//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[kColor_Text_Black colorWithAlphaComponent:0.5], NSForegroundColorAttributeName, [UIFont systemFontOfSize:AdjustFont(10)],NSFontAttributeName,nil] forState:UIControlStateNormal];
-//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MainColor, NSForegroundColorAttributeName, [UIFont systemFontOfSize:AdjustFont(10)],NSFontAttributeName,nil] forState:UIControlStateSelected];
 }
+
+
+
+// 支持所有iOS系统
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+    if (!result) {
+        
+    }
+    return result;
+}
+
+
 
 
 @end

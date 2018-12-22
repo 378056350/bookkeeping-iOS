@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *icon_s;
 @property (nonatomic, assign) BOOL is_income;
 @property (nonatomic, assign) BOOL is_system;
+@property (nonatomic, assign) NSInteger insert_id;
+
++ (BookModel *)createSetModel;
 
 @end
 
@@ -24,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BookListModel : BaseModel
 
 @property (nonatomic, assign) BOOL is_income;
-@property (nonatomic, strong) NSArray<BookModel *> *list;
+@property (nonatomic, strong) NSMutableArray<BookModel *> *list;
 
 @end
 

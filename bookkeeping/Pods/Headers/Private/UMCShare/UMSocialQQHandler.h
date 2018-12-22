@@ -1,0 +1,1 @@
+../../../UMCShare/UMShare/SocialLibraries/QQ/UMSocialQQHandler.h

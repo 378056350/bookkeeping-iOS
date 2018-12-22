@@ -5,6 +5,7 @@
 
 
 #import "LoginController.h"
+#import "RE1Controller.h"
 
 
 #pragma mark - 声明
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *wxLoginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreBtnConstraintB;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *wxConstraintH;
 
 @end
 
@@ -26,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setJz_navigationBarHidden:YES];
+    
     [self.wxLoginBtn.layer setCornerRadius:3];
     [self.wxLoginBtn.layer setMasksToBounds:YES];
     [self.wxLoginBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
@@ -39,6 +43,7 @@
     
     
     [self.moreBtnConstraintB setConstant:countcoordinatesX(20) + SafeAreaBottomHeight];
+    [self.wxConstraintH setConstant:countcoordinatesX(45)];
 }
 
 
@@ -52,11 +57,42 @@
 }
 // 微信
 - (IBAction)wxBtnClick:(UIButton *)sender {
-
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+        if (error) {
+            [self showTextHUD:@"登录失败" delay:1.5f];
+        } else {
+            UMSocialUserInfoResponse *resp = result;
+            // 授权信息
+            NSLog(@"QQ uid: %@", resp.uid);
+            NSLog(@"QQ openid: %@", resp.openid);
+            NSLog(@"QQ unionid: %@", resp.unionId);
+            NSLog(@"QQ accessToken: %@", resp.accessToken);
+            NSLog(@"QQ expiration: %@", resp.expiration);
+            // 用户信息
+            NSLog(@"QQ name: %@", resp.name);
+            NSLog(@"QQ iconurl: %@", resp.iconurl);
+            NSLog(@"QQ gender: %@", resp.unionGender);
+            // 第三方平台SDK源数据
+            NSLog(@"QQ originalResponse: %@", resp.originalResponse);
+        }
+    }];
 }
 // 更多登录方式
 - (IBAction)moreBtnClick:(UIButton *)sender {
-    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"注册", @"手机登录", nil];
+    [sheet showInView:self.view];
+    [[sheet rac_buttonClickedSignal] subscribeNext:^(NSNumber *number) {
+        NSInteger index = [number integerValue];
+        // 注册
+        if (index == 0) {
+            RE1Controller *vc = [[RE1Controller alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        // 手机登录
+        else if (index == 1) {
+            
+        }
+    }];
 }
 
 

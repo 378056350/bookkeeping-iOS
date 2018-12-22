@@ -113,7 +113,7 @@
     [HUD setShadow:[JGProgressHUDShadow shadowWithColor:[UIColor blackColor] offset:CGSizeZero radius:5.0 opacity:0.3f]];
     [HUD.textLabel setAttributedText:({
         NSDictionary *param = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                NSFontAttributeName: [UIFont systemFontOfSize:AdjustFont(30)]};
+                                NSFontAttributeName: [UIFont systemFontOfSize:AdjustFont(12)]};
         NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:text attributes:param];
         attr;
     })];

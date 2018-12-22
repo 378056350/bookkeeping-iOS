@@ -7,10 +7,12 @@
 #import "MineView.h"
 #import "BadgeController.h"
 #import "CategoryController.h"
+#import "WebVC.h"
 #import "TIController.h"
 #import "ShareController.h"
-#import "WebVC.h"
 #import "AboutController.h"
+#import "InfoController.h"
+#import "LoginController.h"
 #import "MINE_EVENT_MANAGER.h"
 
 
@@ -87,7 +89,17 @@
 }
 // 头像点击
 - (void)headerIconClick:(id)data {
-    
+    // 登录了
+    if ([UserInfo isLogin] == true) {
+        InfoController *vc = [[InfoController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    // 没登录
+    else {
+        LoginController *vc = [[LoginController alloc] init];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 // 打卡点击
 - (void)punchClick:(id)data {
@@ -133,6 +145,13 @@
                            };
     }
     return _eventStrategy;
+}
+
+
+#pragma mark - 系统
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.mine.table setContentOffset:CGPointZero animated:YES];
 }
 
 

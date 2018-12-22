@@ -6,6 +6,7 @@
 #import "CategoryTable.h"
 #import "CategoryCell.h"
 #import "CategorySectionHeader.h"
+#import "KKRefreshGifHeader.h"
 #import "CATEGORY_EVENT.h"
 
 
@@ -56,6 +57,7 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     [table setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(10))]];
     [table setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(20))]];
     [table setShowsVerticalScrollIndicator:NO];
+    [table setMj_header:[KKRefreshGifHeader headerWithRefreshingBlock:nil]];
     return table;
 }
 
@@ -174,12 +176,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     }
     // 添加
     else if (cell.indexPath.section == 1) {
-        
+        [self routerEventWithName:CATEGORY_ACTION_INSERT_CLICK data:cell];
     }
-}
-// 删除cell
-- (void)deleteCellClick:(CategoryCell *)cell {
-    NSLog(@"123");
 }
 
 
@@ -373,7 +371,6 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
         _eventStrategy = @{
                            CATEGORY_LONG_GESTURE: [self createInvocationWithSelector:@selector(longGesture:)],
                            CATEGORY_ACTION_CLICK: [self createInvocationWithSelector:@selector(actionCellClick:)],
-                           CATEGORY_ACTION_DELETE_CLICK: [self createInvocationWithSelector:@selector(deleteCellClick:)],
                            };
     }
     return _eventStrategy;

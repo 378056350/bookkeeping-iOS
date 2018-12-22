@@ -22,14 +22,11 @@
     [button setFrame:frame];
     [button setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [button setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
-    [button.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
+    [button.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [button setBackgroundImage:[UIColor createImageWithColor:kColor_White] forState:UIControlStateNormal];
     [button setBackgroundImage:[UIColor createImageWithColor:kColor_BG] forState:UIControlStateHighlighted];
     [button shadowWithColor:kColor_Text_Gary offset:CGSizeMake(0, -3) opacity:0.1 radius:5];
-    
-    @weakify(self);
     [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        @strongify(self)
         [button routerEventWithName:CATEGORY_BTN_CLICK data:nil];
     }];
     return button;

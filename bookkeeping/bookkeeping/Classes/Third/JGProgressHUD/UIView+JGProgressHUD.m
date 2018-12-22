@@ -242,7 +242,7 @@ static NSString *jgBackSetGetKey = @"jgBackSetGetKey";
 
     [HUD.textLabel setAttributedText:({
         NSDictionary *param = @{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                NSFontAttributeName: [UIFont systemFontOfSize:AdjustFont(30)]};
+                                NSFontAttributeName: [UIFont systemFontOfSize:AdjustFont(12)]};
         NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:text attributes:param];
         attr;
     })];
