@@ -6,6 +6,7 @@
 
 #import "LoginController.h"
 #import "RE1Controller.h"
+#import "PhoneController.h"
 
 
 #pragma mark - 声明
@@ -47,6 +48,36 @@
 }
 
 
+#pragma mark - 请求
+// QQ登录
+- (void)getQQLoginRequest:(UMSocialUserInfoResponse *)resp {
+    @weakify(self)
+    NSURL *url = [NSURL URLWithString:resp.iconurl];
+    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        @strongify(self)
+        if (error) {
+            [self showTextHUD:@"图片获取失败" delay:1.5f];
+            return;
+        }
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               resp.openid, @"openid",
+                               resp.name, @"nickname",
+                               [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
+        NSArray *images = @[image];
+        [self showProgressHUD];
+        @weakify(self)
+        [AFNManager POST:QQLoginRequest params:param andImages:images progress:nil complete:^(APPResult *result) {
+            @strongify(self)
+            [self hideHUD];
+            if (result.status == ServiceCodeSuccess) {
+                [self showTextHUD:result.message delay:1.5f];
+            } else {
+                [self showTextHUD:result.message delay:1.5f];
+            }
+        }];
+    }];
+}
+
 
 #pragma mark - 点击
 // 关闭
@@ -62,6 +93,7 @@
             [self showTextHUD:@"登录失败" delay:1.5f];
         } else {
             UMSocialUserInfoResponse *resp = result;
+            [self getQQLoginRequest:resp];
             // 授权信息
             NSLog(@"QQ uid: %@", resp.uid);
             NSLog(@"QQ openid: %@", resp.openid);
@@ -90,7 +122,8 @@
         }
         // 手机登录
         else if (index == 1) {
-            
+            PhoneController *vc = [[PhoneController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }];
 }

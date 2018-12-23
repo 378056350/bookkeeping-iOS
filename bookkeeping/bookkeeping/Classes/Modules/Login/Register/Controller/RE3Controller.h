@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RE3Controller : BaseViewController
 
+@property (nonatomic, assign) NSInteger index;  // 0: 注册   1: 找回密码
+
 @end
 
 NS_ASSUME_NONNULL_END

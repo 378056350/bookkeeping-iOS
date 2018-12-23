@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:@"注册"];
+    [self setNavTitle:_index == 0 ? @"注册" : @"找回密码"];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.view setBackgroundColor:kColor_BG];

@@ -34,6 +34,23 @@
     [self setJz_navigationBarHidden:YES];
     [self mine];
 }
+- (void)setupUI {
+    // 登录了
+    if ([UserInfo isLogin]) {
+        
+    }
+    // 未登录
+    else {
+        
+    }
+}
+
+
+#pragma mark - 请求
+// 获取个人信息
+- (void)getInfoRequest {
+    
+}
 
 
 #pragma mark - 事件

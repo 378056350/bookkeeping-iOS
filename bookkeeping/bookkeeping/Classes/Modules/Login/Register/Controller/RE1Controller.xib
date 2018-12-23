@@ -54,7 +54,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Qgx-Wi-dD8"/>
                     </constraints>
-                    <state key="normal" title="注册">
+                    <state key="normal" title="下一步">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
                     <connections>
@@ -78,7 +78,7 @@
                 <constraint firstItem="paC-m0-WJ3" firstAttribute="height" secondItem="vD5-nG-0Vp" secondAttribute="height" id="zt4-vj-Mgv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="580" y="-41"/>
+            <point key="canvasLocation" x="122" y="18"/>
         </view>
     </objects>
 </document>

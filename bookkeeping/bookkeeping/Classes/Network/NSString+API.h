@@ -7,7 +7,9 @@
 
 
 #define KHost @"http://127.0.0.1:8080"
+//#define KHost @"http://192.168.31.247:8080"
 #define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
+//#define KStatic(str) [NSString stringWithFormat:@"http://192.168.31.247:8080/media/%@", str]
 #define kUser  @"kUser"
 #define Request(A) [NSString stringWithFormat:@"%@%@", KHost, A]
 
@@ -30,3 +32,7 @@
 #define AddSystemCategoryRequest Request(@"/shayu/addSystemCategoryRequest.action")
 // 删除系统类别
 #define RemoveSystemCategoryRequest Request(@"/shayu/removeSystemCategoryRequest.action")
+
+
+// QQ第三方登录
+#define QQLoginRequest Request(@"/shayu/getQQLoginRequest.action")

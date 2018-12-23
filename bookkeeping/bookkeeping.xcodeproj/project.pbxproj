@@ -165,6 +165,9 @@
 		4BA68B0B21C7F75B0063A5C2 /* ACAReusableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA68B0921C7F75B0063A5C2 /* ACAReusableHeader.xib */; };
 		4BAF977121CE6365006EEF93 /* RE1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAF976F21CE6365006EEF93 /* RE1Controller.m */; };
 		4BAF977221CE6365006EEF93 /* RE1Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BAF977021CE6365006EEF93 /* RE1Controller.xib */; };
+		4BC41CFE21CF930600B397BD /* PhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC41CFC21CF930600B397BD /* PhoneController.m */; };
+		4BC41CFF21CF930600B397BD /* PhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC41CFD21CF930600B397BD /* PhoneController.xib */; };
+		4BC41D0121CFAA3200B397BD /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC41D0021CFAA3200B397BD /* 11.png */; };
 		4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC781FF21C917FA00760DF9 /* BookKeyboard.m */; };
 		4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC7820121C918F200760DF9 /* BookKeyboard.xib */; };
 		4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7845F21C6791E00B8EC46 /* HomeController.m */; };
@@ -542,6 +545,10 @@
 		4BAF976E21CE6365006EEF93 /* RE1Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RE1Controller.h; sourceTree = "<group>"; };
 		4BAF976F21CE6365006EEF93 /* RE1Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RE1Controller.m; sourceTree = "<group>"; };
 		4BAF977021CE6365006EEF93 /* RE1Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RE1Controller.xib; sourceTree = "<group>"; };
+		4BC41CFB21CF930600B397BD /* PhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneController.h; sourceTree = "<group>"; };
+		4BC41CFC21CF930600B397BD /* PhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneController.m; sourceTree = "<group>"; };
+		4BC41CFD21CF930600B397BD /* PhoneController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneController.xib; sourceTree = "<group>"; };
+		4BC41D0021CFAA3200B397BD /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		4BC781FE21C917FA00760DF9 /* BookKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookKeyboard.h; sourceTree = "<group>"; };
 		4BC781FF21C917FA00760DF9 /* BookKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookKeyboard.m; sourceTree = "<group>"; };
 		4BC7820121C918F200760DF9 /* BookKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookKeyboard.xib; sourceTree = "<group>"; };
@@ -688,6 +695,7 @@
 			children = (
 				3219838A21C642F400311885 /* KKPrefixHeader.pch */,
 				3219839521C6446300311885 /* Common.h */,
+				4BC41D0021CFAA3200B397BD /* 11.png */,
 				3219838B21C6436A00311885 /* Classes */,
 				3219837A21C642BB00311885 /* Main.storyboard */,
 				3219837D21C642BC00311885 /* Assets.xcassets */,
@@ -1062,6 +1070,7 @@
 			isa = PBXGroup;
 			children = (
 				4BAF976621CE6159006EEF93 /* Login */,
+				4BC41CF721CF92F800B397BD /* Phone */,
 				4BAF976721CE6182006EEF93 /* Register */,
 			);
 			path = Login;
@@ -1594,6 +1603,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4BC41CF721CF92F800B397BD /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				4BC41CF821CF92F800B397BD /* Controller */,
+				4BC41CF921CF92F800B397BD /* Model */,
+				4BC41CFA21CF92F800B397BD /* View */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		4BC41CF821CF92F800B397BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BC41CFB21CF930600B397BD /* PhoneController.h */,
+				4BC41CFC21CF930600B397BD /* PhoneController.m */,
+				4BC41CFD21CF930600B397BD /* PhoneController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BC41CF921CF92F800B397BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BC41CFA21CF92F800B397BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4BE7844A21C678FB00B8EC46 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -2066,6 +2109,7 @@
 				4BEB72DE21CE033300BEF013 /* dropdown_loading_02@2x.png in Resources */,
 				324484AF21C728C00051B8B6 /* LoginController.xib in Resources */,
 				4B97990221CE784F0020B207 /* RE3Controller.xib in Resources */,
+				4BC41D0121CFAA3200B397BD /* 11.png in Resources */,
 				4BEB731321CE033300BEF013 /* dropdown_anim__00050@2x.png in Resources */,
 				4BEB72E321CE033300BEF013 /* dropdown_anim__00034@2x.png in Resources */,
 				4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */,
@@ -2077,6 +2121,7 @@
 				4B35F1CD21CCD330007271BE /* KKBadge.xib in Resources */,
 				32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */,
 				4BA68ACD21C7E88F0063A5C2 /* BadgeReusableHeader.xib in Resources */,
+				4BC41CFF21CF930600B397BD /* PhoneController.xib in Resources */,
 				4BEB72ED21CE033300BEF013 /* dropdown_anim__00036@2x.png in Resources */,
 				4BEB72E421CE033300BEF013 /* dropdown_anim__00049@2x.png in Resources */,
 				4BEB731C21CE033300BEF013 /* dropdown_anim__00052@2x.png in Resources */,
@@ -2233,6 +2278,7 @@
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
 				4BA68AEB21C7ED550063A5C2 /* BottomButton.m in Sources */,
+				4BC41CFE21CF930600B397BD /* PhoneController.m in Sources */,
 				3219841421C6474600311885 /* UserInfo.m in Sources */,
 				4B35F1CB21CCD311007271BE /* KKBadge.m in Sources */,
 				3219840721C6460100311885 /* NSString+Encryption.m in Sources */,

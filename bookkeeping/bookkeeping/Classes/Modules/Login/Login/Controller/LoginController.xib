@@ -56,7 +56,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="mbY-8T-7Ax"/>
                     </constraints>
-                    <state key="normal" title="微信登录">
+                    <state key="normal" title="QQ登录">
                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
