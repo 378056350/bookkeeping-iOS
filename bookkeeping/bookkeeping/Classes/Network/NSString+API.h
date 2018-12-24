@@ -6,10 +6,10 @@
 #import <Foundation/Foundation.h>
 
 
-#define KHost @"http://127.0.0.1:8080"
-//#define KHost @"http://192.168.31.247:8080"
-#define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
-//#define KStatic(str) [NSString stringWithFormat:@"http://192.168.31.247:8080/media/%@", str]
+//#define KHost @"http://127.0.0.1:8080"
+#define KHost @"http://192.168.1.7:8080"
+//#define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
+#define KStatic(str) [NSString stringWithFormat:@"http://192.168.1.7:8080/media/%@", str]
 #define kUser  @"kUser"
 #define Request(A) [NSString stringWithFormat:@"%@%@", KHost, A]
 
@@ -36,3 +36,9 @@
 
 // QQ第三方登录
 #define QQLoginRequest Request(@"/shayu/getQQLoginRequest.action")
+// 账号登录
+#define PhoneLoginRequest Request(@"/shayu/getLoginRequest.action")
+// 注册
+#define RegisterRequest Request(@"/shayu/getRegisterRequest.action")
+// 创建验证码
+#define CreateCoderequest Request(@"/shayu/createCodeRequest.action")

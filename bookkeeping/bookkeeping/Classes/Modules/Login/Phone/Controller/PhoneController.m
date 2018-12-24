@@ -5,6 +5,8 @@
 
 #import "PhoneController.h"
 #import "RE1Controller.h"
+#import "LOGIN_NOTIFICATION.h"
+
 
 #pragma mark - 声明
 @interface PhoneController() {
@@ -93,8 +95,31 @@
 }
 
 
+#pragma mark - 请求
+- (void)getLoginRequest {
+    NSString *account = [self.phoneField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           account, @"account",
+                           self.passField.text, @"password", nil];
+    [self showProgressHUD];
+    [AFNManager POST:PhoneLoginRequest params:param complete:^(APPResult *result) {
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            NSDictionary *data = @{@"account": account, @"token": result.data};
+            [UserInfo saveUserInfo:data];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_LOGIN_COMPLETE object:nil];
+        } else {
+            [self showTextHUD:result.message delay:1.5f];
+        }
+    }];
+}
+
 
 #pragma mark - 点击
+// 登录
+- (IBAction)loginClick:(UIButton *)sender {
+    [self getLoginRequest];
+}
 // 关闭
 - (IBAction)closeBtnClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];

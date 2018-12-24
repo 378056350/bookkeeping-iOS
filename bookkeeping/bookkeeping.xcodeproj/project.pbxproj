@@ -91,6 +91,8 @@
 		32D0B2C721C77B240030F5B2 /* ChartDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2C621C77B240030F5B2 /* ChartDate.xib */; };
 		32D0B2CB21C782270030F5B2 /* ChartSubDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */; };
 		32D0B2CC21C782270030F5B2 /* ChartSubDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */; };
+		32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB40921D0EA820069DF99 /* CPAController.m */; };
+		32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB40A21D0EA820069DF99 /* CPAController.xib */; };
 		4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA121C68B2200D5B489 /* BaseTabBar.m */; };
 		4B132AA521C68DE500D5B489 /* BookCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA421C68DE500D5B489 /* BookCollectionView.m */; };
 		4B132AA921C68F4300D5B489 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA721C68F4300D5B489 /* BookCollectionCell.m */; };
@@ -416,6 +418,10 @@
 		32D0B2C821C782270030F5B2 /* ChartSubDateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSubDateCell.h; sourceTree = "<group>"; };
 		32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSubDateCell.m; sourceTree = "<group>"; };
 		32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartSubDateCell.xib; sourceTree = "<group>"; };
+		32EAB40821D0EA820069DF99 /* CPAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAController.h; sourceTree = "<group>"; };
+		32EAB40921D0EA820069DF99 /* CPAController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAController.m; sourceTree = "<group>"; };
+		32EAB40A21D0EA820069DF99 /* CPAController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPAController.xib; sourceTree = "<group>"; };
+		32EAB40D21D0F85C0069DF99 /* LOGIN_NOTIFICATION.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOGIN_NOTIFICATION.h; sourceTree = "<group>"; };
 		4B132AA021C68B2200D5B489 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
 		4B132AA121C68B2200D5B489 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
 		4B132AA321C68DE500D5B489 /* BookCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCollectionView.h; sourceTree = "<group>"; };
@@ -1069,6 +1075,7 @@
 		324484A421C727810051B8B6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				32EAB40D21D0F85C0069DF99 /* LOGIN_NOTIFICATION.h */,
 				4BAF976621CE6159006EEF93 /* Login */,
 				4BC41CF721CF92F800B397BD /* Phone */,
 				4BAF976721CE6182006EEF93 /* Register */,
@@ -1302,6 +1309,40 @@
 				4B48530021C6984400891096 /* MineTableCell.xib */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		32EAB40121D0E99D0069DF99 /* CP (修改密码) */ = {
+			isa = PBXGroup;
+			children = (
+				32EAB40221D0E99D0069DF99 /* Controller */,
+				32EAB40321D0E99D0069DF99 /* Model */,
+				32EAB40421D0E99D0069DF99 /* View */,
+			);
+			path = "CP (修改密码)";
+			sourceTree = "<group>";
+		};
+		32EAB40221D0E99D0069DF99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32EAB40821D0EA820069DF99 /* CPAController.h */,
+				32EAB40921D0EA820069DF99 /* CPAController.m */,
+				32EAB40A21D0EA820069DF99 /* CPAController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32EAB40321D0E99D0069DF99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32EAB40421D0E99D0069DF99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4B1917C421CD45C900137215 /* JGProgressHUD */ = {
@@ -1677,6 +1718,7 @@
 			isa = PBXGroup;
 			children = (
 				3244849C21C726570051B8B6 /* Mine (我的) */,
+				32EAB40121D0E99D0069DF99 /* CP (修改密码) */,
 				4BEB732121CE375F00BEF013 /* Info (个人信息) */,
 				3244849D21C726C10051B8B6 /* Badge (徽章) */,
 				4BA68AD221C7EA930063A5C2 /* Category (分类) */,
@@ -2092,6 +2134,7 @@
 				4BEB72F121CE033300BEF013 /* dropdown_anim__00051@2x.png in Resources */,
 				4BEB72F921CE033300BEF013 /* dropdown_anim__00030@2x.png in Resources */,
 				4BEB731021CE033300BEF013 /* dropdown_anim__00013@2x.png in Resources */,
+				32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */,
 				4BEB72EC21CE033300BEF013 /* dropdown_anim__00047@2x.png in Resources */,
 				4B35F1BE21CCC694007271BE /* KKGoodsEmpty.xib in Resources */,
 				4BEB72FF21CE033300BEF013 /* dropdown_anim__00056@2x.png in Resources */,
@@ -2264,6 +2307,7 @@
 				327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */,
 				321983B721C6459B00311885 /* BaseViewController.m in Sources */,
 				4B1917B321CD391000137215 /* CategoryListModel.m in Sources */,
+				32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */,
 				3219840321C6460100311885 /* UIFont+Extension.m in Sources */,
 				3219840D21C6460100311885 /* CALayer+Extension.m in Sources */,
 				321983BA21C6459B00311885 /* BaseView.m in Sources */,

@@ -57,10 +57,14 @@
     _indexPath = indexPath;
     self.status = ({
         InfoTableCellStatus status;
-        if (indexPath.row == 0) {
-            status = InfoTableCellStatusIcon;
-        } else if (indexPath.row == 1 || indexPath.row == 5) {
-            status = InfoTableCellStatusName;
+        if (indexPath.section == 0) {
+            if (indexPath.row == 0) {
+                status = InfoTableCellStatusIcon;
+            } else if (indexPath.row == 1 || indexPath.row == 5) {
+                status = InfoTableCellStatusName;
+            } else {
+                status = InfoTableCellStatusNext;
+            }
         } else {
             status = InfoTableCellStatusNext;
         }

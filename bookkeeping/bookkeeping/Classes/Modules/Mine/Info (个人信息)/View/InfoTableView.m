@@ -12,7 +12,7 @@
 #pragma mark - 声明
 @interface InfoTableView()<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *arr;
+@property (nonatomic, strong) NSArray<NSArray<NSString *> *> *arr;
 
 @end
 
@@ -36,14 +36,18 @@
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.arr.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arr[section].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InfoTableCell *cell = [InfoTableCell loadFirstNib:tableView];
     cell.indexPath = indexPath;
-    cell.name = self.arr[indexPath.row];
+    cell.name = self.arr[indexPath.section][indexPath.row];
     return cell;
 }
 
@@ -59,19 +63,28 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    InfoFooter *view = [InfoFooter loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(60))];
-    return view;
+    if (section == 1) {
+        InfoFooter *view = [InfoFooter loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(60))];
+        return view;
+    }
+    return [UIView new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return countcoordinatesX(60);
+    if (section == 1) {
+        return countcoordinatesX(60);
+    }
+    return 0.01f;
 }
 
 
 #pragma mark - get
-- (NSArray *)arr {
+- (NSArray<NSArray<NSString *> *> *)arr {
     if (!_arr) {
-        _arr = @[@"头像", @"ID", @"昵称", @"性别", @"手机号", @"微信"];
+        _arr = @[
+                 @[@"头像", @"ID", @"昵称", @"性别", @"手机号", @"微信"],
+                 @[@"修改密码"]
+                 ];
     }
     return _arr;
 }

@@ -7,6 +7,7 @@
 #import "LoginController.h"
 #import "RE1Controller.h"
 #import "PhoneController.h"
+#import "LOGIN_NOTIFICATION.h"
 
 
 #pragma mark - 声明
@@ -42,23 +43,49 @@
     [self.moreBtn setTitleColor:kColor_Text_Gary forState:UIControlStateNormal];
     [self.moreBtn setTitleColor:kColor_Text_Gary forState:UIControlStateHighlighted];
     
-    
     [self.moreBtnConstraintB setConstant:countcoordinatesX(20) + SafeAreaBottomHeight];
     [self.wxConstraintH setConstant:countcoordinatesX(45)];
+    
+    [self rac_notification_register];
 }
+
+// 监听通知
+- (void)rac_notification_register {
+    // 忘记密码完成
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_FORGET_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        NSLog(@"忘记密码完成");
+    }];
+    // 注册完成
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_REGISTER_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        NSLog(@"注册完成");
+    }];
+    // 登录完成
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_LOGIN_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        // 关闭
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        // 回调
+        if (self.complete) {
+            self.complete();
+        }
+    }];
+}
+
 
 
 #pragma mark - 请求
 // QQ登录
 - (void)getQQLoginRequest:(UMSocialUserInfoResponse *)resp {
     @weakify(self)
+    // 下载图片
     NSURL *url = [NSURL URLWithString:resp.iconurl];
-    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         @strongify(self)
+        // 失败
         if (error) {
             [self showTextHUD:@"图片获取失败" delay:1.5f];
             return;
         }
+        // 成功
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                resp.openid, @"openid",
                                resp.name, @"nickname",
@@ -70,7 +97,20 @@
             @strongify(self)
             [self hideHUD];
             if (result.status == ServiceCodeSuccess) {
-                [self showTextHUD:result.message delay:1.5f];
+                // 保存信息
+                NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       [result.data valueForKey:@"icon"], @"icon",
+                                       [result.data valueForKey:@"token"], @"token",
+                                       [resp name], @"nickname",
+                                       [resp openid], @"openid",
+                                       [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
+                [UserInfo saveUserInfo:data];
+                // 关闭
+                [self.navigationController dismissViewControllerAnimated:true completion:nil];
+                // 回调
+                if (self.complete) {
+                    self.complete();
+                }
             } else {
                 [self showTextHUD:result.message delay:1.5f];
             }
@@ -94,18 +134,6 @@
         } else {
             UMSocialUserInfoResponse *resp = result;
             [self getQQLoginRequest:resp];
-            // 授权信息
-            NSLog(@"QQ uid: %@", resp.uid);
-            NSLog(@"QQ openid: %@", resp.openid);
-            NSLog(@"QQ unionid: %@", resp.unionId);
-            NSLog(@"QQ accessToken: %@", resp.accessToken);
-            NSLog(@"QQ expiration: %@", resp.expiration);
-            // 用户信息
-            NSLog(@"QQ name: %@", resp.name);
-            NSLog(@"QQ iconurl: %@", resp.iconurl);
-            NSLog(@"QQ gender: %@", resp.unionGender);
-            // 第三方平台SDK源数据
-            NSLog(@"QQ originalResponse: %@", resp.originalResponse);
         }
     }];
 }

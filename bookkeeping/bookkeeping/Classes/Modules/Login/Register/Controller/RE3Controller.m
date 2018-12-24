@@ -47,15 +47,35 @@
     [self.pass2Field addTarget:self action:@selector(pass2ValueChange:) forControlEvents:UIControlEventEditingChanged];
     [self.tipLab setFont:[UIFont systemFontOfSize:AdjustFont(10) weight:UIFontWeightLight]];
     [self.tipLab setTextColor:kColor_Text_Gary];
+    [self.registerBtn.layer setCornerRadius:3];
+    [self.registerBtn.layer setMasksToBounds:true];
     
     [self.passConstraintL setConstant:countcoordinatesX(15)];
     [self.passConstraintR setConstant:countcoordinatesX(15)];
-    [self.passConstraintH setConstant:countcoordinatesX(50)];
+    [self.passConstraintH setConstant:countcoordinatesX(45)];
 }
+
+
+#pragma mark - 请求
+- (void)registerRequest {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"15265296375", @"account",
+                           @"123456", @"password", nil];
+    @weakify(self)
+    [AFNManager POST:RegisterRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            
+        } else {
+            
+        }
+    }];
+}
+
 
 // 注册
 - (IBAction)registerBtnClick:(UIButton *)sender {
-    
+    [self registerRequest];
 }
 
 

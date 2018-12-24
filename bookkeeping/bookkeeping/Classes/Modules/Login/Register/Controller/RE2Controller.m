@@ -52,29 +52,31 @@
     [self.nextBtn.layer setCornerRadius:3];
     [self.nextBtn.layer setMasksToBounds:YES];
     [self buttonCanTap:false];
-    
-    // 60s重新获取
-    
-    
-    [self.phoneField setText:@"152-6529-6375"];
+    [self.phoneField setText:self.phone];
     
     [self.phoneConstraintL setConstant:countcoordinatesX(15)];
     [self.phoneConstraintR setConstant:countcoordinatesX(15)];
-    [self.phoneConstraintH setConstant:countcoordinatesX(50)];
-    
+    [self.phoneConstraintH setConstant:countcoordinatesX(45)];
+}
+
+
+#pragma mark - 请求
+- (void)getCodeRequest {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"", @"", nil];
+    @weakify(self)
+    [AFNManager POST:CreateCoderequest params:param complete:^(APPResult *result) {
+        if (result.status == ServiceCodeSuccess) {
+            
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
 }
 
 
 
-// 验证码编辑
-- (void)codeValueChange:(UITextField *)code {
-    if (code.text.length > 6) {
-        code.text = [code.text substringToIndex:6];
-    }
-    [self buttonCanTap:code.text.length == 6];
-}
-
-
+#pragma mark - 点击
 // 获取验证码
 - (IBAction)codeBtnClick:(UIButton *)sender {
     [self.countDown countDownWithStratTimeStamp:0 finishTimeStamp:3 * 1000 completeBlock:^(NSInteger day, NSInteger hour, NSInteger minute, NSInteger second) {
@@ -90,14 +92,16 @@
         }
     }];
 }
-
 // 下一步
 - (IBAction)nextBtnClick:(UIButton *)sender {
     RE3Controller *vc = [[RE3Controller alloc] init];
+    vc.index = _index;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
+// 点背景
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 // 按钮是否可以点击
 - (void)buttonCanTap:(BOOL)tap {
     if (tap == true) {
@@ -118,8 +122,12 @@
 }
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+// 验证码编辑
+- (void)codeValueChange:(UITextField *)code {
+    if (code.text.length > 6) {
+        code.text = [code.text substringToIndex:6];
+    }
+    [self buttonCanTap:code.text.length == 6];
 }
 
 

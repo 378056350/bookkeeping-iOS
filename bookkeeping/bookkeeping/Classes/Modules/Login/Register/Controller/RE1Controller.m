@@ -45,7 +45,7 @@
     [self.line setBackgroundColor:kColor_Line_Color];
     [self buttonCanTap:false];
     
-    [self.nameConstraintH setConstant:countcoordinatesX(50)];
+    [self.nameConstraintH setConstant:countcoordinatesX(45)];
     [self.nameConstraintL setConstant:countcoordinatesX(15)];
     [self.textConstraintR setConstant:countcoordinatesX(15)];
 }
@@ -110,6 +110,8 @@
         if ([number integerValue] == 1) {
             [self.view endEditing:YES];
             RE2Controller *vc = [[RE2Controller alloc] init];
+            vc.index = self.index;
+            vc.phone = self.nameLab.text;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }];

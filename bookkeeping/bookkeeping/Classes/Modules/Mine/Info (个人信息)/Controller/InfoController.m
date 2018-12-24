@@ -89,8 +89,6 @@
 }
 
 
-
-
 #pragma mark - get
 - (InfoTableView *)table {
     if (!_table) {
