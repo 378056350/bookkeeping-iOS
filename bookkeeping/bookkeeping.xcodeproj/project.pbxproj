@@ -1707,8 +1707,8 @@
 		4BE7845121C678FB00B8EC46 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				32D0B2B321C76CC50030F5B2 /* View */,
 				32D0B2B421C76CC50030F5B2 /* Header */,
+				32D0B2B321C76CC50030F5B2 /* View */,
 				32D0B2B521C76CC60030F5B2 /* Table */,
 			);
 			path = View;
