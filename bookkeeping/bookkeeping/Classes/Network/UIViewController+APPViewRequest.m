@@ -18,5 +18,18 @@
     return [self.view afn_request];
 }
 
+- (void)createRequest:(NSString *)url
+               params:(NSDictionary * _Nullable )params
+             complete:(AFNManagerCompleteBlock)complete {
+    [self.view createRequest:url params:params complete:complete];
+}
+- (void)createRequest:(NSString *)url
+               params:(NSDictionary * _Nullable )params
+             progress:(AFNManagerProgressBlock)progress
+             complete:(AFNManagerCompleteBlock)complete {
+    [self.view createRequest:url params:params progress:progress complete:complete];
+}
+
+
 
 @end

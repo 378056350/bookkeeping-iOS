@@ -4,6 +4,7 @@
  */
 
 #import "RE3Controller.h"
+#import "LOGIN_NOTIFICATION.h"
 
 
 #pragma mark - 声明
@@ -57,28 +58,34 @@
 
 
 #pragma mark - 请求
+// 注册
 - (void)registerRequest {
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"15265296375", @"account",
-                           @"123456", @"password", nil];
+                           self.phone, @"account",
+                           self.pass1Field.text, @"password", nil];
+    [self.view endEditing:true];
+    [self showProgressHUD];
     @weakify(self)
     [AFNManager POST:RegisterRequest params:param complete:^(APPResult *result) {
         @strongify(self)
+        [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
-            
+            NSDictionary *param = @{@"phone": self.phone, @"password": self.pass1Field.text};
+            [UserInfo saveUserInfo:param];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_REGISTER_COMPLETE object:nil];
         } else {
-            
+            [self showTextHUD:result.message delay:1.f];
         }
     }];
 }
 
 
+
+#pragma mark - 点击
 // 注册
 - (IBAction)registerBtnClick:(UIButton *)sender {
     [self registerRequest];
 }
-
-
 // 按钮是否可以点击
 - (void)buttonCanTap:(BOOL)tap {
     if (tap == true) {

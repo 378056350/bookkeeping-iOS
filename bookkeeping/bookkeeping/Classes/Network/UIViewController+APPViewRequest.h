@@ -15,6 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) APPViewRequest *afn_request;
 
+- (void)createRequest:(NSString *)url
+               params:(NSDictionary * _Nullable )params
+             complete:(AFNManagerCompleteBlock)complete;
+- (void)createRequest:(NSString *)url
+               params:(NSDictionary * _Nullable )params
+             progress:(AFNManagerProgressBlock)progress
+             complete:(AFNManagerCompleteBlock)complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

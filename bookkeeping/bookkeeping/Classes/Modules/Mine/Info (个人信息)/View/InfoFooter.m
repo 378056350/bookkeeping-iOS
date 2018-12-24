@@ -24,7 +24,7 @@
     [self.nameBtn setBackgroundImage:[UIColor createImageWithColor:kColor_White] forState:UIControlStateNormal];
     [self.nameBtn setBackgroundImage:[UIColor createImageWithColor:kColor_BG] forState:UIControlStateHighlighted];
     
-    [self.btnConstraintT setConstant:countcoordinatesX(15)];
+    [self.btnConstraintT setConstant:countcoordinatesX(10)];
 }
 
 @end

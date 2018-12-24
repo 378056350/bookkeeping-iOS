@@ -6,6 +6,7 @@
 #ifndef INFO_EVENT_MANAGER_h
 #define INFO_EVENT_MANAGER_h
 
-#define INFO_CELL_CLICK @"INFO_CELL_CLICK"  // 点击cell
+#define INFO_CELL_CLICK @"INFO_CELL_CLICK"      // 点击cell
+#define INFO_FOOTER_CLICK @"INFO_FOOTER_CLICK"  // 点击尾视图
 
 #endif

@@ -5,6 +5,7 @@
 
 #import "InfoController.h"
 #import "InfoTableView.h"
+#import "InfoModel.h"
 #import "INFO_EVENT_MANAGER.h"
 
 
@@ -12,6 +13,7 @@
 @interface InfoController()
 
 @property (nonatomic, strong) InfoTableView *table;
+@property (nonatomic, strong) InfoModel *model;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -28,6 +30,32 @@
     [self setJz_navigationBarHidden:NO];
     [self.view setBackgroundColor:kColor_Line_Color];
     [self table];
+    [self createInfoRequest];
+}
+
+
+#pragma mark - 请求
+- (void)createInfoRequest {
+    UserModel *model = [UserInfo loadUserInfo];
+    NSString *key = model.openid ? @"openid" : @"account";
+    NSString *value = model.openid ? model.openid : model.account;
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:value, key, nil];
+    @weakify(self)
+    [self createRequest:InfoRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            [self setModel:[InfoModel mj_objectWithKeyValues:result.data]];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+
+
+#pragma mark - set
+- (void)setModel:(InfoModel *)model {
+    _model = model;
+    _table.model = model;
 }
 
 
@@ -41,6 +69,7 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 点击cell
 - (void)cellClick:(NSIndexPath *)indexPath {
     // 拍照
     if (indexPath.row == 0) {
@@ -59,6 +88,21 @@
         
     }
 }
+// 点击尾视图
+- (void)footerClick:(id)data {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"退出后不会删除任何历史数据，下次登录依然可以使用本账号" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出登录" otherButtonTitles: nil];
+    [sheet showInView:self.view];
+    [[sheet rac_buttonClickedSignal] subscribeNext:^(NSNumber *number) {
+        NSInteger index = [number integerValue];
+        if (index == 0) {
+            [UserInfo clearUserInfo];
+            [self.navigationController popViewControllerAnimated:true];
+        } else if (index == 1) {
+            NSLog(@"123");
+        }
+    }];
+}
+
 
 // 拍照
 - (void)takePhoto {
@@ -89,6 +133,7 @@
 }
 
 
+
 #pragma mark - get
 - (InfoTableView *)table {
     if (!_table) {
@@ -101,7 +146,7 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            INFO_CELL_CLICK: [self createInvocationWithSelector:@selector(cellClick:)],
-                           
+                           INFO_FOOTER_CLICK: [self createInvocationWithSelector:@selector(footerClick:)],
                            };
     }
     return _eventStrategy;

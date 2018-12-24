@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 读取个人信息
 + (UserModel *)loadUserInfo;
 
+// 清除登录信息
++ (void)clearUserInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

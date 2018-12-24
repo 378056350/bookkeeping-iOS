@@ -103,7 +103,8 @@
 // 注册
 - (IBAction)registerBtnClick:(UIButton *)sender {
     @weakify(self)
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请确认手机号\n152-6529-6375" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    NSString *str = [NSString stringWithFormat:@"请确认手机号\n%@", self.textfield.text];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alert show];
     [[alert rac_buttonClickedSignal] subscribeNext:^(NSNumber *number) {
         @strongify(self)
@@ -111,7 +112,7 @@
             [self.view endEditing:YES];
             RE2Controller *vc = [[RE2Controller alloc] init];
             vc.index = self.index;
-            vc.phone = self.nameLab.text;
+            vc.phone = self.textfield.text;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }];

@@ -29,4 +29,11 @@
 }
 
 
+// 清除登录信息
++ (void)clearUserInfo {
+    [[PINDiskCache sharedCache] removeObjectForKey:kUser];
+}
+
+
+
 @end

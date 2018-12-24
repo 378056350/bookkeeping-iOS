@@ -13,6 +13,7 @@
 @interface InfoTableView()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray<NSArray<NSString *> *> *arr;
+@property (nonatomic, strong) InfoFooter *footerv;
 
 @end
 
@@ -35,9 +36,24 @@
 }
 
 
+#pragma mark - set
+- (void)setModel:(InfoModel *)model {
+    _model = model;
+    [self reloadData];
+}
+
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.arr.count;
+    if (_model) {
+        if (_model.phone) {
+            return self.arr.count;
+        }
+        else if (_model.qq_openid) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,18 +79,45 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 1) {
-        InfoFooter *view = [InfoFooter loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(60))];
-        return view;
+    if (_model) {
+        if (_model.phone) {
+            if (section == 0) {
+                return [UIView new];
+            }
+            else {
+                return [self footerv];
+            }
+        } else if (_model.qq_openid) {
+            if (section == 0) {
+                return [self footerv];
+            }
+            else {
+                return [UIView new];
+            }
+        }
     }
     return [UIView new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 1) {
-        return countcoordinatesX(60);
+    if (_model) {
+        if (_model.phone) {
+            if (section == 0) {
+                return countcoordinatesX(10);
+            }
+            else {
+                return countcoordinatesX(60);
+            }
+        } else if (_model.qq_openid) {
+            if (section == 0) {
+                return countcoordinatesX(60);
+            }
+            else {
+                return countcoordinatesX(10);
+            }
+        }
     }
-    return 0.01f;
+    return 0;
 }
 
 
@@ -87,6 +130,17 @@
                  ];
     }
     return _arr;
+}
+- (InfoFooter *)footerv {
+    if (!_footerv) {
+        @weakify(self)
+        _footerv = [InfoFooter loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(60))];
+        [_footerv addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+            @strongify(self)
+            [self routerEventWithName:INFO_FOOTER_CLICK data:nil];
+        }];
+    }
+    return _footerv;
 }
 
 

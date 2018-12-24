@@ -138,6 +138,8 @@
 		4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B48530721C69A2E00891096 /* MineTableHeader.m */; };
 		4B48530B21C69F2800891096 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B48530A21C69F2800891096 /* MineHeader.m */; };
 		4B48530D21C69F6E00891096 /* MineHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48530C21C69F6E00891096 /* MineHeader.xib */; };
+		4B7560B321D1224A00E63744 /* BaseViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7560B221D1224A00E63744 /* BaseViewController+Extension.m */; };
+		4B7560B721D12D9000E63744 /* InfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7560B621D12D9000E63744 /* InfoModel.m */; };
 		4B9798F821CE69DB0020B207 /* RE2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798F621CE69DB0020B207 /* RE2Controller.m */; };
 		4B9798F921CE69DB0020B207 /* RE2Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9798F721CE69DB0020B207 /* RE2Controller.xib */; };
 		4B9798FD21CE744A0020B207 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798FC21CE744A0020B207 /* CountDown.m */; };
@@ -504,6 +506,10 @@
 		4B48530921C69F2800891096 /* MineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHeader.h; sourceTree = "<group>"; };
 		4B48530A21C69F2800891096 /* MineHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHeader.m; sourceTree = "<group>"; };
 		4B48530C21C69F6E00891096 /* MineHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHeader.xib; sourceTree = "<group>"; };
+		4B7560B121D1224A00E63744 /* BaseViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+Extension.h"; sourceTree = "<group>"; };
+		4B7560B221D1224A00E63744 /* BaseViewController+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+Extension.m"; sourceTree = "<group>"; };
+		4B7560B521D12D9000E63744 /* InfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoModel.h; sourceTree = "<group>"; };
+		4B7560B621D12D9000E63744 /* InfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoModel.m; sourceTree = "<group>"; };
 		4B9798F521CE69DB0020B207 /* RE2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RE2Controller.h; sourceTree = "<group>"; };
 		4B9798F621CE69DB0020B207 /* RE2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RE2Controller.m; sourceTree = "<group>"; };
 		4B9798F721CE69DB0020B207 /* RE2Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RE2Controller.xib; sourceTree = "<group>"; };
@@ -1075,7 +1081,7 @@
 		324484A421C727810051B8B6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				32EAB40D21D0F85C0069DF99 /* LOGIN_NOTIFICATION.h */,
+				4B7560B421D1225500E63744 /* Tool */,
 				4BAF976621CE6159006EEF93 /* Login */,
 				4BC41CF721CF92F800B397BD /* Phone */,
 				4BAF976721CE6182006EEF93 /* Register */,
@@ -1418,6 +1424,16 @@
 				4B35F1CC21CCD330007271BE /* KKBadge.xib */,
 			);
 			path = KKBadge;
+			sourceTree = "<group>";
+		};
+		4B7560B421D1225500E63744 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				32EAB40D21D0F85C0069DF99 /* LOGIN_NOTIFICATION.h */,
+				4B7560B121D1224A00E63744 /* BaseViewController+Extension.h */,
+				4B7560B221D1224A00E63744 /* BaseViewController+Extension.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		4B9798FA21CE744A0020B207 /* CountDown */ = {
@@ -2004,6 +2020,8 @@
 		4BEB732221CE377800BEF013 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B7560B521D12D9000E63744 /* InfoModel.h */,
+				4B7560B621D12D9000E63744 /* InfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2284,11 +2302,13 @@
 				4B97990121CE784F0020B207 /* RE3Controller.m in Sources */,
 				4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */,
 				32A4C24121CB749B00DF4327 /* WebVC.m in Sources */,
+				4B7560B321D1224A00E63744 /* BaseViewController+Extension.m in Sources */,
 				327CEC1D21C88A04001D0086 /* HomeListHeader.m in Sources */,
 				321983B921C6459B00311885 /* BaseTabBarController.m in Sources */,
 				321983FF21C6460100311885 /* UIView+Visuals.m in Sources */,
 				32D0B2C521C77AD70030F5B2 /* ChartSubDate.m in Sources */,
 				321983C221C6459B00311885 /* BaseModel.m in Sources */,
+				4B7560B721D12D9000E63744 /* InfoModel.m in Sources */,
 				4BA68AE021C7EAAA0063A5C2 /* CategoryController.m in Sources */,
 				4BA68AFF21C7F61E0063A5C2 /* ACACollection.m in Sources */,
 				321983BB21C6459B00311885 /* BaseService.m in Sources */,

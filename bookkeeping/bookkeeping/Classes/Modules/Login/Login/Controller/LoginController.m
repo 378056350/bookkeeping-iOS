@@ -7,6 +7,7 @@
 #import "LoginController.h"
 #import "RE1Controller.h"
 #import "PhoneController.h"
+#import "BaseViewController+Extension.h"
 #import "LOGIN_NOTIFICATION.h"
 
 
@@ -57,7 +58,12 @@
     }];
     // 注册完成
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_REGISTER_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
-        NSLog(@"注册完成");
+        // 关闭
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        // 回调
+        if (self.complete) {
+            self.complete();
+        }
     }];
     // 登录完成
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_LOGIN_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
@@ -75,47 +81,47 @@
 #pragma mark - 请求
 // QQ登录
 - (void)getQQLoginRequest:(UMSocialUserInfoResponse *)resp {
-    @weakify(self)
-    // 下载图片
-    NSURL *url = [NSURL URLWithString:resp.iconurl];
-    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        @strongify(self)
-        // 失败
-        if (error) {
-            [self showTextHUD:@"图片获取失败" delay:1.5f];
-            return;
-        }
-        // 成功
-        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               resp.openid, @"openid",
-                               resp.name, @"nickname",
-                               [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
-        NSArray *images = @[image];
-        [self showProgressHUD];
-        @weakify(self)
-        [AFNManager POST:QQLoginRequest params:param andImages:images progress:nil complete:^(APPResult *result) {
-            @strongify(self)
-            [self hideHUD];
-            if (result.status == ServiceCodeSuccess) {
-                // 保存信息
-                NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       [result.data valueForKey:@"icon"], @"icon",
-                                       [result.data valueForKey:@"token"], @"token",
-                                       [resp name], @"nickname",
-                                       [resp openid], @"openid",
-                                       [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
-                [UserInfo saveUserInfo:data];
-                // 关闭
-                [self.navigationController dismissViewControllerAnimated:true completion:nil];
-                // 回调
-                if (self.complete) {
-                    self.complete();
-                }
-            } else {
-                [self showTextHUD:result.message delay:1.5f];
-            }
-        }];
-    }];
+//    @weakify(self)
+//    // 下载图片
+//    NSURL *url = [NSURL URLWithString:resp.iconurl];
+//    [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//        @strongify(self)
+//        // 失败
+//        if (error) {
+//            [self showTextHUD:@"图片获取失败" delay:1.5f];
+//            return;
+//        }
+//        // 成功
+//        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+//                               resp.openid, @"openid",
+//                               resp.name, @"nickname",
+//                               [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
+//        NSArray *images = @[image];
+//        [self showProgressHUD];
+//        @weakify(self)
+//        [AFNManager POST:QQLoginRequest params:param andImages:images progress:nil complete:^(APPResult *result) {
+//            @strongify(self)
+//            [self hideHUD];
+//            if (result.status == ServiceCodeSuccess) {
+//                // 保存信息
+//                NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                       [result.data valueForKey:@"icon"], @"icon",
+//                                       [result.data valueForKey:@"token"], @"token",
+//                                       [resp name], @"nickname",
+//                                       [resp openid], @"openid",
+//                                       [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
+//                [UserInfo saveUserInfo:data];
+//                // 关闭
+//                [self.navigationController dismissViewControllerAnimated:true completion:nil];
+//                // 回调
+//                if (self.complete) {
+//                    self.complete();
+//                }
+//            } else {
+//                [self showTextHUD:result.message delay:1.5f];
+//            }
+//        }];
+//    }];
 }
 
 
@@ -128,14 +134,18 @@
 }
 // 微信
 - (IBAction)wxBtnClick:(UIButton *)sender {
-    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
-        if (error) {
-            [self showTextHUD:@"登录失败" delay:1.5f];
-        } else {
-            UMSocialUserInfoResponse *resp = result;
-            [self getQQLoginRequest:resp];
-        }
+    [self startQQLogin:^{
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
     }];
+    
+//    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+//        if (error) {
+//            [self showTextHUD:@"登录失败" delay:1.5f];
+//        } else {
+//            UMSocialUserInfoResponse *resp = result;
+//            [self getQQLoginRequest:resp];
+//        }
+//    }];
 }
 // 更多登录方式
 - (IBAction)moreBtnClick:(UIButton *)sender {

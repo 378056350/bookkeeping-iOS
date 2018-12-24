@@ -57,29 +57,53 @@
     [self.phoneConstraintL setConstant:countcoordinatesX(15)];
     [self.phoneConstraintR setConstant:countcoordinatesX(15)];
     [self.phoneConstraintH setConstant:countcoordinatesX(45)];
+    [self getCodeRequest];
 }
 
 
 #pragma mark - 请求
+// 创建验证码
 - (void)getCodeRequest {
+    NSString *account = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"", @"", nil];
+                           account, @"account",
+                           @(1), @"operation",nil];
+    [self showProgressHUD];
     @weakify(self)
     [AFNManager POST:CreateCoderequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
-            
+            [self countDownBegin];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+// 验证验证码
+- (void)validateRequest {
+    NSString *account = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           account, @"account",
+                           self.codeField.text, @"code",nil];
+    [self showProgressHUD];
+    @weakify(self)
+    [AFNManager POST:ValidateCoderequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            RE3Controller *vc = [[RE3Controller alloc] init];
+            vc.index = self.index;
+            vc.phone = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             [self showTextHUD:result.message delay:1.f];
         }
     }];
 }
 
-
-
-#pragma mark - 点击
-// 获取验证码
-- (IBAction)codeBtnClick:(UIButton *)sender {
-    [self.countDown countDownWithStratTimeStamp:0 finishTimeStamp:3 * 1000 completeBlock:^(NSInteger day, NSInteger hour, NSInteger minute, NSInteger second) {
+- (void)countDownBegin {
+    [self.countDown countDownWithStratTimeStamp:0 finishTimeStamp:59 * 1000 completeBlock:^(NSInteger day, NSInteger hour, NSInteger minute, NSInteger second) {
         if (second != 0 || minute != 0) {
             NSString *str = [NSString stringWithFormat:@"%02lds重新获取", second];
             [self.codeBtn setTitle:str forState:UIControlStateNormal];
@@ -92,11 +116,16 @@
         }
     }];
 }
+
+
+#pragma mark - 点击
+// 创建验证码
+- (IBAction)codeBtnClick:(UIButton *)sender {
+    [self getCodeRequest];
+}
 // 下一步
 - (IBAction)nextBtnClick:(UIButton *)sender {
-    RE3Controller *vc = [[RE3Controller alloc] init];
-    vc.index = _index;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self validateRequest];
 }
 // 点背景
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

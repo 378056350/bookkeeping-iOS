@@ -102,6 +102,7 @@
                            account, @"account",
                            self.passField.text, @"password", nil];
     [self showProgressHUD];
+    [self.view endEditing:true];
     [AFNManager POST:PhoneLoginRequest params:param complete:^(APPResult *result) {
         [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
