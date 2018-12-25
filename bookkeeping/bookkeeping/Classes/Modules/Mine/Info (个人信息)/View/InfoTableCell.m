@@ -76,10 +76,59 @@
     } else {
         self.detailLab.textColor = kColor_Text_Gary;
     }
+    
+    // name
+    NSArray *arr= @[
+                    @[@"头像", @"ID", @"昵称", @"性别", @"手机号", @"微信"],
+                    @[@"修改密码"]
+                    ];
+    [self setName:arr[indexPath.section][indexPath.row]];
 }
+- (void)setModel:(InfoModel *)model {
+    _model = model;
+    if (_indexPath.section == 0) {
+        if (_indexPath.row == 0) {
+            [self.icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon)]];
+        } else if (_indexPath.row == 1) {
+            [self setDetail:[@(model.Id) description]];
+        } else if (_indexPath.row == 2) {
+            [self setDetail:model.name];
+        } else if (_indexPath.row == 3) {
+            if (model.sex) {
+                [self setDetail:model.sex == true ? @"男" : @"女"];
+            }
+        } else if (_indexPath.row == 4) {
+            if (model.phone) {
+                [self setDetail:model.phone];
+                [self setStatus:InfoTableCellStatusName];
+                [self.detailLab setTextColor:kColor_Text_Black];
+            } else {
+                [self setDetail:@"未绑定"];
+                [self setStatus:InfoTableCellStatusNext];
+                [self.detailLab setTextColor:kColor_Red_Color];
+            }
+        } else if (_indexPath.row == 5) {
+            if (model.qq_openid) {
+                [self setDetail:model.qq_openid];
+                [self setStatus:InfoTableCellStatusName];
+                [self.detailLab setTextColor:kColor_Text_Black];
+            }
+            else {
+                [self setDetail:@"未绑定"];
+                [self setStatus:InfoTableCellStatusNext];
+                [self.detailLab setTextColor:kColor_Red_Color];
+            }
+        }
+    }
+}
+
 - (void)setName:(NSString *)name {
     _name = name;
     _nameLab.text = name;
+}
+- (void)setDetail:(NSString *)detail {
+    _detail = detail;
+    _detailLab.text = detail;
 }
 
 

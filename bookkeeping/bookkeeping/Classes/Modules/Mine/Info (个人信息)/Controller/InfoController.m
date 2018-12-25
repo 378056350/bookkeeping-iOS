@@ -6,6 +6,7 @@
 #import "InfoController.h"
 #import "InfoTableView.h"
 #import "InfoModel.h"
+#import "CPAController.h"
 #import "INFO_EVENT_MANAGER.h"
 
 
@@ -35,6 +36,7 @@
 
 
 #pragma mark - 请求
+// 获取个人信息
 - (void)createInfoRequest {
     UserModel *model = [UserInfo loadUserInfo];
     NSString *key = model.openid ? @"openid" : @"account";
@@ -48,6 +50,28 @@
         } else {
             [self showTextHUD:result.message delay:1.f];
         }
+    }];
+}
+// 绑定第三方账号
+- (void)bindThirdRequest {
+    // QQ授权
+    @weakify(self)
+    [self umQQUserInfo:^(KKSocialUserInfoResponse *resp) {
+        @strongify(self)
+        UserModel *model = [UserInfo loadUserInfo];
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               model.account, @"account",
+                               resp.openid, @"openid",
+                               resp.name, @"nickname",
+                               [resp.gender isEqualToString:@"男"] ? @"1" : @"0", @"sex", nil];
+        [AFNManager POST:BindThirdRequest params:param complete:^(APPResult *result) {
+            [self hideHUD];
+            if (result.status == ServiceCodeSuccess) {
+                [self showTextHUD:result.message delay:1.f];
+            } else {
+                [self showTextHUD:result.message delay:1.f];
+            }
+        }];
     }];
 }
 
@@ -71,21 +95,26 @@
 }
 // 点击cell
 - (void)cellClick:(NSIndexPath *)indexPath {
-    // 拍照
-    if (indexPath.row == 0) {
-        [self takePhoto];
-    }
-    // 昵称
-    else if (indexPath.row == 2) {
-        [self takeNickname];
-    }
-    // 性别
-    else if (indexPath.row == 3) {
-        [self takeSex];
-    }
-    // 手机号
-    else if (indexPath.row == 4) {
-        
+    if (indexPath.section == 0) {
+        // 拍照
+        if (indexPath.row == 0) {
+            [self takePhoto];
+        }
+        // 昵称
+        else if (indexPath.row == 2) {
+            [self takeNickname];
+        }
+        // 性别
+        else if (indexPath.row == 3) {
+            [self takeSex];
+        }
+        // 手机号
+        else if (indexPath.row == 4) {
+            
+        }
+    } else {
+        CPAController *vc = [[CPAController alloc] init];
+        [self.navigationController pushViewController:vc animated:true];
     }
 }
 // 点击尾视图

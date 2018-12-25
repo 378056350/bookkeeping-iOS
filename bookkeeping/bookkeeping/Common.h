@@ -48,6 +48,7 @@
 #import "NSString+Calculation.h"
 #import "UIScrollView+Extension.h"
 #import "UITableViewCell+Extension.h"
+#import "UIViewController+UMengExtension.h"
 //#import "PINCache+Extension.h"
 #import "UIView+JGProgressHUD.h"
 #import "UIViewController+JGProgressHUD.h"

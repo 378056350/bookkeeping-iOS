@@ -41,10 +41,45 @@
     [self.field2 setTextColor:kColor_Text_Black];
     [self.field3 setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
     [self.field3 setTextColor:kColor_Text_Black];
+    [self.completeBtn.layer setCornerRadius:3];
+    [self.completeBtn.layer setMasksToBounds:true];
     [self buttonCanTap:false];
+    
+    [self.field1 addTarget:self action:@selector(fieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.field2 addTarget:self action:@selector(fieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.field3 addTarget:self action:@selector(fieldValueChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 
+#pragma mark - 请求
+- (void)getChangeRequest {
+    UserModel *model = [UserInfo loadUserInfo];
+    NSDictionary *param = @{@"account": model.account,
+                            @"old_pass": self.field1.text,
+                            @"new_pass": self.field3.text};
+    [self showProgressHUD];
+    [self.view endEditing:true];
+    @weakify(self)
+    [AFNManager POST:ChangePassRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            [self showWindowTextHUD:result.message delay:1.f];
+            [self.navigationController popViewControllerAnimated:true];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+
+// 完成
+- (IBAction)completeClick:(UIButton *)sender {
+    [self getChangeRequest];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:true];
+}
 
 // 按钮是否可以点击
 - (void)buttonCanTap:(BOOL)tap {
@@ -64,6 +99,19 @@
         [self.completeBtn setBackgroundImage:[UIColor createImageWithColor:kColor_Line_Color] forState:UIControlStateHighlighted];
     }
 }
+
+- (void)fieldValueChange:(UITextField *)textField {
+    if (self.field1.text.length != 0 && self.field2.text.length != 0 && self.field3.text.length != 0) {
+        if ([self.field2.text isEqualToString:self.field3.text]) {
+            [self buttonCanTap:true];
+        } else {
+            [self buttonCanTap:false];
+        }
+    } else {
+        [self buttonCanTap:false];
+    }
+}
+
 
 
 @end

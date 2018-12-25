@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface InfoModel : BaseModel
 
+@property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL sex;
 @property (nonatomic, strong) NSString *icon;

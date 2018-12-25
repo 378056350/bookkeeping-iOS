@@ -25,8 +25,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unT-uM-T4E">
-                        <rect key="frame" x="299" y="0.0" width="42" height="84.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unT-uM-T4E">
+                        <rect key="frame" x="341" y="0.0" width="0.0" height="84.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                 <outlet property="nextConstraintW" destination="6xz-jl-WRd" id="wqG-Lg-9ma"/>
                 <outlet property="nextIcn" destination="ehh-tI-hks" id="9Ss-lW-PNu"/>
             </connections>
-            <point key="canvasLocation" x="382" y="29"/>
+            <point key="canvasLocation" x="-2" y="64"/>
         </tableViewCell>
     </objects>
     <resources>

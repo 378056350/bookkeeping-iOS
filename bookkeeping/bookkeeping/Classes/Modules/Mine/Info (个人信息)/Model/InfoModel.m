@@ -10,4 +10,12 @@
 
 @implementation InfoModel
 
++ (void)load {
+    [InfoModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"Id": @"id",
+                 };
+    }];
+}
+
 @end

@@ -57,6 +57,8 @@
     [self.phoneConstraintL setConstant:countcoordinatesX(15)];
     [self.phoneConstraintR setConstant:countcoordinatesX(15)];
     [self.phoneConstraintH setConstant:countcoordinatesX(45)];
+    
+    
     [self getCodeRequest];
 }
 
@@ -65,9 +67,10 @@
 // 创建验证码
 - (void)getCodeRequest {
     NSString *account = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *operation = self.index == 0 ? @"1" : @"2";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            account, @"account",
-                           @(1), @"operation",nil];
+                           operation, @"operation",nil];
     [self showProgressHUD];
     @weakify(self)
     [AFNManager POST:CreateCoderequest params:param complete:^(APPResult *result) {

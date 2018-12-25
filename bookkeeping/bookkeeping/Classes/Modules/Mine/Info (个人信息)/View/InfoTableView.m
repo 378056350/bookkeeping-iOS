@@ -63,7 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InfoTableCell *cell = [InfoTableCell loadFirstNib:tableView];
     cell.indexPath = indexPath;
-    cell.name = self.arr[indexPath.section][indexPath.row];
+    cell.model = _model;
     return cell;
 }
 
