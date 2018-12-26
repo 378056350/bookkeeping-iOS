@@ -10,4 +10,14 @@
 
 @implementation KKSocialUserInfoResponse
 
++ (KKSocialUserInfoResponse *)create:(UMSocialUserInfoResponse *)resp {
+    KKSocialUserInfoResponse *kk = [[KKSocialUserInfoResponse alloc] init];
+    kk.name = resp.name;
+    kk.openid = resp.openid;
+    kk.iconurl = resp.iconurl;
+    kk.unionGender = resp.unionGender;
+    kk.gender = resp.gender;
+    return kk;
+}
+
 @end

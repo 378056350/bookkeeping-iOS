@@ -32,7 +32,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:_index == 0 ? @"注册" : @"找回密码"];
+    [self setNavTitle:({
+        NSString *str;
+        if (_index == 0) {
+            str = @"注册";
+        } else if (_index == 1) {
+            str = @"找回密码";
+        } else if (_index == 2) {
+            str = @"绑定账号";
+        }
+        str;
+    })];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.view setBackgroundColor:kColor_BG];
@@ -67,10 +77,10 @@
 // 创建验证码
 - (void)getCodeRequest {
     NSString *account = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    NSString *operation = self.index == 0 ? @"1" : @"2";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            account, @"account",
-                           operation, @"operation",nil];
+                           @(self.index), @"operation",
+                           self.openid, @"openid",nil];
     [self showProgressHUD];
     @weakify(self)
     [AFNManager POST:CreateCoderequest params:param complete:^(APPResult *result) {
@@ -79,16 +89,26 @@
         if (result.status == ServiceCodeSuccess) {
             [self countDownBegin];
         } else {
-            [self showTextHUD:result.message delay:1.f];
+            [self showWindowTextHUD:result.message delay:1.f];
+            [self.navigationController popViewControllerAnimated:true];
         }
     }];
 }
 // 验证验证码
 - (void)validateRequest {
     NSString *account = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           account, @"account",
-                           self.codeField.text, @"code",nil];
+    
+    
+    NSMutableDictionary *param = ({
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param setObject:self.codeField.text forKey:@"code"];
+        if (self.openid) {
+            [param setObject:self.openid forKey:@"openid"];
+        } else if (account) {
+            [param setObject:account forKey:@"account"];
+        }
+        param;
+    });
     [self showProgressHUD];
     @weakify(self)
     [AFNManager POST:ValidateCoderequest params:param complete:^(APPResult *result) {
@@ -98,6 +118,7 @@
             RE3Controller *vc = [[RE3Controller alloc] init];
             vc.index = self.index;
             vc.phone = [self.phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            vc.openid = self.openid;
             [self.navigationController pushViewController:vc animated:YES];
         } else {
             [self showTextHUD:result.message delay:1.f];

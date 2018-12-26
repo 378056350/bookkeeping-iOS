@@ -42,7 +42,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JET-CQ-ZGh">
-                            <rect key="frame" x="0.0" y="65" width="60" height="18"/>
+                            <rect key="frame" x="7" y="65" width="46" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -50,10 +50,9 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="P9z-3f-H5f" firstAttribute="leading" secondItem="azk-Cf-tFR" secondAttribute="leading" id="1pY-bJ-Hnt"/>
-                        <constraint firstAttribute="trailing" secondItem="JET-CQ-ZGh" secondAttribute="trailing" id="DcF-iZ-f7n"/>
                         <constraint firstAttribute="bottom" secondItem="JET-CQ-ZGh" secondAttribute="bottom" constant="5" id="Oan-vT-Kx0"/>
-                        <constraint firstItem="JET-CQ-ZGh" firstAttribute="leading" secondItem="azk-Cf-tFR" secondAttribute="leading" id="Pid-bB-9gu"/>
                         <constraint firstItem="JET-CQ-ZGh" firstAttribute="top" secondItem="P9z-3f-H5f" secondAttribute="bottom" constant="5" id="eaW-Fl-n57"/>
+                        <constraint firstItem="JET-CQ-ZGh" firstAttribute="centerX" secondItem="P9z-3f-H5f" secondAttribute="centerX" id="i1F-iM-Ru0"/>
                         <constraint firstAttribute="trailing" secondItem="P9z-3f-H5f" secondAttribute="trailing" id="iLN-8T-RS8"/>
                         <constraint firstAttribute="width" constant="60" id="lbN-4l-BdR"/>
                         <constraint firstItem="P9z-3f-H5f" firstAttribute="top" secondItem="azk-Cf-tFR" secondAttribute="top" id="sG0-k3-tdP"/>

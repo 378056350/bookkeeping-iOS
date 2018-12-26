@@ -31,7 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:_index == 0 ? @"注册" : @"找回密码"];
+    [self setNavTitle:({
+        NSString *str;
+        if (_index == 0) {
+            str = @"注册";
+        } else if (_index == 1) {
+            str = @"找回密码";
+        } else if (_index == 2) {
+            str = @"绑定账号";
+        }
+        str;
+    })];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.view setBackgroundColor:kColor_BG];
@@ -77,12 +87,59 @@
         }
     }];
 }
+// 忘记密码
+- (void)forgetRequest {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           self.phone, @"account",
+                           self.pass1Field.text, @"password", nil];
+    [self.view endEditing:true];
+    [self showProgressHUD];
+    @weakify(self)
+    [AFNManager POST:ForgetPassRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            [UserInfo saveUserInfo:result.data];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_LOGIN_COMPLETE object:nil];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+// 绑定手机
+- (void)bindPhoneRequest {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           self.phone, @"account",
+                           self.openid, @"openid",
+                           self.pass1Field.text, @"password", nil];
+    [self.view endEditing:true];
+    [self showProgressHUD];
+    @weakify(self)
+    [AFNManager POST:BindPhoneRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            UserModel *model = [UserInfo loadUserInfo];
+            [model setAccount:self.phone];
+            [UserInfo saveUserModel:model];
+            [[NSNotificationCenter defaultCenter] postNotificationName:BIND_PHONE_COMPLETE object:nil];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
 
 
 #pragma mark - 点击
 // 注册
 - (IBAction)registerBtnClick:(UIButton *)sender {
-    [self registerRequest];
+    if (self.index == 0) {
+        [self registerRequest];
+    } else if (self.index == 1) {
+        [self forgetRequest];
+    } else if (self.index == 2) {
+        [self bindPhoneRequest];
+    }
 }
 // 按钮是否可以点击
 - (void)buttonCanTap:(BOOL)tap {

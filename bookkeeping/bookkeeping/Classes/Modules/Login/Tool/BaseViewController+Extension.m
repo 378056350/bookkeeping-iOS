@@ -44,14 +44,7 @@
             @strongify(self)
             [self hideHUD];
             if (result.status == ServiceCodeSuccess) {
-                // 保存信息
-                NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [result.data valueForKey:@"icon"], @"icon",
-                                      [result.data valueForKey:@"token"], @"token",
-                                      [resp name], @"nickname",
-                                      [resp openid], @"openid",
-                                      [resp.gender isEqualToString:@"男"] ? @(1) : @(0), @"sex", nil];
-                [UserInfo saveUserInfo:data];
+                [UserInfo saveUserInfo:result.data];
                 // 回调
                 if (complete) {
                     complete();

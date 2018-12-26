@@ -74,7 +74,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="BO9-49-oA4"/>
                     </constraints>
-                    <state key="normal" title="注册">
+                    <state key="normal" title="完成">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
                     <connections>

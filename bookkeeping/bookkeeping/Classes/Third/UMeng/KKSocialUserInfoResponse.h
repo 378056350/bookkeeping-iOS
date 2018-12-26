@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIImage *icon;
 
++ (KKSocialUserInfoResponse *)create:(UMSocialUserInfoResponse *)resp;
+
 @end
 
 NS_ASSUME_NONNULL_END

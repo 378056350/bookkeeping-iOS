@@ -7,6 +7,7 @@
 #import "InfoTableView.h"
 #import "InfoModel.h"
 #import "CPAController.h"
+#import "RE1Controller.h"
 #import "INFO_EVENT_MANAGER.h"
 
 
@@ -98,14 +99,19 @@
                                resp.openid, @"openid",
                                resp.name, @"nickname",
                                [resp.gender isEqualToString:@"男"] ? @"1" : @"0", @"sex", nil];
-        [AFNManager POST:BindThirdRequest params:param complete:^(APPResult *result) {
+        [AFNManager POST:BindThirdRequest params:param andImages:@[resp.icon] progress:nil complete:^(APPResult *result) {
             [self hideHUD];
             if (result.status == ServiceCodeSuccess) {
-                [self showTextHUD:result.message delay:1.f];
+                UserModel *model = [UserInfo loadUserInfo];
+                [model setOpenid:resp.openid];
+                [UserInfo saveUserModel:model];
+                [self.model setQq_openid:resp.openid];
+                [self setModel:self.model];
             } else {
                 [self showTextHUD:result.message delay:1.f];
             }
         }];
+            
     }];
 }
 // 更改性别
@@ -178,7 +184,6 @@
 }
 
 
-
 #pragma mark - set
 - (void)setModel:(InfoModel *)model {
     _model = model;
@@ -213,11 +218,25 @@
         }
         // 手机号
         else if (indexPath.row == 4) {
-            
+            UserModel *model = [UserInfo loadUserInfo];
+            if (!model.account) {
+                RE1Controller *vc = [[RE1Controller alloc] init];
+                vc.index = 2;
+                vc.openid = model.openid;
+                vc.complete = ^{
+                    [self.navigationController popToViewController:self animated:true];
+                    [self.model setPhone:[UserInfo loadUserInfo].account];
+                    [self setModel:self.model];
+                };
+                [self.navigationController pushViewController:vc animated:true];
+            }
         }
         // 绑定QQ
         else if (indexPath.row == 5) {
-            [self bindThirdRequest];
+            UserModel *model = [UserInfo loadUserInfo];
+            if (!model.openid) {
+                [self bindThirdRequest];
+            }
         }
     } else {
         CPAController *vc = [[CPAController alloc] init];

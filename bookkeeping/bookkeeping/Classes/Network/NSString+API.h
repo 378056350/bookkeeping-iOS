@@ -7,9 +7,9 @@
 
 
 //#define KHost @"http://127.0.0.1:8080"
-#define KHost @"http://192.168.1.7:8080"
+#define KHost @"http://192.168.31.247:8080"
 //#define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
-#define KStatic(str) [NSString stringWithFormat:@"http://192.168.1.7:8080/media/%@", str]
+#define KStatic(str) [NSString stringWithFormat:@"http://192.168.31.247:8080/media/%@", str]
 #define kUser  @"kUser"
 #define Request(A) [NSString stringWithFormat:@"%@%@", KHost, A]
 
@@ -48,11 +48,17 @@
 #define InfoRequest Request(@"/shayu/getInfoRequest.action")
 // 修改密码
 #define ChangePassRequest Request(@"/shayu/changePassRequest.action")
+// 忘记密码
+#define ForgetPassRequest Request(@"/shayu/forgetPassRequest.action")
 // 绑定第三方账号
 #define BindThirdRequest Request(@"/shayu/bindThirdRequest.action")
+// 绑定手机号
+#define BindPhoneRequest Request(@"/shayu/bindPhoneRequest.action")
 // 修改性别
 #define ChangeSexRequest Request(@"/shayu/changeSexRequest.action")
 // 修改昵称
 #define NicknameRequest Request(@"/shayu/changeNameRequest.action")
 // 修改头像
 #define ChangeIconRequest Request(@"/shayu/changeIconRequest.action")
+
+//

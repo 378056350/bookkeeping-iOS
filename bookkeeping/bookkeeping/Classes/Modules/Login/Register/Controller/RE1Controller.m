@@ -5,6 +5,8 @@
 
 #import "RE1Controller.h"
 #import "RE2Controller.h"
+#import "LOGIN_NOTIFICATION.h"
+
 
 #pragma mark - 声明
 @interface RE1Controller() {
@@ -29,7 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:_index == 0 ? @"注册" : @"找回密码"];
+    [self setNavTitle:({
+        NSString *str;
+        if (_index == 0) {
+            str = @"注册";
+        } else if (_index == 1) {
+            str = @"找回密码";
+        } else if (_index == 2) {
+            str = @"绑定账号";
+        }
+        str;
+    })];
     [self setJz_navigationBarHidden:NO];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self.view setBackgroundColor:kColor_BG];
@@ -48,6 +60,15 @@
     [self.nameConstraintH setConstant:countcoordinatesX(45)];
     [self.nameConstraintL setConstant:countcoordinatesX(15)];
     [self.textConstraintR setConstant:countcoordinatesX(15)];
+    
+    
+    // 绑定手机
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BIND_PHONE_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        // 回调
+        if (self.complete) {
+            self.complete();
+        }
+    }];
 }
 
 
@@ -113,6 +134,7 @@
             RE2Controller *vc = [[RE2Controller alloc] init];
             vc.index = self.index;
             vc.phone = self.textfield.text;
+            vc.openid = self.openid;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }];

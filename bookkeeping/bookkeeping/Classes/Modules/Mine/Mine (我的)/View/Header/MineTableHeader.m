@@ -33,6 +33,7 @@
 - (void)initUI {
     [self setBackgroundColor:kColor_Main_Color];
     [self createLabel:self];
+    [self.infoView setClipsToBounds:false];
     [self.infoView setBackgroundColor:[UIColor clearColor]];
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];

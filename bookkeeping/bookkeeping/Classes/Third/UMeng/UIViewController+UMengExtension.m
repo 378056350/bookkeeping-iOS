@@ -20,7 +20,7 @@
         else {
             // 下载图片
             [self showProgressHUD];
-            KKSocialUserInfoResponse *resp = result;
+            KKSocialUserInfoResponse *resp = [KKSocialUserInfoResponse create:result];
             NSURL *url = [NSURL URLWithString:resp.iconurl];
             [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                 // 成功
