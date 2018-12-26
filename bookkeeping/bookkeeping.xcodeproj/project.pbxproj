@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321431D921D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */; };
 		3219837621C642BB00311885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219837521C642BB00311885 /* AppDelegate.m */; };
 		3219837C21C642BB00311885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3219837A21C642BB00311885 /* Main.storyboard */; };
 		3219837E21C642BC00311885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3219837D21C642BC00311885 /* Assets.xcassets */; };
@@ -173,7 +174,6 @@
 		4BAF977221CE6365006EEF93 /* RE1Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BAF977021CE6365006EEF93 /* RE1Controller.xib */; };
 		4BC41CFE21CF930600B397BD /* PhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC41CFC21CF930600B397BD /* PhoneController.m */; };
 		4BC41CFF21CF930600B397BD /* PhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC41CFD21CF930600B397BD /* PhoneController.xib */; };
-		4BC41D0121CFAA3200B397BD /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC41D0021CFAA3200B397BD /* 11.png */; };
 		4BC7820021C917FA00760DF9 /* BookKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC781FF21C917FA00760DF9 /* BookKeyboard.m */; };
 		4BC7820221C918F200760DF9 /* BookKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC7820121C918F200760DF9 /* BookKeyboard.xib */; };
 		4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7845F21C6791E00B8EC46 /* HomeController.m */; };
@@ -264,6 +264,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321431D721D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLPhotoActionSheet+Extension.h"; sourceTree = "<group>"; };
+		321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZLPhotoActionSheet+Extension.m"; sourceTree = "<group>"; };
 		3219837121C642BB00311885 /* bookkeeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookkeeping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3219837421C642BB00311885 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3219837521C642BB00311885 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -566,7 +568,6 @@
 		4BC41CFB21CF930600B397BD /* PhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneController.h; sourceTree = "<group>"; };
 		4BC41CFC21CF930600B397BD /* PhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneController.m; sourceTree = "<group>"; };
 		4BC41CFD21CF930600B397BD /* PhoneController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneController.xib; sourceTree = "<group>"; };
-		4BC41D0021CFAA3200B397BD /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		4BC781FE21C917FA00760DF9 /* BookKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookKeyboard.h; sourceTree = "<group>"; };
 		4BC781FF21C917FA00760DF9 /* BookKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookKeyboard.m; sourceTree = "<group>"; };
 		4BC7820121C918F200760DF9 /* BookKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookKeyboard.xib; sourceTree = "<group>"; };
@@ -690,6 +691,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321431D621D3675000D7D1F5 /* ZLPhotoActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				321431D721D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.h */,
+				321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */,
+			);
+			path = ZLPhotoActionSheet;
+			sourceTree = "<group>";
+		};
 		3219836821C642BB00311885 = {
 			isa = PBXGroup;
 			children = (
@@ -713,7 +723,6 @@
 			children = (
 				3219838A21C642F400311885 /* KKPrefixHeader.pch */,
 				3219839521C6446300311885 /* Common.h */,
-				4BC41D0021CFAA3200B397BD /* 11.png */,
 				3219838B21C6436A00311885 /* Classes */,
 				3219837A21C642BB00311885 /* Main.storyboard */,
 				3219837D21C642BC00311885 /* Assets.xcassets */,
@@ -753,6 +762,7 @@
 		3219838E21C6436A00311885 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				321431D621D3675000D7D1F5 /* ZLPhotoActionSheet */,
 				32FADE5621D2297400DCD920 /* UMeng */,
 				4B9798FA21CE744A0020B207 /* CountDown */,
 				4BEB729821CE033300BEF013 /* MJRefresh */,
@@ -2188,7 +2198,6 @@
 				4BEB72DE21CE033300BEF013 /* dropdown_loading_02@2x.png in Resources */,
 				324484AF21C728C00051B8B6 /* LoginController.xib in Resources */,
 				4B97990221CE784F0020B207 /* RE3Controller.xib in Resources */,
-				4BC41D0121CFAA3200B397BD /* 11.png in Resources */,
 				4BEB731321CE033300BEF013 /* dropdown_anim__00050@2x.png in Resources */,
 				4BEB72E321CE033300BEF013 /* dropdown_anim__00034@2x.png in Resources */,
 				4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */,
@@ -2293,15 +2302,31 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-bookkeeping/Pods-bookkeeping-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoActionSheet.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowserCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowser.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2435,6 +2460,7 @@
 				327CEC1721C882A6001D0086 /* HomeListSubCell.m in Sources */,
 				4B35F1C721CCCB87007271BE /* BadgeListModel.m in Sources */,
 				3219837621C642BB00311885 /* AppDelegate.m in Sources */,
+				321431D921D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m in Sources */,
 				4BEB732A21CE380C00BEF013 /* InfoTableView.m in Sources */,
 				4BA68B0A21C7F75B0063A5C2 /* ACAReusableHeader.m in Sources */,
 				324484AE21C728C00051B8B6 /* LoginController.m in Sources */,

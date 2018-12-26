@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 保存个人信息
 + (void)saveUserInfo:(NSDictionary *)param;
+// 保存个人信息
++ (void)saveUserModel:(UserModel *)model;
 // 读取个人信息
 + (UserModel *)loadUserInfo;
 

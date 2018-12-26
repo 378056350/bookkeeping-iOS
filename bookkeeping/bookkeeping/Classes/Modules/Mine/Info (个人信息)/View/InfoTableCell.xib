@@ -38,9 +38,10 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_header" translatesAutoresizingMaskIntoConstraints="NO" id="RMx-al-zMA">
-                        <rect key="frame" x="326" y="0.0" width="30" height="84.5"/>
+                        <rect key="frame" x="326" y="27.5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="2Md-HR-MLr"/>
+                            <constraint firstAttribute="width" secondItem="RMx-al-zMA" secondAttribute="height" multiplier="1:1" id="gYQ-3o-7tQ"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -50,25 +51,25 @@
                     <constraint firstAttribute="trailing" secondItem="ehh-tI-hks" secondAttribute="trailing" constant="15" id="8mS-0j-6Mk"/>
                     <constraint firstItem="unT-uM-T4E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="H7p-Hv-cNb"/>
                     <constraint firstAttribute="bottom" secondItem="unT-uM-T4E" secondAttribute="bottom" id="HvF-ox-KOf"/>
-                    <constraint firstItem="RMx-al-zMA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aBb-lO-k6Q"/>
+                    <constraint firstItem="RMx-al-zMA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JqC-1n-AcJ"/>
                     <constraint firstItem="ehh-tI-hks" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aay-MQ-gdJ"/>
                     <constraint firstItem="B7T-mO-nFy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hgW-Id-cE5"/>
                     <constraint firstItem="ehh-tI-hks" firstAttribute="leading" secondItem="unT-uM-T4E" secondAttribute="trailing" constant="5" id="ihx-Eq-rqo"/>
                     <constraint firstAttribute="bottom" secondItem="ehh-tI-hks" secondAttribute="bottom" id="qm7-U8-rb5"/>
                     <constraint firstAttribute="bottom" secondItem="B7T-mO-nFy" secondAttribute="bottom" id="rBx-gL-WDv"/>
-                    <constraint firstAttribute="bottom" secondItem="RMx-al-zMA" secondAttribute="bottom" id="v6V-Qm-PbU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="detailLab" destination="unT-uM-T4E" id="8ye-Rx-261"/>
                 <outlet property="icon" destination="RMx-al-zMA" id="efS-hx-WqQ"/>
+                <outlet property="iconConstraintW" destination="2Md-HR-MLr" id="iMf-l6-lhR"/>
                 <outlet property="nameLab" destination="B7T-mO-nFy" id="1dY-ru-LRj"/>
                 <outlet property="nextConstraintL" destination="ihx-Eq-rqo" id="lnA-m1-G0g"/>
                 <outlet property="nextConstraintW" destination="6xz-jl-WRd" id="wqG-Lg-9ma"/>
                 <outlet property="nextIcn" destination="ehh-tI-hks" id="9Ss-lW-PNu"/>
             </connections>
-            <point key="canvasLocation" x="-2" y="64"/>
+            <point key="canvasLocation" x="-417" y="69"/>
         </tableViewCell>
     </objects>
     <resources>

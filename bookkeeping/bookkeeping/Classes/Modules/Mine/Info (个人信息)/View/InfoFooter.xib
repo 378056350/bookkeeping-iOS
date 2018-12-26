@@ -16,12 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="389" height="133"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-0n-TJZ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKz-0n-TJZ">
                     <rect key="frame" x="0.0" y="10" width="389" height="123"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="退出登录">
                         <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </state>
+                    <connections>
+                        <action selector="quitClick:" destination="xKk-au-OU1" eventType="touchUpInside" id="tvU-7E-H2b"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>

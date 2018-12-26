@@ -166,6 +166,10 @@
 
 
 #pragma mark - 系统
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.mine.table setModel:[UserInfo loadUserInfo]];
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.mine.table setContentOffset:CGPointZero animated:YES];

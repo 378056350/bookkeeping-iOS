@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *openid;
 @property (nonatomic, assign) BOOL sex;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

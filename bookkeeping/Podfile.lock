@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - GPUImage (0.1.7)
   - JCore (1.2.5)
   - JGProgressHUD (2.0.3)
   - JPush (3.1.1.1):
@@ -54,6 +55,9 @@ PODS:
   - UMCShare/Social/SMS (6.9.5):
     - UMCCommon
     - UMCShare/Core
+  - ZLPhotoBrowser (2.7.6):
+    - GPUImage
+    - SDWebImage
 
 DEPENDENCIES:
   - AFNetworking (= 3.2.1)
@@ -69,16 +73,18 @@ DEPENDENCIES:
   - ReactiveObjC (= 3.1.0)
   - SDCycleScrollView (= 1.75)
   - SDWebImage (= 4.4.3)
-  - UMCCommon
-  - UMCSecurityPlugins
+  - UMCCommon (= 1.5.3)
+  - UMCSecurityPlugins (= 1.0.6)
   - UMCShare/Social/ReducedQQ
   - UMCShare/Social/ReducedSina
   - UMCShare/Social/ReducedWeChat
   - UMCShare/Social/SMS
+  - ZLPhotoBrowser (= 2.7.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - GPUImage
     - JCore
     - JGProgressHUD
     - JPush
@@ -96,9 +102,11 @@ SPEC REPOS:
     - UMCCommon
     - UMCSecurityPlugins
     - UMCShare
+    - ZLPhotoBrowser
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
@@ -116,7 +124,8 @@ SPEC CHECKSUMS:
   UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
+  ZLPhotoBrowser: 6dfadc4706429424f0a851fe40752aff076689ab
 
-PODFILE CHECKSUM: 0109436b66260ef3da63b576f2ca7b8404b99751
+PODFILE CHECKSUM: 50fd41f5e6fe37918538b60abc1551cab179e396
 
 COCOAPODS: 1.6.0.beta.2

@@ -25,6 +25,8 @@
 #import <PINCache/PINMemoryCache.h>
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
+#import <ZLPhotoBrowser/ZLPhotoActionSheet.h>
+#import <ZLPhotoBrowser/ZLCustomCamera.h>
 
 
 //================================= Category =================================//
@@ -49,10 +51,10 @@
 #import "UIScrollView+Extension.h"
 #import "UITableViewCell+Extension.h"
 #import "UIViewController+UMengExtension.h"
-//#import "PINCache+Extension.h"
 #import "UIView+JGProgressHUD.h"
 #import "UIViewController+JGProgressHUD.h"
 #import "UIWindow+JGProgressHUD.h"
+#import "ZLPhotoActionSheet+Extension.h"
 
 
 //================================= Util =====================================//

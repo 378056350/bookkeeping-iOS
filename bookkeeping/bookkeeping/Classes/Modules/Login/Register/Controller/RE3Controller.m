@@ -70,15 +70,13 @@
         @strongify(self)
         [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
-            NSDictionary *param = @{@"phone": self.phone, @"password": self.pass1Field.text};
-            [UserInfo saveUserInfo:param];
+            [UserInfo saveUserInfo:result.data];
             [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_REGISTER_COMPLETE object:nil];
         } else {
             [self showTextHUD:result.message delay:1.f];
         }
     }];
 }
-
 
 
 #pragma mark - 点击

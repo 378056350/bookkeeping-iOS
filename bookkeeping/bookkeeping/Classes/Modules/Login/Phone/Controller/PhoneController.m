@@ -106,8 +106,7 @@
     [AFNManager POST:PhoneLoginRequest params:param complete:^(APPResult *result) {
         [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
-            NSDictionary *data = @{@"account": account, @"token": result.data};
-            [UserInfo saveUserInfo:data];
+            [UserInfo saveUserInfo:result.data];
             [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_LOGIN_COMPLETE object:nil];
         } else {
             [self showTextHUD:result.message delay:1.5f];

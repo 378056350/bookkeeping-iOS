@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MineTableView : UITableView
 
+@property (nonatomic, strong) UserModel *model;
+
 + (instancetype)initWithFrame:(CGRect)frame;
 
 @end

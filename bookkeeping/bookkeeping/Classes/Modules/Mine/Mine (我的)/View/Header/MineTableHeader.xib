@@ -38,6 +38,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="P9z-3f-H5f" secondAttribute="height" multiplier="1:1" id="3Q8-ey-GbL"/>
+                                <constraint firstAttribute="width" constant="60" id="ajw-nA-fze"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JET-CQ-ZGh">
@@ -153,6 +154,7 @@
             <connections>
                 <outlet property="dayView" destination="cRP-zi-YAR" id="oNM-1k-oNf"/>
                 <outlet property="icon" destination="P9z-3f-H5f" id="p5u-MD-MaO"/>
+                <outlet property="iconConstraintW" destination="ajw-nA-fze" id="GVl-Ex-Kva"/>
                 <outlet property="infoConstraintT" destination="jtR-Ny-X8W" id="gkw-rR-HKP"/>
                 <outlet property="infoView" destination="azk-Cf-tFR" id="QMl-WW-m7p"/>
                 <outlet property="nameLab" destination="JET-CQ-ZGh" id="r8k-q9-5nI"/>
@@ -163,7 +165,7 @@
                 <outlet property="punchConstraintW" destination="UdY-R7-QAo" id="of7-e3-CsE"/>
                 <outlet property="punchView" destination="DVq-Rc-CFc" id="eyZ-jC-Hr4"/>
             </connections>
-            <point key="canvasLocation" x="-1007" y="-256"/>
+            <point key="canvasLocation" x="-1201" y="-275"/>
         </view>
     </objects>
     <resources>

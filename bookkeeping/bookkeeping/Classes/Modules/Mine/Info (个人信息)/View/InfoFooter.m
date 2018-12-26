@@ -4,6 +4,7 @@
  */
 
 #import "InfoFooter.h"
+#import "INFO_EVENT_MANAGER.h"
 
 #pragma mark - 声明
 @interface InfoFooter()
@@ -17,6 +18,7 @@
 #pragma mark - 实现
 @implementation InfoFooter
 
+
 - (void)initUI {
     [self.nameBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.nameBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
@@ -26,5 +28,11 @@
     
     [self.btnConstraintT setConstant:countcoordinatesX(10)];
 }
+
+// 退出登录
+- (IBAction)quitClick:(id)sender {
+    [self routerEventWithName:INFO_FOOTER_CLICK data:nil];
+}
+
 
 @end

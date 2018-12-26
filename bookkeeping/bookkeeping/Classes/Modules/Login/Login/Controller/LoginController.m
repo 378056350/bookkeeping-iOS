@@ -77,7 +77,6 @@
 }
 
 
-
 #pragma mark - 请求
 // QQ登录
 - (void)getQQLoginRequest:(UMSocialUserInfoResponse *)resp {

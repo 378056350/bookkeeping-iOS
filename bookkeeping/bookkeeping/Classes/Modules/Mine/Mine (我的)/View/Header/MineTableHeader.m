@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *dayView;
 @property (weak, nonatomic) IBOutlet UIView *numberView;
 
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintW;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *punchConstraintW;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoConstraintT;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *numberConstraintT;
@@ -41,7 +41,10 @@
     [self.punchBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(10)]];
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
+    [self.icon.layer setCornerRadius:countcoordinatesX(60) / 2];
+    [self.icon.layer setMasksToBounds:true];
     
+    [self.iconConstraintW setConstant:countcoordinatesX(60)];
     [self.punchConstraintW setConstant:countcoordinatesX(70)];
     [self.numberConstraintT setConstant:countcoordinatesX(10)];
     [self.infoConstraintT setConstant:StatusBarHeight + countcoordinatesX(40)];
@@ -87,6 +90,25 @@
             }
         }
     }
+}
+
+
+#pragma mark - set
+- (void)setModel:(UserModel *)model {
+    _model = model;
+    // 未登录
+    if (!model) {
+        [_icon setImage:[UIImage imageNamed:@"default_header"]];
+        [_nameLab setText:@"未登录"];
+        return;
+    }
+    // 登录
+    if (model.icon) {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon)]];
+    } else {
+        [_icon setImage:[UIImage imageNamed:@"default_header"]];
+    }
+    [_nameLab setText:model.nickname];
 }
 
 

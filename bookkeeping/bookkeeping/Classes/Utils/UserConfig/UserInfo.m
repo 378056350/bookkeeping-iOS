@@ -21,6 +21,11 @@
 + (void)saveUserInfo:(NSDictionary *)param {
     [[PINDiskCache sharedCache] setObject:param forKey:kUser];
 }
+// 保存个人信息
++ (void)saveUserModel:(UserModel *)model {
+    NSDictionary *param = [model mj_keyValues];
+    [[PINDiskCache sharedCache] setObject:param forKey:kUser];
+}
 // 读取个人信息
 + (UserModel *)loadUserInfo {
     NSDictionary *param = (NSDictionary *)[[PINDiskCache sharedCache] objectForKey:kUser];

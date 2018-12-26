@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MineTableHeader : BaseView
 
+@property (nonatomic, strong) UserModel *model;
+
 @end
 
 NS_ASSUME_NONNULL_END

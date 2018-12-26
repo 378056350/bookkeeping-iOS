@@ -133,12 +133,12 @@
 }
 - (InfoFooter *)footerv {
     if (!_footerv) {
-        @weakify(self)
+//        @weakify(self)
         _footerv = [InfoFooter loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(60))];
-        [_footerv addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-            @strongify(self)
-            [self routerEventWithName:INFO_FOOTER_CLICK data:nil];
-        }];
+//        [_footerv addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+//            @strongify(self)
+//            [self routerEventWithName:INFO_FOOTER_CLICK data:nil];
+//        }];
     }
     return _footerv;
 }

@@ -47,6 +47,13 @@
 }
 
 
+#pragma mark - set
+- (void)setModel:(UserModel *)model {
+    _model = model;
+    _header.model = model;
+}
+
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.datas[0].count;

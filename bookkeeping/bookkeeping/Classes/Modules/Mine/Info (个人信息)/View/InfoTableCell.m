@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstraintW;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextConstraintL;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintW;
 
 @end
 
@@ -22,11 +23,20 @@
 #pragma mark - 实现
 @implementation InfoTableCell
 
+
 - (void)initUI {
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];
     [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.detailLab setTextColor:kColor_Text_Gary];
+    [self.icon.layer setCornerRadius:countcoordinatesX(30) / 2];
+    [self.icon.layer setMasksToBounds:true];
+    
+    
+    [self.iconConstraintW setConstant:countcoordinatesX(30)];
+    
+    [self setSelectedBackgroundView:[[UIView alloc] initWithFrame:self.frame]];
+    [self.selectedBackgroundView setBackgroundColor:kColor_BG];
 }
 
 #pragma mark - set
@@ -79,7 +89,7 @@
     
     // name
     NSArray *arr= @[
-                    @[@"头像", @"ID", @"昵称", @"性别", @"手机号", @"微信"],
+                    @[@"头像", @"ID", @"昵称", @"性别", @"手机号", @"QQ"],
                     @[@"修改密码"]
                     ];
     [self setName:arr[indexPath.section][indexPath.row]];
@@ -94,14 +104,12 @@
         } else if (_indexPath.row == 2) {
             [self setDetail:model.name];
         } else if (_indexPath.row == 3) {
-            if (model.sex) {
-                [self setDetail:model.sex == true ? @"男" : @"女"];
-            }
+            [self setDetail:model.sex == true ? @"男" : @"女"];
         } else if (_indexPath.row == 4) {
             if (model.phone) {
                 [self setDetail:model.phone];
                 [self setStatus:InfoTableCellStatusName];
-                [self.detailLab setTextColor:kColor_Text_Black];
+                [self.detailLab setTextColor:kColor_Text_Gary];
             } else {
                 [self setDetail:@"未绑定"];
                 [self setStatus:InfoTableCellStatusNext];
@@ -111,7 +119,7 @@
             if (model.qq_openid) {
                 [self setDetail:model.qq_openid];
                 [self setStatus:InfoTableCellStatusName];
-                [self.detailLab setTextColor:kColor_Text_Black];
+                [self.detailLab setTextColor:kColor_Text_Gary];
             }
             else {
                 [self setDetail:@"未绑定"];
