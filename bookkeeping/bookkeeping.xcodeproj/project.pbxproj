@@ -1153,19 +1153,8 @@
 		327CEC1A21C88529001D0086 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				4B252CE221C6A35D002CD83D /* HomeHeader.h */,
-				4B252CE321C6A35D002CD83D /* HomeHeader.m */,
-				4B252CE521C6A37C002CD83D /* HomeHeader.xib */,
-				32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */,
-				32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */,
-				4BF574A121C6A59A001890D1 /* HomeList.h */,
-				4BF574A221C6A59A001890D1 /* HomeList.m */,
-				327CEC1B21C88A04001D0086 /* HomeListHeader.h */,
-				327CEC1C21C88A04001D0086 /* HomeListHeader.m */,
-				327CEC1E21C88A10001D0086 /* HomeListHeader.xib */,
-				324484B321C74BDD0051B8B6 /* HomeListCell.h */,
-				324484B421C74BDD0051B8B6 /* HomeListCell.m */,
-				324484B521C74BDD0051B8B6 /* HomeListCell.xib */,
+				4B5457D021D4F08E002332B8 /* Header */,
+				4B5457CF21D4F08E002332B8 /* Table */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -1453,6 +1442,33 @@
 				4B35F1CC21CCD330007271BE /* KKBadge.xib */,
 			);
 			path = KKBadge;
+			sourceTree = "<group>";
+		};
+		4B5457CF21D4F08E002332B8 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				4BF574A121C6A59A001890D1 /* HomeList.h */,
+				4BF574A221C6A59A001890D1 /* HomeList.m */,
+				324484B321C74BDD0051B8B6 /* HomeListCell.h */,
+				324484B421C74BDD0051B8B6 /* HomeListCell.m */,
+				324484B521C74BDD0051B8B6 /* HomeListCell.xib */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		4B5457D021D4F08E002332B8 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				4B252CE221C6A35D002CD83D /* HomeHeader.h */,
+				4B252CE321C6A35D002CD83D /* HomeHeader.m */,
+				4B252CE521C6A37C002CD83D /* HomeHeader.xib */,
+				327CEC1B21C88A04001D0086 /* HomeListHeader.h */,
+				327CEC1C21C88A04001D0086 /* HomeListHeader.m */,
+				327CEC1E21C88A10001D0086 /* HomeListHeader.xib */,
+				32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */,
+				32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		4B7560B421D1225500E63744 /* Tool */ = {

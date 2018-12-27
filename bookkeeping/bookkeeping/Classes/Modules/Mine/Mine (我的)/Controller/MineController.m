@@ -139,13 +139,31 @@
     else if (indexPath.section == 1) {
         // 类别
         if (indexPath.row == 0) {
-            CategoryController *vc = [[CategoryController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            // 登录了
+            if ([UserInfo isLogin] == true) {
+                CategoryController *vc = [[CategoryController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            // 没登录
+            else {
+                LoginController *vc = [[LoginController alloc] init];
+                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+                [self.navigationController presentViewController:nav animated:YES completion:nil];
+            }
         }
         // 定时
         else if (indexPath.row == 1) {
-            TIController *vc = [[TIController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            // 登录了
+            if ([UserInfo isLogin] == true) {
+                TIController *vc = [[TIController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            // 没登录
+            else {
+                LoginController *vc = [[LoginController alloc] init];
+                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+                [self.navigationController presentViewController:nav animated:YES completion:nil];
+            }
         }
     }
     else if (indexPath.section == 2) {

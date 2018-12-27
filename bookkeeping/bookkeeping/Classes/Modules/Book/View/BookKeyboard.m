@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UIView *textContent;
 
+@property (nonatomic, strong) NSDate *currentDate;
 @property (nonatomic, assign) BOOL isLess;      // 减
 @property (nonatomic, assign) BOOL animation;   // 动画中
 
@@ -46,6 +47,7 @@
     [self borderForColor:kColor_BG borderWidth:1.f borderType:UIBorderSideTypeTop];
     [self setAnimation:NO];
     [self setIsLess:NO];
+    [self setCurrentDate:[NSDate date]];
     
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
     [self.nameLab setTextColor:kColor_Text_Gary];
@@ -172,7 +174,6 @@
     [self deleteBtnClick:btn];
     // 完成/等于
     [self calculationClick:btn];
-    
     // 刷新
     [self reloadCompleteButton];
     // 计算
@@ -254,16 +255,22 @@
 - (void)dateBtnClick:(UIButton *)btn {
     // 时间
     if (btn.tag == DATE_TAG) {
-        KKPopup *popup = [KKPopup initNib:@"KKDate"];
-        [popup show];
-        [popup setClick:^(NSDate *date, KKPopup * _Nonnull popup) {
-            [popup hide];
-            if (date) {
-                NSString *dateStr = [date formatYMD];
-                [btn setTitle:dateStr forState:UIControlStateNormal];
-                [btn setTitle:dateStr forState:UIControlStateHighlighted];
-                [btn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12)]];
-            }
+        @weakify(self)
+        NSDate *date = [NSDate date];
+        NSDate *min = [NSDate br_setYear:2000 month:1 day:1];
+        NSDate *max = [NSDate br_setYear:date.year + 3 month:12 day:31];
+        [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYMD defaultSelValue:nil minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
+            @strongify(self)
+            [self setCurrentDate:({
+                NSDateFormatter *fora = [[NSDateFormatter alloc] init];
+                [fora setDateFormat:@"yyyy-MM-dd"];
+                NSDate *date = [fora dateFromString:selectValue];
+                date;
+            })];
+            selectValue = [self.currentDate isToday] ? @"今天" : selectValue;
+            [btn setTitle:selectValue forState:UIControlStateNormal];
+            [btn setTitle:selectValue forState:UIControlStateHighlighted];
+            [btn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12)]];
         }];
     }
 }
@@ -285,6 +292,11 @@
         [_money appendString:@"="];
         [self setMoney:_money];
         [self calculationMath];
+    }
+    if ([btn.titleLabel.text isEqualToString:@"完成"]) {
+        if (self.complete) {
+            self.complete(_moneyLab.text, _markField.text, self.currentDate);
+        }
     }
 }
 

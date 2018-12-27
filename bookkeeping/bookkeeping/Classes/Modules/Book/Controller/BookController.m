@@ -59,6 +59,39 @@
         [self setModels:[BookListModel mj_objectArrayWithKeyValuesArray:result.data]];
     }];
 }
+// 记账
+- (void)createBookRequest:(NSString *)price mark:(NSString *)mark date:(NSDate *)date {
+    NSInteger index = self.scroll.contentOffset.x / SCREEN_WIDTH;
+    BookCollectionView *collection = self.collections[index];
+    BookModel *model = collection.model.list[collection.selectIndex.row];
+    NSMutableDictionary *param = ({
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param setObject:price forKey:@"price"];
+        if (model.is_system) {
+            [param setObject:@(model.Id) forKey:@"category_id"];
+        } else {
+            [param setObject:@(model.Id) forKey:@"insert_id"];
+        }
+        [param setObject:@(model.is_income) forKey:@"is_income"];
+        [param setObject:@(date.year) forKey:@"year"];
+        [param setObject:@(date.month) forKey:@"month"];
+        [param setObject:@(date.day) forKey:@"day"];
+        [param setObject:mark forKey:@"mark"];
+        param;
+    });
+    @weakify(self)
+    [self showProgressHUD:@"记账中"];
+    [AFNManager POST:CreateBookRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+
 
 
 #pragma mark - set
@@ -174,7 +207,12 @@
 }
 - (BookKeyboard *)keyboard {
     if (!_keyboard) {
+        @weakify(self)
         _keyboard = [BookKeyboard init];
+        [_keyboard setComplete:^(NSString *price, NSString *mark, NSDate *date) {
+            @strongify(self)
+            [self createBookRequest:price mark:mark date:date];
+        }];
         [self.view addSubview:_keyboard];
     }
     return _keyboard;
