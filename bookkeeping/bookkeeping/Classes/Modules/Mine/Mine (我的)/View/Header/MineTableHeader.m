@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIView *punchView;
 @property (weak, nonatomic) IBOutlet UIView *dayView;
 @property (weak, nonatomic) IBOutlet UIView *numberView;
+@property (weak, nonatomic) IBOutlet UILabel *punchLab;
+@property (weak, nonatomic) IBOutlet UILabel *dayLab;
+@property (weak, nonatomic) IBOutlet UILabel *numberLab;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconConstraintW;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *punchConstraintW;
@@ -42,14 +45,15 @@
     [self.punchBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(10)]];
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
-    [self.icon.layer setCornerRadius:countcoordinatesX(60) / 2];
-    [self.icon.layer setMasksToBounds:true];
     
     [self.iconConstraintW setConstant:countcoordinatesX(60)];
     [self.punchConstraintW setConstant:countcoordinatesX(70)];
     [self.numberConstraintT setConstant:countcoordinatesX(10)];
     [self.infoConstraintT setConstant:StatusBarHeight + countcoordinatesX(40)];
     [self.punchConstraintT setConstant:StatusBarHeight + countcoordinatesX(5)];
+    
+    [self.icon.layer setCornerRadius:countcoordinatesX(60) / 2];
+    [self.icon.layer setMasksToBounds:true];
     
     
     @weakify(self)
@@ -101,26 +105,49 @@
     if (!model) {
         [_icon setImage:[UIImage imageNamed:@"default_header"]];
         [_nameLab setText:@"未登录"];
+        [_punchLab setText:@"0"];
+        [_dayLab setText:@"0"];
+        [_numberLab setText:@"0"];
         return;
     }
-    // 登录
+    
     if (model.icon) {
         [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon)]];
-    } else {
+    }
+    else {
         [_icon setImage:[UIImage imageNamed:@"default_header"]];
     }
     [_nameLab setText:model.nickname];
+    [_punchLab setText:model.punchCount];
+    [self setPunch:model.isPunch];
+}
+
+- (void)setPunch:(BOOL)punch {
+    _punch = punch;
+    // 打卡
+    if (punch == true) {
+        [_punchBtn setTitle:@"已打卡" forState:UIControlStateNormal];
+        [_punchBtn setTitle:@"已打卡" forState:UIControlStateHighlighted];
+        
+        [_punchBtn setImage:nil forState:UIControlStateNormal];
+        [_punchBtn setImage:nil forState:UIControlStateHighlighted];
+
+    }
+    // 未打卡
+    else {
+        [_punchBtn setTitle:@"打卡" forState:UIControlStateNormal];
+        [_punchBtn setTitle:@"打卡" forState:UIControlStateHighlighted];
+        
+        [_punchBtn setImage:[UIImage imageNamed:@"mine_siginin"] forState:UIControlStateNormal];
+        [_punchBtn setImage:[UIImage imageNamed:@"mine_siginin"] forState:UIControlStateHighlighted];
+
+    }
 }
 
 
 #pragma mark - 点击
 // 打卡
 - (IBAction)punchClick:(UIButton *)sender {
-    [sender setTitle:@"已打卡" forState:UIControlStateNormal];
-    [sender setTitle:@"已打卡" forState:UIControlStateHighlighted];
-    
-    [sender setImage:nil forState:UIControlStateNormal];
-    [sender setImage:nil forState:UIControlStateHighlighted];
     
     [self routerEventWithName:MINE_PUNCH_CLICK data:nil];
 }

@@ -94,7 +94,7 @@
                     ];
     [self setName:arr[indexPath.section][indexPath.row]];
 }
-- (void)setModel:(InfoModel *)model {
+- (void)setModel:(UserModel *)model {
     _model = model;
     if (_indexPath.section == 0) {
         if (_indexPath.row == 0) {
@@ -102,12 +102,12 @@
         } else if (_indexPath.row == 1) {
             [self setDetail:[@(model.Id) description]];
         } else if (_indexPath.row == 2) {
-            [self setDetail:model.name];
+            [self setDetail:model.nickname];
         } else if (_indexPath.row == 3) {
             [self setDetail:model.sex == true ? @"男" : @"女"];
         } else if (_indexPath.row == 4) {
-            if (model.phone) {
-                [self setDetail:model.phone];
+            if (model.account) {
+                [self setDetail:model.account];
                 [self setStatus:InfoTableCellStatusName];
                 [self.detailLab setTextColor:kColor_Text_Gary];
             } else {
@@ -116,8 +116,8 @@
                 [self.detailLab setTextColor:kColor_Red_Color];
             }
         } else if (_indexPath.row == 5) {
-            if (model.qq_openid) {
-                [self setDetail:model.qq_openid];
+            if (model.openid) {
+                [self setDetail:model.openid];
                 [self setStatus:InfoTableCellStatusName];
                 [self.detailLab setTextColor:kColor_Text_Gary];
             }

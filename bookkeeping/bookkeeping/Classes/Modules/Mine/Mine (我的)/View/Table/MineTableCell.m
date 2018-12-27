@@ -4,6 +4,7 @@
  */
 
 #import "MineTableCell.h"
+#import "MINE_EVENT_MANAGER.h"
 
 #pragma mark - 声明
 @interface MineTableCell()
@@ -21,6 +22,16 @@
     [self.nameLab setTextColor:kColor_Text_Black];
     [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.detailLab setTextColor:kColor_Text_Black];
+    [self.sw addTarget:self action:@selector(swValueChange:) forControlEvents:UIControlEventValueChanged];
+}
+
+
+- (void)swValueChange:(UISwitch *)sw {
+    if (_indexPath.row == 2) {
+        [self routerEventWithName:MINE_SOUND_CLICK data:@(sw.on)];
+    } else if (_indexPath.row == 3) {
+        [self routerEventWithName:MINE_DETAIL_CLICK data:@(sw.on)];
+    }
 }
 
 

@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *openid;
 @property (nonatomic, assign) BOOL sex;
+@property (nonatomic, assign) BOOL isPunch;
+@property (nonatomic, strong) NSString *punchCount;
+@property (nonatomic, assign) NSInteger sound;
+@property (nonatomic, assign) NSInteger detail;
 
 @end
 

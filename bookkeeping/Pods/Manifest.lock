@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - BRPickerView (2.2.1)
   - GPUImage (0.1.7)
   - JCore (1.2.5)
   - JGProgressHUD (2.0.3)
@@ -61,6 +62,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.2.1)
+  - BRPickerView (= 2.2.1)
   - JGProgressHUD (= 2.0.3)
   - JPush (= 3.1.1.1)
   - JZNavigationExtension (= 2.1)
@@ -84,6 +86,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - BRPickerView
     - GPUImage
     - JCore
     - JGProgressHUD
@@ -106,6 +109,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BRPickerView: 0590a8c5de9bd98c6b4e4f117a3dff6de287d5b2
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
@@ -126,6 +130,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   ZLPhotoBrowser: 6dfadc4706429424f0a851fe40752aff076689ab
 
-PODFILE CHECKSUM: 50fd41f5e6fe37918538b60abc1551cab179e396
+PODFILE CHECKSUM: 3c0b2a196093b98a80a00aff6c5433de412376a1
 
 COCOAPODS: 1.6.0.beta.2

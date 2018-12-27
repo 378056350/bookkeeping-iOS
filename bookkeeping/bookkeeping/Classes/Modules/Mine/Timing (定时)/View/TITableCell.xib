@@ -25,8 +25,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBy-N7-jdV">
-                        <rect key="frame" x="263" y="0.0" width="42" height="60.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBy-N7-jdV">
+                        <rect key="frame" x="255" y="0.0" width="50" height="60.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="wwP-rR-Ido"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KY-59-zB4">
+                        <rect key="frame" x="220" y="0.0" width="35" height="60.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,8 +43,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="VBy-N7-jdV" secondAttribute="trailing" constant="15" id="3KS-cq-AoO"/>
+                    <constraint firstAttribute="bottom" secondItem="9KY-59-zB4" secondAttribute="bottom" id="6E3-mJ-thc"/>
                     <constraint firstAttribute="bottom" secondItem="66m-tO-1x5" secondAttribute="bottom" id="70R-0b-yYv"/>
+                    <constraint firstItem="VBy-N7-jdV" firstAttribute="leading" secondItem="9KY-59-zB4" secondAttribute="trailing" id="O9K-Et-fRv"/>
                     <constraint firstAttribute="bottom" secondItem="VBy-N7-jdV" secondAttribute="bottom" id="ShK-ts-kNE"/>
+                    <constraint firstItem="9KY-59-zB4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hzi-xg-KQ8"/>
                     <constraint firstItem="66m-tO-1x5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jyI-tT-lDd"/>
                     <constraint firstItem="VBy-N7-jdV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="orX-R7-3AZ"/>
                     <constraint firstItem="66m-tO-1x5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="shZ-nr-moh"/>
@@ -43,10 +55,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="dayLab" destination="9KY-59-zB4" id="Ztv-3I-Jhf"/>
                 <outlet property="detailLab" destination="VBy-N7-jdV" id="1x5-RV-JLZ"/>
                 <outlet property="nameLab" destination="66m-tO-1x5" id="Oib-4h-oTe"/>
+                <outlet property="timeConstraintW" destination="wwP-rR-Ido" id="Umv-Le-Z3K"/>
             </connections>
-            <point key="canvasLocation" x="44.799999999999997" y="86.806596701649184"/>
+            <point key="canvasLocation" x="-61" y="41"/>
         </tableViewCell>
     </objects>
 </document>

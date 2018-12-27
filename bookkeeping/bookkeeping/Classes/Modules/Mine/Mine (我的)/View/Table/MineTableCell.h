@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, MineTableCellStatus) {
 #pragma mark - 声明
 @interface MineTableCell : BaseTableCell
 
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet UISwitch *sw;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;

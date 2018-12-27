@@ -37,7 +37,7 @@
 
 
 #pragma mark - set
-- (void)setModel:(InfoModel *)model {
+- (void)setModel:(UserModel *)model {
     _model = model;
     [self reloadData];
 }
@@ -46,10 +46,10 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (_model) {
-        if (_model.phone) {
+        if (_model.account) {
             return self.arr.count;
         }
-        else if (_model.qq_openid) {
+        else if (_model.openid) {
             return 1;
         }
     }
@@ -80,14 +80,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (_model) {
-        if (_model.phone) {
+        if (_model.account) {
             if (section == 0) {
                 return [UIView new];
             }
             else {
                 return [self footerv];
             }
-        } else if (_model.qq_openid) {
+        } else if (_model.openid) {
             if (section == 0) {
                 return [self footerv];
             }
@@ -101,14 +101,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (_model) {
-        if (_model.phone) {
+        if (_model.account) {
             if (section == 0) {
                 return countcoordinatesX(10);
             }
             else {
                 return countcoordinatesX(60);
             }
-        } else if (_model.qq_openid) {
+        } else if (_model.openid) {
             if (section == 0) {
                 return countcoordinatesX(60);
             }

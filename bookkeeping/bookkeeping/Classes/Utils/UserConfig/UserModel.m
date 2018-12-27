@@ -18,4 +18,9 @@
     }];
 }
 
+- (NSString *)punchCount {
+    return _punchCount ? _punchCount : @"0";
+}
+
+
 @end

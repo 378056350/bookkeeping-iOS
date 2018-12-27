@@ -5,7 +5,6 @@
 
 #import "InfoController.h"
 #import "InfoTableView.h"
-#import "InfoModel.h"
 #import "CPAController.h"
 #import "RE1Controller.h"
 #import "INFO_EVENT_MANAGER.h"
@@ -15,7 +14,7 @@
 @interface InfoController()
 
 @property (nonatomic, strong) InfoTableView *table;
-@property (nonatomic, strong) InfoModel *model;
+@property (nonatomic, strong) UserModel *model;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -32,28 +31,11 @@
     [self setJz_navigationBarHidden:NO];
     [self.view setBackgroundColor:kColor_Line_Color];
     [self table];
-    [self createInfoRequest];
+    [self setModel:[UserInfo loadUserInfo]];
 }
 
 
 #pragma mark - 请求
-// 获取个人信息
-- (void)createInfoRequest {
-    UserModel *model = [UserInfo loadUserInfo];
-    NSString *key = model.openid ? @"openid" : @"account";
-    NSString *value = model.openid ? model.openid : model.account;
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:value, key, nil];
-    @weakify(self)
-    [self.afn_request setAfn_useCache:false];
-    [self createRequest:InfoRequest params:param complete:^(APPResult *result) {
-        @strongify(self)
-        if (result.status == ServiceCodeSuccess) {
-            [self setModel:[InfoModel mj_objectWithKeyValues:result.data]];
-        } else {
-            [self showTextHUD:result.message delay:1.f];
-        }
-    }];
-}
 // 更换头像
 - (void)changeIconRequest:(UIImage *)image {
     @weakify(self)
@@ -78,69 +60,7 @@
             UserModel *model = [UserInfo loadUserInfo];
             [model setIcon:result.data];
             [UserInfo saveUserModel:model];
-            [self.model setIcon:result.data];
-            [self setModel:self.model];
-            // 刷新
-            [self.table reloadData];
-        } else {
-            [self showTextHUD:result.message delay:1.f];
-        }
-    }];
-}
-// 绑定第三方账号
-- (void)bindThirdRequest {
-    // QQ授权
-    @weakify(self)
-    [self umQQUserInfo:^(KKSocialUserInfoResponse *resp) {
-        @strongify(self)
-        UserModel *model = [UserInfo loadUserInfo];
-        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               model.account, @"account",
-                               resp.openid, @"openid",
-                               resp.name, @"nickname",
-                               [resp.gender isEqualToString:@"男"] ? @"1" : @"0", @"sex", nil];
-        [AFNManager POST:BindThirdRequest params:param andImages:@[resp.icon] progress:nil complete:^(APPResult *result) {
-            [self hideHUD];
-            if (result.status == ServiceCodeSuccess) {
-                UserModel *model = [UserInfo loadUserInfo];
-                [model setOpenid:resp.openid];
-                [UserInfo saveUserModel:model];
-                [self.model setQq_openid:resp.openid];
-                [self setModel:self.model];
-            } else {
-                [self showTextHUD:result.message delay:1.f];
-            }
-        }];
-            
-    }];
-}
-// 更改性别
-- (void)changeSexRequest:(NSInteger)sex {
-    @weakify(self)
-    UserModel *model = [UserInfo loadUserInfo];
-    NSMutableDictionary *param = ({
-        NSMutableDictionary *param = [NSMutableDictionary dictionary];
-        [param setObject:@(sex) forKey:@"sex"];
-        if (model.account) {
-            [param setObject:model.account forKey:@"account"];
-        }
-        if (model.openid) {
-            [param setObject:model.openid forKey:@"openid"];
-        }
-        param;
-    });
-    [self.afn_request setAfn_useCache:false];
-    [self showProgressHUD:@"修改中"];
-    [AFNManager POST:ChangeSexRequest params:param complete:^(APPResult *result) {
-        @strongify(self)
-        [self hideHUD];
-        if (result.status == ServiceCodeSuccess) {
-            // 更新数据
-            UserModel *model = [UserInfo loadUserInfo];
-            [model setSex:sex];
-            [UserInfo saveUserModel:model];
-            [self.model setSex:sex];
-            [self setModel:self.model];
+            [self setModel:model];
             // 刷新
             [self.table reloadData];
         } else {
@@ -173,8 +93,64 @@
             UserModel *model = [UserInfo loadUserInfo];
             [model setNickname:nickName];
             [UserInfo saveUserModel:model];
-            [self.model setName:nickName];
-            [self setModel:self.model];
+            [self setModel:model];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+// 绑定第三方账号
+- (void)bindThirdRequest {
+    // QQ授权
+    @weakify(self)
+    [self umQQUserInfo:^(KKSocialUserInfoResponse *resp) {
+        @strongify(self)
+        UserModel *model = [UserInfo loadUserInfo];
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               model.account, @"account",
+                               resp.openid, @"openid",
+                               resp.name, @"nickname",
+                               [resp.gender isEqualToString:@"男"] ? @"1" : @"0", @"sex", nil];
+        [AFNManager POST:BindThirdRequest params:param andImages:@[resp.icon] progress:nil complete:^(APPResult *result) {
+            [self hideHUD];
+            if (result.status == ServiceCodeSuccess) {
+                UserModel *model = [UserInfo loadUserInfo];
+                [model setOpenid:resp.openid];
+                [UserInfo saveUserModel:model];
+                [self setModel:model];
+            } else {
+                [self showTextHUD:result.message delay:1.f];
+            }
+        }];
+            
+    }];
+}
+// 更改性别
+- (void)changeSexRequest:(NSInteger)sex {
+    @weakify(self)
+    UserModel *model = [UserInfo loadUserInfo];
+    NSMutableDictionary *param = ({
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param setObject:@(sex) forKey:@"sex"];
+        if (model.account) {
+            [param setObject:model.account forKey:@"account"];
+        }
+        if (model.openid) {
+            [param setObject:model.openid forKey:@"openid"];
+        }
+        param;
+    });
+    [self.afn_request setAfn_useCache:false];
+    [self showProgressHUD:@"修改中"];
+    [AFNManager POST:ChangeSexRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        if (result.status == ServiceCodeSuccess) {
+            // 更新数据
+            UserModel *model = [UserInfo loadUserInfo];
+            [model setSex:sex];
+            [UserInfo saveUserModel:model];
+            [self setModel:model];
             // 刷新
             [self.table reloadData];
         } else {
@@ -185,7 +161,7 @@
 
 
 #pragma mark - set
-- (void)setModel:(InfoModel *)model {
+- (void)setModel:(UserModel *)model {
     _model = model;
     _table.model = model;
 }
@@ -225,8 +201,10 @@
                 vc.openid = model.openid;
                 vc.complete = ^{
                     [self.navigationController popToViewController:self animated:true];
-                    [self.model setPhone:[UserInfo loadUserInfo].account];
-                    [self setModel:self.model];
+                    UserModel *model = [UserInfo loadUserInfo];
+                    [model setAccount:[UserInfo loadUserInfo].account];
+                    [UserInfo saveUserModel:model];
+                    [self setModel:model];
                 };
                 [self.navigationController pushViewController:vc animated:true];
             }
@@ -255,8 +233,6 @@
         }
     }];
 }
-
-
 // 拍照
 - (void)takePhoto {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];

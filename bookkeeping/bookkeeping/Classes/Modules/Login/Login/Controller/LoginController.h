@@ -14,7 +14,7 @@ typedef void (^LoginComplete) (void);
 #pragma mark - 声明
 @interface LoginController : BaseViewController
 
-@property (nonatomic, weak  ) LoginComplete complete;
+@property (nonatomic, copy  ) LoginComplete complete;
 
 @end
 

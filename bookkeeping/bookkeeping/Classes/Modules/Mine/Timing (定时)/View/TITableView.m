@@ -29,14 +29,22 @@
 }
 
 
+#pragma mark - set
+- (void)setModels:(NSMutableArray<TIModel *> *)models {
+    _models = models;
+    [self reloadData];
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.models.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TITableCell *cell = [TITableCell loadFirstNib:tableView];
+    cell.model = self.models[indexPath.row];
+    cell.indexPath = indexPath;
     return cell;
 }
 

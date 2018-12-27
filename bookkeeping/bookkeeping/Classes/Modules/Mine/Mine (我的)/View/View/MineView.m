@@ -28,6 +28,13 @@
 }
 
 
+#pragma mark - set
+- (void)setModel:(UserModel *)model {
+    _model = model;
+    _table.model = model;
+}
+
+
 #pragma mark - 事件
 - (void)routerEventWithName:(NSString *)eventName data:(id)data {
     [self handleEventWithName:eventName data:data];

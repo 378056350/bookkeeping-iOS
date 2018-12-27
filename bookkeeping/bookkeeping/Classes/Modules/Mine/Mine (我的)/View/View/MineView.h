@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MineView : BaseView
 
 @property (nonatomic, strong) MineTableView *table;
+@property (nonatomic, strong) UserModel *model;
 
 @end
 

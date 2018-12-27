@@ -4,13 +4,12 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "InfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InfoTableView : UITableView
 
-@property (nonatomic, strong) InfoModel *model;
+@property (nonatomic, strong) UserModel *model;
 
 @end
 

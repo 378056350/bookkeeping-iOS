@@ -4,7 +4,6 @@
  */
 
 #import "BaseTableCell.h"
-#import "InfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +22,7 @@ typedef NS_ENUM(NSUInteger, InfoTableCellStatus) {
 @property (nonatomic, strong) NSString *detail;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) InfoTableCellStatus status;
-@property (nonatomic, strong) InfoModel *model;
+@property (nonatomic, strong) UserModel *model;
 
 @end
 

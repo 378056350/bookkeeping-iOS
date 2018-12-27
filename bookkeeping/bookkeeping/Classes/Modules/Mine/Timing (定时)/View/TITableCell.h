@@ -4,10 +4,14 @@
  */
 
 #import "BaseTableCell.h"
+#import "TIModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TITableCell : BaseTableCell
+@interface TITableCell : MGSwipeTableCell
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) TIModel *model;
 
 @end
 

@@ -14,4 +14,7 @@
 #define MINE_HEADER_DAY_CLICK       @"MINE_HEADER_DAY_CLICK"     // 总天数点击
 #define MINE_HEADER_NUMBER_CLICK    @"MINE_HEADER_NUMBER_CLICK"  // 总笔数点击
 
+#define MINE_SOUND_CLICK    @"MINE_SOUND_CLICK"  // 切换声音
+#define MINE_DETAIL_CLICK    @"MINE_DETAIL_CLICK"  // 切换详情
+
 #endif

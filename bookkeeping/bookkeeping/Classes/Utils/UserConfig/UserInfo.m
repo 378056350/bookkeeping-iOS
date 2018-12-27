@@ -7,6 +7,7 @@
 
 @implementation UserInfo
 
+
 // 是否登录
 + (BOOL)isLogin {
     // 有缓存

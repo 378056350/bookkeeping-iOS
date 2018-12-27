@@ -52,27 +52,30 @@
 
 // 监听通知
 - (void)rac_notification_register {
+    @weakify(self)
     // 忘记密码完成
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_FORGET_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         NSLog(@"忘记密码完成");
     }];
     // 注册完成
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_REGISTER_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
-        // 关闭
-        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        @strongify(self)
         // 回调
         if (self.complete) {
             self.complete();
         }
+        // 关闭
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
     }];
     // 登录完成
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_LOGIN_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
-        // 关闭
-        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        @strongify(self)
         // 回调
         if (self.complete) {
             self.complete();
         }
+        // 关闭
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
     }];
     
     

@@ -27,6 +27,7 @@
 #import <UMCommon/UMCommon.h>
 #import <ZLPhotoBrowser/ZLPhotoActionSheet.h>
 #import <ZLPhotoBrowser/ZLCustomCamera.h>
+#import <BRPickerView/BRPickerView.h>
 
 
 //================================= Category =================================//

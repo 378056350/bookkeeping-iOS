@@ -51,6 +51,7 @@
 - (void)setModel:(UserModel *)model {
     _model = model;
     _header.model = model;
+    [self reloadData];
 }
 
 
@@ -63,11 +64,19 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineTableCell *cell = [MineTableCell loadFirstNib:tableView];
+    cell.indexPath = indexPath;
     cell.nameLab.text = self.datas[0][indexPath.section][indexPath.row];
     cell.icon.image = [UIImage imageNamed:self.datas[1][indexPath.section][indexPath.row]];
     cell.status = [self.datas[2][indexPath.section][indexPath.row] integerValue];
     cell.detailLab.hidden = indexPath.section != 0;
     cell.badgeCount = 12;
+    if (indexPath.section == 1) {
+        if (indexPath.row == 2) {
+            [cell.sw setOn:[UserInfo loadUserInfo].sound];
+        } else if (indexPath.row == 3) {
+            [cell.sw setOn:[UserInfo loadUserInfo].detail];
+        }
+    }
     return cell;
 }
 

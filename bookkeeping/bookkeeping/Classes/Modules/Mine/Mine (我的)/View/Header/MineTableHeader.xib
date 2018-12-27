@@ -151,6 +151,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="dayLab" destination="KGi-vq-An4" id="ZQa-Kk-2zv"/>
                 <outlet property="dayView" destination="cRP-zi-YAR" id="oNM-1k-oNf"/>
                 <outlet property="icon" destination="P9z-3f-H5f" id="p5u-MD-MaO"/>
                 <outlet property="iconConstraintW" destination="ajw-nA-fze" id="GVl-Ex-Kva"/>
@@ -158,10 +159,12 @@
                 <outlet property="infoView" destination="azk-Cf-tFR" id="QMl-WW-m7p"/>
                 <outlet property="nameLab" destination="JET-CQ-ZGh" id="r8k-q9-5nI"/>
                 <outlet property="numberConstraintT" destination="2rd-up-D8T" id="KB8-rc-Nbl"/>
+                <outlet property="numberLab" destination="AOf-Gf-zop" id="3Ym-qD-IWV"/>
                 <outlet property="numberView" destination="qGE-mW-O2w" id="jcr-bd-CNt"/>
                 <outlet property="punchBtn" destination="moM-Fs-1ao" id="62u-WH-OXj"/>
                 <outlet property="punchConstraintT" destination="fWv-1R-ePc" id="TMt-Mh-OzK"/>
                 <outlet property="punchConstraintW" destination="UdY-R7-QAo" id="of7-e3-CsE"/>
+                <outlet property="punchLab" destination="yoq-UE-t2R" id="bVU-tS-iL7"/>
                 <outlet property="punchView" destination="DVq-Rc-CFc" id="eyZ-jC-Hr4"/>
             </connections>
             <point key="canvasLocation" x="-1201" y="-275"/>

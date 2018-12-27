@@ -4,10 +4,13 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "TIModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TITableView : UITableView
+
+@property (nonatomic, strong) NSMutableArray<TIModel *> *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 
