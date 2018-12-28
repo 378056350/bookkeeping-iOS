@@ -4,6 +4,7 @@
  */
 
 #import "HomeHeader.h"
+#import "HOME_EVENT_MANAGER.h"
 
 
 #pragma mark - 声明
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineConstraintL;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *getConstraintL;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *setConstraintL;
+@property (weak, nonatomic) IBOutlet UIView *monthView;
 
 @end
 
@@ -43,6 +45,15 @@
     [self.setValueLab setAttributedText:[NSAttributedString createMath:@"12.34" integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
     [self.line setBackgroundColor:kColor_Text_Gary];
     [self.lineConstraintL setConstant:SCREEN_WIDTH / 4];
+    [self.monthView addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        [self routerEventWithName:HOME_MONTH_CLICK data:nil];
+    }];
+}
+
+- (void)setDate:(NSDate *)date {
+    _date = date;
+    _yearLab.text = [@(date.year) description];
+    _monthLab.text = [@(date.month) description];
 }
 
 

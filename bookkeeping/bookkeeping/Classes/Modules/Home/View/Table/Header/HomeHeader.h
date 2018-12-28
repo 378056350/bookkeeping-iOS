@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeHeader : BaseView
 
+@property (nonatomic, strong) NSDate *date;
+
 @end
 
 NS_ASSUME_NONNULL_END

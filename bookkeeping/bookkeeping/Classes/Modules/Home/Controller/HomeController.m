@@ -7,6 +7,8 @@
 #import "HomeHeader.h"
 #import "HomeList.h"
 #import "LoginController.h"
+#import "BookMonthModel.h"
+#import "HOME_EVENT_MANAGER.h"
 
 
 #pragma mark - 声明
@@ -14,6 +16,10 @@
 
 @property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) HomeList *list;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSMutableArray<BookMonthModel *> *datas;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
+@property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
 
@@ -24,17 +30,108 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitleView:({
-        UIImageView *image = [[UIImageView alloc] init];
-        image.image = [UIImage imageNamed:@"detail_share_shark"];
-        image;
-    })];
+    [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detail_share_shark"]]];
     [self setJz_navigationBarTintColor:kColor_Main_Color];
     [self header];
     [self list];
+    [self setDate:[NSDate date]];
+    [self getBookRequest:self.date];
 }
 
 
+#pragma mark - 请求
+// 查账
+- (void)getBookRequest:(NSDate *)date {
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @(date.year), @"year",
+                           @(date.month), @"month", nil];
+    @weakify(self)
+    [self showProgressHUD];
+    [AFNManager POST:GetBookMonthRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        // 成功
+        if (result.status == ServiceCodeSuccess) {
+            [self setDatas:[BookMonthModel mj_objectArrayWithKeyValuesArray:result.data]];
+            [self setDate:date];
+        }
+        // 失败
+        else {
+            [self showWindowTextHUD:result.message delay:1.f];
+        }
+    }];
+}
+
+
+#pragma mark - set
+- (void)setDatas:(NSMutableArray<BookMonthModel *> *)datas {
+    _datas = datas;
+    if (datas.count != 0) {
+        NSMutableArray<NSMutableArray<BookMonthModel *> *> *arrm = [NSMutableArray array];
+        [arrm addObject:[NSMutableArray array]];
+        
+        NSInteger day = datas[0].day;
+        for (BookMonthModel *model in datas) {
+            if (model.day == day) {
+                [[arrm lastObject] addObject:model];
+            } else {
+                day = model.day;
+                [arrm addObject:[NSMutableArray array]];
+                [[arrm lastObject] addObject:model];
+            }
+        }
+        [self setModels:arrm];
+    } else {
+        [self setModels:[NSMutableArray array]];
+    }
+}
+- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+    _models = models;
+    _list.models = models;
+}
+- (void)setDate:(NSDate *)date {
+    _date = date;
+    _header.date = date;
+}
+
+
+#pragma mark - 事件
+- (void)routerEventWithName:(NSString *)eventName data:(id)data {
+    [self handleEventWithName:eventName data:data];
+}
+- (void)handleEventWithName:(NSString *)eventName data:(id)data {
+    NSInvocation *invocation = self.eventStrategy[eventName];
+    [invocation setArgument:&data atIndex:2];
+    [invocation invoke];
+    [super routerEventWithName:eventName data:data];
+}
+// 点击月份
+- (void)homeMonthClick:(id)data {
+    @weakify(self)
+    NSDate *date = self.date;
+    NSDate *min = [NSDate br_setYear:2000 month:1 day:1];
+    NSDate *max = [NSDate br_setYear:date.year + 3 month:12 day:31];
+    [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYM defaultSelValue:nil minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
+        @strongify(self)
+        [self setDate:({
+            NSDateFormatter *fora = [[NSDateFormatter alloc] init];
+            [fora setDateFormat:@"yyyy-MM"];
+            NSDate *date = [fora dateFromString:selectValue];
+            date;
+        })];
+        [self getBookRequest:self.date];
+    }];
+}
+// 下拉
+- (void)homeTablePull:(id)data {
+    NSDate *next = [self.date offsetMonths:1];
+    [self getBookRequest:next];
+}
+// 上拉
+- (void)homeTableUp:(id)data {
+    NSDate *last = [self.date offsetMonths:-1];
+    [self getBookRequest:last];
+}
 
 
 #pragma mark - get
@@ -55,6 +152,16 @@
         [self.view addSubview:_list];
     }
     return _list;
+}
+- (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
+    if (!_eventStrategy) {
+        _eventStrategy = @{
+                           HOME_MONTH_CLICK: [self createInvocationWithSelector:@selector(homeMonthClick:)],
+                           HOME_TABLE_PULL: [self createInvocationWithSelector:@selector(homeTablePull:)],
+                           HOME_TABLE_UP: [self createInvocationWithSelector:@selector(homeTableUp:)],
+                           };
+    }
+    return _eventStrategy;
 }
 
 

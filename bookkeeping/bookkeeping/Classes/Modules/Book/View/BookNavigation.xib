@@ -20,13 +20,13 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="TxB-3k-Rp5"/>
                     </constraints>
-                    <state key="normal" title="收入">
+                    <state key="normal" title="支出">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i82-gE-Gvb">
                     <rect key="frame" x="235.5" y="0.0" width="80" height="78"/>
-                    <state key="normal" title="支出">
+                    <state key="normal" title="收入">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>

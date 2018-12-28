@@ -76,6 +76,9 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aH-m1-gTG">
+                    <rect key="frame" x="0.0" y="0.0" width="101" height="67"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -85,12 +88,16 @@
                 <constraint firstItem="zNL-Pc-CEq" firstAttribute="leading" secondItem="Mpz-6K-nes" secondAttribute="leading" constant="15" id="6a9-PD-FUW"/>
                 <constraint firstItem="0om-hQ-90f" firstAttribute="centerY" secondItem="36b-6B-ZJA" secondAttribute="centerY" id="ATw-zd-rdI"/>
                 <constraint firstItem="nFR-eb-KXA" firstAttribute="leading" secondItem="sk0-0w-Vfz" secondAttribute="leading" id="C9p-Gt-bOn"/>
+                <constraint firstItem="9aH-m1-gTG" firstAttribute="top" secondItem="UW6-Mj-UUe" secondAttribute="top" id="LTy-B6-3Fr"/>
+                <constraint firstItem="9aH-m1-gTG" firstAttribute="leading" secondItem="UW6-Mj-UUe" secondAttribute="leading" id="Lno-WK-U88"/>
                 <constraint firstItem="zNL-Pc-CEq" firstAttribute="top" secondItem="Mpz-6K-nes" secondAttribute="top" constant="8" id="VZG-2P-pfB"/>
                 <constraint firstItem="StM-uY-6Ig" firstAttribute="leading" secondItem="sk0-0w-Vfz" secondAttribute="trailing" constant="50" id="WsL-Tb-3h6"/>
                 <constraint firstItem="dJd-JJ-JrV" firstAttribute="centerY" secondItem="Ouv-cH-3tl" secondAttribute="centerY" id="Xx5-zS-nHm"/>
                 <constraint firstItem="36b-6B-ZJA" firstAttribute="leading" secondItem="Mpz-6K-nes" secondAttribute="leading" constant="100" id="YLR-pm-fBK"/>
                 <constraint firstItem="Ouv-cH-3tl" firstAttribute="bottom" secondItem="PEa-1e-m21" secondAttribute="bottom" constant="-2" id="Zlw-Da-t7Z"/>
+                <constraint firstAttribute="bottom" secondItem="9aH-m1-gTG" secondAttribute="bottom" id="auC-xx-G5Y"/>
                 <constraint firstItem="36b-6B-ZJA" firstAttribute="centerY" secondItem="dJd-JJ-JrV" secondAttribute="centerY" id="eXu-61-lJb"/>
+                <constraint firstItem="9aH-m1-gTG" firstAttribute="trailing" secondItem="36b-6B-ZJA" secondAttribute="trailing" id="hbJ-CO-ZOQ"/>
                 <constraint firstItem="nFR-eb-KXA" firstAttribute="centerY" secondItem="36b-6B-ZJA" secondAttribute="centerY" id="i2q-0e-dsd"/>
                 <constraint firstItem="Ouv-cH-3tl" firstAttribute="leading" secondItem="PEa-1e-m21" secondAttribute="trailing" constant="3" id="olI-QC-eRa"/>
                 <constraint firstItem="PEa-1e-m21" firstAttribute="top" secondItem="zNL-Pc-CEq" secondAttribute="bottom" constant="5" id="qCK-HT-kaY"/>
@@ -109,12 +116,13 @@
                 <outlet property="lineConstraintL" destination="YLR-pm-fBK" id="l5t-hH-jDn"/>
                 <outlet property="monthDescLab" destination="Ouv-cH-3tl" id="a8k-ng-zug"/>
                 <outlet property="monthLab" destination="PEa-1e-m21" id="nhi-HY-fkI"/>
+                <outlet property="monthView" destination="9aH-m1-gTG" id="dlt-0e-3X0"/>
                 <outlet property="payLab" destination="StM-uY-6Ig" id="5ws-GB-Ysv"/>
                 <outlet property="setConstraintL" destination="WsL-Tb-3h6" id="KzG-PO-ENu"/>
                 <outlet property="setValueLab" destination="0om-hQ-90f" id="Lh2-MD-6DB"/>
-                <outlet property="yearLab" destination="zNL-Pc-CEq" id="Aps-l5-WSf"/>
+                <outlet property="yearLab" destination="zNL-Pc-CEq" id="IvD-Me-PUL"/>
             </connections>
-            <point key="canvasLocation" x="517" y="-318"/>
+            <point key="canvasLocation" x="749" y="-363"/>
         </view>
     </objects>
     <resources>

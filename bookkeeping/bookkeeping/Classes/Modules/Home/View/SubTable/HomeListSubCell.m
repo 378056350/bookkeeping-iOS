@@ -23,14 +23,22 @@
 
 - (void)initUI {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [self.icon setBackgroundColor:kColor_Main_Color];
-    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
+    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];
-    [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
+    [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.detailLab setTextColor:kColor_Text_Black];
     
     [self.iconConstraintL setConstant:countcoordinatesX(15)];
     [self.detailConstraintR setConstant:countcoordinatesX(15)];
+}
+
+
+#pragma mark - set
+- (void)setModel:(BookMonthModel *)model {
+    _model = model;
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
+    [_nameLab setText:model.name];
+    [_detailLab setText:model.is_income == 0 ? [@(-model.price) description] : [@(model.price) description]];
 }
 
 

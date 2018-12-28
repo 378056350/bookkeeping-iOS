@@ -58,7 +58,7 @@
                 <outlet property="nameConstraintL" destination="OGq-MT-9rh" id="zxn-4y-f10"/>
                 <outlet property="nameLab" destination="hQF-3R-aOB" id="XwT-gf-bbT"/>
             </connections>
-            <point key="canvasLocation" x="-201" y="-153"/>
+            <point key="canvasLocation" x="-433" y="-166"/>
         </view>
     </objects>
 </document>

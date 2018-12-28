@@ -4,11 +4,26 @@
  */
 
 #import "BaseView.h"
+#import "BookMonthModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#pragma mark - ENUM
+typedef NS_ENUM(NSInteger, HomeListStatus) {
+    HomeListStatusNormal, // 正常
+    HomeListStatusPull,   // 下拉
+    HomeListStatusUp,     // 上拉
+};
+
+
+#pragma mark - 声明
 @interface HomeList : BaseView
 
+@property (nonatomic, assign) HomeListStatus status;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
+
 @end
+
 
 NS_ASSUME_NONNULL_END

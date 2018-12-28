@@ -27,6 +27,55 @@
 }
 
 
+#pragma mark - set
+- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+    _models = models;
+    __weak typeof(self) weak = self;
+    if (_status == HomeListStatusNormal) {
+        // cell
+        NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
+        // cell
+        HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
+        cell.models = models;
+        // 移动
+        [_table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
+    } else if (_status == HomeListStatusPull) {
+        // index
+        NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+        NSIndexPath *center = [NSIndexPath indexPathForRow:1 inSection:0];
+        // cell
+        HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
+        HomeListCell *centerCell = [self.table cellForRowAtIndexPath:center];
+        cell.models = models;
+        // 移动
+        [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            [weak.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
+        } completion:^(BOOL finished){
+            [centerCell setModels:models];
+            [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
+        }];
+    } else if (_status == HomeListStatusUp) {
+        // index
+        NSIndexPath *index = [NSIndexPath indexPathForRow:2 inSection:0];
+        NSIndexPath *center = [NSIndexPath indexPathForRow:1 inSection:0];
+        // cell
+        HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
+        HomeListCell *centerCell = [self.table cellForRowAtIndexPath:center];
+        cell.models = models;
+        // 移动
+        [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            [weak.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
+        } completion:^(BOOL finished){
+            [centerCell setModels:models];
+            [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
+        }];
+    }
+    _status = HomeListStatusNormal;
+    [_table.mj_header endRefreshing];
+    [_table.mj_footer endRefreshing];
+}
+
+
 #pragma mark - 事件
 - (void)routerEventWithName:(NSString *)eventName data:(id)data {
     [self handleEventWithName:eventName data:data];
@@ -37,14 +86,19 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
-- (void)tableHeaderRefresh:(id)data {
-    [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+// 下拉刷新
+- (void)homeTablePull:(id)data {
+    _status = HomeListStatusPull;
+}
+// 上拉加载
+- (void)homeTableUp:(id)data {
+    _status = HomeListStatusUp;
 }
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListCell *cell = [HomeListCell loadCode:tableView];
@@ -76,7 +130,8 @@
 - (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
     if (!_eventStrategy) {
         _eventStrategy = @{
-                           HOME_HEADER_BEGIN_REFRESH: [self createInvocationWithSelector:@selector(tableHeaderRefresh:)],
+                           HOME_TABLE_PULL: [self createInvocationWithSelector:@selector(homeTablePull:)],
+                           HOME_TABLE_UP: [self createInvocationWithSelector:@selector(homeTableUp:)],
                            
                            };
     }

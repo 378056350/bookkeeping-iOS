@@ -5,8 +5,10 @@
 
 #import "HomeListCell.h"
 #import "KKRefreshNormalHeader.h"
+#import "KKRefreshNormalFooter.h"
 #import "HomeListHeader.h"
 #import "HomeListSubCell.h"
+#import "HomeListEmpty.h"
 #import "HOME_EVENT_MANAGER.h"
 
 #pragma mark - 声明
@@ -14,6 +16,8 @@
 
 @property (nonatomic, strong) UITableView *table;
 @property (nonatomic, strong) KKRefreshNormalHeader *header;
+@property (nonatomic, strong) KKRefreshNormalFooter *footer;
+@property (nonatomic, strong) HomeListEmpty *emptyView;
 
 @end
 
@@ -26,22 +30,33 @@
     [self setBackgroundColor:[UIColor brownColor]];
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     [self table];
+    [self emptyView];
 }
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.table setFrame:self.contentView.bounds];
+    [self.emptyView setFrame:self.contentView.bounds];
+}
+
+
+#pragma mark - set
+- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+    _models = models;
+    [self.table reloadData];
+    [self.emptyView setHidden:models.count != 0];
 }
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.models.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.models[section].count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListSubCell *cell = [HomeListSubCell loadFirstNib:tableView];
+    cell.model = self.models[indexPath.section][indexPath.row];
     return cell;
 }
 
@@ -49,6 +64,7 @@
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HomeListHeader *header = [HomeListHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(30))];
+    header.models = self.models[section];
     return header;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -58,10 +74,12 @@
     return countcoordinatesX(50);
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [UIView new];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(5))];
+    view.backgroundColor = kColor_White;
+    return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return countcoordinatesX(10);
+    return countcoordinatesX(5);
 }
 
 
@@ -70,25 +88,43 @@
     if (!_header) {
         __weak typeof(self) weak = self;
         _header = [KKRefreshNormalHeader headerWithRefreshingBlock:^{
-            [weak.table.mj_header endRefreshing];
-            [weak routerEventWithName:HOME_HEADER_BEGIN_REFRESH data:nil];
+            [weak routerEventWithName:HOME_TABLE_PULL data:nil];
         }];
     }
     return _header;
 }
+- (KKRefreshNormalFooter *)footer {
+    if (!_footer) {
+        __weak typeof(self) weak = self;
+        _footer = [KKRefreshNormalFooter footerWithRefreshingBlock:^{
+            [weak routerEventWithName:HOME_TABLE_UP data:nil];
+        }];
+    }
+    return _footer;
+}
 - (UITableView *)table {
     if (!_table) {
-        _table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        [_table setBackgroundColor:RGBA(random() % 255, random() % 255, random() % 255, 1)];
+        _table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [_table setMj_header:self.header];
+        [_table setMj_footer:self.footer];
         [_table setDelegate:self];
         [_table setDataSource:self];
         [_table lineHide];
         [_table lineAll];
-        [_table setSeparatorColor:kColor_BG];
+        [_table setSeparatorColor:kColor_Line_Color];
+        [_table setShowsVerticalScrollIndicator:false];
+        [_table setBackgroundColor:kColor_White];
         [self.contentView addSubview:_table];
     }
     return _table;
+}
+- (HomeListEmpty *)emptyView {
+    if (!_emptyView) {
+        _emptyView = [HomeListEmpty loadFirstNib:self.bounds];
+        _emptyView.hidden = true;
+        [self.table addSubview:_emptyView];
+    }
+    return _emptyView;
 }
 
 

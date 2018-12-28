@@ -22,10 +22,11 @@
     KKRefreshNormalHeader *header = [super headerWithRefreshingBlock:refreshingBlock];
     [header setTitle:@"下拉查看下月数据" forState:MJRefreshStateIdle];
     [header setTitle:@"送开可查看下月数据" forState:MJRefreshStatePulling];
-    [header setTitle:@"" forState:MJRefreshStateRefreshing];
+    [header setTitle:@"查找数据中" forState:MJRefreshStateRefreshing];
     [header setTitle:@"" forState:MJRefreshStateWillRefresh];
     [header.lastUpdatedTimeLabel setHidden:YES];
     [header.arrowView setHidden:YES];
+    [header.arrowView setAlpha:0];
     [header setOnlyText:NO];
     [header.stateLabel setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     return header;
