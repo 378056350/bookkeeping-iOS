@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,29 +16,40 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_down" translatesAutoresizingMaskIntoConstraints="NO" id="JEL-2G-tpD" customClass="time_down">
-                    <rect key="frame" x="215" y="0.0" width="15" height="58"/>
+                    <rect key="frame" x="215" y="-14" width="15" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="jeD-0j-bGd"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2U-eq-6bW">
-                    <rect key="frame" x="177" y="18.5" width="35" height="21"/>
+                    <rect key="frame" x="177" y="14" width="35" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="U9U-6m-EhG"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfQ-al-wNH">
+                    <rect key="frame" x="157" y="0.0" width="93" height="58"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="JEL-2G-tpD" firstAttribute="centerY" secondItem="k2U-eq-6bW" secondAttribute="centerY" id="3Qs-nH-4UN"/>
+                <constraint firstItem="LfQ-al-wNH" firstAttribute="top" secondItem="55m-r8-Oau" secondAttribute="top" id="F0p-nq-DaL"/>
+                <constraint firstItem="JEL-2G-tpD" firstAttribute="trailing" secondItem="LfQ-al-wNH" secondAttribute="trailing" constant="-20" id="HHd-ma-k7d"/>
                 <constraint firstItem="k2U-eq-6bW" firstAttribute="centerX" secondItem="55m-r8-Oau" secondAttribute="centerX" id="OPA-ee-bfE"/>
-                <constraint firstItem="k2U-eq-6bW" firstAttribute="centerY" secondItem="55m-r8-Oau" secondAttribute="centerY" id="ctb-iU-gcl"/>
-                <constraint firstItem="JEL-2G-tpD" firstAttribute="bottom" secondItem="9pf-rF-cnd" secondAttribute="bottom" id="d6g-d9-Dq0"/>
+                <constraint firstItem="LfQ-al-wNH" firstAttribute="leading" secondItem="k2U-eq-6bW" secondAttribute="leading" constant="-20" id="UVv-of-wqN"/>
+                <constraint firstAttribute="bottom" secondItem="LfQ-al-wNH" secondAttribute="bottom" id="VIl-pD-ysz"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="leading" secondItem="k2U-eq-6bW" secondAttribute="trailing" constant="3" id="jbZ-a6-Tgw"/>
-                <constraint firstItem="JEL-2G-tpD" firstAttribute="top" secondItem="55m-r8-Oau" secondAttribute="top" id="ogG-19-bbO"/>
+                <constraint firstAttribute="bottom" secondItem="k2U-eq-6bW" secondAttribute="bottom" id="zXB-gr-vCb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="9pf-rF-cnd"/>
-            <point key="canvasLocation" x="-106" y="-144"/>
+            <connections>
+                <outlet property="button" destination="LfQ-al-wNH" id="0sp-Wy-VII"/>
+            </connections>
+            <point key="canvasLocation" x="281" y="-479"/>
         </view>
     </objects>
     <resources>

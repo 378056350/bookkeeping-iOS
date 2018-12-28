@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartNavigation : BaseView
 
+@property (weak, nonatomic) IBOutlet UIButton *button;
+
 @end
 
 NS_ASSUME_NONNULL_END

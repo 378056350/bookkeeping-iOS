@@ -94,7 +94,6 @@
 		32D0B2C721C77B240030F5B2 /* ChartDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2C621C77B240030F5B2 /* ChartDate.xib */; };
 		32D0B2CB21C782270030F5B2 /* ChartSubDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */; };
 		32D0B2CC21C782270030F5B2 /* ChartSubDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */; };
-		32D1762921D62F230057B3EB /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D1762721D62F230057B3EB /* BookModel.m */; };
 		32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB40921D0EA820069DF99 /* CPAController.m */; };
 		32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB40A21D0EA820069DF99 /* CPAController.xib */; };
 		32FA228921D61BC40000BC0E /* KKRefreshNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FA228821D61BC40000BC0E /* KKRefreshNormalFooter.m */; };
@@ -106,6 +105,9 @@
 		4B132AA521C68DE500D5B489 /* BookCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA421C68DE500D5B489 /* BookCollectionView.m */; };
 		4B132AA921C68F4300D5B489 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA721C68F4300D5B489 /* BookCollectionCell.m */; };
 		4B132AAA21C68F4300D5B489 /* BookCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */; };
+		4B1893C121D66F7E005002E2 /* ChartHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1893C021D66F7E005002E2 /* ChartHud.m */; };
+		4B1893C521D67081005002E2 /* ChartHudCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1893C321D67081005002E2 /* ChartHudCell.m */; };
+		4B1893C621D67081005002E2 /* ChartHudCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1893C421D67081005002E2 /* ChartHudCell.xib */; };
 		4B1917B021CD333000137215 /* BookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BookListModel.m */; };
 		4B1917B321CD391000137215 /* CategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917B221CD391000137215 /* CategoryListModel.m */; };
 		4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917C621CD45C900137215 /* UIView+JGProgressHUD.m */; };
@@ -434,8 +436,6 @@
 		32D0B2C821C782270030F5B2 /* ChartSubDateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSubDateCell.h; sourceTree = "<group>"; };
 		32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSubDateCell.m; sourceTree = "<group>"; };
 		32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartSubDateCell.xib; sourceTree = "<group>"; };
-		32D1762721D62F230057B3EB /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
-		32D1762821D62F230057B3EB /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		32EAB40821D0EA820069DF99 /* CPAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAController.h; sourceTree = "<group>"; };
 		32EAB40921D0EA820069DF99 /* CPAController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAController.m; sourceTree = "<group>"; };
 		32EAB40A21D0EA820069DF99 /* CPAController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPAController.xib; sourceTree = "<group>"; };
@@ -456,6 +456,11 @@
 		4B132AA621C68F4300D5B489 /* BookCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCollectionCell.h; sourceTree = "<group>"; };
 		4B132AA721C68F4300D5B489 /* BookCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCollectionCell.m; sourceTree = "<group>"; };
 		4B132AA821C68F4300D5B489 /* BookCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionCell.xib; sourceTree = "<group>"; };
+		4B1893BF21D66F7E005002E2 /* ChartHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartHud.h; sourceTree = "<group>"; };
+		4B1893C021D66F7E005002E2 /* ChartHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartHud.m; sourceTree = "<group>"; };
+		4B1893C221D67081005002E2 /* ChartHudCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartHudCell.h; sourceTree = "<group>"; };
+		4B1893C321D67081005002E2 /* ChartHudCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartHudCell.m; sourceTree = "<group>"; };
+		4B1893C421D67081005002E2 /* ChartHudCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartHudCell.xib; sourceTree = "<group>"; };
 		4B1917AE21CD333000137215 /* BookListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookListModel.h; sourceTree = "<group>"; };
 		4B1917AF21CD333000137215 /* BookListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListModel.m; sourceTree = "<group>"; };
 		4B1917B121CD391000137215 /* CategoryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryListModel.h; sourceTree = "<group>"; };
@@ -1204,6 +1209,11 @@
 				32D0B2C821C782270030F5B2 /* ChartSubDateCell.h */,
 				32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */,
 				32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */,
+				4B1893BF21D66F7E005002E2 /* ChartHud.h */,
+				4B1893C021D66F7E005002E2 /* ChartHud.m */,
+				4B1893C221D67081005002E2 /* ChartHudCell.h */,
+				4B1893C321D67081005002E2 /* ChartHudCell.m */,
+				4B1893C421D67081005002E2 /* ChartHudCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1897,8 +1907,6 @@
 		4BE7845821C678FB00B8EC46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				32D1762821D62F230057B3EB /* BookModel.h */,
-				32D1762721D62F230057B3EB /* BookModel.m */,
 				4B1917AE21CD333000137215 /* BookListModel.h */,
 				4B1917AF21CD333000137215 /* BookListModel.m */,
 			);
@@ -2221,6 +2229,7 @@
 				4BEB72F121CE033300BEF013 /* dropdown_anim__00051@2x.png in Resources */,
 				4BEB72F921CE033300BEF013 /* dropdown_anim__00030@2x.png in Resources */,
 				4BEB731021CE033300BEF013 /* dropdown_anim__00013@2x.png in Resources */,
+				4B1893C621D67081005002E2 /* ChartHudCell.xib in Resources */,
 				32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */,
 				4BEB72EC21CE033300BEF013 /* dropdown_anim__00047@2x.png in Resources */,
 				4B35F1BE21CCC694007271BE /* KKGoodsEmpty.xib in Resources */,
@@ -2400,6 +2409,7 @@
 				321983BB21C6459B00311885 /* BaseService.m in Sources */,
 				321983BC21C6459B00311885 /* BaseTableCell.m in Sources */,
 				321983C121C6459B00311885 /* BaseCollectionReusableView.m in Sources */,
+				4B1893C121D66F7E005002E2 /* ChartHud.m in Sources */,
 				3257AED421C8750800787A34 /* TIController.m in Sources */,
 				32A4C22721CB189100DF4327 /* BadgeReusableFooter.m in Sources */,
 				4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */,
@@ -2440,7 +2450,6 @@
 				32A4C24D21CB834100DF4327 /* BookPunch.m in Sources */,
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
-				32D1762921D62F230057B3EB /* BookModel.m in Sources */,
 				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				326F8F2421D4BFCA0030B329 /* TIModel.m in Sources */,
@@ -2458,6 +2467,7 @@
 				4B1917B021CD333000137215 /* BookListModel.m in Sources */,
 				4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */,
 				32A4C23821CB445700DF4327 /* ShareBottom.m in Sources */,
+				4B1893C521D67081005002E2 /* ChartHudCell.m in Sources */,
 				4B35F1A621CCC641007271BE /* AFNManager.m in Sources */,
 				4B35F1D521CD0798007271BE /* ACAListModel.m in Sources */,
 				4BEB732021CE358A00BEF013 /* AppDelegate+UMeng.m in Sources */,

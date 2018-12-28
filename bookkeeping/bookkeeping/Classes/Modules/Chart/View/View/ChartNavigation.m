@@ -16,8 +16,7 @@
 
 
 - (void)initUI {
-    
+    [self setBackgroundColor:kColor_Main_Color];
 }
-
 
 @end

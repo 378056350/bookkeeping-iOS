@@ -83,6 +83,12 @@
 }
 
 
+- (void)endRefresh {
+    [self.table.mj_header endRefreshing];
+    [self.table.mj_footer endRefreshing];
+}
+
+
 #pragma mark - get
 - (KKRefreshNormalHeader *)header {
     if (!_header) {
@@ -111,8 +117,8 @@
         [_table setDataSource:self];
         [_table lineHide];
         [_table lineAll];
-        [_table setSeparatorColor:kColor_Line_Color];
         [_table setShowsVerticalScrollIndicator:false];
+        [_table setSeparatorColor:kColor_Line_Color];
         [_table setBackgroundColor:kColor_White];
         [self.contentView addSubview:_table];
     }

@@ -51,6 +51,7 @@
         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
             [weak.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
         } completion:^(BOOL finished){
+            [cell setModels:[NSMutableArray array]];
             [centerCell setModels:models];
             [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
         }];
@@ -64,15 +65,22 @@
         cell.models = models;
         // 移动
         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            [weak.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
+            NSLog(@"%.2f", self.table.contentOffset.y);
+            [weak.table setContentOffset:CGPointMake(0, self.table.height + self.table.height - 1)];
         } completion:^(BOOL finished){
+            [cell setModels:[NSMutableArray array]];
             [centerCell setModels:models];
             [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
         }];
     }
+    
+    for (int i=0; i<3; i++) {
+        NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:0];
+        HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
+        [cell endRefresh];
+    }
+    
     _status = HomeListStatusNormal;
-    [_table.mj_header endRefreshing];
-    [_table.mj_footer endRefreshing];
 }
 
 

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
 
+- (void)endRefresh;
+
 @end
 
 NS_ASSUME_NONNULL_END

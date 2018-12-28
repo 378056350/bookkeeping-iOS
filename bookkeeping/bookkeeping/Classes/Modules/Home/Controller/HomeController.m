@@ -46,10 +46,8 @@
                            @(date.year), @"year",
                            @(date.month), @"month", nil];
     @weakify(self)
-    [self showProgressHUD];
     [AFNManager POST:GetBookMonthRequest params:param complete:^(APPResult *result) {
         @strongify(self)
-        [self hideHUD];
         // 成功
         if (result.status == ServiceCodeSuccess) {
             [self setDatas:[BookMonthModel mj_objectArrayWithKeyValuesArray:result.data]];
@@ -66,6 +64,8 @@
 #pragma mark - set
 - (void)setDatas:(NSMutableArray<BookMonthModel *> *)datas {
     _datas = datas;
+    CGFloat income = 0;
+    CGFloat pay = 0;
     if (datas.count != 0) {
         NSMutableArray<NSMutableArray<BookMonthModel *> *> *arrm = [NSMutableArray array];
         [arrm addObject:[NSMutableArray array]];
@@ -79,11 +79,21 @@
                 [arrm addObject:[NSMutableArray array]];
                 [[arrm lastObject] addObject:model];
             }
+            
+            if (model.is_income == 0) {
+                pay += model.price;
+            } else {
+                income += model.price;
+            }
         }
         [self setModels:arrm];
     } else {
         [self setModels:[NSMutableArray array]];
     }
+    
+    [self.header setPay:pay];
+    [self.header setIncome:income];
+    
 }
 - (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
     _models = models;
@@ -111,7 +121,7 @@
     NSDate *date = self.date;
     NSDate *min = [NSDate br_setYear:2000 month:1 day:1];
     NSDate *max = [NSDate br_setYear:date.year + 3 month:12 day:31];
-    [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYM defaultSelValue:nil minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
+    [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYM defaultSelValue:[date formatYM] minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
         @strongify(self)
         [self setDate:({
             NSDateFormatter *fora = [[NSDateFormatter alloc] init];

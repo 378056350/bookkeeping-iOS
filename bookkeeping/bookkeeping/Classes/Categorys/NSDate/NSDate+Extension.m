@@ -132,6 +132,15 @@
     return NO;
 }
 
+- (NSString *)formatYM {
+    return [NSDate formatYM:self];
+}
+
++ (NSString *)formatYM:(NSDate *)date {
+    return [NSString stringWithFormat:@"%lu-%02lu",[date year],[date month]];
+}
+
+
 - (NSString *)formatYMD {
     return [NSDate formatYMD:self];
 }

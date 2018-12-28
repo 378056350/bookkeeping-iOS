@@ -47,6 +47,12 @@
 + (NSUInteger)weekOfYear:(NSDate *)date;
 
 /**
+ * 获取格式化为YYYY-MM格式的日期字符串
+ */
+- (NSString *)formatYM;
++ (NSString *)formatYM:(NSDate *)date;
+
+/**
  * 获取格式化为YYYY-MM-dd格式的日期字符串
  */
 - (NSString *)formatYMD;
@@ -237,6 +243,7 @@
 
 // 转换零时区时间
 + (NSDate *)createZeroDate:(NSDate *)date;
+
 
 
 @end

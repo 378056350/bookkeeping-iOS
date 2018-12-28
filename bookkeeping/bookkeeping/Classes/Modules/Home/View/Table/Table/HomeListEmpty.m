@@ -21,6 +21,7 @@
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Gary];
     [self setUserInteractionEnabled:false];
+    [self setHidden:true];
 }
 
 
