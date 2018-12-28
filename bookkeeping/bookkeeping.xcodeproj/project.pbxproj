@@ -94,6 +94,7 @@
 		32D0B2C721C77B240030F5B2 /* ChartDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2C621C77B240030F5B2 /* ChartDate.xib */; };
 		32D0B2CB21C782270030F5B2 /* ChartSubDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */; };
 		32D0B2CC21C782270030F5B2 /* ChartSubDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */; };
+		32D1762921D62F230057B3EB /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D1762721D62F230057B3EB /* BookModel.m */; };
 		32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB40921D0EA820069DF99 /* CPAController.m */; };
 		32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB40A21D0EA820069DF99 /* CPAController.xib */; };
 		32FA228921D61BC40000BC0E /* KKRefreshNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FA228821D61BC40000BC0E /* KKRefreshNormalFooter.m */; };
@@ -433,6 +434,8 @@
 		32D0B2C821C782270030F5B2 /* ChartSubDateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSubDateCell.h; sourceTree = "<group>"; };
 		32D0B2C921C782270030F5B2 /* ChartSubDateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSubDateCell.m; sourceTree = "<group>"; };
 		32D0B2CA21C782270030F5B2 /* ChartSubDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartSubDateCell.xib; sourceTree = "<group>"; };
+		32D1762721D62F230057B3EB /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		32D1762821D62F230057B3EB /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		32EAB40821D0EA820069DF99 /* CPAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAController.h; sourceTree = "<group>"; };
 		32EAB40921D0EA820069DF99 /* CPAController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAController.m; sourceTree = "<group>"; };
 		32EAB40A21D0EA820069DF99 /* CPAController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPAController.xib; sourceTree = "<group>"; };
@@ -1894,6 +1897,8 @@
 		4BE7845821C678FB00B8EC46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				32D1762821D62F230057B3EB /* BookModel.h */,
+				32D1762721D62F230057B3EB /* BookModel.m */,
 				4B1917AE21CD333000137215 /* BookListModel.h */,
 				4B1917AF21CD333000137215 /* BookListModel.m */,
 			);
@@ -2435,6 +2440,7 @@
 				32A4C24D21CB834100DF4327 /* BookPunch.m in Sources */,
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
+				32D1762921D62F230057B3EB /* BookModel.m in Sources */,
 				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				326F8F2421D4BFCA0030B329 /* TIModel.m in Sources */,
