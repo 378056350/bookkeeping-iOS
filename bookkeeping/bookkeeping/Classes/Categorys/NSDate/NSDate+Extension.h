@@ -47,6 +47,11 @@
 + (NSUInteger)weekOfYear:(NSDate *)date;
 
 /**
+ * 获取该年最后一周
+ */
++ (NSUInteger)weeksOfYear:(NSInteger)year;
+
+/**
  * 获取格式化为YYYY-MM格式的日期字符串
  */
 - (NSString *)formatYM;
@@ -91,26 +96,26 @@
 /**
  * 返回numYears年后的日期
  */
-- (NSDate *)offsetYears:(int)numYears;
-+ (NSDate *)offsetYears:(int)numYears fromDate:(NSDate *)fromDate;
+- (NSDate *)offsetYears:(NSInteger)numYears;
++ (NSDate *)offsetYears:(NSInteger)numYears fromDate:(NSDate *)fromDate;
 
 /**
  * 返回numMonths月后的日期
  */
-- (NSDate *)offsetMonths:(int)numMonths;
-+ (NSDate *)offsetMonths:(int)numMonths fromDate:(NSDate *)fromDate;
+- (NSDate *)offsetMonths:(NSInteger)numMonths;
++ (NSDate *)offsetMonths:(NSInteger)numMonths fromDate:(NSDate *)fromDate;
 
 /**
  * 返回numDays天后的日期
  */
-- (NSDate *)offsetDays:(int)numDays;
-+ (NSDate *)offsetDays:(int)numDays fromDate:(NSDate *)fromDate;
+- (NSDate *)offsetDays:(NSInteger)numDays;
++ (NSDate *)offsetDays:(NSInteger)numDays fromDate:(NSDate *)fromDate;
 
 /**
  * 返回numHours小时后的日期
  */
-- (NSDate *)offsetHours:(int)hours;
-+ (NSDate *)offsetHours:(int)numHours fromDate:(NSDate *)fromDate;
+- (NSDate *)offsetHours:(NSInteger)hours;
++ (NSDate *)offsetHours:(NSInteger)numHours fromDate:(NSDate *)fromDate;
 
 /**
  * 距离该日期前几天
@@ -172,6 +177,32 @@
 - (NSDate *)dateByAddingDays:(NSUInteger)days;
 
 /**
+ *  获取年月日, 格式yyyy
+ */
++ (NSDate *)dateWithY:(NSString *)dateStr;
+
+/**
+ *  获取年月日, 格式yyyy-MM
+ */
++ (NSDate *)dateWithYM:(NSString *)dateStr;
+
+/**
+ *  获取年月日, 格式yyyy-MM-dd
+ */
++ (NSDate *)dateWithYMD:(NSString *)dateStr;
+
+/**
+ *  两个日期 间隔天数
+ */
++ (NSInteger)compareDay:(NSDate *)date1 withDate:(NSDate *)date2;
+
+/**
+ *  两个日期 间隔周数
+ */
++ (NSInteger)compareWeek:(NSDate *)date1 withDate:(NSDate *)date2;
+
+
+/**
  *  Get the month as a localized string from the given month number
  *
  *  @param month The month to be converted in string
@@ -198,15 +229,6 @@
 + (NSString *)stringWithDate:(NSDate *)date format:(NSString *)format;
 - (NSString *)stringWithFormat:(NSString *)format;
 + (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
-
-/**
- *  根据时间字符串格式化为 “MM-dd”
- *
- *  @param datetimeString
- *
- *  @return
- */
-+(NSString *) stringWithShortDataFormat:(NSString *)datetimeString formatString:(NSString *) dateFormat;
 
 /**
  * 获取指定月份的天数

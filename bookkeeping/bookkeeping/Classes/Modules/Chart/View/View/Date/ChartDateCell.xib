@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ChartSubDateCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ChartDateCell">
             <rect key="frame" x="0.0" y="0.0" width="215" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,7 +38,7 @@
             <connections>
                 <outlet property="lab" destination="GkY-2Y-KpX" id="1hl-Rw-0Oh"/>
             </connections>
-            <point key="canvasLocation" x="-94" y="40"/>
+            <point key="canvasLocation" x="-42" y="22"/>
         </collectionViewCell>
     </objects>
 </document>

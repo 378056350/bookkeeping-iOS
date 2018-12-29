@@ -9,13 +9,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - typedef
-typedef void (^ChartHudComplete)(NSInteger index);
+typedef void (^ChartHUDComplete)(NSInteger index);
 
 
 #pragma mark - 声明
-@interface ChartHud : BaseView
+@interface ChartHUD : BaseView
 
-@property (nonatomic, copy  ) ChartHudComplete complete;
+@property (nonatomic, copy  ) ChartHUDComplete complete;
 
 - (void)show;
 - (void)hide;

@@ -7,7 +7,7 @@
 #import "BookCollectionCell.h"
 #import "BookRefreshHeader.h"
 #import "CategoryController.h"
-#import "BOOK_EVENT_MANAGER.h"
+#import "BOOK_EVENT.h"
 
 
 #define PADDING countcoordinatesX(10)               // 间距

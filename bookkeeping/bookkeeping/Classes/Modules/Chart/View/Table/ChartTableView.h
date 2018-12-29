@@ -4,10 +4,14 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "ChartModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartTableView : UITableView
+
+@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

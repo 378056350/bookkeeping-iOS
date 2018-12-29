@@ -10,7 +10,7 @@
 #import "BookListModel.h"
 #import "CategoryController.h"
 #import "KKRefreshGifHeader.h"
-#import "BOOK_EVENT_MANAGER.h"
+#import "BOOK_EVENT.h"
 
 
 #pragma mark - 声明
@@ -85,6 +85,7 @@
         @strongify(self)
         [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:nil];
             [self.navigationController dismissViewControllerAnimated:true completion:nil];
         } else {
             [self showTextHUD:result.message delay:1.f];

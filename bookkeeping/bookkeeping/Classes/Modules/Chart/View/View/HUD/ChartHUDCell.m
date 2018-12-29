@@ -3,10 +3,10 @@
  * @author 郑业强 2018-12-28 创建文件
  */
 
-#import "ChartHudCell.h"
+#import "ChartHUDCell.h"
 
 #pragma mark - 声明
-@interface ChartHudCell()
+@interface ChartHUDCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
@@ -16,7 +16,7 @@
 
 
 #pragma mark - 实现
-@implementation ChartHudCell
+@implementation ChartHUDCell
 
 
 - (void)initUI {

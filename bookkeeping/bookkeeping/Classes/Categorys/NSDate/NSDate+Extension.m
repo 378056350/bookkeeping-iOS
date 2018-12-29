@@ -157,6 +157,24 @@
     return [[date lastdayOfMonth] weekOfYear] - [[date begindayOfMonth] weekOfYear] + 1;
 }
 
++ (NSUInteger)weeksOfYear:(NSInteger)year {
+    NSUInteger i;
+    
+    NSString *str = [NSString stringWithFormat:@"%ld-12-31", year];
+    NSDateFormatter *fora = [[NSDateFormatter alloc] init];
+    [fora setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [fora dateFromString:str];
+    
+    
+    NSDate *lastdate = [date lastdayOfMonth];
+    
+    for (i = 1;[[lastdate dateAfterDay:-7 * i] year] == year; i++) {
+        
+    }
+    
+    return i;
+}
+
 - (NSUInteger)weekOfYear {
     return [NSDate weekOfYear:self];
 }
@@ -311,6 +329,67 @@
     return [[NSCalendar currentCalendar] dateByAddingComponents:c toDate:self options:0];
 }
 
+
+/**
+ *  两个日期 间隔天数
+ */
++ (NSInteger)compareDay:(NSDate *)date1 withDate:(NSDate *)date2 {
+    NSTimeInterval time = ABS([date1 timeIntervalSinceDate:date2]);
+    NSInteger day = (NSInteger)(time / (3600 * 24)) + 1;
+    return day;
+}
+
+/**
+ *  两个日期 间隔周数
+ */
++ (NSInteger)compareWeek:(NSDate *)date1 withDate:(NSDate *)date2 {
+    NSInteger day = [self compareDay:date1 withDate:date2];
+    if ([date1 weekday] != 1) {
+        day -= (8 - [date1 weekday]);
+    }
+    if ([date2 weekday] != 7) {
+        day -= [date2 weekday];
+    }
+    NSInteger week = day / 7;
+    if ([date1 weekday] != 1) {
+        week += 1;
+    }
+    if ([date2 weekday] != 7) {
+        week += 1;
+    }
+    return week;
+}
+
+
+/**
+ *  获取年月日, 格式yyyy
+ */
++ (NSDate *)dateWithY:(NSString *)dateStr {
+    NSDateFormatter *fora = [self createDateWithFora:@"yyyy"];
+    return [fora dateFromString:dateStr];
+}
+/**
+ *  获取年月日, 格式yyyy-MM
+ */
++ (NSDate *)dateWithYM:(NSString *)dateStr {
+    NSDateFormatter *fora = [self createDateWithFora:@"yyyy-MM"];
+    return [fora dateFromString:dateStr];
+}
+/**
+ *  获取年月日, 格式yyyy-MM-dd
+ */
++ (NSDate *)dateWithYMD:(NSString *)dateStr {
+    NSDateFormatter *fora = [self createDateWithFora:@"yyyy-MM-dd"];
+    return [fora dateFromString:dateStr];
+}
++ (NSDateFormatter *)createDateWithFora:(NSString *)dateFora {
+    NSDateFormatter *fora = [[NSDateFormatter alloc] init];
+    [fora setDateFormat:dateFora];
+    [fora setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    return fora;
+}
+
+
 /**
  *  Get the month as a localized string from the given month number
  *
@@ -408,29 +487,6 @@
             return [date isLeapYear] ? 29 : 28;
     }
     return 30;
-}
-
-
-+(NSString *) stringWithShortDataFormat:(NSString *)datetimeString formatString:(NSString *) dateFormat
-{
-    NSDateFormatter *format = [[NSDateFormatter alloc] init] ;
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:datetimeString.doubleValue];
-    if (date == nil) {
-        [format setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-        date = [format dateFromString:datetimeString];
-    }
-    if (date == nil) {
-        [format setDateFormat:@"yyyy-MM-dd HH:mm"];
-        date = [format dateFromString:datetimeString];
-    }
-    
-    [format setDateFormat:dateFormat];
-    
-    NSString *dateStr = [format stringFromDate: date];
-    
-    return dateStr;
 }
 
 - (NSUInteger)daysInMonth {
@@ -536,11 +592,11 @@
     return [NSString stringWithFormat:@"%@ %@", [self ymdFormat], [self hmsFormat]];
 }
 
-- (NSDate *)offsetYears:(int)numYears {
+- (NSDate *)offsetYears:(NSInteger)numYears {
     return [NSDate offsetYears:numYears fromDate:self];
 }
 
-+ (NSDate *)offsetYears:(int)numYears fromDate:(NSDate *)fromDate {
++ (NSDate *)offsetYears:(NSInteger)numYears fromDate:(NSDate *)fromDate {
     if (fromDate == nil) {
         return nil;
     }
@@ -563,11 +619,11 @@
                                      options:0];
 }
 
-- (NSDate *)offsetMonths:(int)numMonths {
+- (NSDate *)offsetMonths:(NSInteger)numMonths {
     return [NSDate offsetMonths:numMonths fromDate:self];
 }
 
-+ (NSDate *)offsetMonths:(int)numMonths fromDate:(NSDate *)fromDate {
++ (NSDate *)offsetMonths:(NSInteger)numMonths fromDate:(NSDate *)fromDate {
     if (fromDate == nil) {
         return nil;
     }
@@ -590,11 +646,11 @@
                                      options:0];
 }
 
-- (NSDate *)offsetDays:(int)numDays {
+- (NSDate *)offsetDays:(NSInteger)numDays {
     return [NSDate offsetDays:numDays fromDate:self];
 }
 
-+ (NSDate *)offsetDays:(int)numDays fromDate:(NSDate *)fromDate {
++ (NSDate *)offsetDays:(NSInteger)numDays fromDate:(NSDate *)fromDate {
     if (fromDate == nil) {
         return nil;
     }
@@ -617,11 +673,11 @@
                                      options:0];
 }
 
-- (NSDate *)offsetHours:(int)hours {
+- (NSDate *)offsetHours:(NSInteger)hours {
     return [NSDate offsetHours:hours fromDate:self];
 }
 
-+ (NSDate *)offsetHours:(int)numHours fromDate:(NSDate *)fromDate {
++ (NSDate *)offsetHours:(NSInteger)numHours fromDate:(NSDate *)fromDate {
     if (fromDate == nil) {
         return nil;
     }

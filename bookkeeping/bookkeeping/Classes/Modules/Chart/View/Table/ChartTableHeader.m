@@ -36,6 +36,13 @@
 }
 
 
+#pragma mark - set
+- (void)setModels:(NSMutableArray<ChartModel *> *)models {
+    _models = models;
+    _chart.models = models;
+}
+
+
 #pragma mark - get
 - (UILabel *)maxLab {
     if (!_maxLab) {
@@ -70,7 +77,6 @@
     }
     return _chart;
 }
-
 
 
 @end

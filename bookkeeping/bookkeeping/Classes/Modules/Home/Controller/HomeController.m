@@ -36,6 +36,17 @@
     [self list];
     [self setDate:[NSDate date]];
     [self getBookRequest:self.date];
+    [self monitorNotification];
+
+}
+// 监听通知
+- (void)monitorNotification {
+    // 登录完成
+    @weakify(self)
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self getBookRequest:self.date];
+    }];
 }
 
 

@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="425" height="71"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-w1-OlC">
-                    <rect key="frame" x="15" y="0.0" width="42" height="71"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出排行榜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-w1-OlC">
+                    <rect key="frame" x="15" y="0.0" width="87" height="71"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
             <connections>
                 <outlet property="nameLab" destination="EHx-w1-OlC" id="2hG-el-fm5"/>
             </connections>
-            <point key="canvasLocation" x="-164" y="-287"/>
+            <point key="canvasLocation" x="241" y="-308"/>
         </view>
     </objects>
 </document>

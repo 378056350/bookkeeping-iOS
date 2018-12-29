@@ -48,8 +48,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="button" destination="LfQ-al-wNH" id="0sp-Wy-VII"/>
+                <outlet property="nameLab" destination="k2U-eq-6bW" id="cBJ-yq-WiU"/>
             </connections>
-            <point key="canvasLocation" x="281" y="-479"/>
+            <point key="canvasLocation" x="-68" y="-450"/>
         </view>
     </objects>
     <resources>

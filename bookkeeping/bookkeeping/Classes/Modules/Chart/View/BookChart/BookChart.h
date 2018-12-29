@@ -4,9 +4,9 @@
  */
 
 #import "BaseView.h"
+#import "ChartModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
 
 #pragma mark - ENUM
 typedef NS_ENUM(NSInteger, BookChartStatus) {
@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, BookChartStatus) {
 #pragma mark - 声明
 @interface BookChart : BaseView
 
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
 @property (nonatomic, assign) BookChartStatus status;
 
 @end

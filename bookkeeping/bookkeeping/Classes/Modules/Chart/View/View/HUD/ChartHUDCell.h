@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChartHudCell : BaseTableCell
+@interface ChartHUDCell : BaseTableCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) BOOL choose;

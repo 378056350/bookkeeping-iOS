@@ -9,6 +9,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartSectionHeader : BaseView
 
+@property (nonatomic, assign) NSInteger selectIndex;
+
 @end
 
 NS_ASSUME_NONNULL_END

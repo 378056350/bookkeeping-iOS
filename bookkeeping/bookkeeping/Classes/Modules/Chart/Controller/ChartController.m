@@ -5,20 +5,27 @@
 
 #import "ChartController.h"
 #import "ChartNavigation.h"
+#import "ChartSegmentControl.h"
 #import "ChartDate.h"
-#import "ChartSubDate.h"
 #import "ChartTableView.h"
-#import "ChartHud.h"
+#import "ChartHUD.h"
+#import "ChartModel.h"
+#import "ChartRangeModel.h"
 
 
 #pragma mark - 声明
 @interface ChartController()
 
 @property (nonatomic, strong) ChartNavigation *navigation;
-@property (nonatomic, strong) ChartDate *date;
-@property (nonatomic, strong) ChartSubDate *subdate;
+@property (nonatomic, strong) ChartSegmentControl *seg;
+@property (nonatomic, strong) ChartDate *subdate;
+@property (nonatomic, strong) ChartHUD *chud;
 @property (nonatomic, strong) ChartTableView *table;
-@property (nonatomic, strong) ChartHud *chud;
+
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
+@property (nonatomic, strong) ChartRangeModel *timeModel;
 
 @end
 
@@ -30,20 +37,77 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setJz_navigationBarHidden:true];
+    [self setDate:[NSDate date]];
     [self navigation];
-    [self date];
+    [self seg];
     [self subdate];
     [self table];
     [self chud];
+    [self setSelectIndex:0];
+    [self getBookRangeRequest];
 }
 
 
 #pragma mark - 请求
+// 时间范围
+- (void)getBookRangeRequest {
+    @weakify(self)
+    [AFNManager POST:GetBookRangeRequest params:nil complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            [self setTimeModel:[ChartRangeModel mj_objectWithKeyValues:result.data]];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
+    }];
+}
 // 查账
 - (void)getBookRequest {
-    [AFNManager POST:GetBookRequest params:nil complete:^(APPResult *result) {
-        
+    @weakify(self)
+    NSMutableDictionary *param = ({
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        [param setObject:@(self.navigation.selectIndex) forKey:@"isIncome"];
+        if (_seg.seg.selectedSegmentIndex == 0) {
+            [param setObject:@([self.date year]) forKey:@"year"];
+            [param setObject:@([self.date month]) forKey:@"month"];
+            [param setObject:@([self.date day]) forKey:@"day"];
+            [param setObject:@([self.date weekOfYear]) forKey:@"week"];
+            [param setObject:@(1) forKey:@"week_year"];
+        } else if (_seg.seg.selectedSegmentIndex == 1) {
+            [param setObject:@([self.date year]) forKey:@"year"];
+            [param setObject:@([self.date month]) forKey:@"month"];
+        } else if (_seg.seg.selectedSegmentIndex == 2) {
+            [param setObject:@([self.date year]) forKey:@"year"];
+        }
+        param;
+    });
+    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        if (result.status == ServiceCodeSuccess) {
+            [self setModels:[ChartModel mj_objectArrayWithKeyValuesArray:result.data]];
+        } else {
+            [self showTextHUD:result.message delay:1.f];
+        }
     }];
+}
+
+
+#pragma mark - set
+- (void)setTimeModel:(ChartRangeModel *)timeModel {
+    _timeModel = timeModel;
+    _subdate.timeModel = timeModel;
+    [self setDate:[NSDate dateWithYMD:[NSString stringWithFormat:@"%ld-%02ld-%02ld", timeModel.max_year, timeModel.max_month, timeModel.max_day]]];
+    [self getBookRequest];
+}
+- (void)setModels:(NSMutableArray<ChartModel *> *)models {
+    _models = models;
+    _subdate.models = models;
+    _table.models = models;
+}
+- (void)setSelectIndex:(NSInteger)selectIndex {
+    _selectIndex = selectIndex;
+    _navigation.selectIndex = selectIndex;
+    _table.selectIndex = selectIndex;
 }
 
 
@@ -60,16 +124,22 @@
     }
     return _navigation;
 }
-- (ChartDate *)date {
-    if (!_date) {
-        _date = [ChartDate loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
-        [self.view addSubview:_date];
+- (ChartSegmentControl *)seg {
+    if (!_seg) {
+        @weakify(self)
+        _seg = [ChartSegmentControl loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
+        [[_seg.seg rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl *seg) {
+            @strongify(self)
+            [self.subdate setIndex:seg.selectedSegmentIndex];
+            [self getBookRangeRequest];
+        }];
+        [self.view addSubview:_seg];
     }
-    return _date;
+    return _seg;
 }
-- (ChartSubDate *)subdate {
+- (ChartDate *)subdate {
     if (!_subdate) {
-        _subdate = [ChartSubDate loadCode:CGRectMake(0, _date.bottom, SCREEN_WIDTH, countcoordinatesX(50))];
+        _subdate = [ChartDate loadCode:CGRectMake(0, _seg.bottom, SCREEN_WIDTH, countcoordinatesX(45))];
         [self.view addSubview:_subdate];
     }
     return _subdate;
@@ -85,15 +155,19 @@
     }
     return _table;
 }
-- (ChartHud *)chud {
+- (ChartHUD *)chud {
     if (!_chud) {
-        _chud = [ChartHud loadCode:CGRectMake(0, _date.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - _date.bottom - TabbarHeight)];
+        @weakify(self)
+        _chud = [ChartHUD loadCode:CGRectMake(0, _seg.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - _seg.bottom - TabbarHeight)];
         [_chud setComplete:^(NSInteger index) {
-            NSLog(@"%ld", index);
+            @strongify(self)
+            [self setSelectIndex:index];
+            [self getBookRangeRequest];
         }];
         [self.view addSubview:_chud];
     }
     return _chud;
 }
+
 
 @end

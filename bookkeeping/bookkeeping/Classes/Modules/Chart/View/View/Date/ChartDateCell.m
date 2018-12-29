@@ -3,22 +3,22 @@
  * @author 郑业强 2018-12-17 创建文件
  */
 
-#import "ChartSubDateCell.h"
+#import "ChartDateCell.h"
 
 #pragma mark - 声明
-@interface ChartSubDateCell()
+@interface ChartDateCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *lab;
+@property (weak  , nonatomic) IBOutlet UILabel *lab;
 
 @end
 
 
 #pragma mark - 实现
-@implementation ChartSubDateCell
+@implementation ChartDateCell
 
 
 - (void)initUI {
-    self.lab.font = [UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight];
+    self.lab.font = LAB_FONT;
 }
 
 
@@ -31,7 +31,9 @@
         _lab.textColor = kColor_Text_Gary;
     }
 }
-
-
+- (void)setModel:(ChartSubModel *)model {
+    _model = model;
+    _lab.text = model.detail;
+}
 
 @end

@@ -9,7 +9,7 @@
 #define CHART_T countcoordinatesX(5)
 #define CHART_W (SCREEN_WIDTH - CHART_L * 2)
 #define CHART_H (self.height - CHART_T * 2)
-#define CHART_LINE 1.f / [UIScreen mainScreen].scale
+#define CHART_LINE 1.f / [UIScreen mainScreen].scale / 2.f
 #define CHART_POINT_W countcoordinatesX(5)
 
 #define CHART_FONT [UIFont systemFontOfSize:AdjustFont(10) weight:UIFontWeightLight]
@@ -63,11 +63,16 @@
     }
 }
 
-
+#pragma mark - set
 - (void)setStatus:(BookChartStatus)status {
     _status = status;
     [self setNeedsDisplay];
 }
+- (void)setModels:(NSMutableArray<ChartModel *> *)models {
+    _models = models;
+    
+}
+
 
 
 // 周

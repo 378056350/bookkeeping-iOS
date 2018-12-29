@@ -4,7 +4,7 @@
  */
 
 #import "BookNavigation.h"
-#import "BOOK_EVENT_MANAGER.h"
+#import "BOOK_EVENT.h"
 
 #define BTN_FONT [UIFont systemFontOfSize:AdjustFont(16)]
 

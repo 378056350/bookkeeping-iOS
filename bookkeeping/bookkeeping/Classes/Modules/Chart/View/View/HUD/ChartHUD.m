@@ -3,11 +3,11 @@
  * @author 郑业强 2018-12-28 创建文件
  */
 
-#import "ChartHud.h"
-#import "ChartHudCell.h"
+#import "ChartHUD.h"
+#import "ChartHUDCell.h"
 
 #pragma mark - 声明
-@interface ChartHud()<UITableViewDelegate, UITableViewDataSource> {
+@interface ChartHUD()<UITableViewDelegate, UITableViewDataSource> {
     NSInteger _current;
 }
 
@@ -18,7 +18,7 @@
 
 
 #pragma mark - 实现
-@implementation ChartHud
+@implementation ChartHUD
 
 
 - (void)initUI {
@@ -54,7 +54,7 @@
     return 2;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChartHudCell *cell = [ChartHudCell loadFirstNib:tableView];
+    ChartHUDCell *cell = [ChartHUDCell loadFirstNib:tableView];
     cell.choose = _current == indexPath.row;
     cell.indexPath = indexPath;
     return cell;
@@ -67,11 +67,15 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    _current = indexPath.row;
-    [tableView reloadData];
-    [self hide];
-    if (self.complete) {
-        self.complete(indexPath.row);
+    if (_current != indexPath.row) {
+        _current = indexPath.row;
+        [tableView reloadData];
+        [self hide];
+        if (self.complete) {
+            self.complete(indexPath.row);
+        }
+    } else {
+        [self hide];
     }
 }
 

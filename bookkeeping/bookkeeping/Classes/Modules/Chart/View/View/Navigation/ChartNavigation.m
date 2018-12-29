@@ -8,6 +8,8 @@
 #pragma mark - 声明
 @interface ChartNavigation()
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+
 @end
 
 
@@ -18,5 +20,15 @@
 - (void)initUI {
     [self setBackgroundColor:kColor_Main_Color];
 }
+
+- (void)setSelectIndex:(NSInteger)selectIndex {
+    _selectIndex = selectIndex;
+    if (selectIndex == 0) {
+        _nameLab.text = @"支出";
+    } else {
+        _nameLab.text = @"收入";
+    }
+}
+
 
 @end

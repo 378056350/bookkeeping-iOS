@@ -8,7 +8,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChartDate : BaseView
+@interface ChartSegmentControl : BaseView
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *seg;
 
 @end
 

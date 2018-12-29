@@ -4,10 +4,13 @@
  */
 
 #import "BaseView.h"
+#import "ChartModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartTableHeader : BaseView
+
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
 
 @end
 

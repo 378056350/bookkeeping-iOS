@@ -18,9 +18,21 @@
 
 
 - (void)initUI {
-    self.nameLab.font = [UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight];
+    self.nameLab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight];
     self.nameLab.textColor = kColor_Text_Black;
 }
+
+
+#pragma mark - set
+- (void)setSelectIndex:(NSInteger)selectIndex {
+    _selectIndex = selectIndex;
+    if (selectIndex == 0) {
+        [_nameLab setText:@"支出排行榜"];
+    } else {
+        [_nameLab setText:@"收入排行榜"];
+    }
+}
+
 
 
 @end
