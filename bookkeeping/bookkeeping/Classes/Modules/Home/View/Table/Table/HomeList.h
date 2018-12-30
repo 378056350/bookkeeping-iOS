@@ -4,7 +4,7 @@
  */
 
 #import "BaseView.h"
-#import "BookMonthModel.h"
+#import "HomeListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, HomeListStatus) {
 @interface HomeList : BaseView
 
 @property (nonatomic, assign) HomeListStatus status;
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<HomeListModel *> *> *models;
 
 @end
 

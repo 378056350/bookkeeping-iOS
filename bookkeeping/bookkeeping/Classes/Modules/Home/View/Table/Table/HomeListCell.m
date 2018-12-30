@@ -40,7 +40,7 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
     _models = models;
     [self.table reloadData];
     [self.emptyView setHidden:models.count != 0];

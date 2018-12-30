@@ -34,7 +34,7 @@
 
 
 #pragma mark - set
-- (void)setModel:(BookMonthModel *)model {
+- (void)setModel:(HomeListModel *)model {
     _model = model;
     [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
     [_nameLab setText:model.name];

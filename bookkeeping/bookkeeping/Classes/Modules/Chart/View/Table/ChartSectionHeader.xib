@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出排行榜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHx-w1-OlC">
-                    <rect key="frame" x="15" y="0.0" width="87" height="71"/>
+                    <rect key="frame" x="15" y="0.0" width="395" height="71"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -25,6 +25,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="EHx-w1-OlC" firstAttribute="centerX" secondItem="Ukw-cA-mg4" secondAttribute="centerX" id="A4I-PK-tkK"/>
                 <constraint firstItem="EHx-w1-OlC" firstAttribute="top" secondItem="Z2G-BL-jUo" secondAttribute="top" id="H5D-uN-4d4"/>
                 <constraint firstItem="Z2G-BL-jUo" firstAttribute="bottom" secondItem="EHx-w1-OlC" secondAttribute="bottom" id="LJe-wm-QBW"/>
                 <constraint firstItem="EHx-w1-OlC" firstAttribute="leading" secondItem="Z2G-BL-jUo" secondAttribute="leading" constant="15" id="aU8-qn-5xD"/>
@@ -32,9 +33,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Z2G-BL-jUo"/>
             <connections>
+                <outlet property="nameConstraintL" destination="aU8-qn-5xD" id="W34-0I-CoF"/>
                 <outlet property="nameLab" destination="EHx-w1-OlC" id="2hG-el-fm5"/>
             </connections>
-            <point key="canvasLocation" x="241" y="-308"/>
+            <point key="canvasLocation" x="118" y="-450"/>
         </view>
     </objects>
 </document>

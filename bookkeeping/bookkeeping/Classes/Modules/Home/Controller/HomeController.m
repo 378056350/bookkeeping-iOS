@@ -7,7 +7,7 @@
 #import "HomeHeader.h"
 #import "HomeList.h"
 #import "LoginController.h"
-#import "BookMonthModel.h"
+#import "HomeListModel.h"
 #import "HOME_EVENT_MANAGER.h"
 
 
@@ -17,8 +17,8 @@
 @property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) HomeList *list;
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) NSMutableArray<BookMonthModel *> *datas;
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
+@property (nonatomic, strong) NSMutableArray<HomeListModel *> *datas;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<HomeListModel *> *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -61,7 +61,7 @@
         @strongify(self)
         // 成功
         if (result.status == ServiceCodeSuccess) {
-            [self setDatas:[BookMonthModel mj_objectArrayWithKeyValuesArray:result.data]];
+            [self setDatas:[HomeListModel mj_objectArrayWithKeyValuesArray:result.data]];
             [self setDate:date];
         }
         // 失败
@@ -73,40 +73,18 @@
 
 
 #pragma mark - set
-- (void)setDatas:(NSMutableArray<BookMonthModel *> *)datas {
+- (void)setDatas:(NSMutableArray<HomeListModel *> *)datas {
     _datas = datas;
-    CGFloat income = 0;
-    CGFloat pay = 0;
-    if (datas.count != 0) {
-        NSMutableArray<NSMutableArray<BookMonthModel *> *> *arrm = [NSMutableArray array];
-        [arrm addObject:[NSMutableArray array]];
-        
-        NSInteger day = datas[0].day;
-        for (BookMonthModel *model in datas) {
-            if (model.day == day) {
-                [[arrm lastObject] addObject:model];
-            } else {
-                day = model.day;
-                [arrm addObject:[NSMutableArray array]];
-                [[arrm lastObject] addObject:model];
-            }
-            
-            if (model.is_income == 0) {
-                pay += model.price;
-            } else {
-                income += model.price;
-            }
-        }
-        [self setModels:arrm];
-    } else {
-        [self setModels:[NSMutableArray array]];
-    }
+    NSDictionary *param = [HomeListModel createGroupWithList:datas];
+    CGFloat income = [param[@"income"] floatValue];
+    CGFloat pay = [param[@"pay"] floatValue];
     
+    NSMutableArray<NSMutableArray<HomeListModel *> *> *models = param[@"data"];
+    [self setModels:models];
     [self.header setPay:pay];
     [self.header setIncome:income];
-    
 }
-- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
     _models = models;
     _list.models = models;
 }

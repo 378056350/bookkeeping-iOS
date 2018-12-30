@@ -9,6 +9,7 @@
 @interface ChartSectionHeader()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameConstraintL;
 
 @end
 
@@ -20,13 +21,16 @@
 - (void)initUI {
     self.nameLab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight];
     self.nameLab.textColor = kColor_Text_Black;
+    
+    [self.nameConstraintL setConstant:OUT_PADDING];
 }
 
 
+
 #pragma mark - set
-- (void)setSelectIndex:(NSInteger)selectIndex {
-    _selectIndex = selectIndex;
-    if (selectIndex == 0) {
+- (void)setNavigationIndex:(NSInteger)navigationIndex {
+    _navigationIndex = navigationIndex;
+    if (navigationIndex == 0) {
         [_nameLab setText:@"支出排行榜"];
     } else {
         [_nameLab setText:@"收入排行榜"];

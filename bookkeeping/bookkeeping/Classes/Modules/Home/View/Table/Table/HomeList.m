@@ -28,7 +28,7 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<NSMutableArray<BookMonthModel *> *> *)models {
+- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
     _models = models;
     __weak typeof(self) weak = self;
     if (_status == HomeListStatusNormal) {

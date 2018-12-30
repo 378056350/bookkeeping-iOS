@@ -11,9 +11,7 @@
 
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) UIView *line;
-@property (nonatomic, strong) NSIndexPath *selectIndex;
 @property (nonatomic, strong) ChartSubModel *selectModel;
-@property (nonatomic, strong) NSMutableArray<ChartSubModel *> *subModels;
 
 @end
 
@@ -31,10 +29,20 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<ChartModel *> *)models {
-    _models = models;
+- (void)setTimeModel:(ChartRangeModel *)timeModel {
+    _timeModel = timeModel;
+    [self setSegmentIndex:0];
+}
+- (void)setGroupModels:(NSMutableArray<ChartModel *> *)groupModels {
+    _groupModels = groupModels;
+}
+- (void)setSegmentIndex:(NSInteger)segmentIndex {
+    _segmentIndex = segmentIndex;
+    _selectIndex = nil;
+    
+    
     // 周
-    if (_index == 0) {
+    if (_segmentIndex == 0) {
         NSString *minDateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _timeModel.min_year, _timeModel.min_month, _timeModel.min_day];
         NSString *maxDateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _timeModel.max_year, _timeModel.max_month, _timeModel.max_day];
         NSDate *minDate = [NSDate dateWithYMD:minDateStr];
@@ -50,12 +58,13 @@
             [submodel setDay:[newDate day]];
             [submodel setWeek:[newDate weekOfYear]];
             [submodel setSelectIndex:0];
+            [submodel setWeek_day:[newDate weekday]];
             [submodels addObject:submodel];
         }
         [self setSubModels:submodels];
     }
     // 月
-    else if (_index == 1) {
+    else if (_segmentIndex == 1) {
         // 数据整理
         NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
         for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
@@ -72,7 +81,7 @@
         [self setSubModels:submodels];
     }
     // 年
-    else if (_index == 2) {
+    else if (_segmentIndex == 2) {
         // 数据整理
         NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
         for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
@@ -83,8 +92,8 @@
         }
         [self setSubModels:submodels];
     }
-
-
+    
+    
     // 第一次
     if (!_selectIndex) {
         _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
@@ -106,10 +115,6 @@
 //        [self.collection reloadData];
 //        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
 //    }
-}
-- (void)setIndex:(NSInteger)index {
-    _index = index;
-    _selectIndex = nil;
 }
 
 

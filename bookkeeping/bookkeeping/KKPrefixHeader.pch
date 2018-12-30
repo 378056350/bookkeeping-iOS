@@ -6,8 +6,11 @@
 #ifndef KKPrefixHeader_pch
 #define KKPrefixHeader_pch
 
-
+// 友盟分享
 #define kUMengAppKey @"5c1dfcc9b465f5828200050f"
+
+// 外部间距
+#define OUT_PADDING countcoordinatesX(15)
 
 
 // 单色
@@ -22,10 +25,13 @@
 #define kColor_Night_Back_Big      HexColor(@"#201523")     // 夜间背景色 深
 
 // 文字颜色
-#define kColor_Text_Black          HexColor(@"#231815")      // 深
+#define kColor_Text_Black          RGBA(52, 50, 51, 1)       // 深
 #define kColor_Text_Gary           HexColor(@"#999999")      // 灰
 #define kColor_Text_Light          HexColor(@"#8B8B8B")      // 浅
 #define kColor_Text_Red            HexColor(@"#FD4751")      // 红
+
+#define kColor_Chart_Header        RGBA(79, 76, 77, 1)       // 图表头视图底部
+#define kColor_Chart_Text          RGBA(220, 220, 220, 1)    // 图表文字
 
 // Cell高亮
 #define kColor_Cell_High_Light     HexColor(@"D9D9D9")       // Cell点击高亮色

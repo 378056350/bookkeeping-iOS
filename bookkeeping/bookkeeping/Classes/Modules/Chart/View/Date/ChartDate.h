@@ -19,8 +19,10 @@ typedef void (^ChartDateComplete)(ChartSubModel *model);
 @interface ChartDate : BaseView
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, assign) NSInteger index;
-@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
+@property (nonatomic, assign) NSInteger segmentIndex;
+@property (nonatomic, strong) NSIndexPath *selectIndex;
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *groupModels;
+@property (nonatomic, strong) NSMutableArray<ChartSubModel *> *subModels;
 @property (nonatomic, strong) ChartRangeModel *timeModel;
 @property (nonatomic, copy  ) ChartDateComplete complete;
 

@@ -5,22 +5,17 @@
 
 #import "BaseView.h"
 #import "ChartModel.h"
+#import "ChartSubModel.h"
+#import "HomeListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-#pragma mark - ENUM
-typedef NS_ENUM(NSInteger, BookChartStatus) {
-    BookChartStatusWeek,        // 周
-    BookChartStatusMonth,       // 月
-    BookChartStatusYear,        // 年
-};
-
 
 #pragma mark - 声明
 @interface BookChart : BaseView
 
-@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
-@property (nonatomic, assign) BookChartStatus status;
+@property (nonatomic, assign) NSInteger segmentIndex;
+@property (nonatomic, strong) NSMutableArray<HomeListModel *> *listModels;
+@property (nonatomic, strong) ChartSubModel *subModel;
 
 @end
 

@@ -24,22 +24,30 @@
     [self maxLab];
     [self avgLab];
     [self chart];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.chart.status = BookChartStatusWeek;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.chart.status = BookChartStatusMonth;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.chart.status = BookChartStatusYear;
-            });
-        });
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.chart.status = BookChartStatusWeek;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            self.chart.status = BookChartStatusMonth;
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                self.chart.status = BookChartStatusYear;
+//            });
+//        });
+//    });
 }
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<ChartModel *> *)models {
-    _models = models;
-    _chart.models = models;
+- (void)setListModels:(NSMutableArray<HomeListModel *> *)listModels {
+    _listModels = listModels;
+    _chart.listModels = listModels;
+}
+- (void)setSegmentIndex:(NSInteger)segmentIndex {
+    _segmentIndex = segmentIndex;
+    _chart.segmentIndex = segmentIndex;
+}
+- (void)setSubModel:(ChartSubModel *)subModel {
+    _subModel = subModel;
+    _chart.subModel = subModel;
 }
 
 

@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartNavigation : BaseView
 
-@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, assign) NSInteger navigationIndex;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end

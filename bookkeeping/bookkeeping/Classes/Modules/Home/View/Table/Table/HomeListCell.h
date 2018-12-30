@@ -4,13 +4,13 @@
  */
 
 #import "BaseTableCell.h"
-#import "BookMonthModel.h"
+#import "HomeListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeListCell : BaseTableCell
 
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<BookMonthModel *> *> *models;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<HomeListModel *> *> *models;
 
 - (void)endRefresh;
 

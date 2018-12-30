@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger month;
 @property (nonatomic, assign) NSInteger day;
 @property (nonatomic, assign) NSInteger week;
+@property (nonatomic, assign) NSInteger week_day;
 @property (nonatomic, strong) NSString *detail;
 @property (nonatomic, assign) NSInteger selectIndex;
 

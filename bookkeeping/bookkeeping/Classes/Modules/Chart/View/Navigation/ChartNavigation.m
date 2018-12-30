@@ -21,9 +21,9 @@
     [self setBackgroundColor:kColor_Main_Color];
 }
 
-- (void)setSelectIndex:(NSInteger)selectIndex {
-    _selectIndex = selectIndex;
-    if (selectIndex == 0) {
+- (void)setNavigationIndex:(NSInteger)navigationIndex {
+    _navigationIndex = navigationIndex;
+    if (navigationIndex == 0) {
         _nameLab.text = @"支出";
     } else {
         _nameLab.text = @"收入";

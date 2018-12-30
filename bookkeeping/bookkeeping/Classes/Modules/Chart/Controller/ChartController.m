@@ -11,6 +11,7 @@
 #import "ChartHUD.h"
 #import "ChartModel.h"
 #import "ChartRangeModel.h"
+#import "HomeListModel.h"
 
 
 #pragma mark - 声明
@@ -22,9 +23,12 @@
 @property (nonatomic, strong) ChartHUD *chud;
 @property (nonatomic, strong) ChartTableView *table;
 
+@property (nonatomic, assign) NSInteger navigationIndex;
+@property (nonatomic, assign) NSInteger segmentIndex;
+
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, assign) NSInteger selectIndex;
-@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *groupModels;
+@property (nonatomic, strong) NSMutableArray<HomeListModel *> *listModels;
 @property (nonatomic, strong) ChartRangeModel *timeModel;
 
 @end
@@ -43,7 +47,7 @@
     [self subdate];
     [self table];
     [self chud];
-    [self setSelectIndex:0];
+    [self setNavigationIndex:0];
     [self bookRangeRequest];
 }
 
@@ -66,7 +70,7 @@
     @weakify(self)
     NSMutableDictionary *param = ({
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        [param setObject:@(self.navigation.selectIndex) forKey:@"isIncome"];
+        [param setObject:@(self.navigation.navigationIndex) forKey:@"isIncome"];
         if (_seg.seg.selectedSegmentIndex == 0) {
             [param setObject:@([self.date year]) forKey:@"year"];
             [param setObject:@([self.date month]) forKey:@"month"];
@@ -84,7 +88,7 @@
     [AFNManager POST:getBookGroupRequest params:param complete:^(APPResult *result) {
         @strongify(self)
         if (result.status == ServiceCodeSuccess) {
-            [self setModels:[ChartModel mj_objectArrayWithKeyValuesArray:result.data]];
+            [self setGroupModels:[ChartModel mj_objectArrayWithKeyValuesArray:result.data]];
         } else {
             [self showTextHUD:result.message delay:1.f];
         }
@@ -95,7 +99,7 @@
     @weakify(self)
     NSMutableDictionary *param = ({
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        [param setObject:@(self.navigation.selectIndex) forKey:@"isIncome"];
+        [param setObject:@(self.navigation.navigationIndex) forKey:@"isIncome"];
         if (_seg.seg.selectedSegmentIndex == 0) {
             [param setObject:@([self.date year]) forKey:@"year"];
             [param setObject:@([self.date month]) forKey:@"month"];
@@ -113,13 +117,13 @@
     [AFNManager POST:GetBookListRequest params:param complete:^(APPResult *result) {
         @strongify(self)
         if (result.status == ServiceCodeSuccess) {
-            
+            NSMutableArray<HomeListModel *> *arrm = [HomeListModel mj_objectArrayWithKeyValuesArray:result.data];
+            [self setListModels:arrm];
         } else {
             [self showTextHUD:result.message delay:1.f];
         }
     }];
 }
-
 
 
 #pragma mark - set
@@ -129,16 +133,27 @@
     [self setDate:[NSDate dateWithYMD:[NSString stringWithFormat:@"%ld-%02ld-%02ld", timeModel.max_year, timeModel.max_month, timeModel.max_day]]];
     [self bookGroupRequest];
 }
-- (void)setModels:(NSMutableArray<ChartModel *> *)models {
-    _models = models;
-    _subdate.models = models;
-    _table.models = models;
+- (void)setGroupModels:(NSMutableArray<ChartModel *> *)groupModels {
+    _groupModels = groupModels;
+    _subdate.groupModels = groupModels;
+    _table.groupModels = groupModels;
+    _table.subModel = _subdate.subModels[_subdate.selectIndex.row];
     [self bookListRequest];
 }
-- (void)setSelectIndex:(NSInteger)selectIndex {
-    _selectIndex = selectIndex;
-    _navigation.selectIndex = selectIndex;
-    _table.selectIndex = selectIndex;
+- (void)setListModels:(NSMutableArray<HomeListModel *> *)listModels {
+    _listModels = listModels;
+    _table.listModels = listModels;
+}
+
+- (void)setNavigationIndex:(NSInteger)navigationIndex {
+    _navigationIndex = navigationIndex;
+    _navigation.navigationIndex = navigationIndex;
+    _table.navigationIndex = navigationIndex;
+}
+- (void)setSegmentIndex:(NSInteger)segmentIndex {
+    _segmentIndex = segmentIndex;
+    _subdate.segmentIndex = segmentIndex;
+    _table.segmentIndex = segmentIndex;
 }
 
 
@@ -161,8 +176,8 @@
         _seg = [ChartSegmentControl loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
         [[_seg.seg rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl *seg) {
             @strongify(self)
-            [self.subdate setIndex:seg.selectedSegmentIndex];
-            [self bookRangeRequest];
+            [self setSegmentIndex:seg.selectedSegmentIndex];
+            [self bookGroupRequest];
         }];
         [self.view addSubview:_seg];
     }
@@ -178,6 +193,7 @@
             NSInteger day = model.day == -1 ? 1 : model.day;
             NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
             [self setDate:[NSDate dateWithYMD:str]];
+            [self.table setSubModel:model];
             [self bookGroupRequest];
         }];
         [self.view addSubview:_subdate];
@@ -201,7 +217,7 @@
         _chud = [ChartHUD loadCode:CGRectMake(0, _seg.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - _seg.bottom - TabbarHeight)];
         [_chud setComplete:^(NSInteger index) {
             @strongify(self)
-            [self setSelectIndex:index];
+            [self setNavigationIndex:index];
             [self bookRangeRequest];
         }];
         [self.view addSubview:_chud];

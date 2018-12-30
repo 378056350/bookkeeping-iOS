@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookMonthModel : BaseModel
+@interface HomeListModel : BaseModel
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, assign) CGFloat price;
@@ -26,7 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger week;
 @property (nonatomic, assign) NSInteger week_day;
 
-
+/**
+ * @[数据,数据,数据,数据]
+ * 转换为:
+ {
+ "pay": 支出
+ "income": 收入
+ "data": 数据
+ }
+ */
++ (NSDictionary *)createGroupWithList:(NSMutableArray<HomeListModel *> *)datas;
 
 @end
 

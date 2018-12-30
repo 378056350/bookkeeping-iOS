@@ -5,13 +5,18 @@
 
 #import <UIKit/UIKit.h>
 #import "ChartModel.h"
+#import "ChartSubModel.h"
+#import "HomeListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartTableView : UITableView
 
-@property (nonatomic, assign) NSInteger selectIndex;
-@property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
+@property (nonatomic, assign) NSInteger navigationIndex;
+@property (nonatomic, assign) NSInteger segmentIndex;
+@property (nonatomic, strong) NSMutableArray<ChartModel *> *groupModels;
+@property (nonatomic, strong) NSMutableArray<HomeListModel *> *listModels;
+@property (nonatomic, strong) ChartSubModel *subModel;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

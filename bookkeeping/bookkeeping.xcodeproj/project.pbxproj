@@ -68,7 +68,6 @@
 		327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3721C89920001D0086 /* ChartTableHeader.m */; };
 		3299035A21CA6895000F4C14 /* BookRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299035921CA6895000F4C14 /* BookRefreshHeader.m */; };
 		329C28BD21D752C3003D6998 /* ChartRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 329C28BC21D752C3003D6998 /* ChartRangeModel.m */; };
-		32A4C21A21CB14DB00DF4327 /* BookDetailChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21921CB14DB00DF4327 /* BookDetailChart.m */; };
 		32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */; };
 		32A4C22321CB15B100DF4327 /* JHCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21F21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.m */; };
 		32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */; };
@@ -86,7 +85,7 @@
 		32A4C24F21CB846E00DF4327 /* BookPunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C24E21CB846E00DF4327 /* BookPunch.xib */; };
 		32A4C25221CB84BA00DF4327 /* signin_gif@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */; };
 		32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */; };
-		32A5F16521D5F0A90062DD4A /* BookMonthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5F16321D5F0A90062DD4A /* BookMonthModel.m */; };
+		32A5F16521D5F0A90062DD4A /* HomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5F16321D5F0A90062DD4A /* HomeListModel.m */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -153,6 +152,10 @@
 		4B48530B21C69F2800891096 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B48530A21C69F2800891096 /* MineHeader.m */; };
 		4B48530D21C69F6E00891096 /* MineHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48530C21C69F6E00891096 /* MineHeader.xib */; };
 		4B7560B321D1224A00E63744 /* BaseViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7560B221D1224A00E63744 /* BaseViewController+Extension.m */; };
+		4B8D635F21D8D215002AEB4A /* BookChartHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D635E21D8D215002AEB4A /* BookChartHUD.m */; };
+		4B8D636421D8D38C002AEB4A /* BCHUDContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D636321D8D38C002AEB4A /* BCHUDContent.m */; };
+		4B8D636A21D8D507002AEB4A /* BCHUDContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D636821D8D507002AEB4A /* BCHUDContentCell.m */; };
+		4B8D636B21D8D507002AEB4A /* BCHUDContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D636921D8D507002AEB4A /* BCHUDContentCell.xib */; };
 		4B9798F821CE69DB0020B207 /* RE2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798F621CE69DB0020B207 /* RE2Controller.m */; };
 		4B9798F921CE69DB0020B207 /* RE2Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9798F721CE69DB0020B207 /* RE2Controller.xib */; };
 		4B9798FD21CE744A0020B207 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798FC21CE744A0020B207 /* CountDown.m */; };
@@ -392,8 +395,6 @@
 		3299035921CA6895000F4C14 /* BookRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookRefreshHeader.m; sourceTree = "<group>"; };
 		329C28BB21D752C3003D6998 /* ChartRangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartRangeModel.h; sourceTree = "<group>"; };
 		329C28BC21D752C3003D6998 /* ChartRangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartRangeModel.m; sourceTree = "<group>"; };
-		32A4C21821CB14DB00DF4327 /* BookDetailChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailChart.h; sourceTree = "<group>"; };
-		32A4C21921CB14DB00DF4327 /* BookDetailChart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailChart.m; sourceTree = "<group>"; };
 		32A4C21C21CB15B000DF4327 /* JHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		32A4C21D21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
 		32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCollectionReusableView.m; sourceTree = "<group>"; };
@@ -423,8 +424,8 @@
 		32A4C24E21CB846E00DF4327 /* BookPunch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPunch.xib; sourceTree = "<group>"; };
 		32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@2x.gif"; sourceTree = "<group>"; };
 		32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@3x.gif"; sourceTree = "<group>"; };
-		32A5F16221D5F0A90062DD4A /* BookMonthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMonthModel.h; sourceTree = "<group>"; };
-		32A5F16321D5F0A90062DD4A /* BookMonthModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMonthModel.m; sourceTree = "<group>"; };
+		32A5F16221D5F0A90062DD4A /* HomeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListModel.h; sourceTree = "<group>"; };
+		32A5F16321D5F0A90062DD4A /* HomeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT_MANAGER.h; sourceTree = "<group>"; };
@@ -546,6 +547,14 @@
 		4B48530C21C69F6E00891096 /* MineHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHeader.xib; sourceTree = "<group>"; };
 		4B7560B121D1224A00E63744 /* BaseViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+Extension.h"; sourceTree = "<group>"; };
 		4B7560B221D1224A00E63744 /* BaseViewController+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+Extension.m"; sourceTree = "<group>"; };
+		4B8D635C21D8CF03002AEB4A /* CHART_EVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHART_EVENT.h; sourceTree = "<group>"; };
+		4B8D635D21D8D215002AEB4A /* BookChartHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookChartHUD.h; sourceTree = "<group>"; };
+		4B8D635E21D8D215002AEB4A /* BookChartHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookChartHUD.m; sourceTree = "<group>"; };
+		4B8D636221D8D38C002AEB4A /* BCHUDContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHUDContent.h; sourceTree = "<group>"; };
+		4B8D636321D8D38C002AEB4A /* BCHUDContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHUDContent.m; sourceTree = "<group>"; };
+		4B8D636721D8D507002AEB4A /* BCHUDContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHUDContentCell.h; sourceTree = "<group>"; };
+		4B8D636821D8D507002AEB4A /* BCHUDContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHUDContentCell.m; sourceTree = "<group>"; };
+		4B8D636921D8D507002AEB4A /* BCHUDContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHUDContentCell.xib; sourceTree = "<group>"; };
 		4B9798F521CE69DB0020B207 /* RE2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RE2Controller.h; sourceTree = "<group>"; };
 		4B9798F621CE69DB0020B207 /* RE2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RE2Controller.m; sourceTree = "<group>"; };
 		4B9798F721CE69DB0020B207 /* RE2Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RE2Controller.xib; sourceTree = "<group>"; };
@@ -1200,24 +1209,18 @@
 			path = Table;
 			sourceTree = "<group>";
 		};
-		327CEC2121C88D81001D0086 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				32E35B1A21D70377003B3040 /* Navigation */,
-				32E35B1921D70377003B3040 /* SegmentControl */,
-				32E35B1821D70376003B3040 /* Date */,
-				32E35B1B21D70397003B3040 /* HUD */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		327CEC3221C89897001D0086 /* BookChart */ = {
 			isa = PBXGroup;
 			children = (
 				327CEC2F21C89479001D0086 /* BookChart.h */,
 				327CEC3021C89479001D0086 /* BookChart.m */,
-				32A4C21821CB14DB00DF4327 /* BookDetailChart.h */,
-				32A4C21921CB14DB00DF4327 /* BookDetailChart.m */,
+				4B8D635D21D8D215002AEB4A /* BookChartHUD.h */,
+				4B8D635E21D8D215002AEB4A /* BookChartHUD.m */,
+				4B8D636221D8D38C002AEB4A /* BCHUDContent.h */,
+				4B8D636321D8D38C002AEB4A /* BCHUDContent.m */,
+				4B8D636721D8D507002AEB4A /* BCHUDContentCell.h */,
+				4B8D636821D8D507002AEB4A /* BCHUDContentCell.m */,
+				4B8D636921D8D507002AEB4A /* BCHUDContentCell.xib */,
 			);
 			path = BookChart;
 			sourceTree = "<group>";
@@ -1831,8 +1834,8 @@
 		4BE7844C21C678FB00B8EC46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				32A5F16221D5F0A90062DD4A /* BookMonthModel.h */,
-				32A5F16321D5F0A90062DD4A /* BookMonthModel.m */,
+				32A5F16221D5F0A90062DD4A /* HomeListModel.h */,
+				32A5F16321D5F0A90062DD4A /* HomeListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1973,6 +1976,7 @@
 		4BE7845A21C678FB00B8EC46 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				4B8D635C21D8CF03002AEB4A /* CHART_EVENT.h */,
 				4BE7845B21C678FB00B8EC46 /* Controller */,
 				4BE7845C21C678FB00B8EC46 /* Model */,
 				4BE7845D21C678FB00B8EC46 /* View */,
@@ -2005,7 +2009,10 @@
 		4BE7845D21C678FB00B8EC46 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				327CEC2121C88D81001D0086 /* View */,
+				32E35B1A21D70377003B3040 /* Navigation */,
+				32E35B1921D70377003B3040 /* SegmentControl */,
+				32E35B1821D70376003B3040 /* Date */,
+				32E35B1B21D70397003B3040 /* HUD */,
 				327CEC2021C88D81001D0086 /* Table */,
 				327CEC3221C89897001D0086 /* BookChart */,
 			);
@@ -2261,6 +2268,7 @@
 				32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */,
 				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				4BEB731A21CE033300BEF013 /* dropdown_anim__00040@2x.png in Resources */,
+				4B8D636B21D8D507002AEB4A /* BCHUDContentCell.xib in Resources */,
 				4BEB730721CE033300BEF013 /* dropdown_loading_03@2x.png in Resources */,
 				4BEB730221CE033300BEF013 /* dropdown_anim__00039@2x.png in Resources */,
 				4BEB72FC21CE033300BEF013 /* dropdown_anim__00014@2x.png in Resources */,
@@ -2442,10 +2450,12 @@
 				32A4C24121CB749B00DF4327 /* WebVC.m in Sources */,
 				4B7560B321D1224A00E63744 /* BaseViewController+Extension.m in Sources */,
 				327CEC1D21C88A04001D0086 /* HomeListHeader.m in Sources */,
+				4B8D636A21D8D507002AEB4A /* BCHUDContentCell.m in Sources */,
 				321983B921C6459B00311885 /* BaseTabBarController.m in Sources */,
 				321983FF21C6460100311885 /* UIView+Visuals.m in Sources */,
 				32D0B2C521C77AD70030F5B2 /* ChartDate.m in Sources */,
 				321983C221C6459B00311885 /* BaseModel.m in Sources */,
+				4B8D635F21D8D215002AEB4A /* BookChartHUD.m in Sources */,
 				4BA68AE021C7EAAA0063A5C2 /* CategoryController.m in Sources */,
 				4BA68AFF21C7F61E0063A5C2 /* ACACollection.m in Sources */,
 				321983BB21C6459B00311885 /* BaseService.m in Sources */,
@@ -2458,9 +2468,9 @@
 				4B35F1A221CCC641007271BE /* UIView+APPViewRequest.m in Sources */,
 				4B35F1C021CCC694007271BE /* KKEmptyNoNet.m in Sources */,
 				321983C021C6459B00311885 /* BaseCollectionCell.m in Sources */,
+				4B8D636421D8D38C002AEB4A /* BCHUDContent.m in Sources */,
 				32FADE5921D2298200DCD920 /* UIViewController+UMengExtension.m in Sources */,
 				321983F921C6460100311885 /* UIImage+Extension.m in Sources */,
-				32A4C21A21CB14DB00DF4327 /* BookDetailChart.m in Sources */,
 				4BEB72DD21CE033300BEF013 /* RequestTipRefreshFooter.m in Sources */,
 				4B35F1C121CCC694007271BE /* KKEmptyCommon.m in Sources */,
 				327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */,
@@ -2548,7 +2558,7 @@
 				4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */,
 				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
-				32A5F16521D5F0A90062DD4A /* BookMonthModel.m in Sources */,
+				32A5F16521D5F0A90062DD4A /* HomeListModel.m in Sources */,
 				32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */,
 				4BA68ABC21C7E2D70063A5C2 /* BadgeCollection.m in Sources */,
 				32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */,
