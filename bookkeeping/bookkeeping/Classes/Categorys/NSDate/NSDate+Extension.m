@@ -160,13 +160,8 @@
 + (NSUInteger)weeksOfYear:(NSInteger)year {
     NSUInteger i;
     
-    NSString *str = [NSString stringWithFormat:@"%ld-12-31", year];
-    NSDateFormatter *fora = [[NSDateFormatter alloc] init];
-    [fora setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [fora dateFromString:str];
+    NSDate *lastdate = [NSDate dateWithYMD:[NSString stringWithFormat:@"%ld-12-31", year]];
     
-    
-    NSDate *lastdate = [date lastdayOfMonth];
     
     for (i = 1;[[lastdate dateAfterDay:-7 * i] year] == year; i++) {
         
@@ -176,7 +171,12 @@
 }
 
 - (NSUInteger)weekOfYear {
-    return [NSDate weekOfYear:self];
+    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear fromDate:self];
+    NSInteger week = [dateComponents weekOfYear];
+    return week;
+    
+//    return [NSDate weekOfYear:self];
 }
 
 + (NSUInteger)weekOfYear:(NSDate *)date {

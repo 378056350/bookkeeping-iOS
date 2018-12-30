@@ -5,7 +5,6 @@
 
 #import "ChartDate.h"
 #import "ChartDateCell.h"
-#import "ChartSubModel.h"
 
 #pragma mark - 声明
 @interface ChartDate()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -40,50 +39,25 @@
         NSString *maxDateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _timeModel.max_year, _timeModel.max_month, _timeModel.max_day];
         NSDate *minDate = [NSDate dateWithYMD:minDateStr];
         NSDate *maxDate = [NSDate dateWithYMD:maxDateStr];
-        // 数据整理
-        NSInteger offset = 0;
-        NSMutableArray<ChartSubModel *> *models = [[NSMutableArray alloc] init];
-        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-            NSInteger min_week = y == _timeModel.min_year ? [minDate weekOfYear] : 1;
-            NSInteger max_week = y == _timeModel.max_year ? [maxDate weekOfYear] : [NSDate weeksOfYear:y];
-            for (NSInteger w=min_week; w<=max_week; w++) {
-                ChartSubModel *submodel = [ChartSubModel init];
-                [submodel setYear:y];
-                [submodel setMonth:[[minDate offsetDays:offset * 7] month]];
-                [submodel setDay:[[minDate offsetDays:offset * 7] day]];
-                [submodel setWeek:w];
-                [submodel setSelectIndex:0];
-                [models addObject:submodel];
-                offset += 1;
-            }
+        
+        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
+        NSInteger weeks = [NSDate compareWeek:minDate withDate:maxDate];
+        for (NSInteger i=0; i<weeks; i++) {
+            NSDate *newDate = [minDate offsetDays:i * 7];
+            ChartSubModel *submodel = [ChartSubModel init];
+            [submodel setYear:[newDate year]];
+            [submodel setMonth:[newDate month]];
+            [submodel setDay:[newDate day]];
+            [submodel setWeek:[newDate weekOfYear]];
+            [submodel setSelectIndex:0];
+            [submodels addObject:submodel];
         }
-        [self setSubModels:models];
-        
-        
-        #pragma mark - 123123123
-        for (NSInteger i=0; i<models.count; i++) {
-            ChartSubModel *model = models[i];
-            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, model.month, model.day];
-            NSDate *date = [NSDate dateWithYMD:str];
-            
-            NSLog(@"%ld", [[NSDate dateWithYMD:@"2018-01-05"] weekOfYear]);
-            
-            NSInteger week1 = [date weekOfYear];
-            NSInteger week2 = model.week;
-            if ([date weekOfYear] != model.week) {
-                NSLog(@"错误");
-            } else {
-                NSLog(@"正确");
-            }
-            
-            
-        }
-        
+        [self setSubModels:submodels];
     }
     // 月
     else if (_index == 1) {
         // 数据整理
-        NSMutableArray<ChartSubModel *> *models = [[NSMutableArray alloc] init];
+        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
         for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
             NSInteger min_month = (y==_timeModel.min_year ? _timeModel.min_month : 1);
             NSInteger max_month = (y==_timeModel.max_year ? _timeModel.max_month : 12);
@@ -92,49 +66,50 @@
                 [submodel setYear:y];
                 [submodel setMonth:m];
                 [submodel setSelectIndex:1];
-                [models addObject:submodel];
+                [submodels addObject:submodel];
             }
         }
-        [self setSubModels:models];
+        [self setSubModels:submodels];
     }
     // 年
     else if (_index == 2) {
         // 数据整理
-        NSMutableArray<ChartSubModel *> *models = [[NSMutableArray alloc] init];
+        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
         for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
             ChartSubModel *submodel = [ChartSubModel init];
             [submodel setYear:y];
             [submodel setSelectIndex:2];
-            [models addObject:submodel];
+            [submodels addObject:submodel];
         }
-        [self setSubModels:models];
+        [self setSubModels:submodels];
     }
 
 
-    // 滚动
-    _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
-    _selectModel = [_subModels lastObject];
-    [self.collection reloadData];
-    [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-
-//    // 第一次
-//    if (!_selectIndex) {
-//        _selectIndex = [NSIndexPath indexPathForRow:_models.count - 1 inSection:0];
-//        _selectModel = [_models lastObject];
-//        [self.collection reloadData];
-//        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-//    }
+    // 第一次
+    if (!_selectIndex) {
+        _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
+        _selectModel = [_subModels lastObject];
+        [self.collection reloadData];
+        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
+    }
+    
+    
+    
 //    // 其他
 //    else {
-//        NSInteger index = [_models indexOfObject:_selectModel];
+//        NSInteger index = [_subModels indexOfObject:_selectModel];
 //        if (index > _models.count || index < 0) {
 //            index = _models.count - 1;
 //        }
 //        _selectIndex = [NSIndexPath indexPathForRow:index inSection:0];
-//        _selectModel = _models[index];
+//        _selectModel = _subModels[index];
 //        [self.collection reloadData];
 //        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
 //    }
+}
+- (void)setIndex:(NSInteger)index {
+    _index = index;
+    _selectIndex = nil;
 }
 
 
@@ -153,6 +128,11 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self collectionDidSelect:indexPath];
+    // 回调
+    if (self.complete) {
+        ChartSubModel *model = self.subModels[indexPath.row];
+        self.complete(model);
+    }
 }
 - (void)collectionDidSelect:(NSIndexPath *)indexPath {
     // 移动
@@ -177,7 +157,6 @@
         self.line.width = [model.detail sizeWithMaxSize:CGSizeMake(MAXFLOAT, MAXFLOAT) font:LAB_FONT].width;
         self.line.centerX = cell.centerX;
     }];
-    // 回调
 }
 
 

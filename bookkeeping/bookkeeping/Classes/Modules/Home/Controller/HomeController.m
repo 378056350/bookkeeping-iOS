@@ -35,7 +35,7 @@
     [self header];
     [self list];
     [self setDate:[NSDate date]];
-    [self getBookRequest:self.date];
+    [self bookGroupRequest:self.date];
     [self monitorNotification];
 
 }
@@ -45,19 +45,19 @@
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
-        [self getBookRequest:self.date];
+        [self bookGroupRequest:self.date];
     }];
 }
 
 
 #pragma mark - 请求
 // 查账
-- (void)getBookRequest:(NSDate *)date {
+- (void)bookGroupRequest:(NSDate *)date {
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @(date.year), @"year",
                            @(date.month), @"month", nil];
     @weakify(self)
-    [AFNManager POST:GetBookMonthRequest params:param complete:^(APPResult *result) {
+    [AFNManager POST:GetBookListRequest params:param complete:^(APPResult *result) {
         @strongify(self)
         // 成功
         if (result.status == ServiceCodeSuccess) {
@@ -140,18 +140,18 @@
             NSDate *date = [fora dateFromString:selectValue];
             date;
         })];
-        [self getBookRequest:self.date];
+        [self bookGroupRequest:self.date];
     }];
 }
 // 下拉
 - (void)homeTablePull:(id)data {
     NSDate *next = [self.date offsetMonths:1];
-    [self getBookRequest:next];
+    [self bookGroupRequest:next];
 }
 // 上拉
 - (void)homeTableUp:(id)data {
     NSDate *last = [self.date offsetMonths:-1];
-    [self getBookRequest:last];
+    [self bookGroupRequest:last];
 }
 
 

@@ -39,7 +39,7 @@
     _models = models;
     
     if (models.count != 0) {
-        NSArray *week = @[@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
+        NSArray *week = @[@"",@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
         CGFloat income = 0;
         CGFloat pay = 0;
         BookMonthModel *firModel = models[0];

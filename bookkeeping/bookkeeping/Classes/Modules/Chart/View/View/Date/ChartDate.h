@@ -6,16 +6,23 @@
 
 #import "BaseView.h"
 #import "ChartModel.h"
+#import "ChartSubModel.h"
 #import "ChartRangeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - typedef
+typedef void (^ChartDateComplete)(ChartSubModel *model);
+
+
+#pragma mark - 声明
 @interface ChartDate : BaseView
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSMutableArray<ChartModel *> *models;
 @property (nonatomic, strong) ChartRangeModel *timeModel;
+@property (nonatomic, copy  ) ChartDateComplete complete;
 
 @end
 
