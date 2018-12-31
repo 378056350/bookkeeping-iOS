@@ -134,11 +134,9 @@
         arr;
     })];
     // 移动
-    @weakify(self)
-    ChartDateCell *cell = (ChartDateCell *)[self.collection cellForItemAtIndexPath:indexPath];
-    ChartSubModel *model = self.subModels[indexPath.row];
     [UIView animateWithDuration:.3f animations:^{
-        @strongify(self)
+        ChartDateCell *cell = (ChartDateCell *)[self.collection cellForItemAtIndexPath:indexPath];
+        ChartSubModel *model = self.subModels[indexPath.row];
         self.line.width = [model.detail sizeWithMaxSize:CGSizeMake(MAXFLOAT, MAXFLOAT) font:LAB_FONT].width;
         self.line.centerX = cell.centerX;
     }];

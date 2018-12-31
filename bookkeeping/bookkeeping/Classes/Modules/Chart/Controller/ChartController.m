@@ -104,7 +104,6 @@
     _timeModel = timeModel;
     _subdate.timeModel = timeModel;
     [self setDate:timeModel.max_date];
-//    [self bookGroupRequest];
     [self bookRequest];
 }
 - (void)setModel:(BKModel *)model {
@@ -147,7 +146,7 @@
             @strongify(self)
             [self setDate:[NSDate date]];
             [self setSegmentIndex:seg.selectedSegmentIndex];
-            [self bookRequest];
+            [self bookRangeRequest];
         }];
         [self.view addSubview:_seg];
     }
