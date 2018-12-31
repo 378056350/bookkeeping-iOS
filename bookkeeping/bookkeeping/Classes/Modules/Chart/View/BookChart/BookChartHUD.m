@@ -57,9 +57,8 @@
         [self setHidden:false];
     });
 }
-- (void)setModels:(NSMutableArray<HomeListModel *> *)models {
+- (void)setModels:(NSMutableArray<BookListModel *> *)models {
     NSInteger count = models.count > 3 ? 3 : models.count;
-    
     _models = models;
     _content.models = models;
     if (models.count == 0) {

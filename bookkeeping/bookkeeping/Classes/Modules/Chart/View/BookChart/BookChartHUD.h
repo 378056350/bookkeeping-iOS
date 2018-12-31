@@ -4,14 +4,15 @@
  */
 
 #import "BaseView.h"
-#import "HomeListModel.h"
+#import "BKModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookChartHUD : BaseView
 
 @property (nonatomic, assign) CGRect pointFrame;
-@property (nonatomic, strong) NSMutableArray<HomeListModel *> *models;
+@property (nonatomic, strong) NSMutableArray<BookListModel *> *models;
 
 + (instancetype)init;
 

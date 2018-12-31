@@ -5,13 +5,14 @@
 
 #import "BaseTableCell.h"
 #import "ChartModel.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartTableCell : BaseTableCell
 
 @property (nonatomic, assign) CGFloat maxPrice;
-@property (nonatomic, strong) ChartModel *model;
+@property (nonatomic, strong) BookGroupModel *model;
 
 @end
 

@@ -8,7 +8,7 @@
 #import "ShareOrder.h"
 #import "ShareBadge.h"
 #import "ShareBottom.h"
-#import "BookRefreshHeader.h"
+#import "BKCRefreshHeader.h"
 
 
 #pragma mark - 声明
@@ -19,7 +19,7 @@
 @property (nonatomic, strong) ShareOrder *shot2;
 @property (nonatomic, strong) ShareBadge *shot3;
 @property (nonatomic, strong) ShareBottom *bottom;
-@property (nonatomic, strong) BookRefreshHeader *mHeader;
+@property (nonatomic, strong) BKCRefreshHeader *mHeader;
 
 @end
 
@@ -111,9 +111,9 @@
     }
     return _bottom;
 }
-- (BookRefreshHeader *)mHeader {
+- (BKCRefreshHeader *)mHeader {
     if (!_mHeader) {
-        _mHeader = [BookRefreshHeader headerWithRefreshingBlock:^{
+        _mHeader = [BKCRefreshHeader headerWithRefreshingBlock:^{
             [self.scroll.mj_header endRefreshing];
         }];
     }

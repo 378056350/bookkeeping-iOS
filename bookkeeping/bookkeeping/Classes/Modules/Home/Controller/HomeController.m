@@ -7,8 +7,8 @@
 #import "HomeHeader.h"
 #import "HomeList.h"
 #import "LoginController.h"
-#import "HomeListModel.h"
-#import "HOME_EVENT_MANAGER.h"
+#import "BKModel.h"
+#import "HOME_EVENT.h"
 
 
 #pragma mark - 声明
@@ -17,9 +17,8 @@
 @property (nonatomic, strong) HomeHeader *header;
 @property (nonatomic, strong) HomeList *list;
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) NSMutableArray<HomeListModel *> *datas;
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<HomeListModel *> *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
+@property (nonatomic, strong) BKModel *model;
 
 @end
 
@@ -35,7 +34,7 @@
     [self header];
     [self list];
     [self setDate:[NSDate date]];
-    [self bookGroupRequest:self.date];
+    [self bookRequest:self.date];
     [self monitorNotification];
 
 }
@@ -45,23 +44,25 @@
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
-        [self bookGroupRequest:self.date];
+        [self bookRequest:self.date];
     }];
 }
 
 
 #pragma mark - 请求
 // 查账
-- (void)bookGroupRequest:(NSDate *)date {
+- (void)bookRequest:(NSDate *)date {
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @(date.year), @"year",
-                           @(date.month), @"month", nil];
+                           @(date.month), @"month",
+                           @(1), @"hasList",
+                           @(1), @"hasGroup", nil];
     @weakify(self)
-    [AFNManager POST:GetBookListRequest params:param complete:^(APPResult *result) {
+    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
         @strongify(self)
         // 成功
         if (result.status == ServiceCodeSuccess) {
-            [self setDatas:[HomeListModel mj_objectArrayWithKeyValuesArray:result.data]];
+            [self setModel:[BKModel mj_objectWithKeyValues:result.data]];
             [self setDate:date];
         }
         // 失败
@@ -73,20 +74,10 @@
 
 
 #pragma mark - set
-- (void)setDatas:(NSMutableArray<HomeListModel *> *)datas {
-    _datas = datas;
-    NSDictionary *param = [HomeListModel createGroupWithList:datas];
-    CGFloat income = [param[@"income"] floatValue];
-    CGFloat pay = [param[@"pay"] floatValue];
-    
-    NSMutableArray<NSMutableArray<HomeListModel *> *> *models = param[@"data"];
-    [self setModels:models];
-    [self.header setPay:pay];
-    [self.header setIncome:income];
-}
-- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
-    _models = models;
-    _list.models = models;
+- (void)setModel:(BKModel *)model {
+    _model = model;
+    _list.model = model;
+    _header.model = model;
 }
 - (void)setDate:(NSDate *)date {
     _date = date;
@@ -118,18 +109,18 @@
             NSDate *date = [fora dateFromString:selectValue];
             date;
         })];
-        [self bookGroupRequest:self.date];
+        [self bookRequest:self.date];
     }];
 }
 // 下拉
 - (void)homeTablePull:(id)data {
     NSDate *next = [self.date offsetMonths:1];
-    [self bookGroupRequest:next];
+    [self bookRequest:next];
 }
 // 上拉
 - (void)homeTableUp:(id)data {
     NSDate *last = [self.date offsetMonths:-1];
-    [self bookGroupRequest:last];
+    [self bookRequest:last];
 }
 
 

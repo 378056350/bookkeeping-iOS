@@ -3,20 +3,20 @@
  * @author 郑业强 2018-12-21 创建文件
  */
 
-#import "BookListModel.h"
+#import "BKCIncomeModel.h"
 
-@implementation BookModel
+@implementation BKCModel
 
 + (void)load {
-    [BookModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+    [BKCModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"Id": @"id",
                  };
     }];
 }
 
-+ (BookModel *)createSetModel {
-    BookModel *set = [[BookModel alloc] init];
++ (BKCModel *)createSetModel {
+    BKCModel *set = [[BKCModel alloc] init];
     set.Id = 0;
     set.name = @"设置";
     set.icon_n = @"book/cc_home_tools@3x.png";
@@ -29,11 +29,11 @@
 @end
 
 
-@implementation BookListModel
+@implementation BKCIncomeModel
 
 + (void)load {
-    [BookListModel mj_setupObjectClassInArray:^NSDictionary *{
-        return @{@"list": @"BookModel"};
+    [BKCIncomeModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{@"list": @"BKCModel"};
     }];
 }
 

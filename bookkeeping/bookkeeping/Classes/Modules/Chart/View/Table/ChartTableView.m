@@ -37,13 +37,10 @@
 
 
 #pragma mark - set
-- (void)setGroupModels:(NSMutableArray<ChartModel *> *)groupModels {
-    _groupModels = groupModels;
+- (void)setModel:(BKModel *)model {
+    _model = model;
+    _tHeader.model = model;
     [self reloadData];
-}
-- (void)setListModels:(NSMutableArray<HomeListModel *> *)listModels {
-    _listModels = listModels;
-    _tHeader.listModels = listModels;
 }
 - (void)setSubModel:(ChartSubModel *)subModel {
     _subModel = subModel;
@@ -85,12 +82,12 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.groupModels.count;
+    return self.model.group.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChartTableCell *cell = [ChartTableCell loadFirstNib:tableView];
-    cell.maxPrice = [[self.groupModels valueForKeyPath:@"@max.price.floatValue"] floatValue];
-    cell.model = self.groupModels[indexPath.row];
+    cell.maxPrice = [[self.model.group valueForKeyPath:@"@max.price.floatValue"] floatValue];
+    cell.model = self.model.group[indexPath.row];
     return cell;
 }
 

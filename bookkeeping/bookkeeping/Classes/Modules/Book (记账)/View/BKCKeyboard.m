@@ -3,7 +3,7 @@
  * @author 郑业强 2018-12-18 创建文件
  */
 
-#import "BookKeyboard.h"
+#import "BKCKeyboard.h"
 
 #define DATE_TAG 13         // 日期
 #define PLUS_TAG 17         // 加
@@ -16,7 +16,7 @@
 
 
 #pragma mark - 声明
-@interface BookKeyboard()<UITextFieldDelegate>
+@interface BKCKeyboard()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UITextField *markField;
@@ -34,11 +34,11 @@
 
 
 #pragma mark - 实现
-@implementation BookKeyboard
+@implementation BKCKeyboard
 
 
 + (instancetype)init {
-    BookKeyboard *view = [BookKeyboard loadFirstNib:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH / 5 * 4 + SafeAreaBottomHeight)];
+    BKCKeyboard *view = [BKCKeyboard loadFirstNib:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH / 5 * 4 + SafeAreaBottomHeight)];
     [view setHidden:YES];
     [view initUI];
     return view;

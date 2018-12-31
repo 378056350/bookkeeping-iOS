@@ -3,10 +3,10 @@
  * @author 郑业强 2018-12-16 创建文件
  */
 
-#import "BookCollectionCell.h"
+#import "BKCCollectionCell.h"
 
 #pragma mark - 声明
-@interface BookCollectionCell()
+@interface BKCCollectionCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *lab;
@@ -15,14 +15,14 @@
 
 
 #pragma mark - 实现
-@implementation BookCollectionCell
+@implementation BKCCollectionCell
 
 
 - (void)initUI {
     self.lab.font = [UIFont systemFontOfSize:AdjustFont(12)];
     self.lab.textColor = kColor_Text_Gary;
 }
-- (void)setModel:(BookModel *)model {
+- (void)setModel:(BKCModel *)model {
     _model = model;
     [_lab setText:model.name];
     [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];

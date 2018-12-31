@@ -87,7 +87,7 @@
         [_bar setClick:^(NSInteger index) {
             // 记账
             if (index == 2) {
-                BookController *vc = [[BookController alloc] init];
+                BKCController *vc = [[BKCController alloc] init];
                 BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
                 [weakSelf presentViewController:nav animated:YES completion:^{
                     

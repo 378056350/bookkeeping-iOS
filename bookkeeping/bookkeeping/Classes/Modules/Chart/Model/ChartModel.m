@@ -9,7 +9,7 @@
 
 + (void)load {
     [ChartModel mj_setupObjectClassInArray:^NSDictionary *{
-        return @{@"list": @"ChartBookModel"};
+        return @{@"list": @"ChartBKCModel"};
     }];
 }
 

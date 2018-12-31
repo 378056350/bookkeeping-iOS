@@ -3,19 +3,19 @@
  * @author 郑业强 2018-12-19 创建文件
  */
 
-#import "BookRefreshHeader.h"
+#import "BKCRefreshHeader.h"
 
 #pragma mark - 声明
-@interface BookRefreshHeader()
+@interface BKCRefreshHeader()
 
 @end
 
 #pragma mark - 实现
-@implementation BookRefreshHeader
+@implementation BKCRefreshHeader
 
 
 + (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
-    BookRefreshHeader *header = [super headerWithRefreshingBlock:refreshingBlock];
+    BKCRefreshHeader *header = [super headerWithRefreshingBlock:refreshingBlock];
     [header setTitle:@"下拉关闭页面" forState:MJRefreshStateIdle];
     [header setTitle:@"离开此页面" forState:MJRefreshStatePulling];
     [header setTitle:@"离开此页面" forState:MJRefreshStateRefreshing];

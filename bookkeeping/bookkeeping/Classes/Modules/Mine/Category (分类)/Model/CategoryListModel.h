@@ -4,15 +4,15 @@
  */
 
 #import "BaseModel.h"
-#import "BookListModel.h"
+#import "BKCIncomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CategoryListModel : BaseModel
 
 @property (nonatomic, assign) BOOL is_income;
-@property (nonatomic, strong) NSMutableArray<BookModel *> *insert;
-@property (nonatomic, strong) NSMutableArray<BookModel *> *remove;
+@property (nonatomic, strong) NSMutableArray<BKCModel *> *insert;
+@property (nonatomic, strong) NSMutableArray<BKCModel *> *remove;
 
 @end
 

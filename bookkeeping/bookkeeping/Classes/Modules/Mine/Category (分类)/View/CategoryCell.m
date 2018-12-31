@@ -66,7 +66,7 @@
         [self.menuBtn setHidden:YES];
     }
 }
-- (void)setModel:(BookModel *)model {
+- (void)setModel:(BKCModel *)model {
     _model = model;
     [_nameLab setText:model.name];
     [_detailLab setText:model.is_system == false ? @"(自定义)" : @""];

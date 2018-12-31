@@ -110,19 +110,19 @@
             <viewLayoutGuide key="safeArea" id="Mpz-6K-nes"/>
             <connections>
                 <outlet property="getConstraintL" destination="188-TU-ihi" id="baf-Ry-XbH"/>
-                <outlet property="getLab" destination="sk0-0w-Vfz" id="5D0-Av-hon"/>
-                <outlet property="getValueLab" destination="nFR-eb-KXA" id="ZMS-z0-F2I"/>
+                <outlet property="incomeDescLab" destination="sk0-0w-Vfz" id="WEF-O2-U0p"/>
+                <outlet property="incomeLab" destination="nFR-eb-KXA" id="2vT-mQ-f86"/>
                 <outlet property="line" destination="36b-6B-ZJA" id="cMa-5R-00o"/>
                 <outlet property="lineConstraintL" destination="YLR-pm-fBK" id="l5t-hH-jDn"/>
                 <outlet property="monthDescLab" destination="Ouv-cH-3tl" id="a8k-ng-zug"/>
                 <outlet property="monthLab" destination="PEa-1e-m21" id="nhi-HY-fkI"/>
                 <outlet property="monthView" destination="9aH-m1-gTG" id="dlt-0e-3X0"/>
-                <outlet property="payLab" destination="StM-uY-6Ig" id="5ws-GB-Ysv"/>
+                <outlet property="payDescLab" destination="StM-uY-6Ig" id="dEz-Ik-omw"/>
+                <outlet property="payLab" destination="0om-hQ-90f" id="UwU-r8-kf6"/>
                 <outlet property="setConstraintL" destination="WsL-Tb-3h6" id="KzG-PO-ENu"/>
-                <outlet property="setValueLab" destination="0om-hQ-90f" id="Lh2-MD-6DB"/>
                 <outlet property="yearLab" destination="zNL-Pc-CEq" id="IvD-Me-PUL"/>
             </connections>
-            <point key="canvasLocation" x="749" y="-363"/>
+            <point key="canvasLocation" x="862" y="-393"/>
         </view>
     </objects>
     <resources>

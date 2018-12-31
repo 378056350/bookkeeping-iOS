@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CategoryCell : MGSwipeTableCell
 
-@property (nonatomic, strong) BookModel *model;
+@property (nonatomic, strong) BKCModel *model;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 

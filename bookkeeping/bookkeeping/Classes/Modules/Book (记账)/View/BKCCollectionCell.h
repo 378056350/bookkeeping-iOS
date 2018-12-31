@@ -4,13 +4,13 @@
  */
 
 #import "BaseCollectionCell.h"
-#import "BookListModel.h"
+#import "BKCIncomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookCollectionCell : BaseCollectionCell
+@interface BKCCollectionCell : BaseCollectionCell
 
-@property (nonatomic, strong) BookModel *model;
+@property (nonatomic, strong) BKCModel *model;
 @property (nonatomic, assign, getter=isChoose) BOOL choose;
 
 @end

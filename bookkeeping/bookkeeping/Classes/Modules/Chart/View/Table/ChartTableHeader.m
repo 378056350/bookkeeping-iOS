@@ -37,9 +37,9 @@
 
 
 #pragma mark - set
-- (void)setListModels:(NSMutableArray<HomeListModel *> *)listModels {
-    _listModels = listModels;
-    _chart.listModels = listModels;
+- (void)setModel:(BKModel *)model {
+    _model = model;
+    _chart.model = model;
 }
 - (void)setSegmentIndex:(NSInteger)segmentIndex {
     _segmentIndex = segmentIndex;

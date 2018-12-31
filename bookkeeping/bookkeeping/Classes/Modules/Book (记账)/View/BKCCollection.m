@@ -3,9 +3,9 @@
  * @author 郑业强 2018-12-16 创建文件
  */
 
-#import "BookCollectionView.h"
-#import "BookCollectionCell.h"
-#import "BookRefreshHeader.h"
+#import "BKCCollection.h"
+#import "BKCCollectionCell.h"
+#import "BKCRefreshHeader.h"
 #import "CategoryController.h"
 #import "BOOK_EVENT.h"
 
@@ -17,20 +17,20 @@
 
 
 #pragma mark - 声明
-@interface BookCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface BKCCollection()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) BookRefreshHeader *mHeader;
+@property (nonatomic, strong) BKCRefreshHeader *mHeader;
 
 @end
 
 
 #pragma mark - 实现
-@implementation BookCollectionView
+@implementation BKCCollection
 
 
 #pragma mark - 初始化
 + (instancetype)initWithFrame:(CGRect)frame {
-    BookCollectionView *collection = [[BookCollectionView alloc] initWithFrame:frame collectionViewLayout:({
+    BKCCollection *collection = [[BKCCollection alloc] initWithFrame:frame collectionViewLayout:({
         UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
         flow.itemSize = CGSizeMake(CELL_W, CELL_H);
         flow.minimumLineSpacing = 0;
@@ -42,16 +42,16 @@
     [collection setBackgroundColor:kColor_BG];
     [collection setDelegate:collection];
     [collection setDataSource:collection];
-    [collection registerNib:[UINib nibWithNibName:@"BookCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"BookCollectionCell"];
+    [collection registerNib:[UINib nibWithNibName:@"BKCCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"BKCCollectionCell"];
     [collection setMj_header:[collection mHeader]];
     return collection;
 }
 
 
 #pragma mark - set
-- (void)setModel:(BookListModel *)model {
-    BookModel *set = [BookModel createSetModel];
-    NSMutableArray<BookModel *> *list = model.list;
+- (void)setModel:(BKCIncomeModel *)model {
+    BKCModel *set = [BKCModel createSetModel];
+    NSMutableArray<BKCModel *> *list = model.list;
     [list addObject:set];
     
     _model = model;
@@ -86,7 +86,7 @@
     return self.model.list.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BookCollectionCell *cell = [BookCollectionCell loadItem:collectionView index:indexPath];
+    BKCCollectionCell *cell = [BKCCollectionCell loadItem:collectionView index:indexPath];
     cell.model = self.model.list[indexPath.row];
     cell.choose = [_selectIndex isEqual:indexPath];
     return cell;
@@ -119,9 +119,9 @@
 
 
 #pragma mark - get
-- (BookRefreshHeader *)mHeader {
+- (BKCRefreshHeader *)mHeader {
     if (!_mHeader) {
-        _mHeader = [BookRefreshHeader headerWithRefreshingBlock:^{
+        _mHeader = [BKCRefreshHeader headerWithRefreshingBlock:^{
             [self.mj_header endRefreshing];
         }];
     }

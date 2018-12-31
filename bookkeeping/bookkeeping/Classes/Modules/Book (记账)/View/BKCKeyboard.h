@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^BookComplete)(NSString *price, NSString *mark, NSDate *date);
 
 #pragma mark - 声明
-@interface BookKeyboard : BaseView
+@interface BKCKeyboard : BaseView
 
 @property (nonatomic, strong) NSMutableString *money;
 @property (nonatomic, copy  ) BookComplete complete;

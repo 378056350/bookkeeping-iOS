@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="FM5-fe-iFB" customClass="BookKeyboard">
+        <view contentMode="scaleToFill" id="FM5-fe-iFB" customClass="BKCKeyboard">
             <rect key="frame" x="0.0" y="0.0" width="404" height="310"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

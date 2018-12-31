@@ -5,7 +5,7 @@
 
 #import "HomeList.h"
 #import "HomeListCell.h"
-#import "HOME_EVENT_MANAGER.h"
+#import "HOME_EVENT.h"
 
 
 #pragma mark - 声明
@@ -28,15 +28,14 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
-    _models = models;
-    __weak typeof(self) weak = self;
+- (void)setModel:(BKModel *)model {
+    _model = model;
     if (_status == HomeListStatusNormal) {
         // cell
         NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
         // cell
         HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
-        cell.models = models;
+        cell.model = model;
         // 移动
         [_table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
     } else if (_status == HomeListStatusPull) {
@@ -46,14 +45,14 @@
         // cell
         HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
         HomeListCell *centerCell = [self.table cellForRowAtIndexPath:center];
-        cell.models = models;
+        cell.model = model;
         // 移动
         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            [weak.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
+            [self.table scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:false];
         } completion:^(BOOL finished){
-            [cell setModels:[NSMutableArray array]];
-            [centerCell setModels:models];
-            [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
+            [cell setModel:model];
+            [centerCell setModel:model];
+            [self.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
         }];
     } else if (_status == HomeListStatusUp) {
         // index
@@ -62,15 +61,14 @@
         // cell
         HomeListCell *cell = [self.table cellForRowAtIndexPath:index];
         HomeListCell *centerCell = [self.table cellForRowAtIndexPath:center];
-        cell.models = models;
+        cell.model = model;
         // 移动
         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            NSLog(@"%.2f", self.table.contentOffset.y);
-            [weak.table setContentOffset:CGPointMake(0, self.table.height + self.table.height - 1)];
+            [self.table setContentOffset:CGPointMake(0, self.table.height + self.table.height - 1)];
         } completion:^(BOOL finished){
-            [cell setModels:[NSMutableArray array]];
-            [centerCell setModels:models];
-            [weak.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
+            [cell setModel:model];
+            [centerCell setModel:model];
+            [self.table scrollToRowAtIndexPath:center atScrollPosition:UITableViewScrollPositionTop animated:false];
         }];
     }
     

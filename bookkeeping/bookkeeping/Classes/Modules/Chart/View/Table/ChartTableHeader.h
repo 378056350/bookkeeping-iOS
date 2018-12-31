@@ -6,7 +6,8 @@
 #import "BaseView.h"
 #import "ChartModel.h"
 #import "ChartSubModel.h"
-#import "HomeListModel.h"
+#import "BKModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger segmentIndex;
 @property (nonatomic, strong) ChartSubModel *subModel;
-@property (nonatomic, strong) NSMutableArray<HomeListModel *> *listModels;
+@property (nonatomic, strong) BKModel *model;
 
 @end
 

@@ -1,33 +1,33 @@
 /**
- * 记账
+ * 记账分类
  * @author 郑业强 2018-12-16 创建文件
  */
 
-#import "BookController.h"
-#import "BookCollectionView.h"
-#import "BookNavigation.h"
-#import "BookKeyboard.h"
-#import "BookListModel.h"
+#import "BKCController.h"
+#import "BKCCollection.h"
+#import "BKCNavigation.h"
+#import "BKCKeyboard.h"
+#import "BKCIncomeModel.h"
 #import "CategoryController.h"
 #import "KKRefreshGifHeader.h"
 #import "BOOK_EVENT.h"
 
 
 #pragma mark - 声明
-@interface BookController()<UIScrollViewDelegate>
+@interface BKCController()<UIScrollViewDelegate>
 
-@property (nonatomic, strong) BookNavigation *navigation;
+@property (nonatomic, strong) BKCNavigation *navigation;
 @property (nonatomic, strong) UIScrollView *scroll;
-@property (nonatomic, strong) NSMutableArray<BookCollectionView *> *collections;
-@property (nonatomic, strong) BookKeyboard *keyboard;
-@property (nonatomic, strong) NSArray<BookListModel *> *models;
+@property (nonatomic, strong) NSMutableArray<BKCCollection *> *collections;
+@property (nonatomic, strong) BKCKeyboard *keyboard;
+@property (nonatomic, strong) NSArray<BKCIncomeModel *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
 
 
 #pragma mark - 实现
-@implementation BookController
+@implementation BKCController
 
 
 - (void)viewDidLoad {
@@ -56,14 +56,14 @@
     @weakify(self)
     [self.scroll createRequest:CategoryListRequest params:@{} complete:^(APPResult *result) {
         @strongify(self)
-        [self setModels:[BookListModel mj_objectArrayWithKeyValuesArray:result.data]];
+        [self setModels:[BKCIncomeModel mj_objectArrayWithKeyValuesArray:result.data]];
     }];
 }
 // 记账
 - (void)createBookRequest:(NSString *)price mark:(NSString *)mark date:(NSDate *)date {
     NSInteger index = self.scroll.contentOffset.x / SCREEN_WIDTH;
-    BookCollectionView *collection = self.collections[index];
-    BookModel *model = collection.model.list[collection.selectIndex.row];
+    BKCCollection *collection = self.collections[index];
+    BKCModel *model = collection.model.list[collection.selectIndex.row];
     NSMutableDictionary *param = ({
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         [param setObject:price forKey:@"price"];
@@ -96,7 +96,7 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSArray<BookListModel *> *)models {
+- (void)setModels:(NSArray<BKCIncomeModel *> *)models {
     _models = models;
     for (int i=0; i<models.count; i++) {
         self.collections[i].model = models[i];
@@ -119,23 +119,23 @@
     [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * [index integerValue], 0) animated:YES];
 }
 // 点击item
-- (void)bookClickItem:(BookCollectionView *)collection {
+- (void)bookClickItem:(BKCCollection *)collection {
     NSIndexPath *indexPath = collection.selectIndex;
-    BookListModel *listModel = _models[collection.tag];
+    BKCIncomeModel *listModel = _models[collection.tag];
     // 选择类别
     if (indexPath.row != (listModel.list.count - 1)) {
         // 显示键盘
         [self.keyboard show];
         // 刷新
         NSInteger page = _scroll.contentOffset.x / SCREEN_WIDTH;
-        BookCollectionView *collection = self.collections[page];
+        BKCCollection *collection = self.collections[page];
         [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight - self.keyboard.height];
         [collection scrollToIndex:indexPath];
     }
     // 设置
     else {
         // 隐藏键盘
-        for (BookCollectionView *collection in self.collections) {
+        for (BKCCollection *collection in self.collections) {
             [collection reloadSelectIndex];
             [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight];
         }
@@ -145,7 +145,7 @@
         [vc setIs_income:collection.tag];
         [vc setComplete:^{
             [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {
-                [self setModels:[BookListModel mj_objectArrayWithKeyValuesArray:result.data]];
+                [self setModels:[BKCIncomeModel mj_objectArrayWithKeyValuesArray:result.data]];
             }];
         }];
         [self.navigationController pushViewController:vc animated:YES];
@@ -155,7 +155,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    for (BookCollectionView *collection in self.collections) {
+    for (BKCCollection *collection in self.collections) {
         [collection reloadSelectIndex];
         [collection setHeight:SCREEN_HEIGHT - NavigationBarHeight];
     }
@@ -181,18 +181,18 @@
     }
     return _scroll;
 }
-- (BookNavigation *)navigation {
+- (BKCNavigation *)navigation {
     if (!_navigation) {
-        _navigation = [BookNavigation loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, NavigationBarHeight)];
+        _navigation = [BKCNavigation loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, NavigationBarHeight)];
         [self.view addSubview:_navigation];
     }
     return _navigation;
 }
-- (NSMutableArray<BookCollectionView *> *)collections {
+- (NSMutableArray<BKCCollection *> *)collections {
     if (!_collections) {
         _collections = [NSMutableArray array];
         for (int i=0; i<2; i++) {
-            BookCollectionView *collection = [BookCollectionView initWithFrame:({
+            BKCCollection *collection = [BKCCollection initWithFrame:({
                 CGFloat width = SCREEN_WIDTH;
                 CGFloat left = i * width;
                 CGFloat height = SCREEN_HEIGHT - NavigationBarHeight;
@@ -206,10 +206,10 @@
     }
     return _collections;
 }
-- (BookKeyboard *)keyboard {
+- (BKCKeyboard *)keyboard {
     if (!_keyboard) {
         @weakify(self)
-        _keyboard = [BookKeyboard init];
+        _keyboard = [BKCKeyboard init];
         [_keyboard setComplete:^(NSString *price, NSString *mark, NSDate *date) {
             @strongify(self)
             [self createBookRequest:price mark:mark date:date];

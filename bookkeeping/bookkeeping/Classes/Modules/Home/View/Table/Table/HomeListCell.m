@@ -9,7 +9,7 @@
 #import "HomeListHeader.h"
 #import "HomeListSubCell.h"
 #import "HomeListEmpty.h"
-#import "HOME_EVENT_MANAGER.h"
+#import "HOME_EVENT.h"
 
 #pragma mark - 声明
 @interface HomeListCell()<UITableViewDelegate, UITableViewDataSource>
@@ -40,23 +40,23 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<NSMutableArray<HomeListModel *> *> *)models {
-    _models = models;
+- (void)setModel:(BKModel *)model {
+    _model = model;
     [self.table reloadData];
-    [self.emptyView setHidden:models.count != 0];
+    [self.emptyView setHidden:model.listSorts.count != 0];
 }
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.models.count;
+    return self.model.listSorts.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.models[section].count;
+    return self.model.listSorts[section].count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListSubCell *cell = [HomeListSubCell loadFirstNib:tableView];
-    cell.model = self.models[indexPath.section][indexPath.row];
+    cell.model = self.model.listSorts[indexPath.section][indexPath.row];
     return cell;
 }
 
@@ -64,7 +64,9 @@
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HomeListHeader *header = [HomeListHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(30))];
-    header.models = self.models[section];
+    header.listSorts = self.model.listSorts[section];
+//    header.model = self.model.listSorts[section];
+//    header.models = self.models[section];
     return header;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

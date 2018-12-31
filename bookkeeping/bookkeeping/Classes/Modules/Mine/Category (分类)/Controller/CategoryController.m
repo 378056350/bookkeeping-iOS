@@ -68,7 +68,7 @@
         [self hideHUD];
         if (result.status == ServiceCodeSuccess) {
             NSInteger index = self.header.seg.selectedSegmentIndex;
-            BookModel *model = cell.model;
+            BKCModel *model = cell.model;
             [self.models[index].remove removeObject:model];
             [self.models[index].insert addObject:model];
             [self setModels:self.models];
@@ -91,7 +91,7 @@
             [self showTextHUD:result.message delay:1.f];
             
             NSInteger index = self.header.seg.selectedSegmentIndex;
-            BookModel *model = cell.model;
+            BKCModel *model = cell.model;
             [self.models[index].insert removeObject:model];
             [self.models[index].remove addObject:model];
             [self setModels:self.models];

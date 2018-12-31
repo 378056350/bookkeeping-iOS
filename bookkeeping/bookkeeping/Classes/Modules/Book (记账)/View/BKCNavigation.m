@@ -1,15 +1,15 @@
 /**
- * 列表
+ * 添加记账导航栏
  * @author 郑业强 2018-12-18 创建文件
  */
 
-#import "BookNavigation.h"
+#import "BKCNavigation.h"
 #import "BOOK_EVENT.h"
 
 #define BTN_FONT [UIFont systemFontOfSize:AdjustFont(16)]
 
 #pragma mark - 声明
-@interface BookNavigation()
+@interface BKCNavigation()
 
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
@@ -22,7 +22,7 @@
 @end
 
 #pragma mark - 实现
-@implementation BookNavigation
+@implementation BKCNavigation
 
 
 - (void)initUI {

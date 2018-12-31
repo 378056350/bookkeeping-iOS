@@ -23,7 +23,7 @@
     BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     if ([viewController isKindOfClass:[HomeController class]] ||
         [viewController isKindOfClass:[ChartController class]] ||
-        [viewController isKindOfClass:[BookController class]] ||
+        [viewController isKindOfClass:[BKCController class]] ||
         [viewController isKindOfClass:[FindController class]] ||
         [viewController isKindOfClass:[MineController class]]) {
         BaseViewController *vc = (BaseViewController *)viewController;

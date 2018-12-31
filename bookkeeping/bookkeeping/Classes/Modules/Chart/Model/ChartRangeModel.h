@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger max_week_day;
 @property (nonatomic, assign) NSInteger max_week_year;
 
+@property (nonatomic, strong) NSString *min_date_str;
+@property (nonatomic, strong) NSString *max_date_str;
+@property (nonatomic, strong) NSDate *min_date;
+@property (nonatomic, strong) NSDate *max_date;
+
 @end
 
 NS_ASSUME_NONNULL_END

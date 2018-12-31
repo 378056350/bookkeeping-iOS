@@ -106,7 +106,7 @@
 //================================= Controller ===============================//
 #import "HomeController.h"
 #import "ChartController.h"
-#import "BookController.h"
+#import "BKCController.h"
 #import "FindController.h"
 #import "MineController.h"
 

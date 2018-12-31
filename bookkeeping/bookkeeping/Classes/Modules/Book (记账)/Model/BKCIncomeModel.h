@@ -7,8 +7,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-@interface BookModel : BaseModel
+// 记账model
+@interface BKCModel : BaseModel
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, strong) NSString *name;
@@ -19,15 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL is_system;
 @property (nonatomic, assign) NSInteger insert_id;
 
-+ (BookModel *)createSetModel;
++ (BKCModel *)createSetModel;
 
 @end
 
 
-@interface BookListModel : BaseModel
+// 记账收入/支出
+@interface BKCIncomeModel : BaseModel
 
 @property (nonatomic, assign) BOOL is_income;
-@property (nonatomic, strong) NSMutableArray<BookModel *> *list;
+@property (nonatomic, strong) NSMutableArray<BKCModel *> *list;
 
 @end
 

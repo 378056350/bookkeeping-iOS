@@ -39,7 +39,7 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<HomeListModel *> *)models {
+- (void)setModels:(NSMutableArray<BookListModel *> *)models {
     _models = models;
     [self.table reloadData];
     [self.lab setHidden:models.count != 0];
@@ -79,7 +79,7 @@
         CGFloat maxPrice = [[self.models valueForKeyPath:@"@sum.price.floatValue"] floatValue];
         NSMutableString *strm = [[NSMutableString alloc] init];
         if (_models.count != 0) {
-            HomeListModel *model = _models[0];
+            BookListModel *model = _models[0];
             if (model.is_income == 0) {
                 [strm appendString:@"当日总支出: "];
             } else {

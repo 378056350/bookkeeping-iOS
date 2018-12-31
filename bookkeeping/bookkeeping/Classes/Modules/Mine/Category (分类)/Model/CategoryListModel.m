@@ -10,8 +10,8 @@
 + (void)load {
     [CategoryListModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
-                 @"insert": @"BookModel",
-                 @"remove": @"BookModel"
+                 @"insert": @"BKCModel",
+                 @"remove": @"BKCModel"
                  };
     }];
 }

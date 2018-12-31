@@ -4,14 +4,16 @@
  */
 
 #import "BaseView.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeHeader : BaseView
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, assign) CGFloat pay;
-@property (nonatomic, assign) CGFloat income;
+//@property (nonatomic, assign) CGFloat pay;
+//@property (nonatomic, assign) CGFloat income;
+@property (nonatomic, strong) BKModel *model;
 
 @end
 

@@ -64,7 +64,7 @@
     CGPoint point = [[touches anyObject] locationInView:self];
     point = [self convertPoint:point toView:window];
     point = CGPointMake(point.x -= CHART_L, point.y);
-    
+
     NSInteger count = ({
         NSInteger count = 0;
         if (_segmentIndex == 0) {
@@ -81,14 +81,17 @@
     CGFloat left = point.x;
     left += CHART_W / (count - 1) / 2;
     NSInteger index = (NSInteger)(left / (CHART_W / (count - 1)));
-    
-    
+
+
     CGRect frame = [self.points[index] CGRectValue];
     frame = [self convertRect:frame toView:window];
     [self.bhud setPointFrame:frame];
+    
+    
+    
     [self.bhud setModels:({
         NSMutableArray *arrm = [NSMutableArray array];
-        for (HomeListModel *model in self.listModels) {
+        for (BookListModel *model in self.model.list) {
             if (_segmentIndex == 0) {
                 if (model.week_day == (index + 1)) {
                     [arrm addObject:model];
@@ -105,26 +108,31 @@
         }
         arrm;
     })];
-    
-    
+
+
 }
 
 
 #pragma mark - set
-- (void)setListModels:(NSMutableArray<HomeListModel *> *)listModels {
-    _listModels = listModels;
-    
+- (void)setModel:(BKModel *)model {
+    _model = model;
     if (_segmentIndex == 0) {
         NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
         for (int i=0; i<7; i++) {
             [arrm addObject:@(0)];
         }
-        for (HomeListModel *model in listModels) {
-            NSInteger index = model.week_day - 1;
+        for (BookListModel *submodel in model.list) {
+            NSInteger index = submodel.week_day - 1;
             CGFloat number = [arrm[index] floatValue];
-            number += model.price;
+            number += submodel.price;
             [arrm replaceObjectAtIndex:index withObject:@(number)];
         }
+//        for (HomeListModel *model in listModels) {
+//            NSInteger index = model.week_day - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += model.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
         [self setNumbers:arrm];
     } else if (_segmentIndex == 1) {
         NSString *str = [NSString stringWithFormat:@"%ld-%02ld-01", _subModel.year, _subModel.month];
@@ -134,10 +142,16 @@
         for (int i=0; i<count; i++) {
             [arrm addObject:@(0)];
         }
-        for (HomeListModel *model in listModels) {
-            NSInteger index = model.day - 1;
+//        for (HomeListModel *model in listModels) {
+//            NSInteger index = model.day - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += model.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
+        for (BookListModel *submodel in model.list) {
+            NSInteger index = submodel.day - 1;
             CGFloat number = [arrm[index] floatValue];
-            number += model.price;
+            number += submodel.price;
             [arrm replaceObjectAtIndex:index withObject:@(number)];
         }
         [self setNumbers:arrm];
@@ -146,10 +160,16 @@
         for (int i=0; i<12; i++) {
             [arrm addObject:@(0)];
         }
-        for (HomeListModel *model in listModels) {
-            NSInteger index = model.month - 1;
+//        for (HomeListModel *model in listModels) {
+//            NSInteger index = model.month - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += model.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
+        for (BookListModel *submodel in model.list) {
+            NSInteger index = submodel.month - 1;
             CGFloat number = [arrm[index] floatValue];
-            number += model.price;
+            number += submodel.price;
             [arrm replaceObjectAtIndex:index withObject:@(number)];
         }
         [self setNumbers:arrm];
