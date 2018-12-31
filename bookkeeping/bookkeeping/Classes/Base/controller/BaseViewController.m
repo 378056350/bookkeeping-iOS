@@ -33,6 +33,12 @@ typedef NS_ENUM(NSInteger, BarButtonItemState) {
     [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
     [self.view setBackgroundColor:kColor_BG];
     [self initUI];
+    for (id obj in self.navigationController.navigationBar.subviews) {
+        if ([obj isKindOfClass:NSClassFromString(@"_UINavigationBarContentView")]) {
+            UIView *hook = [(BaseNavigationController *)self.navigationController hook_background];
+            [self.navigationController.navigationBar insertSubview:hook belowSubview:obj];
+        }
+    }
 }
 - (void)initUI {
     [self setLeftBtn];
