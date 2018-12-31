@@ -18,6 +18,7 @@ target ‘bookkeeping’ do
     pod 'BRPickerView', '2.2.1'
     pod 'UMCCommon', '1.5.3'
     pod 'UMCSecurityPlugins', '1.0.6'
+    pod 'KMNavigationBarTransition', '1.1.5'
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'UMCShare/Social/ReducedQQ'
     pod 'UMCShare/Social/ReducedSina'

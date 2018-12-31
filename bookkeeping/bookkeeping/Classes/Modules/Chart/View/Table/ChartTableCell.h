@@ -4,7 +4,6 @@
  */
 
 #import "BaseTableCell.h"
-#import "ChartModel.h"
 #import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -127,12 +127,6 @@
             number += submodel.price;
             [arrm replaceObjectAtIndex:index withObject:@(number)];
         }
-//        for (HomeListModel *model in listModels) {
-//            NSInteger index = model.week_day - 1;
-//            CGFloat number = [arrm[index] floatValue];
-//            number += model.price;
-//            [arrm replaceObjectAtIndex:index withObject:@(number)];
-//        }
         [self setNumbers:arrm];
     } else if (_segmentIndex == 1) {
         NSString *str = [NSString stringWithFormat:@"%ld-%02ld-01", _subModel.year, _subModel.month];
@@ -142,12 +136,6 @@
         for (int i=0; i<count; i++) {
             [arrm addObject:@(0)];
         }
-//        for (HomeListModel *model in listModels) {
-//            NSInteger index = model.day - 1;
-//            CGFloat number = [arrm[index] floatValue];
-//            number += model.price;
-//            [arrm replaceObjectAtIndex:index withObject:@(number)];
-//        }
         for (BookListModel *submodel in model.list) {
             NSInteger index = submodel.day - 1;
             CGFloat number = [arrm[index] floatValue];
@@ -160,12 +148,6 @@
         for (int i=0; i<12; i++) {
             [arrm addObject:@(0)];
         }
-//        for (HomeListModel *model in listModels) {
-//            NSInteger index = model.month - 1;
-//            CGFloat number = [arrm[index] floatValue];
-//            number += model.price;
-//            [arrm replaceObjectAtIndex:index withObject:@(number)];
-//        }
         for (BookListModel *submodel in model.list) {
             NSInteger index = submodel.month - 1;
             CGFloat number = [arrm[index] floatValue];
@@ -326,36 +308,6 @@
     
     
     
-    
-    
-    
-//    for (int i=0; i<count; i++) {
-//
-//        CGFloat width = CHART_W / (count - 1);
-//        CGFloat left = CHART_L - CHART_POINT_W / 2 + width * i;
-//        // 点
-//        [self drawArc:kColor_Text_Gary fill:kColor_Main_Color frame:({
-//            CGFloat top = CHART_T + countcoordinatesX(80) - CHART_POINT_W / 2;
-//            CGRectMake(left, top, CHART_POINT_W, CHART_POINT_W);
-//        })];
-//
-//        // 文字
-//        if (i == 0 || i == (count - 1) || (i % 5 == 0 && i != (count - 2))) {
-//            NSString *str = [NSString stringWithFormat:@"%d", i + 1];
-//            [self drawText:str color:kColor_Text_Black frame:({
-//                CGFloat textW = [str sizeWithMaxSize:CGSizeMake(MAXFLOAT, MAXFLOAT) font:CHART_FONT].width;
-//                CGFloat top = CHART_T + countcoordinatesX(80) + countcoordinatesX(5);
-//                if (i == 0) {
-//                    left += textW / 2.f;
-//                } else if (i == (count - 1)) {
-//                    left -= textW / 2.f - CHART_POINT_W;
-//                } else {
-//                    left += CHART_POINT_W / 2;
-//                }
-//                CGRectMake(left - textW / 2.f, top, textW, countcoordinatesX(20));
-//            })];
-//        }
-//    }
 }
 // 年
 - (void)drawYear {

@@ -4,7 +4,6 @@
  */
 
 #import "BaseView.h"
-#import "ChartModel.h"
 #import "ChartSubModel.h"
 #import "BKModel.h"
 

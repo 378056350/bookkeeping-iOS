@@ -110,6 +110,7 @@
 - (void)setModel:(BKModel *)model {
     _model = model;
     _subdate.model = model;
+    _table.subModel = _subdate.subModels[_subdate.selectIndex.row];
     _table.model = model;
 }
 
@@ -144,6 +145,7 @@
         _seg = [ChartSegmentControl loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
         [[_seg.seg rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl *seg) {
             @strongify(self)
+            [self setDate:[NSDate date]];
             [self setSegmentIndex:seg.selectedSegmentIndex];
             [self bookRequest];
         }];
@@ -155,15 +157,15 @@
     if (!_subdate) {
         @weakify(self)
         _subdate = [ChartDate loadCode:CGRectMake(0, _seg.bottom, SCREEN_WIDTH, countcoordinatesX(45))];
-//        [_subdate setComplete:^(ChartSubModel *model) {
-//            @strongify(self)
-//            NSInteger month = model.month == -1 ? 1 : model.month;
-//            NSInteger day = model.day == -1 ? 1 : model.day;
-//            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
-//            [self setDate:[NSDate dateWithYMD:str]];
-//            [self.table setSubModel:model];
-//            [self bookGroupRequest];
-//        }];
+        [_subdate setComplete:^(ChartSubModel *model) {
+            @strongify(self)
+            NSInteger month = model.month == -1 ? 1 : model.month;
+            NSInteger day = model.day == -1 ? 1 : model.day;
+            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
+            [self setDate:[NSDate dateWithYMD:str]];
+            [self.table setSubModel:model];
+            [self bookRequest];
+        }];
         [self.view addSubview:_subdate];
     }
     return _subdate;

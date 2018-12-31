@@ -93,7 +93,6 @@
 		32D0B2C721C77B240030F5B2 /* ChartSegmentControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2C621C77B240030F5B2 /* ChartSegmentControl.xib */; };
 		32D0B2CB21C782270030F5B2 /* ChartDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2C921C782270030F5B2 /* ChartDateCell.m */; };
 		32D0B2CC21C782270030F5B2 /* ChartDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2CA21C782270030F5B2 /* ChartDateCell.xib */; };
-		32E35B1721D6F9BA003B3040 /* ChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E35B1621D6F9BA003B3040 /* ChartModel.m */; };
 		32E35B1E21D703BA003B3040 /* ChartSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E35B1D21D703BA003B3040 /* ChartSubModel.m */; };
 		32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB40921D0EA820069DF99 /* CPAController.m */; };
 		32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB40A21D0EA820069DF99 /* CPAController.xib */; };
@@ -439,8 +438,6 @@
 		32D0B2C821C782270030F5B2 /* ChartDateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartDateCell.h; sourceTree = "<group>"; };
 		32D0B2C921C782270030F5B2 /* ChartDateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartDateCell.m; sourceTree = "<group>"; };
 		32D0B2CA21C782270030F5B2 /* ChartDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartDateCell.xib; sourceTree = "<group>"; };
-		32E35B1521D6F9BA003B3040 /* ChartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartModel.h; sourceTree = "<group>"; };
-		32E35B1621D6F9BA003B3040 /* ChartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartModel.m; sourceTree = "<group>"; };
 		32E35B1C21D703BA003B3040 /* ChartSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSubModel.h; sourceTree = "<group>"; };
 		32E35B1D21D703BA003B3040 /* ChartSubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSubModel.m; sourceTree = "<group>"; };
 		32EAB40821D0EA820069DF99 /* CPAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAController.h; sourceTree = "<group>"; };
@@ -1996,8 +1993,6 @@
 		4BE7845C21C678FB00B8EC46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				32E35B1521D6F9BA003B3040 /* ChartModel.h */,
-				32E35B1621D6F9BA003B3040 /* ChartModel.m */,
 				32E35B1C21D703BA003B3040 /* ChartSubModel.h */,
 				32E35B1D21D703BA003B3040 /* ChartSubModel.m */,
 				329C28BB21D752C3003D6998 /* ChartRangeModel.h */,
@@ -2511,7 +2506,6 @@
 				4B35F1C321CCC694007271BE /* KKEmptyNoneOrder.m in Sources */,
 				32FA228921D61BC40000BC0E /* KKRefreshNormalFooter.m in Sources */,
 				3299035A21CA6895000F4C14 /* BKCRefreshHeader.m in Sources */,
-				32E35B1721D6F9BA003B3040 /* ChartModel.m in Sources */,
 				4B35F1C421CCC694007271BE /* KKEmpty.m in Sources */,
 				321983FD21C6460100311885 /* UIView+BlockGesture.m in Sources */,
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,

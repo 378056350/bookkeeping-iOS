@@ -29,15 +29,9 @@
 
 
 #pragma mark - set
-//- (void)setTimeModel:(ChartRangeModel *)timeModel {
-//    _timeModel = timeModel;
-//    [self setSegmentIndex:0];
-//}
 - (void)setModel:(BKModel *)model {
     _model = model;
-//    [self setSegmentIndex:_segmentIndex];
     
-    _selectIndex = nil;
     // 周
     if (_segmentIndex == 0) {
         NSDate *minDate = _timeModel.min_date;
@@ -97,160 +91,11 @@
         [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
     }
     
-    
 }
-
-//- (void)setModel:(BKModel *)model {
-//    _model = model;
-//}
-
-//- (void)setGroupModels:(NSMutableArray<ChartModel *> *)groupModels {
-//    _groupModels = groupModels;
-//}
-//- (void)setSegmentIndex:(NSInteger)segmentIndex {
-//    _segmentIndex = segmentIndex;
-//    _selectIndex = nil;
-//    
-//    
-//    // 周
-//    if (_segmentIndex == 0) {
-//        NSDate *minDate = _timeModel.min_date;
-//        NSDate *maxDate = _timeModel.max_date;
-//        
-//        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-//        NSInteger weeks = [NSDate compareWeek:minDate withDate:maxDate];
-//        for (NSInteger i=0; i<weeks; i++) {
-//            NSDate *newDate = [minDate offsetDays:i * 7];
-//            ChartSubModel *submodel = [ChartSubModel init];
-//            [submodel setYear:[newDate year]];
-//            [submodel setMonth:[newDate month]];
-//            [submodel setDay:[newDate day]];
-//            [submodel setWeek:[newDate weekOfYear]];
-//            [submodel setSelectIndex:0];
-//            [submodel setWeek_day:[newDate weekday]];
-//            [submodels addObject:submodel];
-//        }
-//        [self setSubModels:submodels];
-//    }
-//    // 月
-//    else if (_segmentIndex == 1) {
-//        // 数据整理
-//        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-//        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-//            NSInteger min_month = (y==_timeModel.min_year ? _timeModel.min_month : 1);
-//            NSInteger max_month = (y==_timeModel.max_year ? _timeModel.max_month : 12);
-//            for (NSInteger m=min_month; m<=max_month; m++) {
-//                ChartSubModel *submodel = [ChartSubModel init];
-//                [submodel setYear:y];
-//                [submodel setMonth:m];
-//                [submodel setSelectIndex:1];
-//                [submodels addObject:submodel];
-//            }
-//        }
-//        [self setSubModels:submodels];
-//    }
-//    // 年
-//    else if (_segmentIndex == 2) {
-//        // 数据整理
-//        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-//        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-//            ChartSubModel *submodel = [ChartSubModel init];
-//            [submodel setYear:y];
-//            [submodel setSelectIndex:2];
-//            [submodels addObject:submodel];
-//        }
-//        [self setSubModels:submodels];
-//    }
-//    
-//    
-//    // 第一次
-//    if (!_selectIndex) {
-//        _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
-//        _selectModel = [_subModels lastObject];
-//        [self.collection reloadData];
-//        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-//    }
-//    
-//    
-//    
-////
-////    // 周
-////    if (_segmentIndex == 0) {
-//////        NSString *minDateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _timeModel.min_year, _timeModel.min_month, _timeModel.min_day];
-//////        NSString *maxDateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _timeModel.max_year, _timeModel.max_month, _timeModel.max_day];
-//////        NSDate *minDate = [NSDate dateWithYMD:minDateStr];
-//////        NSDate *maxDate = [NSDate dateWithYMD:maxDateStr];
-////        NSDate *minDate = _timeModel.min_date;
-////        NSDate *maxDate = _timeModel.max_date;
-////
-////        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-////        NSInteger weeks = [NSDate compareWeek:minDate withDate:maxDate];
-////        for (NSInteger i=0; i<weeks; i++) {
-////            NSDate *newDate = [minDate offsetDays:i * 7];
-////            ChartSubModel *submodel = [ChartSubModel init];
-////            [submodel setYear:[newDate year]];
-////            [submodel setMonth:[newDate month]];
-////            [submodel setDay:[newDate day]];
-////            [submodel setWeek:[newDate weekOfYear]];
-////            [submodel setSelectIndex:0];
-////            [submodel setWeek_day:[newDate weekday]];
-////            [submodels addObject:submodel];
-////        }
-////        [self setSubModels:submodels];
-////    }
-////    // 月
-////    else if (_segmentIndex == 1) {
-////        // 数据整理
-////        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-////        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-////            NSInteger min_month = (y==_timeModel.min_year ? _timeModel.min_month : 1);
-////            NSInteger max_month = (y==_timeModel.max_year ? _timeModel.max_month : 12);
-////            for (NSInteger m=min_month; m<=max_month; m++) {
-////                ChartSubModel *submodel = [ChartSubModel init];
-////                [submodel setYear:y];
-////                [submodel setMonth:m];
-////                [submodel setSelectIndex:1];
-////                [submodels addObject:submodel];
-////            }
-////        }
-////        [self setSubModels:submodels];
-////    }
-////    // 年
-////    else if (_segmentIndex == 2) {
-////        // 数据整理
-////        NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-////        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-////            ChartSubModel *submodel = [ChartSubModel init];
-////            [submodel setYear:y];
-////            [submodel setSelectIndex:2];
-////            [submodels addObject:submodel];
-////        }
-////        [self setSubModels:submodels];
-////    }
-////
-////
-////    // 第一次
-////    if (!_selectIndex) {
-////        _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
-////        _selectModel = [_subModels lastObject];
-////        [self.collection reloadData];
-////        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-////    }
-//    
-//    
-//    
-////    // 其他
-////    else {
-////        NSInteger index = [_subModels indexOfObject:_selectModel];
-////        if (index > _models.count || index < 0) {
-////            index = _models.count - 1;
-////        }
-////        _selectIndex = [NSIndexPath indexPathForRow:index inSection:0];
-////        _selectModel = _subModels[index];
-////        [self.collection reloadData];
-////        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-////    }
-//}
+- (void)setSegmentIndex:(NSInteger)segmentIndex {
+    _segmentIndex = segmentIndex;
+    _selectIndex = nil;
+}
 
 
 #pragma mark - UICollectionViewDataSource

@@ -22,8 +22,8 @@ typedef void (^ChartDateComplete)(ChartSubModel *model);
 @property (nonatomic, assign) NSInteger segmentIndex;
 @property (nonatomic, strong) NSIndexPath *selectIndex;
 @property (nonatomic, strong) NSMutableArray<ChartSubModel *> *subModels;
-@property (nonatomic, strong) ChartRangeModel *timeModel;
 @property (nonatomic, copy  ) ChartDateComplete complete;
+@property (nonatomic, strong) ChartRangeModel *timeModel;
 @property (nonatomic, strong) BKModel *model;
 
 @end
