@@ -6,7 +6,7 @@
 #import "BKCCollection.h"
 #import "BKCCollectionCell.h"
 #import "BKCRefreshHeader.h"
-#import "CategoryController.h"
+#import "CAController.h"
 #import "BOOK_EVENT.h"
 
 

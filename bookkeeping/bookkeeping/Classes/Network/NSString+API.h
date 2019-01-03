@@ -16,22 +16,21 @@
 
 
 // 我的徽章列表
-#define BadgeListRequest Request(@"/shayu/getBadgeRequest.action")
-// 添加类别列表
-#define InsertCategoryListRequest Request(@"/shayu/getInsertCategoryRequest.action")
-// 添加自定义类别
-#define AddInsertCategoryListRequest Request(@"/shayu/addInsertCategoryRequest.action")
-// 删除自定义类别
-#define RemoveInsertCategoryListRequest Request(@"/shayu/removeInsertCategoryRequest.action")
-// 记账列表
-#define CategoryListRequest Request(@"/shayu/getCategoryRequest.action")
+#define BadgeListRequest Request(@"/shayu/getBadgeListRequest.action")
 // 类别设置列表
 #define CategorySetListRequest Request(@"/shayu/getCategorySetRequest.action")
-
+// 全部类别
+#define CategoryListRequest Request(@"/shayu/getCategoryRequest.action")
+// 用户类别列表
+#define CustomerCategoryListRequest Request(@"/shayu/getCustomerCategoryListRequest.action")
 // 添加系统类别
 #define AddSystemCategoryRequest Request(@"/shayu/addSystemCategoryRequest.action")
 // 删除系统类别
 #define RemoveSystemCategoryRequest Request(@"/shayu/removeSystemCategoryRequest.action")
+// 添加用户类别
+#define AddInsertCategoryListRequest Request(@"/shayu/addInsertCategoryRequest.action")
+// 删除用户类别
+#define RemoveInsertCategoryListRequest Request(@"/shayu/removeInsertCategoryRequest.action")
 
 
 // QQ第三方登录

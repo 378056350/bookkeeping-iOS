@@ -65,7 +65,7 @@
 // 添加类别列表
 - (void)getCategoryListRequest {
     @weakify(self)
-    [self.collection createRequest:InsertCategoryListRequest params:@{} complete:^(APPResult * result) {
+    [self.collection createRequest:CustomerCategoryListRequest params:@{} complete:^(APPResult * result) {
         @strongify(self)
         [self setModels:[ACAListModel mj_objectArrayWithKeyValuesArray:result.data]];
     }];

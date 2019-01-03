@@ -3,20 +3,20 @@
  * @author 郑业强 2018-12-17 创建文件
  */
 
-#import "CategoryController.h"
-#import "CategoryHeader.h"
+#import "CAController.h"
+#import "CAHeader.h"
 #import "CategoryTable.h"
 #import "BottomButton.h"
 #import "ACAController.h"
 #import "CategoryCell.h"
 #import "CategoryListModel.h"
-#import "CATEGORY_EVENT.h"
+#import "CA_EVENT.h"
 
 
 #pragma mark - 声明
-@interface CategoryController()
+@interface CAController()
 
-@property (nonatomic, strong) CategoryHeader *header;
+@property (nonatomic, strong) CAHeader *header;
 @property (nonatomic, strong) CategoryTable *table;
 @property (nonatomic, strong) BottomButton *bootom;
 @property (nonatomic, strong) NSMutableArray<CategoryListModel *> *models;
@@ -26,7 +26,7 @@
 
 
 #pragma mark - 实现
-@implementation CategoryController
+@implementation CAController
 
 
 - (void)viewDidLoad {
@@ -43,7 +43,11 @@
     if (_is_income == true) {
         [_header.seg setSelectedSegmentIndex:1];
     }
-    [self getCategoryListRequest];
+//    [self getCategoryListRequest];
+    
+    NSArray *arr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS];
+    NSLog(@"12");
+    [self setModels:[CategoryListModel mj_objectArrayWithKeyValuesArray:arr]];
 }
 
 
@@ -60,8 +64,7 @@
 - (void)addSysCateRequest:(CategoryCell *)cell {
     @weakify(self)
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @(cell.model.Id), @"category_id",
-                           @(1), @"customer_id", nil];
+                           @(cell.model.Id), @"category_id", nil];
     [self showProgressHUD];
     [AFNManager POST:AddSystemCategoryRequest params:param complete:^(APPResult *result) {
         @strongify(self)
@@ -174,9 +177,9 @@
 
 
 #pragma mark - get
-- (CategoryHeader *)header {
+- (CAHeader *)header {
     if (!_header) {
-        _header = [CategoryHeader loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
+        _header = [CAHeader loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
         [self.view addSubview:_header];
     }
     return _header;

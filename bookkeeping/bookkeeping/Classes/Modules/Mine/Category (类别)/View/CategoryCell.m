@@ -4,7 +4,7 @@
  */
 
 #import "CategoryCell.h"
-#import "CATEGORY_EVENT.h"
+#import "CA_EVENT.h"
 
 
 #pragma mark - 声明

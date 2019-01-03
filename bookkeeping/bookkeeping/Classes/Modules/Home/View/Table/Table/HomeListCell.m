@@ -115,10 +115,10 @@
         _table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [_table setMj_header:self.header];
         [_table setMj_footer:self.footer];
-        [_table setDelegate:self];
-        [_table setDataSource:self];
         [_table lineHide];
         [_table lineAll];
+        [_table setDelegate:self];
+        [_table setDataSource:self];
         [_table setShowsVerticalScrollIndicator:false];
         [_table setSeparatorColor:kColor_Line_Color];
         [_table setBackgroundColor:kColor_White];

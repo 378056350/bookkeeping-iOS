@@ -137,8 +137,7 @@
     if (!_eventStrategy) {
         _eventStrategy = @{
                            HOME_TABLE_PULL: [self createInvocationWithSelector:@selector(homeTablePull:)],
-                           HOME_TABLE_UP: [self createInvocationWithSelector:@selector(homeTableUp:)],
-                           
+                           HOME_TABLE_UP: [self createInvocationWithSelector:@selector(homeTableUp:)]
                            };
     }
     return _eventStrategy;

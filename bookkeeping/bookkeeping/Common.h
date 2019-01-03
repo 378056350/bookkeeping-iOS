@@ -84,6 +84,7 @@
 #import "KKEmptyPch.h"
 #import "UserInfo.h"
 #import "CountDown.h"
+#import "PINCache_Header.h"
 
 
 ////================================= ThirdParty =====================================//

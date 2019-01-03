@@ -36,7 +36,7 @@
     [self setDate:[NSDate date]];
     [self bookRequest:self.date];
     [self monitorNotification];
-
+    
 }
 // 监听通知
 - (void)monitorNotification {
@@ -52,6 +52,21 @@
 #pragma mark - 请求
 // 查账
 - (void)bookRequest:(NSDate *)date {
+    // 未登录
+    if (![UserInfo isLogin]) {
+        BKModel *model = [BKModel new];
+        model.listSorts = @[].mutableCopy;
+        model.group = @[].mutableCopy;
+        model.list = @[].mutableCopy;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setModel:model];
+            [self setDate:date];
+        });
+        return;
+    }
+    
+    // 已登录
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @(date.year), @"year",
                            @(date.month), @"month",

@@ -23,9 +23,9 @@ typedef void(^__nullable AFNManagerProgressBlock)(CGFloat currentProgress, CGFlo
 
 
 + (void)POST:(NSString *)url complete:(AFNManagerCompleteBlock)complete;
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params complete:(AFNManagerCompleteBlock)complete;
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete;
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params andImages:(NSArray<UIImage *> *)images progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete;
++ (void)POST:(NSString *)url params:(NSDictionary *)params complete:(AFNManagerCompleteBlock)complete;
++ (void)POST:(NSString *)url params:(NSDictionary *)params progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete;
++ (void)POST:(NSString *)url params:(NSDictionary *)params andImages:(NSArray<UIImage *> *)images progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete;
 
 
 @end

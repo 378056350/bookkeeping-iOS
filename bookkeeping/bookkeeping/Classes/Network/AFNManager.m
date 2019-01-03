@@ -20,6 +20,7 @@
 
 static AFHTTPSessionManager *_manager;
 
+
 #pragma mark - get
 + (AFHTTPSessionManager *)manager {
     static dispatch_once_t onceToken;
@@ -36,10 +37,10 @@ static AFHTTPSessionManager *_manager;
 + (void)POST:(NSString *)url complete:(AFNManagerCompleteBlock)complete {
     [self POST:url params:nil complete:complete];
 }
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params complete:(AFNManagerCompleteBlock)complete {
++ (void)POST:(NSString *)url params:(NSDictionary *)params complete:(AFNManagerCompleteBlock)complete {
     [self POST:url params:params progress:nil complete:complete];
 }
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete {
++ (void)POST:(NSString *)url params:(NSDictionary *)params progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete {
     
     AFHTTPSessionManager *manager = [AFNManager manager];
     if ([UserInfo isLogin]) {
@@ -76,7 +77,7 @@ static AFHTTPSessionManager *_manager;
         }
     }];
 }
-+ (void)POST:(NSString *)url params:(NSDictionary * _Nullable )params andImages:(NSArray<UIImage *> *)images progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete {
++ (void)POST:(NSString *)url params:(NSDictionary *)params andImages:(NSArray<UIImage *> *)images progress:(AFNManagerProgressBlock)progress complete:(AFNManagerCompleteBlock)complete {
     AFHTTPSessionManager *manager = [self manager];
     // Token
     if ([UserInfo loadUserInfo]) {

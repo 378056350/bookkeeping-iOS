@@ -8,7 +8,7 @@
 #import "BottomButton.h"
 #import "TIModel.h"
 #import "TITableCell.h"
-#import "CATEGORY_EVENT.h"
+#import "CA_EVENT.h"
 #import "TIMING_EVENT.h"
 
 

@@ -6,7 +6,7 @@
 #import "MineController.h"
 #import "MineView.h"
 #import "BadgeController.h"
-#import "CategoryController.h"
+#import "CAController.h"
 #import "WebVC.h"
 #import "TIController.h"
 #import "ShareController.h"
@@ -43,6 +43,7 @@
     }
     // 未登录
     else {
+        
     }
 }
 
@@ -139,17 +140,17 @@
     else if (indexPath.section == 1) {
         // 类别
         if (indexPath.row == 0) {
-            // 登录了
-            if ([UserInfo isLogin] == true) {
-                CategoryController *vc = [[CategoryController alloc] init];
+//            // 登录了
+//            if ([UserInfo isLogin] == true) {
+                CAController *vc = [[CAController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
-            }
-            // 没登录
-            else {
-                LoginController *vc = [[LoginController alloc] init];
-                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-                [self.navigationController presentViewController:nav animated:YES completion:nil];
-            }
+//            }
+//            // 没登录
+//            else {
+//                LoginController *vc = [[LoginController alloc] init];
+//                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+//                [self.navigationController presentViewController:nav animated:YES completion:nil];
+//            }
         }
         // 定时
         else if (indexPath.row == 1) {

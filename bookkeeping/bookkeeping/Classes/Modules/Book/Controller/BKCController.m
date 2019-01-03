@@ -8,7 +8,7 @@
 #import "BKCNavigation.h"
 #import "BKCKeyboard.h"
 #import "BKCIncomeModel.h"
-#import "CategoryController.h"
+#import "CAController.h"
 #import "KKRefreshGifHeader.h"
 #import "BOOK_EVENT.h"
 
@@ -141,7 +141,7 @@
         }
         [self.keyboard hide];
         // 刷新
-        CategoryController *vc = [[CategoryController alloc] init];
+        CAController *vc = [[CAController alloc] init];
         [vc setIs_income:collection.tag];
         [vc setComplete:^{
             [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {

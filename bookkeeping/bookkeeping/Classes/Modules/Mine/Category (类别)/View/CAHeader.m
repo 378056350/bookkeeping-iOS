@@ -3,17 +3,17 @@
  * @author 郑业强 2018-12-17 创建文件
  */
 
-#import "CategoryHeader.h"
-#import "CATEGORY_EVENT.h"
+#import "CAHeader.h"
+#import "CA_EVENT.h"
 
 #pragma mark - 声明
-@interface CategoryHeader()
+@interface CAHeader()
 
 @end
 
 
 #pragma mark - 实现
-@implementation CategoryHeader
+@implementation CAHeader
 
 
 - (void)initUI {
