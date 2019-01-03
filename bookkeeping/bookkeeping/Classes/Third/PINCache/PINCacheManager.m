@@ -22,14 +22,18 @@ SingleImplementation(PINCacheManager)
     BOOL isFirst = [[PINDiskCache sharedCache] containsObjectForKey:PIN_FIRST_RUN];
     // 第一次运行
     if (!isFirst) {
-        // 系统类别
+        //========================================== 分类 ==========================================//
+        // 系统添加
         NSString *systemCatePath = [[NSBundle mainBundle] pathForResource:@"SystemCategory" ofType:@"plist"];
-        NSArray *systemCateArr = [NSArray arrayWithContentsOfFile:systemCatePath];
-        [[PINDiskCache sharedCache] setObject:systemCateArr forKey:PIN_CATE_SYS_HAS];
+        NSDictionary *systemCateDic = [NSDictionary dictionaryWithContentsOfFile:systemCatePath];
         
-        // PIN_CATE_SYS_HAS 用户 添加
-        
-        [[PINDiskCache sharedCache] setObject:@(1) forKey:PIN_FIRST_RUN];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray arrayWithArray:systemCateDic[@"pay"]] forKey:PIN_CATE_SYS_HAS_PAY];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
     }
 }
 

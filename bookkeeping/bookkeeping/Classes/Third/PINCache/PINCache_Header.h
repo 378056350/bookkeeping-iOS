@@ -8,12 +8,17 @@
 
 #define PIN_FIRST_RUN               @"PIN_FIRST_RUN"                   // 第一次运行程序
 
-#define PIN_CATE_SYS_HAS            @"PIN_CATE_SYS_HAS"                // 系统 - 添加的
-#define PIN_CATE_SYS_REMOVE         @"PIN_CATE_SYS_REMOVE"             // 系统 - 删除的
-#define PIN_CATE_SYS_HAS            @"PIN_CATE_SYS_HAS"                // 用户 - 添加的
 
-#define PIN_CATE_SYS_REMOVE_NONE_SYNCED  @"PIN_CATE_SYS_REMOVE_NONE_SYNCED"      // 系统 - 删除的 - 未同步(同步后应该为空)
-#define PIN_CATE_SYS_REMOVE_NONE_SYNCED  @"PIN_CATE_SYS_REMOVE_NONE_SYNCED"      // 用户 - 删除的 - 未同步(同步后应该为空)
+#define PIN_CATE_SYS_HAS_PAY     @"PIN_CATE_SYS_HAS_PAY"                // 系统 - 添加的 - 支出
+#define PIN_CATE_SYS_REMOVE_PAY  @"PIN_CATE_SYS_REMOVE_PAY"             // 系统 - 删除的 - 支出
+#define PIN_CATE_CUS_HAS_PAY     @"PIN_CATE_CUS_HAS_PAY"                // 用户 - 添加的 - 支出
+
+#define PIN_CATE_SYS_Has_PAY_SYNCED       @"PIN_CATE_SYS_Has_PAY_SYNCED"       // 系统 - 添加的 - 支出 - 未同步(同步后应该为空)
+#define PIN_CATE_SYS_REMOVE_PAY_SYNCED    @"PIN_CATE_SYS_REMOVE_PAY_SYNCED"    // 系统 - 删除的 - 支出 - 未同步(同步后应该为空)
+#define PIN_CATE_CUS_HAS_PAY_SYNCED       @"PIN_CATE_CUS_HAS_PAY_SYNCED"       // 用户 - 添加的 - 支出 - 未同步(同步后应该为空)
+#define PIN_CATE_CUS_REMOVE_PAY_SYNCED    @"PIN_CATE_CUS_REMOVE_PAY_SYNCED"    // 用户 - 删除的 - 支出 - 未同步(同步后应该为空)
+
+
 
 #import "PINCacheManager.h"
 

@@ -45,9 +45,21 @@
     }
 //    [self getCategoryListRequest];
     
-    NSArray *arr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS];
-    NSLog(@"12");
-    [self setModels:[CategoryListModel mj_objectArrayWithKeyValuesArray:arr]];
+    
+    
+    NSMutableArray *sysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
+    NSMutableArray *cusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
+    NSMutableArray *sysRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+    
+    CategoryListModel *model1 = [[CategoryListModel alloc] init];
+    model1.is_income = 0;
+    model1.remove = [BKCModel mj_objectArrayWithKeyValuesArray:sysRemovePayArr];
+    model1.insert = ({
+        NSMutableArray *arrm = [NSMutableArray arrayWithArray:[BKCModel mj_objectArrayWithKeyValuesArray:sysHasPayArr]];
+        [arrm addObjectsFromArray:[BKCModel mj_objectArrayWithKeyValuesArray:cusHasPayArr]];
+        arrm;
+    });
+    [self setModels:[NSMutableArray arrayWithArray:@[model1, [CategoryListModel new]]]];
 }
 
 
@@ -163,16 +175,41 @@
 - (void)deleteCellClick:(CategoryCell *)cell {
     // 系统原有
     if (cell.model.is_system == true) {
-        [self removeSysCateRequest:cell];
+//        [self removeSysCateRequest:cell];
+        
+        NSInteger index = self.header.seg.selectedSegmentIndex;
+        BKCModel *model = cell.model;
+        [self.models[index].insert removeObject:model];
+        [self.models[index].remove addObject:model];
+        [self setModels:self.models];
+        
+        NSMutableArray *sysHasArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
+        NSMutableArray *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+        NSMutableArray *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+        [sysRemoveArr addObject:sysHasArr[index]];
+        [sysHasArr removeObjectAtIndex:index];
+        
+        [[PINDiskCache sharedCache] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
+        [[PINDiskCache sharedCache] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
+        
     }
     // 自定义
     else {
-        [self removeCustrCateRequest:cell];
+//        [self removeCustrCateRequest:cell];
     }
 }
 // 添加系统分类
 - (void)insertCellClick:(CategoryCell *)cell {
-    [self addSysCateRequest:cell];
+//    [self addSysCateRequest:cell];
+    
+    NSInteger index = self.header.seg.selectedSegmentIndex;
+    BKCModel *model = cell.model;
+    [self.models[index].remove removeObject:model];
+    [self.models[index].insert addObject:model];
+    [self setModels:self.models];
+    
+    
+    
 }
 
 
