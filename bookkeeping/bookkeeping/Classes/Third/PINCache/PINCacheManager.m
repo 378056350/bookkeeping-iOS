@@ -27,6 +27,8 @@ SingleImplementation(PINCacheManager)
         NSArray *systemCateArr = [NSArray arrayWithContentsOfFile:systemCatePath];
         [[PINDiskCache sharedCache] setObject:systemCateArr forKey:PIN_CATE_SYS_HAS];
         
+        // PIN_CATE_SYS_HAS 用户 添加
+        
         [[PINDiskCache sharedCache] setObject:@(1) forKey:PIN_FIRST_RUN];
     }
 }
