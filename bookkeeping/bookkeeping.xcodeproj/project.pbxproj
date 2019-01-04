@@ -69,7 +69,7 @@
 		3299035A21CA6895000F4C14 /* BKCRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299035921CA6895000F4C14 /* BKCRefreshHeader.m */; };
 		329C28BD21D752C3003D6998 /* ChartRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 329C28BC21D752C3003D6998 /* ChartRangeModel.m */; };
 		32A04B2521DDFE06002B0766 /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A04B2421DDFE06002B0766 /* PINCacheManager.m */; };
-		32A04B2921DE04D8002B0766 /* SystemCategory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A04B2821DE04D8002B0766 /* SystemCategory.plist */; };
+		32A04B2921DE04D8002B0766 /* SC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A04B2821DE04D8002B0766 /* SC.plist */; };
 		32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */; };
 		32A4C22321CB15B100DF4327 /* JHCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21F21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.m */; };
 		32A4C22421CB15B100DF4327 /* JHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C22021CB15B000DF4327 /* JHCollectionViewFlowLayout.m */; };
@@ -87,6 +87,8 @@
 		32A4C24F21CB846E00DF4327 /* BookPunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C24E21CB846E00DF4327 /* BookPunch.xib */; };
 		32A4C25221CB84BA00DF4327 /* signin_gif@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */; };
 		32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */; };
+		32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */; };
+		32A5801221DF33C4008993B2 /* ACA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A5801121DF33C4008993B2 /* ACA.plist */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -400,7 +402,7 @@
 		32A04B2221DDD1E5002B0766 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
 		32A04B2321DDFE06002B0766 /* PINCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCacheManager.h; sourceTree = "<group>"; };
 		32A04B2421DDFE06002B0766 /* PINCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PINCacheManager.m; sourceTree = "<group>"; };
-		32A04B2821DE04D8002B0766 /* SystemCategory.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SystemCategory.plist; sourceTree = "<group>"; };
+		32A04B2821DE04D8002B0766 /* SC.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SC.plist; sourceTree = "<group>"; };
 		32A4C21C21CB15B000DF4327 /* JHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		32A4C21D21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
 		32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHCollectionReusableView.m; sourceTree = "<group>"; };
@@ -430,6 +432,9 @@
 		32A4C24E21CB846E00DF4327 /* BookPunch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPunch.xib; sourceTree = "<group>"; };
 		32A4C25021CB84BA00DF4327 /* signin_gif@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@2x.gif"; sourceTree = "<group>"; };
 		32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "signin_gif@3x.gif"; sourceTree = "<group>"; };
+		32A5800D21DF08BC008993B2 /* NSObject+NSCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSCoding.h"; sourceTree = "<group>"; };
+		32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSCoding.m"; sourceTree = "<group>"; };
+		32A5801121DF33C4008993B2 /* ACA.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ACA.plist; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT.h; sourceTree = "<group>"; };
@@ -946,6 +951,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				32A5801021DF090B008993B2 /* NSObject */,
 				4B769AEB21DA7346006EDE90 /* BaseNavigationController */,
 				4B1E128021CA8BC3001F5B36 /* UIScrollView */,
 				4BE8CC1321C93F21007935E2 /* NSDate */,
@@ -1238,7 +1244,8 @@
 				32A04B2221DDD1E5002B0766 /* PINCache_Header.h */,
 				32A04B2321DDFE06002B0766 /* PINCacheManager.h */,
 				32A04B2421DDFE06002B0766 /* PINCacheManager.m */,
-				32A04B2821DE04D8002B0766 /* SystemCategory.plist */,
+				32A04B2821DE04D8002B0766 /* SC.plist */,
+				32A5801121DF33C4008993B2 /* ACA.plist */,
 				3219840F21C6474500311885 /* UserInfo */,
 			);
 			path = PINCache;
@@ -1327,6 +1334,15 @@
 				32A4C24E21CB846E00DF4327 /* BookPunch.xib */,
 			);
 			path = BookPunch;
+			sourceTree = "<group>";
+		};
+		32A5801021DF090B008993B2 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				32A5800D21DF08BC008993B2 /* NSObject+NSCoding.h */,
+				32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */,
+			);
+			path = NSObject;
 			sourceTree = "<group>";
 		};
 		32D0B2B321C76CC50030F5B2 /* View */ = {
@@ -1620,7 +1636,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4BA68AD221C7EA930063A5C2 /* Category (类别) */ = {
+		4BA68AD221C7EA930063A5C2 /* CA (类别) */ = {
 			isa = PBXGroup;
 			children = (
 				4BA68AF921C7F3630063A5C2 /* CA_EVENT.h */,
@@ -1628,7 +1644,7 @@
 				4BA68AD421C7EA930063A5C2 /* Model */,
 				4BA68AD521C7EA930063A5C2 /* View */,
 			);
-			path = "Category (类别)";
+			path = "CA (类别)";
 			sourceTree = "<group>";
 		};
 		4BA68AD321C7EA930063A5C2 /* Controller */ = {
@@ -1708,7 +1724,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4BA68AF121C7F1A70063A5C2 /* ACA (添加分类) */ = {
+		4BA68AF121C7F1A70063A5C2 /* ACA (添加类别) */ = {
 			isa = PBXGroup;
 			children = (
 				4B35F1D621CD10B1007271BE /* ACA_EVENT_MANAGER.h */,
@@ -1716,7 +1732,7 @@
 				4BA68AF321C7F1A70063A5C2 /* Model */,
 				4BA68AF421C7F1A70063A5C2 /* View */,
 			);
-			path = "ACA (添加分类)";
+			path = "ACA (添加类别)";
 			sourceTree = "<group>";
 		};
 		4BA68AF221C7F1A70063A5C2 /* Controller */ = {
@@ -1884,8 +1900,8 @@
 				32EAB40121D0E99D0069DF99 /* CP (修改密码) */,
 				4BEB732121CE375F00BEF013 /* Info (个人信息) */,
 				3244849D21C726C10051B8B6 /* Badge (徽章) */,
-				4BA68AD221C7EA930063A5C2 /* Category (类别) */,
-				4BA68AF121C7F1A70063A5C2 /* ACA (添加分类) */,
+				4BA68AD221C7EA930063A5C2 /* CA (类别) */,
+				4BA68AF121C7F1A70063A5C2 /* ACA (添加类别) */,
 				4BA68ADA21C7EA930063A5C2 /* Timing (定时) */,
 				4BA68ACE21C7EA930063A5C2 /* About (关于) */,
 			);
@@ -2292,7 +2308,7 @@
 				4BEB72EB21CE033300BEF013 /* dropdown_anim__00059@2x.png in Resources */,
 				4BEB72F821CE033300BEF013 /* dropdown_anim__00053@2x.png in Resources */,
 				32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */,
-				32A04B2921DE04D8002B0766 /* SystemCategory.plist in Resources */,
+				32A04B2921DE04D8002B0766 /* SC.plist in Resources */,
 				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				4BEB731A21CE033300BEF013 /* dropdown_anim__00040@2x.png in Resources */,
 				4B8D636B21D8D507002AEB4A /* BCHUDContentCell.xib in Resources */,
@@ -2354,6 +2370,7 @@
 				4BEB730021CE033300BEF013 /* dropdown_anim__00027@2x.png in Resources */,
 				4BEB72F021CE033300BEF013 /* dropdown_anim__00032@2x.png in Resources */,
 				4BEB72F521CE033300BEF013 /* dropdown_anim__00016@2x.png in Resources */,
+				32A5801221DF33C4008993B2 /* ACA.plist in Resources */,
 				4BEB72E921CE033300BEF013 /* dropdown_anim__0007@2x.png in Resources */,
 				327CEC1821C882A6001D0086 /* HomeListSubCell.xib in Resources */,
 				4BEB72FE21CE033300BEF013 /* dropdown_anim__00035@2x.png in Resources */,
@@ -2518,6 +2535,7 @@
 				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
+				32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */,
 				4BA68AEB21C7ED550063A5C2 /* BottomButton.m in Sources */,
 				4BC41CFE21CF930600B397BD /* PhoneController.m in Sources */,
 				3219841421C6474600311885 /* UserInfo.m in Sources */,

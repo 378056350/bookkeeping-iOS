@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // 记账model
-@interface BKCModel : BaseModel
+@interface BKCModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, strong) NSString *name;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 // 记账收入/支出
-@interface BKCIncomeModel : BaseModel
+@interface BKCIncomeModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) BOOL is_income;
 @property (nonatomic, strong) NSMutableArray<BKCModel *> *list;

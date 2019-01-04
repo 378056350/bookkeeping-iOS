@@ -7,17 +7,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ACAModel : BaseModel
+@interface ACAModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, assign) NSInteger section_id;
 @property (nonatomic, strong) NSString *icon_n;
+@property (nonatomic, strong) NSString *icon_l;
 @property (nonatomic, strong) NSString *icon_s;
 
 @end
 
 
-@interface ACAListModel : BaseModel
+@interface ACAListModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, strong) NSString *name;

@@ -74,6 +74,7 @@
 #import "UIWindow+JGProgressHUD.h"
 #import "ZLPhotoActionSheet+Extension.h"
 #import "BaseNavigationController+Extension.h"
+#import "NSObject+NSCoding.h"
 
 
 //================================= Util =====================================//

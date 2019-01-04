@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // 记账列表model
-@interface BookListModel : BaseModel
+@interface BookListModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, assign) NSInteger customer_id;
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 // 记账组model
-@interface BookGroupModel : BaseModel
+@interface BookGroupModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) NSInteger customer_id;
 @property (nonatomic, assign) NSInteger cate_or_insert_id;
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 // 记账组model
-@interface BKModel : BaseModel
+@interface BKModel : BaseModel<NSCoding>
 
 // 列表数据
 @property (nonatomic, strong) NSMutableArray<BookListModel *> *list;

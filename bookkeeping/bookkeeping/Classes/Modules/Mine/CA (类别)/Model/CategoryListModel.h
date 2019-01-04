@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CategoryListModel : BaseModel
+@interface CategoryListModel : BaseModel<NSCoding>
 
 @property (nonatomic, assign) BOOL is_income;
 @property (nonatomic, strong) NSMutableArray<BKCModel *> *insert;

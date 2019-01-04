@@ -51,13 +51,11 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     [table setDataSource:table];
     [table lineHide];
     [table lineAll];
-//    table.datas = [NSMutableArray arrayWithArray:@[[NSMutableArray arrayWithArray:@[@"老大", @"老二", @"老三", @"老四", @"老五", @"老六", @"老七", @"老八", @"老九", @"老十"]], [NSMutableArray arrayWithArray:@[@"老1", @"老2", @"老3", @"老4", @"老5", @"老6", @"老7", @"老8", @"老9", @"老10"]]]];
     [table setBackgroundColor:kColor_BG];
     [table setSeparatorColor:kColor_BG];
     [table setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(10))]];
     [table setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(20))]];
     [table setShowsVerticalScrollIndicator:NO];
-    [table setMj_header:[KKRefreshGifHeader headerWithRefreshingBlock:nil]];
     return table;
 }
 
@@ -155,7 +153,7 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
             }
             //手指按住位置对应的indexPath，可能为nil
             self.newestIndexPath = [self indexPathForRowAtPoint:self.longLocation];
-            if (self.newestIndexPath && ![self.newestIndexPath isEqual:self.oldIndexPath]) {
+            if (self.newestIndexPath && ![self.newestIndexPath isEqual:self.oldIndexPath] && self.newestIndexPath.section != 1) {
                 [self cellRelocatedToNewIndexPath:self.newestIndexPath];
             }
             break;
@@ -253,7 +251,8 @@ typedef NS_ENUM(NSInteger, LYFTableViewType) {
     
     ///  当把截图拖动到边缘，开始自动滚动，如果这时手指完全不动，则不会触发‘UIGestureRecognizerStateChanged’，对应的代码就不会执行，导致虽然截图在tableView中的位置变了，但并没有移动那个隐藏的cell，用下面代码可解决此问题，cell会随着截图的移动而移动
     self.newestIndexPath = [self indexPathForRowAtPoint:self.snapshotView.center];
-    if (self.newestIndexPath && ![self.newestIndexPath isEqual:self.oldIndexPath]) {
+    /// 添加判断: Section不能变化
+    if (self.newestIndexPath && ![self.newestIndexPath isEqual:self.oldIndexPath] && self.newestIndexPath.section != 1) {
         [self cellRelocatedToNewIndexPath:self.newestIndexPath];
     }
 }

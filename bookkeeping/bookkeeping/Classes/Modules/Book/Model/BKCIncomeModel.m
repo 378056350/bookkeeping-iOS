@@ -26,7 +26,39 @@
     return set;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self = [NSObject decodeClass:self decoder:aDecoder];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [NSObject encodeClass:self encoder:aCoder];
+}
+
+- (BOOL)isEqual:(id)object {
+    if (![object isKindOfClass:[BKCModel class]]) {
+        return false;
+    }
+    BKCModel *model = object;
+    if ([self Id] == [model Id] &&
+        [self is_income] == [model is_income] &&
+        [self is_system] == [model is_system] &&
+        [self insert_id] == [model insert_id] &&
+        [self.name isEqualToString:model.name] &&
+        [self.icon_n isEqualToString:model.icon_n] &&
+        [self.icon_l isEqualToString:model.icon_l] &&
+        [self.icon_s isEqualToString:model.icon_s]) {
+        return true;
+    }
+    return false;
+}
+
 @end
+
 
 
 @implementation BKCIncomeModel
@@ -35,6 +67,19 @@
     [BKCIncomeModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{@"list": @"BKCModel"};
     }];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self = [NSObject decodeClass:self decoder:aDecoder];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [NSObject encodeClass:self encoder:aCoder];
 }
 
 @end
