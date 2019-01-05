@@ -47,7 +47,6 @@
     if ([self Id] == [model Id] &&
         [self is_income] == [model is_income] &&
         [self is_system] == [model is_system] &&
-        [self insert_id] == [model insert_id] &&
         [self.name isEqualToString:model.name] &&
         [self.icon_n isEqualToString:model.icon_n] &&
         [self.icon_l isEqualToString:model.icon_l] &&

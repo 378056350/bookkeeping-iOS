@@ -4,6 +4,7 @@
  */
 
 #import "HomeListSubCell.h"
+#import "HOME_EVENT.h"
 
 #pragma mark - 声明
 @interface HomeListSubCell()
@@ -30,16 +31,42 @@
     
     [self.iconConstraintL setConstant:countcoordinatesX(15)];
     [self.detailConstraintR setConstant:countcoordinatesX(15)];
+    
+    
+    @weakify(self)
+    MGSwipeButton *btn = [MGSwipeButton buttonWithTitle:@"删除" backgroundColor:kColor_Red_Color];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(14)]];
+    [btn setButtonWidth:countcoordinatesX(80)];
+    [btn setCallback:^BOOL(MGSwipeTableCell *cell) {
+        @strongify(self)
+        [self routerEventWithName:HOME_CELL_REMOVE data:self];
+        return NO;
+    }];
+    [self setRightButtons:@[btn]];
+}
+
+
+
+#pragma mark - 点击
+// 删除
+- (IBAction)actionClick:(UIButton *)sender {
+    [self routerEventWithName:HOME_CELL_REMOVE data:self];
 }
 
 
 #pragma mark - set
-- (void)setModel:(BookListModel *)model {
+- (void)setModel:(BKModel *)model {
     _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
-    [_nameLab setText:model.name];
-    [_detailLab setText:model.is_income == 0 ? [@(-model.price) description] : [@(model.price) description]];
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.cmodel.icon_l)]];
+    [_nameLab setText:model.cmodel.name];
+    [_detailLab setText:model.cmodel.is_income == 0 ? [@(-model.price) description] : [@(model.price) description]];
 }
+//- (void)setModel:(BookListModel *)model {
+//    _model = model;
+//    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
+//    [_nameLab setText:model.name];
+//    [_detailLab setText:model.is_income == 0 ? [@(-model.price) description] : [@(model.price) description]];
+//}
 
 
 @end

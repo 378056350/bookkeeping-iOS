@@ -82,12 +82,13 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.model.group.count;
+//    return self.model.group.count;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChartTableCell *cell = [ChartTableCell loadFirstNib:tableView];
-    cell.maxPrice = [[self.model.group valueForKeyPath:@"@max.price.floatValue"] floatValue];
-    cell.model = self.model.group[indexPath.row];
+//    cell.maxPrice = [[self.model.group valueForKeyPath:@"@max.price.floatValue"] floatValue];
+//    cell.model = self.model.group[indexPath.row];
     return cell;
 }
 

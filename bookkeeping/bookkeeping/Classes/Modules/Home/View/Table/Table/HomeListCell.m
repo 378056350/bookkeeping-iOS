@@ -40,23 +40,23 @@
 
 
 #pragma mark - set
-- (void)setModel:(BKModel *)model {
-    _model = model;
+- (void)setModels:(NSMutableArray<BKMonthModel *> *)models {
+    _models = models;
     [self.table reloadData];
-    [self.emptyView setHidden:model.listSorts.count != 0];
+    [self.emptyView setHidden:models.count != 0];
 }
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.model.listSorts.count;
+    return self.models.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.model.listSorts[section].count;
+    return self.models[section].list.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListSubCell *cell = [HomeListSubCell loadFirstNib:tableView];
-    cell.model = self.model.listSorts[indexPath.section][indexPath.row];
+    cell.model = self.models[indexPath.section].list[indexPath.row];
     return cell;
 }
 
@@ -64,9 +64,7 @@
 #pragma mark - UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HomeListHeader *header = [HomeListHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(30))];
-    header.listSorts = self.model.listSorts[section];
-//    header.model = self.model.listSorts[section];
-//    header.models = self.models[section];
+    header.model = self.models[section];
     return header;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -82,6 +80,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return countcoordinatesX(5);
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BKModel *model = self.models[indexPath.section].list[indexPath.row];
+    [self routerEventWithName:HOME_CELL_CLICK data:model];
 }
 
 

@@ -4,13 +4,13 @@
  */
 
 #import "BaseView.h"
-#import "BKModel.h"
+//#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BCHUDContent : BaseView
 
-@property (nonatomic, strong) NSMutableArray<BookListModel *> *models;
+//@property (nonatomic, strong) NSMutableArray<BookListModel *> *models;
 
 @end
 

@@ -35,13 +35,13 @@
 
 
 #pragma mark - set
-- (void)setModel:(BookListModel *)model {
-    _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];
-    [_nameLab setText:[NSString stringWithFormat:@"%ld/%02ld/%02ld", model.year, model.month, model.day]];
-    [_detailLab setText:model.name];
-    [_priceLab setText:[@(model.price) description]];
-}
+//- (void)setModel:(BookListModel *)model {
+//    _model = model;
+//    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];
+//    [_nameLab setText:[NSString stringWithFormat:@"%ld/%02ld/%02ld", model.year, model.month, model.day]];
+//    [_detailLab setText:model.name];
+//    [_priceLab setText:[@(model.price) description]];
+//}
 
 
 

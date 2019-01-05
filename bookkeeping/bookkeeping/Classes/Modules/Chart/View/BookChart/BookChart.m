@@ -89,75 +89,75 @@
     
     
     
-    [self.bhud setModels:({
-        NSMutableArray *arrm = [NSMutableArray array];
-        for (BookListModel *model in self.model.list) {
-            if (_segmentIndex == 0) {
-                if (model.week_day == (index + 1)) {
-                    [arrm addObject:model];
-                }
-            } else if (_segmentIndex == 1) {
-                if (model.day == (index + 1)) {
-                    [arrm addObject:model];
-                }
-            } else if (_segmentIndex == 2) {
-                if (model.month == (index + 1)) {
-                    [arrm addObject:model];
-                }
-            }
-        }
-        arrm;
-    })];
+//    [self.bhud setModels:({
+//        NSMutableArray *arrm = [NSMutableArray array];
+//        for (BookListModel *model in self.model.list) {
+//            if (_segmentIndex == 0) {
+//                if (model.week_day == (index + 1)) {
+//                    [arrm addObject:model];
+//                }
+//            } else if (_segmentIndex == 1) {
+//                if (model.day == (index + 1)) {
+//                    [arrm addObject:model];
+//                }
+//            } else if (_segmentIndex == 2) {
+//                if (model.month == (index + 1)) {
+//                    [arrm addObject:model];
+//                }
+//            }
+//        }
+//        arrm;
+//    })];
 
 
 }
 
 
 #pragma mark - set
-- (void)setModel:(BKModel *)model {
-    _model = model;
-    if (_segmentIndex == 0) {
-        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
-        for (int i=0; i<7; i++) {
-            [arrm addObject:@(0)];
-        }
-        for (BookListModel *submodel in model.list) {
-            NSInteger index = submodel.week_day - 1;
-            CGFloat number = [arrm[index] floatValue];
-            number += submodel.price;
-            [arrm replaceObjectAtIndex:index withObject:@(number)];
-        }
-        [self setNumbers:arrm];
-    } else if (_segmentIndex == 1) {
-        NSString *str = [NSString stringWithFormat:@"%ld-%02ld-01", _subModel.year, _subModel.month];
-        NSDate *date = [NSDate dateWithYMD:str];
-        NSInteger count = [date daysInMonth];
-        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
-        for (int i=0; i<count; i++) {
-            [arrm addObject:@(0)];
-        }
-        for (BookListModel *submodel in model.list) {
-            NSInteger index = submodel.day - 1;
-            CGFloat number = [arrm[index] floatValue];
-            number += submodel.price;
-            [arrm replaceObjectAtIndex:index withObject:@(number)];
-        }
-        [self setNumbers:arrm];
-    } else if (_segmentIndex == 2) {
-        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
-        for (int i=0; i<12; i++) {
-            [arrm addObject:@(0)];
-        }
-        for (BookListModel *submodel in model.list) {
-            NSInteger index = submodel.month - 1;
-            CGFloat number = [arrm[index] floatValue];
-            number += submodel.price;
-            [arrm replaceObjectAtIndex:index withObject:@(number)];
-        }
-        [self setNumbers:arrm];
-    }
-    [self setNeedsDisplay];
-}
+//- (void)setModel:(BKModel *)model {
+//    _model = model;
+//    if (_segmentIndex == 0) {
+//        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
+//        for (int i=0; i<7; i++) {
+//            [arrm addObject:@(0)];
+//        }
+//        for (BookListModel *submodel in model.list) {
+//            NSInteger index = submodel.week_day - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += submodel.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
+//        [self setNumbers:arrm];
+//    } else if (_segmentIndex == 1) {
+//        NSString *str = [NSString stringWithFormat:@"%ld-%02ld-01", _subModel.year, _subModel.month];
+//        NSDate *date = [NSDate dateWithYMD:str];
+//        NSInteger count = [date daysInMonth];
+//        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
+//        for (int i=0; i<count; i++) {
+//            [arrm addObject:@(0)];
+//        }
+//        for (BookListModel *submodel in model.list) {
+//            NSInteger index = submodel.day - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += submodel.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
+//        [self setNumbers:arrm];
+//    } else if (_segmentIndex == 2) {
+//        NSMutableArray<NSNumber *> *arrm = [NSMutableArray array];
+//        for (int i=0; i<12; i++) {
+//            [arrm addObject:@(0)];
+//        }
+//        for (BookListModel *submodel in model.list) {
+//            NSInteger index = submodel.month - 1;
+//            CGFloat number = [arrm[index] floatValue];
+//            number += submodel.price;
+//            [arrm replaceObjectAtIndex:index withObject:@(number)];
+//        }
+//        [self setNumbers:arrm];
+//    }
+//    [self setNeedsDisplay];
+//}
 
 
 #pragma mark - 绘图

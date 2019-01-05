@@ -72,9 +72,11 @@
     cell.badgeCount = 12;
     if (indexPath.section == 1) {
         if (indexPath.row == 2) {
-            [cell.sw setOn:[UserInfo loadUserInfo].sound];
+            NSNumber *sound = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_SOUND];
+            [cell.sw setOn:[sound boolValue]];
         } else if (indexPath.row == 3) {
-            [cell.sw setOn:[UserInfo loadUserInfo].detail];
+            NSNumber *detail = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_DETAIL];
+            [cell.sw setOn:[detail boolValue]];
         }
     }
     return cell;

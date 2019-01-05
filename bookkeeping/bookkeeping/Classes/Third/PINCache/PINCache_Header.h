@@ -8,7 +8,8 @@
 
 #define PIN_FIRST_RUN               @"PIN_FIRST_RUN"                   // 第一次运行程序
 
-//============================================= 类别 =============================================//
+
+#pragma mark - 类别
 // 支出
 #define PIN_CATE_SYS_HAS_PAY              @"PIN_CATE_SYS_HAS_PAY"              // 系统 - 添加的 - 支出
 #define PIN_CATE_SYS_REMOVE_PAY           @"PIN_CATE_SYS_REMOVE_PAY"           // 系统 - 删除的 - 支出
@@ -28,10 +29,24 @@
 #define PIN_CATE_CUS_REMOVE_INCOME_SYNCED    @"PIN_CATE_CUS_REMOVE_INCOME_SYNCED"    // 用户 - 删除的 - 收入 - 未同步(同步后应该为空)
 
 
-//=========================================== 添加类别 ===========================================//
+#pragma mark - 添加类别
 #define PIN_ACA_CATE    @"PIN_ACA_CATE"    // 添加类别
 
 
+#pragma mark - 记账
+#define PIN_BOOK           @"PIN_BOOK"            // 记账
+#define PIN_BOOK_SYNCED    @"PIN_BOOK_SYNCED"     // 未同步
+
+
+#pragma mark - 个人设置
+#define PIN_SETTING_SOUND     @"PIN_SETTING_SOUND"      // 声音开关
+#define PIN_SETTING_DETAIL    @"PIN_SETTING_DETAIL"     // 明细详情
+
+#define PIN_SETTING_SOUND_SYNCED     @"PIN_SETTING_SOUND_SYNCED"      // 声音开关 - 未同步
+#define PIN_SETTING_DETAIL_SYNCED    @"PIN_SETTING_DETAIL_SYNCED"     // 明细详情 - 未同步
+
+
 #import "PINCacheManager.h"
+
 
 #endif

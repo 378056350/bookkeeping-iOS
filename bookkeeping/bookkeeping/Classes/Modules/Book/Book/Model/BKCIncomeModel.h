@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *icon_s;
 @property (nonatomic, assign) BOOL is_income;
 @property (nonatomic, assign) BOOL is_system;
-@property (nonatomic, assign) NSInteger insert_id;
 
 + (BKCModel *)createSetModel;
 

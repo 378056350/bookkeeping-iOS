@@ -10,7 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeListCell : BaseTableCell
 
-@property (nonatomic, strong) BKModel *model;
+//@property (nonatomic, strong) BKModel *model;
+@property (nonatomic, strong) NSMutableArray<BKMonthModel *> *models;
 
 - (void)endRefresh;
 

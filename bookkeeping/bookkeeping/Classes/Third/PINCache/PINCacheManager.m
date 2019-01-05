@@ -57,6 +57,18 @@ SingleImplementation(PINCacheManager)
         [[PINDiskCache sharedCache] setObject:acaArr forKey:PIN_ACA_CATE];
         
         
+        // 记账
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_BOOK];
+        [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
+        
+        
+        // 个人设置
+        [[PINDiskCache sharedCache] setObject:@(0) forKey:PIN_SETTING_SOUND];
+        [[PINDiskCache sharedCache] setObject:@(0) forKey:PIN_SETTING_DETAIL];
+        [[PINDiskCache sharedCache] setObject:@(0) forKey:PIN_SETTING_SOUND_SYNCED];
+        [[PINDiskCache sharedCache] setObject:@(0) forKey:PIN_SETTING_DETAIL_SYNCED];
+        
+        
         
         [[PINDiskCache sharedCache] setObject:@(1) forKey:PIN_FIRST_RUN];
     }

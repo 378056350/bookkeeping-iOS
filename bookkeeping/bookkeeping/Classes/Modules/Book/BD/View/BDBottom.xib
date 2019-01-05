@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pix-wf-va4" customClass="BDBottom">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfa-rD-0Ll">
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Vgm-AO-fkm"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpU-PF-NW5">
+                    <rect key="frame" x="185" y="11" width="1" height="41"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="OlV-bu-Owk"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qx-DB-wCz">
+                    <rect key="frame" x="0.0" y="1" width="185" height="61"/>
+                    <state key="normal" title="编辑">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slp-NQ-wKT">
+                    <rect key="frame" x="186" y="1" width="185" height="61"/>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="slp-NQ-wKT" firstAttribute="top" secondItem="vfa-rD-0Ll" secondAttribute="bottom" id="1k2-ke-gTN"/>
+                <constraint firstItem="slp-NQ-wKT" firstAttribute="leading" secondItem="LpU-PF-NW5" secondAttribute="trailing" id="6iD-im-LlN"/>
+                <constraint firstItem="7Qx-DB-wCz" firstAttribute="leading" secondItem="pix-wf-va4" secondAttribute="leading" id="7Zx-NS-np3"/>
+                <constraint firstItem="LpU-PF-NW5" firstAttribute="leading" secondItem="7Qx-DB-wCz" secondAttribute="trailing" id="GDs-p5-K96"/>
+                <constraint firstItem="LpU-PF-NW5" firstAttribute="centerX" secondItem="pix-wf-va4" secondAttribute="centerX" id="L9s-EH-If5"/>
+                <constraint firstAttribute="bottom" secondItem="7Qx-DB-wCz" secondAttribute="bottom" id="NYx-kd-UZd"/>
+                <constraint firstItem="vfa-rD-0Ll" firstAttribute="leading" secondItem="pix-wf-va4" secondAttribute="leading" id="WSE-8N-tbT"/>
+                <constraint firstItem="7Qx-DB-wCz" firstAttribute="top" secondItem="vfa-rD-0Ll" secondAttribute="bottom" id="Wgk-4g-iQQ"/>
+                <constraint firstItem="slp-NQ-wKT" firstAttribute="bottom" secondItem="7Qx-DB-wCz" secondAttribute="bottom" id="cLu-2F-0OP"/>
+                <constraint firstAttribute="trailing" secondItem="slp-NQ-wKT" secondAttribute="trailing" id="dXv-FZ-a7a"/>
+                <constraint firstItem="LpU-PF-NW5" firstAttribute="top" secondItem="vfa-rD-0Ll" secondAttribute="bottom" constant="10" id="elY-cK-WRc"/>
+                <constraint firstAttribute="trailing" secondItem="vfa-rD-0Ll" secondAttribute="trailing" id="etg-Ja-cUW"/>
+                <constraint firstItem="LpU-PF-NW5" firstAttribute="centerY" secondItem="7Qx-DB-wCz" secondAttribute="centerY" id="fxw-vA-Fbu"/>
+                <constraint firstItem="vfa-rD-0Ll" firstAttribute="top" secondItem="pix-wf-va4" secondAttribute="top" id="jXN-at-Gs9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="delBtn" destination="slp-NQ-wKT" id="oVI-4d-UtC"/>
+                <outlet property="editBtn" destination="7Qx-DB-wCz" id="o0n-pY-GFP"/>
+                <outlet property="editConstraintB" destination="NYx-kd-UZd" id="oPx-EE-8Va"/>
+            </connections>
+            <point key="canvasLocation" x="245.59999999999999" y="-709.7451274362819"/>
+        </view>
+    </objects>
+</document>

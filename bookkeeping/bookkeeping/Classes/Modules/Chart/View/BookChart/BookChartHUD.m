@@ -57,16 +57,16 @@
         [self setHidden:false];
     });
 }
-- (void)setModels:(NSMutableArray<BookListModel *> *)models {
-    NSInteger count = models.count > 3 ? 3 : models.count;
-    _models = models;
-    _content.models = models;
-    if (models.count == 0) {
-        _content.height = countcoordinatesX(50);
-    } else {
-        _content.height = countcoordinatesX(20) + count * countcoordinatesX(20) + countcoordinatesX(20) + countcoordinatesX(10) * 2 + countcoordinatesX(5);
-    }
-}
+//- (void)setModels:(NSMutableArray<BookListModel *> *)models {
+//    NSInteger count = models.count > 3 ? 3 : models.count;
+//    _models = models;
+//    _content.models = models;
+//    if (models.count == 0) {
+//        _content.height = countcoordinatesX(50);
+//    } else {
+//        _content.height = countcoordinatesX(20) + count * countcoordinatesX(20) + countcoordinatesX(20) + countcoordinatesX(10) * 2 + countcoordinatesX(5);
+//    }
+//}
 
 
 #pragma mark - get

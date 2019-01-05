@@ -39,21 +39,22 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<BookListModel *> *)models {
-    _models = models;
-    [self.table reloadData];
-    [self.lab setHidden:models.count != 0];
-    [self.table setHidden:models.count == 0];
-}
+//- (void)setModels:(NSMutableArray<BookListModel *> *)models {
+//    _models = models;
+//    [self.table reloadData];
+//    [self.lab setHidden:models.count != 0];
+//    [self.table setHidden:models.count == 0];
+//}
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.models.count > 3 ? 3 : self.models.count;
+//    return self.models.count > 3 ? 3 : self.models.count;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BCHUDContentCell *cell = [BCHUDContentCell loadFirstNib:tableView];
-    cell.model = self.models[indexPath.row];
+//    cell.model = self.models[indexPath.row];
     return cell;
 }
 
@@ -74,23 +75,23 @@
     UILabel *lab = [[UILabel alloc] initWithFrame:({
         CGRectMake(0, 0, _table.width, countcoordinatesX(20));
     })];
-    lab.textColor = kColor_Chart_Text;
-    lab.text = ({
-        CGFloat maxPrice = [[self.models valueForKeyPath:@"@sum.price.floatValue"] floatValue];
-        NSMutableString *strm = [[NSMutableString alloc] init];
-        if (_models.count != 0) {
-            BookListModel *model = _models[0];
-            if (model.is_income == 0) {
-                [strm appendString:@"当日总支出: "];
-            } else {
-                [strm appendString:@"当日总收入: "];
-            }[strm appendString:[@(maxPrice) description]];
-        }
-        strm;
-    });
-    lab.font = [UIFont systemFontOfSize:AdjustFont(8)];
-    lab.layer.cornerRadius = 3;
-    lab.layer.masksToBounds = true;
+//    lab.textColor = kColor_Chart_Text;
+//    lab.text = ({
+//        CGFloat maxPrice = [[self.models valueForKeyPath:@"@sum.price.floatValue"] floatValue];
+//        NSMutableString *strm = [[NSMutableString alloc] init];
+//        if (_models.count != 0) {
+//            BookListModel *model = _models[0];
+//            if (model.is_income == 0) {
+//                [strm appendString:@"当日总支出: "];
+//            } else {
+//                [strm appendString:@"当日总收入: "];
+//            }[strm appendString:[@(maxPrice) description]];
+//        }
+//        strm;
+//    });
+//    lab.font = [UIFont systemFontOfSize:AdjustFont(8)];
+//    lab.layer.cornerRadius = 3;
+//    lab.layer.masksToBounds = true;
     return lab;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

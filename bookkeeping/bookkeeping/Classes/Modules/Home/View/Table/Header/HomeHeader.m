@@ -61,13 +61,23 @@
     _yearLab.text = [@(date.year) description];
     _monthLab.text = [@(date.month) description];
 }
-- (void)setModel:(BKModel *)model {
-    _model = model;
-    NSString *pay = [NSString stringWithFormat:@"%.2f", model.pay];
-    NSString *income = [NSString stringWithFormat:@"%.2f", model.income];
-    [_payLab setAttributedText:[NSAttributedString createMath:pay integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
-    [_incomeLab setAttributedText:[NSAttributedString createMath:income integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
+- (void)setModels:(NSMutableArray<BKMonthModel *> *)models {
+    _models = models;
+    UIFont *integer = [UIFont systemFontOfSize:AdjustFont(14)];
+    UIFont *decimal = [UIFont systemFontOfSize:AdjustFont(12)];
+    NSString *pay = [NSString stringWithFormat:@"%.2f", [[models valueForKeyPath:@"@sum.pay.floatValue"] floatValue]];
+    NSString *income = [NSString stringWithFormat:@"%.2f", [[models valueForKeyPath:@"@sum.income.floatValue"] floatValue]];
+    [_payLab setAttributedText:[NSAttributedString createMath:pay integer:integer decimal:decimal]];
+    [_incomeLab setAttributedText:[NSAttributedString createMath:income integer:integer decimal:decimal]];
 }
+
+//- (void)setModel:(BKModel *)model {
+//    _model = model;
+//    NSString *pay = [NSString stringWithFormat:@"%.2f", model.pay];
+//    NSString *income = [NSString stringWithFormat:@"%.2f", model.income];
+//    [_payLab setAttributedText:[NSAttributedString createMath:pay integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
+//    [_incomeLab setAttributedText:[NSAttributedString createMath:income integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
+//}
 
 
 @end

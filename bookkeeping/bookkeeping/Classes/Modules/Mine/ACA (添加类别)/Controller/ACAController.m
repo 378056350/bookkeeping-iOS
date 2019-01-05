@@ -39,9 +39,9 @@
     [self textField];
     [self collection];
 //    [self getCategoryListRequest];
-    
+
     NSMutableArray<ACAListModel *> *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_ACA_CATE];
-    [self setModels:[ACAListModel mj_objectArrayWithKeyValuesArray:arrm]];
+    [self setModels:arrm];
     
 }
 
@@ -75,8 +75,7 @@
                            [_selectModel icon_l], @"icon_l",
                            [_selectModel icon_s], @"icon_s",
                            @(_is_income), @"is_income",
-                           @(0), @"is_system",
-                           @(_selectModel.Id), @"insert_id", nil];
+                           @(0), @"is_system", nil];
     BKCModel *model = [BKCModel mj_objectWithKeyValues:param];
     
     // 支出

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="cQz-av-4oc" customClass="BDHeader">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="131"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3db-b8-Iqi">
+                    <rect key="frame" x="150.5" y="10" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3db-b8-Iqi" secondAttribute="height" multiplier="1:1" id="OVv-wZ-e5i"/>
+                        <constraint firstAttribute="width" constant="60" id="Wdk-qF-3ES"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvy-8i-ola">
+                    <rect key="frame" x="0.0" y="80" width="361" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rof-Jn-eli">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="mEh-ZI-Qiy"/>
+                        <constraint firstAttribute="height" constant="35" id="vbz-Tv-WDY"/>
+                    </constraints>
+                    <state key="normal" image="nav_back_n"/>
+                    <connections>
+                        <action selector="backClick:" destination="cQz-av-4oc" eventType="touchUpInside" id="etp-6Y-cNP"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-rZ-wL1">
+                    <rect key="frame" x="276" y="0.0" width="70" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="eWG-yK-iQY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="y5j-rZ-wL1" firstAttribute="trailing" secondItem="pfC-W6-Oyz" secondAttribute="trailing" constant="-15" id="0Ug-59-8xh"/>
+                <constraint firstItem="Fvy-8i-ola" firstAttribute="top" secondItem="3db-b8-Iqi" secondAttribute="bottom" constant="10" id="3MV-qU-s5C"/>
+                <constraint firstItem="3db-b8-Iqi" firstAttribute="centerX" secondItem="cQz-av-4oc" secondAttribute="centerX" id="52V-ba-eBR"/>
+                <constraint firstItem="Fvy-8i-ola" firstAttribute="trailing" secondItem="pfC-W6-Oyz" secondAttribute="trailing" id="VeF-23-Eom"/>
+                <constraint firstItem="Rof-Jn-eli" firstAttribute="top" secondItem="pfC-W6-Oyz" secondAttribute="top" id="ZmN-MQ-ZoD"/>
+                <constraint firstItem="Rof-Jn-eli" firstAttribute="leading" secondItem="pfC-W6-Oyz" secondAttribute="leading" id="eVF-FB-eIt"/>
+                <constraint firstItem="y5j-rZ-wL1" firstAttribute="height" secondItem="Rof-Jn-eli" secondAttribute="height" id="jQI-Lq-nrl"/>
+                <constraint firstItem="y5j-rZ-wL1" firstAttribute="centerY" secondItem="Rof-Jn-eli" secondAttribute="centerY" id="n5f-Yq-z8O"/>
+                <constraint firstItem="3db-b8-Iqi" firstAttribute="top" secondItem="Rof-Jn-eli" secondAttribute="top" constant="10" id="tPY-MZ-9Pw"/>
+                <constraint firstItem="Fvy-8i-ola" firstAttribute="leading" secondItem="pfC-W6-Oyz" secondAttribute="leading" id="zOP-0U-wMi"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="pfC-W6-Oyz"/>
+            <connections>
+                <outlet property="icon" destination="3db-b8-Iqi" id="6fk-A8-Qn3"/>
+                <outlet property="iconConstraintW" destination="Wdk-qF-3ES" id="nQt-6k-dwH"/>
+                <outlet property="nameLab" destination="Fvy-8i-ola" id="fyS-ze-ytS"/>
+                <outlet property="shareLab" destination="y5j-rZ-wL1" id="irQ-01-ICm"/>
+            </connections>
+            <point key="canvasLocation" x="18" y="-682"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nav_back_n" width="23" height="23"/>
+    </resources>
+</document>

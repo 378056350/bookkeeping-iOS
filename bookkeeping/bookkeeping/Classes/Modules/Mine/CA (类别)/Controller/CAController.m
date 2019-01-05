@@ -64,7 +64,7 @@
         
         
         NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *cusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *cusHasIcomeEArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
         NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
         
         CategoryListModel *model2 = [[CategoryListModel alloc] init];
@@ -72,7 +72,7 @@
         model2.remove = sysRemoveIncomeArr;
         model2.insert = ({
             NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
-            [arrm addObjectsFromArray:cusHasIncomeArr];
+            [arrm addObjectsFromArray:cusHasIcomeEArr];
             arrm;
         });
         
@@ -138,7 +138,6 @@
 - (void)removeCustrCateRequest:(CategoryCell *)cell {
     @weakify(self)
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @(cell.model.insert_id), @"insert_id",
                            @(1), @"customer_id", nil];
     [self showProgressHUD];
     [AFNManager POST:RemoveInsertCategoryListRequest params:param complete:^(APPResult *result) {
@@ -277,11 +276,28 @@
             [[PINDiskCache sharedCache] setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
             [[PINDiskCache sharedCache] setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
         } else if (index == 1) {
-            
+            NSMutableArray *cusHasIcomeEArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+            NSMutableArray *cusHasIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            NSMutableArray *cusRemoveIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            [cusHasIcomeEArr removeObject:model];
+            if ([cusHasIncomeSyncedArr containsObject:model]) {
+                [cusHasIncomeSyncedArr removeObject:model];
+            } else {
+                [cusRemoveIncomeSyncedArr addObject:model];
+            }
+            [[PINDiskCache sharedCache] setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
+            [[PINDiskCache sharedCache] setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            [[PINDiskCache sharedCache] setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
         }
         
         
     }
+    
+    
+    if (self.complete) {
+        self.complete();
+    }
+    
 }
 // 添加系统分类
 - (void)insertCellClick:(CategoryCell *)cell {

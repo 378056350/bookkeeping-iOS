@@ -46,16 +46,16 @@
 
 
 #pragma mark - set
-- (void)setModel:(BookGroupModel *)model {
-    _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];
-    [_nameLab setText:model.name];
-    [_detailLab setText:[@(model.price) description]];
-    
-    CGFloat width = SCREEN_WIDTH - OUT_PADDING * 2 - ICON_W - LINE_L;
-    width = width / _maxPrice * model.price;
-    [self.lineConstraintW setConstant:width];
-}
+//- (void)setModel:(BookGroupModel *)model {
+//    _model = model;
+//    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];
+//    [_nameLab setText:model.name];
+//    [_detailLab setText:[@(model.price) description]];
+//
+//    CGFloat width = SCREEN_WIDTH - OUT_PADDING * 2 - ICON_W - LINE_L;
+//    width = width / _maxPrice * model.price;
+//    [self.lineConstraintW setConstant:width];
+//}
 
 
 

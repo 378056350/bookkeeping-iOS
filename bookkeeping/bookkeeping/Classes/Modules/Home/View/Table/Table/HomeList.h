@@ -21,7 +21,8 @@ typedef NS_ENUM(NSInteger, HomeListStatus) {
 @interface HomeList : BaseView
 
 @property (nonatomic, assign) HomeListStatus status;
-@property (nonatomic, strong) BKModel *model;
+//@property (nonatomic, strong) BKModel *model;
+@property (nonatomic, strong) NSMutableArray<BKMonthModel *> *models;
 
 @end
 

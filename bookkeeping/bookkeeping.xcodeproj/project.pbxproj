@@ -274,6 +274,14 @@
 		4BEB732F21CE381D00BEF013 /* InfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB732D21CE381D00BEF013 /* InfoTableCell.xib */; };
 		4BEB733221CE3F9C00BEF013 /* InfoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB733121CE3F9C00BEF013 /* InfoFooter.m */; };
 		4BEB733421CE3FC800BEF013 /* InfoFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB733321CE3FC800BEF013 /* InfoFooter.xib */; };
+		4BF0648D21E10A80005F1665 /* BDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0648C21E10A80005F1665 /* BDController.m */; };
+		4BF0649021E10BAD005F1665 /* BDHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0648F21E10BAD005F1665 /* BDHeader.m */; };
+		4BF0649221E10BD3005F1665 /* BDHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0649121E10BD3005F1665 /* BDHeader.xib */; };
+		4BF0649621E10FD2005F1665 /* HomeNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0649521E10FD2005F1665 /* HomeNavigation.m */; };
+		4BF0649821E10FE4005F1665 /* HomeNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0649721E10FE4005F1665 /* HomeNavigation.xib */; };
+		4BF0649B21E11283005F1665 /* BDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0649A21E11283005F1665 /* BDTable.m */; };
+		4BF0649E21E112B8005F1665 /* BDBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0649D21E112B8005F1665 /* BDBottom.m */; };
+		4BF064A021E112C6005F1665 /* BDBottom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0649F21E112C6005F1665 /* BDBottom.xib */; };
 		4BF574A321C6A59A001890D1 /* HomeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF574A221C6A59A001890D1 /* HomeList.m */; };
 		4BF8547E21DA20AC00A203DE /* BKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8547D21DA20AC00A203DE /* BKModel.m */; };
 		F5982707CC838EDD0692E0E0 /* libPods-bookkeeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */; };
@@ -716,6 +724,19 @@
 		4BEB733121CE3F9C00BEF013 /* InfoFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoFooter.m; sourceTree = "<group>"; };
 		4BEB733321CE3FC800BEF013 /* InfoFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoFooter.xib; sourceTree = "<group>"; };
 		4BEB733521CE428F00BEF013 /* INFO_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INFO_EVENT_MANAGER.h; sourceTree = "<group>"; };
+		4BF0648B21E10A80005F1665 /* BDController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDController.h; sourceTree = "<group>"; };
+		4BF0648C21E10A80005F1665 /* BDController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDController.m; sourceTree = "<group>"; };
+		4BF0648E21E10BAD005F1665 /* BDHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDHeader.h; sourceTree = "<group>"; };
+		4BF0648F21E10BAD005F1665 /* BDHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDHeader.m; sourceTree = "<group>"; };
+		4BF0649121E10BD3005F1665 /* BDHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BDHeader.xib; sourceTree = "<group>"; };
+		4BF0649421E10FD2005F1665 /* HomeNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeNavigation.h; sourceTree = "<group>"; };
+		4BF0649521E10FD2005F1665 /* HomeNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNavigation.m; sourceTree = "<group>"; };
+		4BF0649721E10FE4005F1665 /* HomeNavigation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeNavigation.xib; sourceTree = "<group>"; };
+		4BF0649921E11283005F1665 /* BDTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDTable.h; sourceTree = "<group>"; };
+		4BF0649A21E11283005F1665 /* BDTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDTable.m; sourceTree = "<group>"; };
+		4BF0649C21E112B8005F1665 /* BDBottom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDBottom.h; sourceTree = "<group>"; };
+		4BF0649D21E112B8005F1665 /* BDBottom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDBottom.m; sourceTree = "<group>"; };
+		4BF0649F21E112C6005F1665 /* BDBottom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BDBottom.xib; sourceTree = "<group>"; };
 		4BF574A121C6A59A001890D1 /* HomeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeList.h; sourceTree = "<group>"; };
 		4BF574A221C6A59A001890D1 /* HomeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeList.m; sourceTree = "<group>"; };
 		4BF8547C21DA20AC00A203DE /* BKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKModel.h; sourceTree = "<group>"; };
@@ -1887,6 +1908,7 @@
 		4BE7844D21C678FB00B8EC46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BF0649321E10FC9005F1665 /* Navigation */,
 				327CEC1A21C88529001D0086 /* Table */,
 				327CEC1921C88529001D0086 /* SubTable */,
 			);
@@ -1971,10 +1993,8 @@
 		4BE7845621C678FB00B8EC46 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				32D0B2BA21C772EB0030F5B2 /* BOOK_EVENT.h */,
-				4BE7845721C678FB00B8EC46 /* Controller */,
-				4BE7845821C678FB00B8EC46 /* Model */,
-				4BE7845921C678FB00B8EC46 /* View */,
+				4BF0648621E10A1E005F1665 /* Book */,
+				4BF0648721E10A50005F1665 /* BD */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -2218,6 +2238,68 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4BF0648621E10A1E005F1665 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				32D0B2BA21C772EB0030F5B2 /* BOOK_EVENT.h */,
+				4BE7845721C678FB00B8EC46 /* Controller */,
+				4BE7845821C678FB00B8EC46 /* Model */,
+				4BE7845921C678FB00B8EC46 /* View */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		4BF0648721E10A50005F1665 /* BD */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0648821E10A50005F1665 /* Controller */,
+				4BF0648921E10A50005F1665 /* Model */,
+				4BF0648A21E10A50005F1665 /* View */,
+			);
+			path = BD;
+			sourceTree = "<group>";
+		};
+		4BF0648821E10A50005F1665 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0648B21E10A80005F1665 /* BDController.h */,
+				4BF0648C21E10A80005F1665 /* BDController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BF0648921E10A50005F1665 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BF0648A21E10A50005F1665 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0648E21E10BAD005F1665 /* BDHeader.h */,
+				4BF0648F21E10BAD005F1665 /* BDHeader.m */,
+				4BF0649121E10BD3005F1665 /* BDHeader.xib */,
+				4BF0649921E11283005F1665 /* BDTable.h */,
+				4BF0649A21E11283005F1665 /* BDTable.m */,
+				4BF0649C21E112B8005F1665 /* BDBottom.h */,
+				4BF0649D21E112B8005F1665 /* BDBottom.m */,
+				4BF0649F21E112C6005F1665 /* BDBottom.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BF0649321E10FC9005F1665 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0649421E10FD2005F1665 /* HomeNavigation.h */,
+				4BF0649521E10FD2005F1665 /* HomeNavigation.m */,
+				4BF0649721E10FE4005F1665 /* HomeNavigation.xib */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		5BA81AE5E9A23B63357F8783 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2308,6 +2390,7 @@
 				4BEB72EB21CE033300BEF013 /* dropdown_anim__00059@2x.png in Resources */,
 				4BEB72F821CE033300BEF013 /* dropdown_anim__00053@2x.png in Resources */,
 				32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */,
+				4BF0649821E10FE4005F1665 /* HomeNavigation.xib in Resources */,
 				32A04B2921DE04D8002B0766 /* SC.plist in Resources */,
 				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				4BEB731A21CE033300BEF013 /* dropdown_anim__00040@2x.png in Resources */,
@@ -2328,6 +2411,7 @@
 				4B35F1BE21CCC694007271BE /* KKGoodsEmpty.xib in Resources */,
 				4BEB72FF21CE033300BEF013 /* dropdown_anim__00056@2x.png in Resources */,
 				4BEB72F621CE033300BEF013 /* dropdown_anim__00041@2x.png in Resources */,
+				4BF064A021E112C6005F1665 /* BDBottom.xib in Resources */,
 				4BEB731421CE033300BEF013 /* dropdown_anim__00033@2x.png in Resources */,
 				4B9798F921CE69DB0020B207 /* RE2Controller.xib in Resources */,
 				4BEB730321CE033300BEF013 /* dropdown_anim__0004@2x.png in Resources */,
@@ -2361,6 +2445,7 @@
 				4BEB731721CE033300BEF013 /* dropdown_anim__00019@2x.png in Resources */,
 				4BEB72F321CE033300BEF013 /* dropdown_anim__00043@2x.png in Resources */,
 				4BEB72E021CE033300BEF013 /* dropdown_anim__0005@2x.png in Resources */,
+				4BF0649221E10BD3005F1665 /* BDHeader.xib in Resources */,
 				4BC7820221C918F200760DF9 /* BKCKeyboard.xib in Resources */,
 				4BEB731221CE033300BEF013 /* dropdown_anim__0002@2x.png in Resources */,
 				4BEB72E621CE033300BEF013 /* dropdown_anim__00045@2x.png in Resources */,
@@ -2500,6 +2585,7 @@
 				32D0B2C521C77AD70030F5B2 /* ChartDate.m in Sources */,
 				321983C221C6459B00311885 /* BaseModel.m in Sources */,
 				4B8D635F21D8D215002AEB4A /* BookChartHUD.m in Sources */,
+				4BF0648D21E10A80005F1665 /* BDController.m in Sources */,
 				4BA68AE021C7EAAA0063A5C2 /* CAController.m in Sources */,
 				4BA68AFF21C7F61E0063A5C2 /* ACACollection.m in Sources */,
 				321983BB21C6459B00311885 /* BaseService.m in Sources */,
@@ -2535,10 +2621,12 @@
 				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
+				4BF0649021E10BAD005F1665 /* BDHeader.m in Sources */,
 				32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */,
 				4BA68AEB21C7ED550063A5C2 /* BottomButton.m in Sources */,
 				4BC41CFE21CF930600B397BD /* PhoneController.m in Sources */,
 				3219841421C6474600311885 /* UserInfo.m in Sources */,
+				4BF0649B21E11283005F1665 /* BDTable.m in Sources */,
 				4B35F1CB21CCD311007271BE /* KKBadge.m in Sources */,
 				3219840721C6460100311885 /* NSString+Encryption.m in Sources */,
 				4BE7846321C6796900B8EC46 /* ChartController.m in Sources */,
@@ -2600,6 +2688,7 @@
 				32751F0921C8E93000D9F415 /* BKCNavigation.m in Sources */,
 				3219840421C6460100311885 /* UICollectionReusableView+Extension.m in Sources */,
 				3219840021C6460100311885 /* UIView+Extension.m in Sources */,
+				4BF0649E21E112B8005F1665 /* BDBottom.m in Sources */,
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
 				4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */,
 				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
@@ -2633,6 +2722,7 @@
 				4B48530B21C69F2800891096 /* MineHeader.m in Sources */,
 				32E35B1E21D703BA003B3040 /* ChartSubModel.m in Sources */,
 				32A4C24421CB75DD00DF4327 /* AboutController.m in Sources */,
+				4BF0649621E10FD2005F1665 /* HomeNavigation.m in Sources */,
 				4B35F1BF21CCC694007271BE /* KKGoodsEmpty.m in Sources */,
 				4BE7846621C6799200B8EC46 /* BKCController.m in Sources */,
 				4B4852FD21C6974800891096 /* MineTableView.m in Sources */,

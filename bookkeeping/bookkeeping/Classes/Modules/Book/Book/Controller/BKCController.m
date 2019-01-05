@@ -11,6 +11,7 @@
 #import "CAController.h"
 #import "KKRefreshGifHeader.h"
 #import "BOOK_EVENT.h"
+#import "BKModel.h"
 
 
 #pragma mark - 声明
@@ -38,7 +39,66 @@
     [self scroll];
     [self collections];
     [self keyboard];
-    [self getCategoryListRequest];
+//    [self getCategoryListRequest];
+    
+    
+    /**
+     
+     // 支出
+     #define PIN_CATE_SYS_HAS_PAY              @"PIN_CATE_SYS_HAS_PAY"              // 系统 - 添加的 - 支出
+     #define PIN_CATE_SYS_REMOVE_PAY           @"PIN_CATE_SYS_REMOVE_PAY"           // 系统 - 删除的 - 支出
+     #define PIN_CATE_CUS_HAS_PAY              @"PIN_CATE_CUS_HAS_PAY"              // 用户 - 添加的 - 支出
+     #define PIN_CATE_SYS_Has_PAY_SYNCED       @"PIN_CATE_SYS_Has_PAY_SYNCED"       // 系统 - 添加的 - 支出 - 未同步(同步后应该为空)
+     #define PIN_CATE_SYS_REMOVE_PAY_SYNCED    @"PIN_CATE_SYS_REMOVE_PAY_SYNCED"    // 系统 - 删除的 - 支出 - 未同步(同步后应该为空)
+     #define PIN_CATE_CUS_HAS_PAY_SYNCED       @"PIN_CATE_CUS_HAS_PAY_SYNCED"       // 用户 - 添加的 - 支出 - 未同步(同步后应该为空)
+     #define PIN_CATE_CUS_REMOVE_PAY_SYNCED    @"PIN_CATE_CUS_REMOVE_PAY_SYNCED"    // 用户 - 删除的 - 支出 - 未同步(同步后应该为空)
+     
+     // 收入
+     #define PIN_CATE_SYS_HAS_INCOME              @"PIN_CATE_SYS_HAS_INCOME"              // 系统 - 添加的 - 收入
+     #define PIN_CATE_SYS_REMOVE_INCOME           @"PIN_CATE_SYS_REMOVE_INCOME"           // 系统 - 删除的 - 收入
+     #define PIN_CATE_CUS_HAS_INCOME              @"PIN_CATE_CUS_HAS_INCOME"              // 用户 - 添加的 - 收入
+     #define PIN_CATE_SYS_Has_INCOME_SYNCED       @"PIN_CATE_SYS_Has_INCOME_SYNCED"       // 系统 - 添加的 - 收入 - 未同步(同步后应该为空)
+     #define PIN_CATE_SYS_REMOVE_INCOME_SYNCED    @"PIN_CATE_SYS_REMOVE_INCOME_SYNCED"    // 系统 - 删除的 - 收入 - 未同步(同步后应该为空)
+     #define PIN_CATE_CUS_HAS_INCOME_SYNCED       @"PIN_CATE_CUS_HAS_INCOME_SYNCED"       // 用户 - 添加的 - 收入 - 未同步(同步后应该为空)
+     #define PIN_CATE_CUS_REMOVE_INCOME_SYNCED    @"PIN_CATE_CUS_REMOVE_INCOME_SYNCED"    // 用户 - 删除的 - 收入 - 未同步(同步后应该为空)
+     
+     */
+    
+    
+    [self bendiData];
+    
+    
+}
+
+- (void)bendiData {
+    BKCIncomeModel *model1 = [[BKCIncomeModel alloc] init];
+    model1.is_income = false;
+    model1.list = ({
+        NSMutableArray<BKCModel *> *sysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
+        NSMutableArray<BKCModel *> *cusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
+        NSMutableArray<BKCModel *> *payArr = ({
+            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasPayArr];
+            [arrm addObjectsFromArray:cusHasPayArr];
+            arrm = [BKCModel mj_objectArrayWithKeyValuesArray:arrm];
+            arrm;
+        });
+        payArr;
+    });
+    
+    BKCIncomeModel *model2 = [[BKCIncomeModel alloc] init];
+    model2.is_income = true;
+    model2.list = ({
+        NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *cusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *incomeArr = ({
+            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
+            [arrm addObjectsFromArray:cusHasIncomeArr];
+            arrm = [BKCModel mj_objectArrayWithKeyValuesArray:arrm];
+            arrm;
+        });
+        incomeArr;
+    });
+    [self setModels:@[model1, model2]];
 }
 
 
@@ -63,36 +123,29 @@
 - (void)createBookRequest:(NSString *)price mark:(NSString *)mark date:(NSDate *)date {
     NSInteger index = self.scroll.contentOffset.x / SCREEN_WIDTH;
     BKCCollection *collection = self.collections[index];
-    BKCModel *model = collection.model.list[collection.selectIndex.row];
-    NSMutableDictionary *param = ({
-        NSMutableDictionary *param = [NSMutableDictionary dictionary];
-        [param setObject:price forKey:@"price"];
-        if (model.is_system) {
-            [param setObject:@(model.Id) forKey:@"category_id"];
-        } else {
-            [param setObject:@(model.Id) forKey:@"insert_id"];
-        }
-        [param setObject:@(model.is_income) forKey:@"is_income"];
-        [param setObject:@(date.year) forKey:@"year"];
-        [param setObject:@(date.month) forKey:@"month"];
-        [param setObject:@(date.day) forKey:@"day"];
-        [param setObject:mark forKey:@"mark"];
-        param;
-    });
-    @weakify(self)
-    [self showProgressHUD:@"记账中"];
-    [AFNManager POST:CreateBookRequest params:param complete:^(APPResult *result) {
-        @strongify(self)
-        [self hideHUD];
-        if (result.status == ServiceCodeSuccess) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:nil];
-            [self.navigationController dismissViewControllerAnimated:true completion:nil];
-        } else {
-            [self showTextHUD:result.message delay:1.f];
-        }
+    BKCModel *cmodel = collection.model.list[collection.selectIndex.row];
+
+    BKModel *model = [[BKModel alloc] init];
+    model.Id = random() % 1000000000;
+    model.price = [price floatValue];
+    model.year = date.year;
+    model.month = date.month;
+    model.day = date.day;
+    model.mark = mark;
+    model.category_id = cmodel.Id;
+    model.cmodel = cmodel;
+    
+    NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+    NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+    [bookArr addObject:model];
+    [bookSyncedArr addObject:model];
+    [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
+    [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+    
+    [self.navigationController dismissViewControllerAnimated:true completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:nil];
     }];
 }
-
 
 
 #pragma mark - set
@@ -144,9 +197,10 @@
         CAController *vc = [[CAController alloc] init];
         [vc setIs_income:collection.tag];
         [vc setComplete:^{
-            [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {
-                [self setModels:[BKCIncomeModel mj_objectArrayWithKeyValuesArray:result.data]];
-            }];
+//            [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {
+//                [self setModels:[BKCIncomeModel mj_objectArrayWithKeyValuesArray:result.data]];
+//            }];
+            [self bendiData];
         }];
         [self.navigationController pushViewController:vc animated:YES];
     }

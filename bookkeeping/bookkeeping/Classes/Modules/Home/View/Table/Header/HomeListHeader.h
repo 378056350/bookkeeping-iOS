@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeListHeader : BaseView
 
-@property (nonatomic, strong) NSMutableArray<BookListModel *> *listSorts;
+@property (nonatomic, strong) BKMonthModel *model;
+//@property (nonatomic, strong) NSMutableArray<BookListModel *> *listSorts;
 
 @end
 
