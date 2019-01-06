@@ -1409,8 +1409,8 @@
 		32E35B1821D70376003B3040 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				32D0B2C421C77AD70030F5B2 /* ChartDate.m */,
 				32D0B2C321C77AD70030F5B2 /* ChartDate.h */,
+				32D0B2C421C77AD70030F5B2 /* ChartDate.m */,
 				32D0B2C821C782270030F5B2 /* ChartDateCell.h */,
 				32D0B2C921C782270030F5B2 /* ChartDateCell.m */,
 				32D0B2CA21C782270030F5B2 /* ChartDateCell.xib */,

@@ -37,6 +37,8 @@
         return;
     }
     
+    [self.selectIndexs removeAllObjects];
+    
     
     // 周
     [self.sModels replaceObjectAtIndex:0 withObject:({

@@ -60,8 +60,8 @@
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
-        [self updateDateRange];
         [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+        [self updateDateRange];
     }];
 }
 // 更新时间范围
@@ -90,8 +90,6 @@
     
     _subdate.minModel = _minModel;
     _subdate.maxModel = _maxModel;
-    
-    
 }
 
 
@@ -229,8 +227,8 @@
         [_chud setComplete:^(NSInteger index) {
             @strongify(self)
             [self setNavigationIndex:index];
-//            [self bookRangeRequest];
             [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+            [self updateDateRange];
         }];
         [self.view addSubview:_chud];
     }
