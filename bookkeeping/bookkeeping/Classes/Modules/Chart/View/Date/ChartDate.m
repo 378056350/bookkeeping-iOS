@@ -12,6 +12,8 @@
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) UIView *line;
 @property (nonatomic, strong) ChartSubModel *selectModel;
+@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexs;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<ChartSubModel *> *> *sModels;
 
 @end
 
@@ -28,15 +30,18 @@
 }
 
 
-#pragma mark - set
-- (void)setModel:(BKModel *)model {
-    _model = model;
+#pragma mark - 操作
+// 更新子控件
+- (void)updateDateRange {
+    if (!_minModel || !_maxModel) {
+        return;
+    }
+    
     
     // 周
-    if (_segmentIndex == 0) {
-        NSDate *minDate = _timeModel.min_date;
-        NSDate *maxDate = _timeModel.max_date;
-        
+    [self.sModels replaceObjectAtIndex:0 withObject:({
+        NSDate *minDate = _minModel.date;
+        NSDate *maxDate = _maxModel.date;
         NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
         NSInteger weeks = [NSDate compareWeek:minDate withDate:maxDate];
         for (NSInteger i=0; i<weeks; i++) {
@@ -46,100 +51,155 @@
             [submodel setMonth:[newDate month]];
             [submodel setDay:[newDate day]];
             [submodel setWeek:[newDate weekOfYear]];
-            [submodel setSelectIndex:0];
             [submodel setWeek_day:[newDate weekday]];
+            [submodel setSelectIndex:0];
             [submodels addObject:submodel];
+            
+            NSDate *date1 = [NSDate dateWithYMD:@"2018-12-29"];
+            for (int i=0; i<12; i++) {
+                NSDate *date = [date1 offsetDays:i];
+                NSLog(@"%@ %ld", date, [date weekOfYear]);
+            }
+            
+            
+            if ([[submodel detail] isEqualToString:@"本周"] && self.selectIndexs.count == 0) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                [self.selectIndexs addObject:indexPath];
+            }
         }
-        [self setSubModels:submodels];
-    }
+        if (self.selectIndexs.count == 0) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:submodels.count - 1 inSection:0];
+            [self.selectIndexs addObject:indexPath];
+        }
+        submodels;
+    })];
     // 月
-    else if (_segmentIndex == 1) {
+    [self.sModels replaceObjectAtIndex:1 withObject:({
         // 数据整理
         NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
-            NSInteger min_month = (y==_timeModel.min_year ? _timeModel.min_month : 1);
-            NSInteger max_month = (y==_timeModel.max_year ? _timeModel.max_month : 12);
+        for (NSInteger y=_minModel.date.year; y<=_maxModel.date.year; y++) {
+            NSInteger min_month = (y==_minModel.date.year ? _minModel.date.month : 1);
+            NSInteger max_month = (y==_maxModel.date.year ? _maxModel.date.month : 12);
             for (NSInteger m=min_month; m<=max_month; m++) {
                 ChartSubModel *submodel = [ChartSubModel init];
                 [submodel setYear:y];
                 [submodel setMonth:m];
                 [submodel setSelectIndex:1];
                 [submodels addObject:submodel];
+                
+                NSDate *date = [NSDate date];
+                if (y == date.year && m == date.month && self.selectIndexs.count == 1) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:submodels.count - 1 inSection:0];
+                    [self.selectIndexs addObject:indexPath];
+                }
             }
         }
-        [self setSubModels:submodels];
-    }
+        if (self.selectIndexs.count == 1) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:submodels.count - 1 inSection:0];
+            [self.selectIndexs addObject:indexPath];
+        }
+        submodels;
+    })];
     // 年
-    else if (_segmentIndex == 2) {
+    [self.sModels replaceObjectAtIndex:2 withObject:({
         // 数据整理
         NSMutableArray<ChartSubModel *> *submodels = [[NSMutableArray alloc] init];
-        for (NSInteger y=_timeModel.min_year; y<=_timeModel.max_year; y++) {
+        for (NSInteger y=_minModel.date.year; y<=_maxModel.date.year; y++) {
             ChartSubModel *submodel = [ChartSubModel init];
             [submodel setYear:y];
             [submodel setSelectIndex:2];
             [submodels addObject:submodel];
+            if (y == [NSDate date].year && self.selectIndexs.count == 2) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:submodels.count - 1 inSection:0];
+                [self.selectIndexs addObject:indexPath];
+            }
         }
-        [self setSubModels:submodels];
-    }
+        if (self.selectIndexs.count == 2) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:submodels.count - 1 inSection:0];
+            [self.selectIndexs addObject:indexPath];
+        }
+        submodels;
+    })];
     
     
-    // 第一次
-    if (!_selectIndex) {
-        _selectIndex = [NSIndexPath indexPathForRow:_subModels.count - 1 inSection:0];
-        _selectModel = [_subModels lastObject];
-        [self.collection reloadData];
-        [self performSelector:@selector(collectionDidSelect:) withObject:_selectIndex afterDelay:0.0];
-    }
-    
+    [self.collection reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self collectionDidSelect:self.selectIndexs[self.segmentIndex] animation:false];
+    });
+
+}
+
+
+#pragma mark - set
+- (void)setMinModel:(BKModel *)minModel {
+    _minModel = minModel;
+    [self updateDateRange];
+}
+- (void)setMaxModel:(BKModel *)maxModel {
+    _maxModel = maxModel;
+    [self updateDateRange];
 }
 - (void)setSegmentIndex:(NSInteger)segmentIndex {
     _segmentIndex = segmentIndex;
-    _selectIndex = nil;
+//    _selectIndex = nil;
+//    [self updateDateRange];
+    
+    [self.collection reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self collectionDidSelect:self.selectIndexs[self.segmentIndex] animation:false];
+    });
 }
 
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.subModels.count;
+    return self.sModels[self.segmentIndex].count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChartDateCell *cell = [ChartDateCell loadItem:collectionView index:indexPath];
-    cell.choose = [_selectIndex isEqual:indexPath];
-    cell.model = self.subModels[indexPath.row];
+//    cell.choose = [_selectIndex isEqual:indexPath];
+    cell.choose = [self.selectIndexs[self.segmentIndex] isEqual:indexPath];
+    cell.model = self.sModels[self.segmentIndex][indexPath.row];
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self collectionDidSelect:indexPath];
+    [self.selectIndexs replaceObjectAtIndex:self.segmentIndex withObject:indexPath];
+    [self collectionDidSelect:indexPath animation:true];
     // 回调
     if (self.complete) {
-        ChartSubModel *model = self.subModels[indexPath.row];
+        ChartSubModel *model = self.sModels[self.segmentIndex][indexPath.row];
         self.complete(model);
     }
 }
-- (void)collectionDidSelect:(NSIndexPath *)indexPath {
+- (void)collectionDidSelect:(NSIndexPath *)indexPath animation:(BOOL)animation {
     // 移动
-    [self.collection scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self.collection scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:animation];
     // 刷新
     [self.collection reloadItemsAtIndexPaths:({
-        NSIndexPath *lastIndex = _selectIndex;
-        _selectIndex = indexPath;
+        NSIndexPath *selectIndex = self.selectIndexs[self.segmentIndex];
+        NSIndexPath *lastIndex = selectIndex;
+        selectIndex = indexPath;
         NSMutableArray *arr = [NSMutableArray array];
-        if (lastIndex) {
+        if (lastIndex && ![lastIndex isEqual:selectIndex]) {
             [arr addObject:lastIndex];
         }
-        [arr addObject:_selectIndex];
+        [arr addObject:indexPath];
         arr;
     })];
     // 移动
-    [UIView animateWithDuration:.3f animations:^{
-        ChartDateCell *cell = (ChartDateCell *)[self.collection cellForItemAtIndexPath:indexPath];
-        ChartSubModel *model = self.subModels[indexPath.row];
+    NSTimeInterval duration = animation == true ? 0.3f : 0;
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        ChartSubModel *model = self.sModels[self.segmentIndex][indexPath.row];
         self.line.width = [model.detail sizeWithMaxSize:CGSizeMake(MAXFLOAT, MAXFLOAT) font:LAB_FONT].width;
-        self.line.centerX = cell.centerX;
-    }];
+        
+        CGFloat left = countcoordinatesX(70) * indexPath.row;
+        left += indexPath.row != 0 ? indexPath.row * countcoordinatesX(10) : 0;
+        left += countcoordinatesX(70) / 2;
+        self.line.centerX = left;
+    } completion:nil];
 }
 
 
@@ -150,6 +210,7 @@
             UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
             flow.itemSize = CGSizeMake(countcoordinatesX(70), self.height);
             flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            flow.minimumLineSpacing = countcoordinatesX(10);
             flow;
         })];
         [_collection setShowsHorizontalScrollIndicator:NO];
@@ -174,6 +235,21 @@
         [self.collection addSubview:_line];
     }
     return _line;
+}
+- (NSMutableArray<NSIndexPath *> *)selectIndexs {
+    if (!_selectIndexs) {
+        _selectIndexs = [NSMutableArray array];
+    }
+    return _selectIndexs;
+}
+- (NSMutableArray<NSMutableArray<ChartSubModel *> *> *)sModels {
+    if (!_sModels) {
+        _sModels = [NSMutableArray array];
+        [_sModels addObject:[NSMutableArray array]];
+        [_sModels addObject:[NSMutableArray array]];
+        [_sModels addObject:[NSMutableArray array]];
+    }
+    return _sModels;
 }
 
 

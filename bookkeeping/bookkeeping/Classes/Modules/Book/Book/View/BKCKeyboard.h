@@ -4,6 +4,7 @@
  */
 
 #import "BaseView.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ typedef void (^BookComplete)(NSString *price, NSString *mark, NSDate *date);
 
 @property (nonatomic, strong) NSMutableString *money;
 @property (nonatomic, copy  ) BookComplete complete;
+@property (nonatomic, strong) BKModel *model;
 
 + (instancetype)init;
 

@@ -31,7 +31,7 @@
 - (void)initUI {
     [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.nameLab setTextColor:kColor_Text_Black];
-    [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
+    [self.detailLab setFont:[UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(12)]];
     [self.detailLab setTextColor:kColor_Text_Black];
     [self.line setImage:[UIColor createImageWithColor:kColor_Main_Color]];
     
@@ -39,13 +39,23 @@
     [self.iconConstraintW setConstant:ICON_W];
     [self.lineConstraintL setConstant:LINE_L];
     [self.detailConstraintR setConstant:OUT_PADDING];
-    [self.lineConstraintH setConstant:countcoordinatesX(3)];
+    [self.lineConstraintH setConstant:countcoordinatesX(5)];
     [self.line.layer setCornerRadius:self.lineConstraintH.constant / 2];
     [self.line.layer setMasksToBounds:true];
 }
 
 
 #pragma mark - set
+- (void)setModel:(BKModel *)model {
+    _model = model;
+    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.cmodel.icon_l)]];
+    [_nameLab setText:model.cmodel.name];
+    [_detailLab setText:[@(model.price) description]];
+    
+    CGFloat width = SCREEN_WIDTH - OUT_PADDING * 2 - ICON_W - LINE_L;
+    width = width / _maxPrice * model.price;
+    [self.lineConstraintW setConstant:width];
+}
 //- (void)setModel:(BookGroupModel *)model {
 //    _model = model;
 //    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];

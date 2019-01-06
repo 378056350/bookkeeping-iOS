@@ -13,10 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 声明
 @interface BookChart : BaseView
 
-@property (nonatomic, assign) NSInteger segmentIndex;
-//@property (nonatomic, strong) NSMutableArray<BookListModel *> *listModels;
-@property (nonatomic, strong) ChartSubModel *subModel;
-@property (nonatomic, strong) BKModel *model;
+@property (nonatomic, strong) BKChartModel *model;
 
 @end
 

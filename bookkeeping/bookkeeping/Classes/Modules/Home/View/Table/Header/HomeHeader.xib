@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -85,15 +84,15 @@
                 <constraint firstItem="sk0-0w-Vfz" firstAttribute="centerY" secondItem="zNL-Pc-CEq" secondAttribute="centerY" id="0oJ-9n-Enp"/>
                 <constraint firstItem="sk0-0w-Vfz" firstAttribute="leading" secondItem="36b-6B-ZJA" secondAttribute="trailing" constant="20" id="188-TU-ihi"/>
                 <constraint firstItem="StM-uY-6Ig" firstAttribute="centerY" secondItem="zNL-Pc-CEq" secondAttribute="centerY" id="24j-Ah-bIK"/>
-                <constraint firstItem="zNL-Pc-CEq" firstAttribute="leading" secondItem="Mpz-6K-nes" secondAttribute="leading" constant="15" id="6a9-PD-FUW"/>
+                <constraint firstItem="zNL-Pc-CEq" firstAttribute="leading" secondItem="UW6-Mj-UUe" secondAttribute="leading" constant="15" id="6a9-PD-FUW"/>
                 <constraint firstItem="0om-hQ-90f" firstAttribute="centerY" secondItem="36b-6B-ZJA" secondAttribute="centerY" id="ATw-zd-rdI"/>
                 <constraint firstItem="nFR-eb-KXA" firstAttribute="leading" secondItem="sk0-0w-Vfz" secondAttribute="leading" id="C9p-Gt-bOn"/>
                 <constraint firstItem="9aH-m1-gTG" firstAttribute="top" secondItem="UW6-Mj-UUe" secondAttribute="top" id="LTy-B6-3Fr"/>
                 <constraint firstItem="9aH-m1-gTG" firstAttribute="leading" secondItem="UW6-Mj-UUe" secondAttribute="leading" id="Lno-WK-U88"/>
-                <constraint firstItem="zNL-Pc-CEq" firstAttribute="top" secondItem="Mpz-6K-nes" secondAttribute="top" constant="8" id="VZG-2P-pfB"/>
+                <constraint firstItem="zNL-Pc-CEq" firstAttribute="top" secondItem="UW6-Mj-UUe" secondAttribute="top" constant="8" id="VZG-2P-pfB"/>
                 <constraint firstItem="StM-uY-6Ig" firstAttribute="leading" secondItem="sk0-0w-Vfz" secondAttribute="trailing" constant="50" id="WsL-Tb-3h6"/>
                 <constraint firstItem="dJd-JJ-JrV" firstAttribute="centerY" secondItem="Ouv-cH-3tl" secondAttribute="centerY" id="Xx5-zS-nHm"/>
-                <constraint firstItem="36b-6B-ZJA" firstAttribute="leading" secondItem="Mpz-6K-nes" secondAttribute="leading" constant="100" id="YLR-pm-fBK"/>
+                <constraint firstItem="36b-6B-ZJA" firstAttribute="leading" secondItem="UW6-Mj-UUe" secondAttribute="leading" constant="100" id="YLR-pm-fBK"/>
                 <constraint firstItem="Ouv-cH-3tl" firstAttribute="bottom" secondItem="PEa-1e-m21" secondAttribute="bottom" constant="-2" id="Zlw-Da-t7Z"/>
                 <constraint firstAttribute="bottom" secondItem="9aH-m1-gTG" secondAttribute="bottom" id="auC-xx-G5Y"/>
                 <constraint firstItem="36b-6B-ZJA" firstAttribute="centerY" secondItem="dJd-JJ-JrV" secondAttribute="centerY" id="eXu-61-lJb"/>
@@ -107,7 +106,6 @@
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="Mpz-6K-nes"/>
             <connections>
                 <outlet property="getConstraintL" destination="188-TU-ihi" id="baf-Ry-XbH"/>
                 <outlet property="incomeDescLab" destination="sk0-0w-Vfz" id="WEF-O2-U0p"/>
@@ -122,7 +120,7 @@
                 <outlet property="setConstraintL" destination="WsL-Tb-3h6" id="KzG-PO-ENu"/>
                 <outlet property="yearLab" destination="zNL-Pc-CEq" id="IvD-Me-PUL"/>
             </connections>
-            <point key="canvasLocation" x="862" y="-393"/>
+            <point key="canvasLocation" x="675" y="-421"/>
         </view>
     </objects>
     <resources>

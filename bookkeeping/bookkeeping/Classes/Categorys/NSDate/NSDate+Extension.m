@@ -171,8 +171,9 @@
 }
 
 - (NSUInteger)weekOfYear {
+    NSDate *date = [self offsetDays:-1];
     NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear fromDate:self];
+    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear fromDate:date];
     NSInteger week = [dateComponents weekOfYear];
     return week;
     
@@ -184,11 +185,9 @@
     NSUInteger year = [date year];
     
     NSDate *lastdate = [date lastdayOfMonth];
-    
     for (i = 1;[[lastdate dateAfterDay:-7 * i] year] == year; i++) {
         
     }
-    
     return i;
 }
 
@@ -202,7 +201,6 @@
     [componentsToAdd setDay:day];
     
     NSDate *dateAfterDay = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    
     return dateAfterDay;
 }
 
@@ -351,11 +349,15 @@
         day -= [date2 weekday];
     }
     NSInteger week = day / 7;
-    if ([date1 weekday] != 1) {
-        week += 1;
-    }
-    if ([date2 weekday] != 7) {
-        week += 1;
+    if (day != 0) {
+        if ([date1 weekday] != 1) {
+            week += 1;
+        }
+        if ([date2 weekday] != 7) {
+            week += 1;
+        }
+    } else {
+        week = 1;
     }
     return week;
 }

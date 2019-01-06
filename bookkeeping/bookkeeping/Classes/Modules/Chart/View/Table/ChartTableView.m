@@ -37,22 +37,27 @@
 
 
 #pragma mark - set
-- (void)setModel:(BKModel *)model {
+//- (void)setModel:(BKModel *)model {
+//    _model = model;
+//    _tHeader.model = model;
+//    [self reloadData];
+//}
+- (void)setModel:(BKChartModel *)model {
     _model = model;
     _tHeader.model = model;
     [self reloadData];
 }
-- (void)setSubModel:(ChartSubModel *)subModel {
-    _subModel = subModel;
-    _tHeader.subModel = subModel;
-}
+//- (void)setSubModel:(ChartSubModel *)subModel {
+//    _subModel = subModel;
+//    _tHeader.subModel = subModel;
+//}
 - (void)setNavigationIndex:(NSInteger)navigationIndex {
     _navigationIndex = navigationIndex;
     [self reloadData];
 }
 - (void)setSegmentIndex:(NSInteger)segmentIndex {
     _segmentIndex = segmentIndex;
-    _tHeader.segmentIndex = segmentIndex;
+//    _tHeader.segmentIndex = segmentIndex;
 }
 
 
@@ -83,10 +88,13 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return self.model.group.count;
-    return 1;
+//    return 1;
+    return self.model.groupArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChartTableCell *cell = [ChartTableCell loadFirstNib:tableView];
+    cell.maxPrice = [[self.model.groupArr valueForKeyPath:@"@max.price.floatValue"] floatValue];
+    cell.model = self.model.groupArr[indexPath.row];
 //    cell.maxPrice = [[self.model.group valueForKeyPath:@"@max.price.floatValue"] floatValue];
 //    cell.model = self.model.group[indexPath.row];
     return cell;

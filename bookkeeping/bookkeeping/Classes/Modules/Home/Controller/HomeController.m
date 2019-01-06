@@ -40,7 +40,7 @@
     [self list];
     [self setDate:[NSDate date]];
     [self monitorNotification];
-    [self setModels:[BKMonthModel statisticalDataWithYear:_date.year month:_date.month]];
+    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
 }
 // 监听通知
 - (void)monitorNotification {
@@ -48,7 +48,7 @@
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
-        [self setModels:[BKMonthModel statisticalDataWithYear:self.date.year month:self.date.month]];
+        [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
 }
 
@@ -123,22 +123,22 @@
     @weakify(self)
     NSDate *date = self.date;
     NSDate *min = [NSDate br_setYear:2000 month:1 day:1];
-    NSDate *max = [NSDate br_setYear:date.year + 3 month:12 day:31];
+    NSDate *max = [NSDate br_setYear:[NSDate date].year + 3 month:12 day:31];
     [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYM defaultSelValue:[date formatYM] minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
         @strongify(self)
         [self setDate:[NSDate dateWithYM:selectValue]];
-        [self setModels:[BKMonthModel statisticalDataWithYear:self.date.year month:self.date.month]];
+        [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
 }
 // 下拉
 - (void)homeTablePull:(id)data {
     [self setDate:[self.date offsetMonths:1]];
-    [self setModels:[BKMonthModel statisticalDataWithYear:_date.year month:_date.month]];
+    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
 }
 // 上拉
 - (void)homeTableUp:(id)data {
     [self setDate:[self.date offsetMonths:-1]];
-    [self setModels:[BKMonthModel statisticalDataWithYear:_date.year month:_date.month]];
+    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
 }
 // 删除Cell
 - (void)homeTableCellRemove:(HomeListSubCell *)cell {
@@ -153,7 +153,7 @@
     [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
     
     // 更新
-    [self setModels:[BKMonthModel statisticalDataWithYear:_date.year month:_date.month]];
+    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
 }
 // 点击Cell
 - (void)homeTableCellClick:(BKModel *)model {
@@ -162,11 +162,16 @@
     if ([detail boolValue] == true) {
         BDController *vc = [[BDController alloc] init];
         vc.model = model;
+        vc.complete = ^{
+            [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+        };
         [self.navigationController pushViewController:vc animated:true];
     }
     // 修改
     else {
-        
+        BKCController *vc = [[BKCController alloc] init];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:true];
     }
 }
 

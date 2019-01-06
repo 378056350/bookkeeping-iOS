@@ -8,9 +8,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+#pragma mark - typedef
+typedef void (^BDComplete)(void);
+
+
+#pragma mark - 声明
 @interface BDController : BaseViewController
 
 @property (nonatomic, strong) BKModel *model;
+@property (nonatomic, copy  ) BDComplete complete;
 
 @end
 

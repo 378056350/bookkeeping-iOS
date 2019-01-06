@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,18 +38,17 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Oue-Do-TWE" firstAttribute="leading" secondItem="shk-5s-fAd" secondAttribute="leading" id="L5c-8A-gYb"/>
-                <constraint firstItem="hQF-3R-aOB" firstAttribute="top" secondItem="kT4-6H-zaa" secondAttribute="top" id="LpV-6Q-YiO"/>
-                <constraint firstItem="hQF-3R-aOB" firstAttribute="leading" secondItem="kT4-6H-zaa" secondAttribute="leading" constant="15" id="OGq-MT-9rh"/>
+                <constraint firstItem="hQF-3R-aOB" firstAttribute="top" secondItem="shk-5s-fAd" secondAttribute="top" id="LpV-6Q-YiO"/>
+                <constraint firstItem="hQF-3R-aOB" firstAttribute="leading" secondItem="shk-5s-fAd" secondAttribute="leading" constant="15" id="OGq-MT-9rh"/>
                 <constraint firstAttribute="trailing" secondItem="Oue-Do-TWE" secondAttribute="trailing" id="RyU-WU-hkD"/>
                 <constraint firstAttribute="bottom" secondItem="Oue-Do-TWE" secondAttribute="bottom" id="kdg-ju-Kga"/>
                 <constraint firstItem="HsW-gQ-Tib" firstAttribute="top" secondItem="shk-5s-fAd" secondAttribute="top" id="m8s-hB-nYm"/>
-                <constraint firstItem="kT4-6H-zaa" firstAttribute="trailing" secondItem="HsW-gQ-Tib" secondAttribute="trailing" constant="15" id="s0S-Af-JxW"/>
-                <constraint firstItem="kT4-6H-zaa" firstAttribute="bottom" secondItem="hQF-3R-aOB" secondAttribute="bottom" id="uVJ-ho-VTu"/>
+                <constraint firstAttribute="trailing" secondItem="HsW-gQ-Tib" secondAttribute="trailing" constant="15" id="s0S-Af-JxW"/>
+                <constraint firstAttribute="bottom" secondItem="hQF-3R-aOB" secondAttribute="bottom" id="uVJ-ho-VTu"/>
                 <constraint firstItem="Oue-Do-TWE" firstAttribute="top" secondItem="HsW-gQ-Tib" secondAttribute="bottom" id="vLI-FE-n8z"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="kT4-6H-zaa"/>
             <connections>
                 <outlet property="detailLab" destination="HsW-gQ-Tib" id="4mu-bR-Zx2"/>
                 <outlet property="detaileConstraintR" destination="s0S-Af-JxW" id="j5O-5i-yVV"/>

@@ -7,12 +7,13 @@
 //
 
 #import "BaseTableCell.h"
-//#import "BKModel.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BCHUDContentCell : BaseTableCell
 
+@property (nonatomic, strong) BKModel *model;
 //@property (nonatomic, strong) BookListModel *model;
 
 @end

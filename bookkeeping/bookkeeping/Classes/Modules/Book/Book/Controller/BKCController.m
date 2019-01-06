@@ -42,31 +42,29 @@
 //    [self getCategoryListRequest];
     
     
-    /**
-     
-     // 支出
-     #define PIN_CATE_SYS_HAS_PAY              @"PIN_CATE_SYS_HAS_PAY"              // 系统 - 添加的 - 支出
-     #define PIN_CATE_SYS_REMOVE_PAY           @"PIN_CATE_SYS_REMOVE_PAY"           // 系统 - 删除的 - 支出
-     #define PIN_CATE_CUS_HAS_PAY              @"PIN_CATE_CUS_HAS_PAY"              // 用户 - 添加的 - 支出
-     #define PIN_CATE_SYS_Has_PAY_SYNCED       @"PIN_CATE_SYS_Has_PAY_SYNCED"       // 系统 - 添加的 - 支出 - 未同步(同步后应该为空)
-     #define PIN_CATE_SYS_REMOVE_PAY_SYNCED    @"PIN_CATE_SYS_REMOVE_PAY_SYNCED"    // 系统 - 删除的 - 支出 - 未同步(同步后应该为空)
-     #define PIN_CATE_CUS_HAS_PAY_SYNCED       @"PIN_CATE_CUS_HAS_PAY_SYNCED"       // 用户 - 添加的 - 支出 - 未同步(同步后应该为空)
-     #define PIN_CATE_CUS_REMOVE_PAY_SYNCED    @"PIN_CATE_CUS_REMOVE_PAY_SYNCED"    // 用户 - 删除的 - 支出 - 未同步(同步后应该为空)
-     
-     // 收入
-     #define PIN_CATE_SYS_HAS_INCOME              @"PIN_CATE_SYS_HAS_INCOME"              // 系统 - 添加的 - 收入
-     #define PIN_CATE_SYS_REMOVE_INCOME           @"PIN_CATE_SYS_REMOVE_INCOME"           // 系统 - 删除的 - 收入
-     #define PIN_CATE_CUS_HAS_INCOME              @"PIN_CATE_CUS_HAS_INCOME"              // 用户 - 添加的 - 收入
-     #define PIN_CATE_SYS_Has_INCOME_SYNCED       @"PIN_CATE_SYS_Has_INCOME_SYNCED"       // 系统 - 添加的 - 收入 - 未同步(同步后应该为空)
-     #define PIN_CATE_SYS_REMOVE_INCOME_SYNCED    @"PIN_CATE_SYS_REMOVE_INCOME_SYNCED"    // 系统 - 删除的 - 收入 - 未同步(同步后应该为空)
-     #define PIN_CATE_CUS_HAS_INCOME_SYNCED       @"PIN_CATE_CUS_HAS_INCOME_SYNCED"       // 用户 - 添加的 - 收入 - 未同步(同步后应该为空)
-     #define PIN_CATE_CUS_REMOVE_INCOME_SYNCED    @"PIN_CATE_CUS_REMOVE_INCOME_SYNCED"    // 用户 - 删除的 - 收入 - 未同步(同步后应该为空)
-     
-     */
-    
     
     [self bendiData];
     
+    
+    if (_model) {
+        BOOL is_income = _model.cmodel.is_income;
+        [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * is_income, 0) animated:false];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            BKCCollection *collection = _collections[is_income];
+            NSMutableArray *arrm = [NSMutableArray array];
+            if (is_income == false) {
+                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY]];
+                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+            } else {
+                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+            }
+            [collection setSelectIndex:[NSIndexPath indexPathForRow:[arrm indexOfObject:_model.cmodel] inSection:0]];
+            [collection reloadData];
+            [self bookClickItem:collection];
+            [self.keyboard setModel:_model];
+        });
+    }
     
 }
 
@@ -102,14 +100,6 @@
 }
 
 
-#pragma mark - 点击
-- (void)rightButtonClick {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-
-
 #pragma mark - 请求
 // 获取我的分类
 - (void)getCategoryListRequest {
@@ -124,7 +114,6 @@
     NSInteger index = self.scroll.contentOffset.x / SCREEN_WIDTH;
     BKCCollection *collection = self.collections[index];
     BKCModel *cmodel = collection.model.list[collection.selectIndex.row];
-
     BKModel *model = [[BKModel alloc] init];
     model.Id = random() % 1000000000;
     model.price = [price floatValue];
@@ -135,16 +124,47 @@
     model.category_id = cmodel.Id;
     model.cmodel = cmodel;
     
-    NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
-    NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
-    [bookArr addObject:model];
-    [bookSyncedArr addObject:model];
-    [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
-    [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+    // 新增
+    if (!_model) {
+        
+        NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+        NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+        [bookArr addObject:model];
+        [bookSyncedArr addObject:model];
+        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
+        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+    }
+    // 修改
+    else {
+        _model.price = [price floatValue];
+        _model.year = date.year;
+        _model.month = date.month;
+        _model.day = date.day;
+        _model.mark = mark;
+        _model.category_id = cmodel.Id;
+        _model.cmodel = cmodel;
+        model = _model;
+        
+        NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+        NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+        NSInteger index = [bookArr indexOfObject:model];
+        [bookArr replaceObjectAtIndex:index withObject:model];
+        if ([bookSyncedArr containsObject:model]) {
+            [bookSyncedArr replaceObjectAtIndex:index withObject:model];
+        }
+        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
+        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+    }
     
-    [self.navigationController dismissViewControllerAnimated:true completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:nil];
-    }];
+    
+    if (self.navigationController.viewControllers.count != 1) {
+        [self.navigationController popViewControllerAnimated:true];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:model];
+    } else {
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_COMPLETE object:model];
+        }];
+    }
 }
 
 
@@ -197,9 +217,6 @@
         CAController *vc = [[CAController alloc] init];
         [vc setIs_income:collection.tag];
         [vc setComplete:^{
-//            [AFNManager POST:CategoryListRequest params:@{} complete:^(APPResult *result) {
-//                [self setModels:[BKCIncomeModel mj_objectArrayWithKeyValuesArray:result.data]];
-//            }];
             [self bendiData];
         }];
         [self.navigationController pushViewController:vc animated:YES];

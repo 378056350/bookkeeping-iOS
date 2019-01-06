@@ -113,7 +113,13 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView.contentOffset.y < -54) {
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+        if (self.viewController.navigationController.viewControllers.count != 1) {
+            [self.viewController.navigationController popViewControllerAnimated:true];
+        } else {
+            [self.viewController.navigationController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
     }
 }
 

@@ -22,7 +22,7 @@
 
 - (void)initUI {
     [self setBackgroundColor:kColor_Main_Color];
-    [self.iconConstraintT setConstant:0];
+    [self.iconConstraintT setConstant:StatusBarHeight];
 }
 
 

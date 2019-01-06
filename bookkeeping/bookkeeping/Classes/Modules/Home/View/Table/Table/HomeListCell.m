@@ -49,7 +49,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.models.count;
+    return self.models ? self.models.count : 0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.models[section].list.count;
@@ -124,6 +124,7 @@
         [_table setShowsVerticalScrollIndicator:false];
         [_table setSeparatorColor:kColor_Line_Color];
         [_table setBackgroundColor:kColor_White];
+        [_table setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.1)]];
         [self.contentView addSubview:_table];
     }
     return _table;

@@ -4,10 +4,13 @@
  */
 
 #import "BaseViewController.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BKCController : BaseViewController
+
+@property (nonatomic, strong) BKModel *model;
 
 @end
 

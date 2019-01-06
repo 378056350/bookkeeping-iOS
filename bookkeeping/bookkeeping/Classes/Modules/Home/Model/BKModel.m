@@ -26,17 +26,28 @@
         return false;
     }
     BKModel *model = object;
-    if ([self Id] == [model Id] &&
-        [self category_id] == [model category_id] &&
-        [self price] == [model price] &&
-        [self year] == [model year] &&
-        [self month] == [model month] &&
-        [self day] == [model day] &&
-        [self mark] == [model mark] &&
-        [self.cmodel isEqual:model.cmodel]) {
+    if ([self Id] == [model Id]) {
         return true;
     }
     return false;
+}
+
+- (NSString *)dateStr {
+    NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", _year, _month, _day];
+    NSDate *date = [NSDate dateWithYMD:str];
+    return [NSString stringWithFormat:@"%ld年%02ld月%02ld日   %@", _year, _month, _day, [date dayFromWeekday]];
+}
+
+- (NSDate *)date {
+    return [NSDate dateWithYMD:[NSString stringWithFormat:@"%ld-%02ld-%02ld", _year, _month, _day]];
+}
+
+- (NSInteger)dateNumber {
+    return [[NSString stringWithFormat:@"%ld%02ld%02ld", _year, _month, _day] integerValue];
+}
+
+- (NSInteger)week {
+    return [self.date weekOfYear];
 }
 
 @end
@@ -76,8 +87,7 @@
     return strm;
 }
 
-// 统计数据
-+ (NSMutableArray<BKMonthModel *> *)statisticalDataWithYear:(NSInteger)year month:(NSInteger)month {
++ (NSMutableArray<BKMonthModel *> *)statisticalMonthWithYear:(NSInteger)year month:(NSInteger)month {
     // 根据时间过滤
     NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"year == %ld AND month == %ld", year, month];
@@ -122,118 +132,135 @@
 @end
 
 
-//@implementation BookListModel
-//
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-//    self = [super init];
-//    if (!self) {
-//        return nil;
-//    }
-//    self = [NSObject decodeClass:self decoder:aDecoder];
-//    return self;
-//}
-//
-//- (void)encodeWithCoder:(NSCoder *)aCoder {
-//    [NSObject encodeClass:self encoder:aCoder];
-//}
-//
-//@end
-//
-//
-//@implementation BookGroupModel
-//
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-//    self = [super init];
-//    if (!self) {
-//        return nil;
-//    }
-//    self = [NSObject decodeClass:self decoder:aDecoder];
-//    return self;
-//}
-//
-//- (void)encodeWithCoder:(NSCoder *)aCoder {
-//    [NSObject encodeClass:self encoder:aCoder];
-//}
-//
-//@end
-//
-//
-//@implementation BKModel
-//
-//+ (void)load {
-//    [BKModel mj_setupObjectClassInArray:^NSDictionary *{
-//        return @{
-//                 @"list": @"BookListModel",
-//                 @"group": @"BookGroupModel"
-//                 };
-//    }];
-//}
-//
-//+ (instancetype)mj_objectWithKeyValues:(id)keyValues {
-//    CGFloat income = 0;
-//    CGFloat pay = 0;
-//    BKModel *model = [super mj_objectWithKeyValues:keyValues];
-//    // 列表数据
-//    if (model.list.count != 0) {
-//        for (BookListModel *submodel in model.list) {
-//            if (submodel.is_income == 0) {
-//                pay += submodel.price;
-//            } else {
-//                income += submodel.price;
-//            }
-//        }
-//    }
-//    // 组数据
-//    else if (model.group.count != 0) {
-//        for (BookGroupModel *submodel in model.list) {
-//            if (submodel.is_income == 0) {
-//                pay += submodel.price;
-//            } else {
-//                income += submodel.price;
-//            }
-//        }
-//    }
-//    // 收入
-//    model.income = income;
-//    // 支出
-//    model.pay = pay;
-//    // 整理列表数据
-//    model.listSorts = ({
-//        NSMutableArray<NSMutableArray<BookListModel *> *> *lists = [NSMutableArray array];
-//        if (model.list.count != 0) {
-//            [lists addObject:[NSMutableArray array]];
-//            NSInteger day = model.list[0].day;
-//            for (BookListModel *submodel in model.list) {
-//                if (submodel.day == day) {
-//                    [[lists lastObject] addObject:submodel];
-//                } else {
-//                    day = submodel.day;
-//                    [lists addObject:[NSMutableArray array]];
-//                    [[lists lastObject] addObject:submodel];
-//                }
-//                if (submodel.is_income == 0) {
-//                    pay += submodel.price;
-//                } else {
-//                    income += submodel.price;
-//                }
-//            }
-//        }
-//        lists;
-//    });
-//    return model;
-//}
-//
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-//    self = [super init];
-//    if (!self) {
-//        return nil;
-//    }
-//    self = [NSObject decodeClass:self decoder:aDecoder];
-//    return self;
-//}
-//
-//- (void)encodeWithCoder:(NSCoder *)aCoder {
-//    [NSObject encodeClass:self encoder:aCoder];
-//}
 
-//@end
+
+@implementation BKChartModel
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self = [NSObject decodeClass:self decoder:aDecoder];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [NSObject encodeClass:self encoder:aCoder];
+}
+
++ (BKChartModel *)statisticalChart:(NSInteger)status isIncome:(BOOL)isIncome date:(NSDate *)date {
+    NSMutableString *preStr = [NSMutableString string];
+    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+    [preStr appendFormat:@"cmodel.is_income == %d", isIncome];
+    // 周
+    if (status == 0) {
+        NSDate *start = [date offsetDays:[date weekday] - 7];
+        NSDate *end =  [date offsetDays:[date weekday] - 1];
+        NSDateFormatter *fora = [[NSDateFormatter alloc] init];
+        [fora setDateFormat:@"yyyyMMdd"];
+        NSInteger startStr = [[fora stringFromDate:start] integerValue];
+        NSInteger endStr = [[fora stringFromDate:end] integerValue];
+        
+        [preStr appendFormat:@" AND dateNumber >= %ld AND dateNumber <= %ld", startStr, endStr];
+    }
+    // 月
+    else if (status == 1) {
+        [preStr appendFormat:@" AND year == %ld AND month == %ld", date.year, date.month];
+    }
+    // 年
+    else if (status == 2) {
+        [preStr appendFormat:@" AND year == %ld", date.year];
+    }
+    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+    
+    
+    NSMutableArray<BKModel *> *chartArr = [NSMutableArray array];
+    NSMutableArray<NSMutableArray<BKModel *> *> *chartHudArr = [NSMutableArray array];
+    // 周
+    if (status == 0) {
+        NSDate *first = [date offsetDays:[date weekday] - 7];
+        for (int i=0; i<7; i++) {
+            NSDate *date = [first offsetDays:i];
+            BKModel *model = [[BKModel alloc] init];
+            model.year = date.year;
+            model.month = date.month;
+            model.day = date.day;
+            model.price = 0;
+            [chartArr addObject:model];
+            [chartHudArr addObject:[NSMutableArray array]];
+        }
+        for (BKModel *model in models) {
+            chartArr[7 - [model.date weekday]].price += model.price;
+            [chartHudArr[7 - [model.date weekday]] addObject:model];
+        }
+    }
+    // 月
+    else if (status == 1) {
+        for (int i=1; i<=[date daysInMonth]; i++) {
+            BKModel *model = [[BKModel alloc] init];
+            model.year = date.year;
+            model.month = [date daysInMonth];
+            model.day = i;
+            model.price = 0;
+            [chartArr addObject:model];
+            [chartHudArr addObject:[NSMutableArray array]];
+        }
+        for (BKModel *model in models) {
+            chartArr[model.day-1].price += model.price;
+            [chartHudArr[model.day-1] addObject:model];
+        }
+    }
+    // 年
+    else if (status == 2) {
+        for (int i=1; i<=12; i++) {
+            BKModel *model = [[BKModel alloc] init];
+            model.year = date.year;
+            model.month = i;
+            model.day = 1;
+            model.price = 0;
+            [chartArr addObject:model];
+            [chartHudArr addObject:[NSMutableArray array]];
+        }
+        for (BKModel *model in models) {
+            chartArr[model.month-1].price += model.price;
+            [chartHudArr[model.month-1] addObject:model];
+        }
+    }
+    
+    
+    NSMutableArray<BKModel *> *groupArr = [NSMutableArray array];
+    for (BKModel *model in models) {
+        NSInteger index = -1;
+        for (NSInteger i=0; i<groupArr.count; i++) {
+            BKModel *submodel = groupArr[i];
+            if (submodel.category_id == model.category_id) {
+                index = i;
+            }
+        }
+        if (index == -1) {
+            [groupArr addObject:model];
+        }
+        else {
+            groupArr[index].price += model.price;
+        }
+    }
+    [groupArr sortUsingComparator:^NSComparisonResult(BKModel *obj1, BKModel *obj2) {
+        return obj1.price < obj2.price;
+    }];
+    
+    
+    BKChartModel *model = [[BKChartModel alloc] init];
+    model.groupArr = groupArr;
+    model.chartArr = chartArr;
+    model.chartHudArr = chartHudArr;
+    model.sum = [[chartArr valueForKeyPath:@"@sum.price.floatValue"] floatValue];
+    model.max = [[chartArr valueForKeyPath:@"@max.price.floatValue"] floatValue];
+    model.avg = [[NSString stringWithFormat:@"%.2f", model.sum / chartArr.count] floatValue];
+    model.is_income = isIncome;
+    return model;
+}
+
+@end
+

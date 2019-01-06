@@ -39,22 +39,21 @@
 
 
 #pragma mark - set
-//- (void)setModels:(NSMutableArray<BookListModel *> *)models {
-//    _models = models;
-//    [self.table reloadData];
-//    [self.lab setHidden:models.count != 0];
-//    [self.table setHidden:models.count == 0];
-//}
+- (void)setModels:(NSMutableArray<BKModel *> *)models {
+    _models = models;
+    [self.table reloadData];
+    [self.lab setHidden:models.count != 0];
+    [self.table setHidden:models.count == 0];
+}
 
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.models.count > 3 ? 3 : self.models.count;
-    return 1;
+    return self.models.count > 3 ? 3 : self.models.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BCHUDContentCell *cell = [BCHUDContentCell loadFirstNib:tableView];
-//    cell.model = self.models[indexPath.row];
+    cell.model = self.models[indexPath.row];
     return cell;
 }
 

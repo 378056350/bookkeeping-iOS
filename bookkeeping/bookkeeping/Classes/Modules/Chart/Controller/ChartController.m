@@ -26,8 +26,11 @@
 @property (nonatomic, assign) NSInteger segmentIndex;
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) ChartRangeModel *timeModel;
-@property (nonatomic, strong) BKModel *model;
+//@property (nonatomic, strong) ChartRangeModel *timeModel;
+//@property (nonatomic, strong) BKModel *model;
+@property (nonatomic, strong) BKChartModel *model;
+@property (nonatomic, strong) BKModel *minModel;
+@property (nonatomic, strong) BKModel *maxModel;
 
 @end
 
@@ -46,73 +49,106 @@
     [self table];
     [self chud];
     [self setNavigationIndex:0];
-    [self bookRangeRequest];
+    
+    [self updateDateRange];
+    [self monitorNotification];
+    [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+}
+// 监听通知
+- (void)monitorNotification {
+    // 记账完成
+    @weakify(self)
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self updateDateRange];
+        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+    }];
+}
+// 更新时间范围
+- (void)updateDateRange {
+    // 收入
+    NSInteger is_income = _navigationIndex == 1;
+    NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+    NSString *preStr = [NSString stringWithFormat:@"cmodel.is_income == %ld", is_income];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+    // 最小时间
+    _minModel = ({
+        NSDate *minDate = [models valueForKeyPath:@"@min.date"];
+        preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", minDate.year, minDate.month, minDate.day];
+        pre = [NSPredicate predicateWithFormat:preStr];
+        [models filteredArrayUsingPredicate:pre][0];
+    });
+    // 最大时间
+    _maxModel = ({
+        NSDate *maxDate = [models valueForKeyPath:@"@max.date"];
+        preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", maxDate.year, maxDate.month, maxDate.day];
+        pre = [NSPredicate predicateWithFormat:preStr];
+        [models filteredArrayUsingPredicate:pre][0];
+    });
+    
+    
+    _subdate.minModel = _minModel;
+    _subdate.maxModel = _maxModel;
+    
+    
 }
 
 
 #pragma mark - 请求
 // 时间范围
 - (void)bookRangeRequest {
-    @weakify(self)
-    [AFNManager POST:GetBookRangeRequest params:nil complete:^(APPResult *result) {
-        @strongify(self)
-        if (result.status == ServiceCodeSuccess) {
-            [self setTimeModel:[ChartRangeModel mj_objectWithKeyValues:result.data]];
-        } else {
-            [self showTextHUD:result.message delay:1.f];
-        }
-    }];
+//    @weakify(self)
+//    [AFNManager POST:GetBookRangeRequest params:nil complete:^(APPResult *result) {
+//        @strongify(self)
+//        if (result.status == ServiceCodeSuccess) {
+//            [self setTimeModel:[ChartRangeModel mj_objectWithKeyValues:result.data]];
+//        } else {
+//            [self showTextHUD:result.message delay:1.f];
+//        }
+//    }];
 }
 // 查账
 - (void)bookRequest {
-    NSMutableDictionary *param = ({
-        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        [param setObject:@(self.navigation.navigationIndex) forKey:@"isIncome"];
-        [param setObject:@(1) forKey:@"hasList"];
-        [param setObject:@(1) forKey:@"hasGroup"];
-        if (_seg.seg.selectedSegmentIndex == 0) {
-            [param setObject:@([self.date year]) forKey:@"year"];
-            [param setObject:@([self.date month]) forKey:@"month"];
-            [param setObject:@([self.date day]) forKey:@"day"];
-            [param setObject:@([self.date weekOfYear]) forKey:@"week"];
-            [param setObject:@(1) forKey:@"week_year"];
-        } else if (_seg.seg.selectedSegmentIndex == 1) {
-            [param setObject:@([self.date year]) forKey:@"year"];
-            [param setObject:@([self.date month]) forKey:@"month"];
-        } else if (_seg.seg.selectedSegmentIndex == 2) {
-            [param setObject:@([self.date year]) forKey:@"year"];
-        }
-        param;
-    });
-    @weakify(self)
-    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
-        @strongify(self)
-        // 成功
-        if (result.status == ServiceCodeSuccess) {
-            [self setModel:[BKModel mj_objectWithKeyValues:result.data]];
-        }
-        // 失败
-        else {
-            [self showWindowTextHUD:result.message delay:1.f];
-        }
-    }];
+//    NSMutableDictionary *param = ({
+//        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+//        [param setObject:@(self.navigation.navigationIndex) forKey:@"isIncome"];
+//        [param setObject:@(1) forKey:@"hasList"];
+//        [param setObject:@(1) forKey:@"hasGroup"];
+//        if (_seg.seg.selectedSegmentIndex == 0) {
+//            [param setObject:@([self.date year]) forKey:@"year"];
+//            [param setObject:@([self.date month]) forKey:@"month"];
+//            [param setObject:@([self.date day]) forKey:@"day"];
+//            [param setObject:@([self.date weekOfYear]) forKey:@"week"];
+//            [param setObject:@(1) forKey:@"week_year"];
+//        } else if (_seg.seg.selectedSegmentIndex == 1) {
+//            [param setObject:@([self.date year]) forKey:@"year"];
+//            [param setObject:@([self.date month]) forKey:@"month"];
+//        } else if (_seg.seg.selectedSegmentIndex == 2) {
+//            [param setObject:@([self.date year]) forKey:@"year"];
+//        }
+//        param;
+//    });
+//    @weakify(self)
+//    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
+//        @strongify(self)
+//        // 成功
+//        if (result.status == ServiceCodeSuccess) {
+//            [self setModel:[BKModel mj_objectWithKeyValues:result.data]];
+//        }
+//        // 失败
+//        else {
+//            [self showWindowTextHUD:result.message delay:1.f];
+//        }
+//    }];
 }
 
 
 #pragma mark - set
-- (void)setTimeModel:(ChartRangeModel *)timeModel {
-    _timeModel = timeModel;
-    _subdate.timeModel = timeModel;
-    [self setDate:timeModel.max_date];
-    [self bookRequest];
-}
-- (void)setModel:(BKModel *)model {
+- (void)setModel:(BKChartModel *)model {
     _model = model;
-    _subdate.model = model;
-    _table.subModel = _subdate.subModels[_subdate.selectIndex.row];
     _table.model = model;
 }
-
 - (void)setNavigationIndex:(NSInteger)navigationIndex {
     _navigationIndex = navigationIndex;
     _navigation.navigationIndex = navigationIndex;
@@ -146,7 +182,8 @@
             @strongify(self)
             [self setDate:[NSDate date]];
             [self setSegmentIndex:seg.selectedSegmentIndex];
-            [self bookRangeRequest];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+//            [self bookRangeRequest];
         }];
         [self.view addSubview:_seg];
     }
@@ -162,8 +199,13 @@
             NSInteger day = model.day == -1 ? 1 : model.day;
             NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
             [self setDate:[NSDate dateWithYMD:str]];
-            [self.table setSubModel:model];
-            [self bookRequest];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+//            NSInteger month = model.month == -1 ? 1 : model.month;
+//            NSInteger day = model.day == -1 ? 1 : model.day;
+//            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
+//            [self setDate:[NSDate dateWithYMD:str]];
+//            [self.table setSubModel:model];
+//            [self bookRequest];
         }];
         [self.view addSubview:_subdate];
     }
@@ -187,7 +229,8 @@
         [_chud setComplete:^(NSInteger index) {
             @strongify(self)
             [self setNavigationIndex:index];
-            [self bookRangeRequest];
+//            [self bookRangeRequest];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
         }];
         [self.view addSubview:_chud];
     }

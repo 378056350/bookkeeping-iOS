@@ -43,6 +43,9 @@
                         <constraint firstAttribute="height" constant="40" id="uv4-H9-6Q4"/>
                     </constraints>
                     <state key="normal" title="取消"/>
+                    <connections>
+                        <action selector="cancleClick:" destination="qse-rG-apa" eventType="touchUpInside" id="1ld-zB-SSV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

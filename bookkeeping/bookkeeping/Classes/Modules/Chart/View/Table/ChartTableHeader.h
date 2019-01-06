@@ -4,7 +4,6 @@
  */
 
 #import "BaseView.h"
-#import "ChartSubModel.h"
 #import "BKModel.h"
 
 
@@ -12,9 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartTableHeader : BaseView
 
-@property (nonatomic, assign) NSInteger segmentIndex;
-@property (nonatomic, strong) ChartSubModel *subModel;
-@property (nonatomic, strong) BKModel *model;
+@property (nonatomic, strong) BKChartModel *model;
 
 @end
 

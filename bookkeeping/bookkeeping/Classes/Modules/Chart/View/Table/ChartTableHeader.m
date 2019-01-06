@@ -37,17 +37,19 @@
 
 
 #pragma mark - set
-- (void)setModel:(BKModel *)model {
+- (void)setModel:(BKChartModel *)model {
     _model = model;
     _chart.model = model;
-}
-- (void)setSegmentIndex:(NSInteger)segmentIndex {
-    _segmentIndex = segmentIndex;
-    _chart.segmentIndex = segmentIndex;
-}
-- (void)setSubModel:(ChartSubModel *)subModel {
-    _subModel = subModel;
-    _chart.subModel = subModel;
+    _avgLab.text = [NSString stringWithFormat:@"平均值: %@", [@(model.avg) description]];
+    _maxLab.text = ({
+        NSString *str;
+        if (model.is_income == false) {
+            str = [NSString stringWithFormat:@"总支出: %@", [@(model.sum) description]];
+        } else {
+            str = [NSString stringWithFormat:@"总收入: %@", [@(model.sum) description]];
+        }
+        str;
+    });
 }
 
 

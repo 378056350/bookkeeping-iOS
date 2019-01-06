@@ -81,6 +81,17 @@
 }
 
 
+- (IBAction)cancleClick:(UIButton *)sender {
+    if (self.viewController.navigationController.viewControllers.count != 1) {
+        [self.viewController.navigationController popViewControllerAnimated:true];
+    } else {
+        [self.viewController.navigationController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
+}
+
+
 #pragma mark - get
 - (UIView *)line {
     if (!_line) {

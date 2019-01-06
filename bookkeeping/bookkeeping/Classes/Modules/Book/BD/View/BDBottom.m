@@ -7,6 +7,8 @@
 //
 
 #import "BDBottom.h"
+#import "BD_EVENT.h"
+
 
 #pragma mark - 声明
 @interface BDBottom()
@@ -23,7 +25,7 @@
 
 
 - (void)initUI {
-    [self setBackgroundColor:kColor_BG];
+    [self setBackgroundColor:[UIColor whiteColor]];
     [self.editBtn.titleLabel setFont:[UIFont systemFontOfSize:AdjustFont(12)]];
     [self.editBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.editBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
@@ -31,6 +33,13 @@
     [self.delBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.delBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
     [self.editConstraintB setConstant:SafeAreaBottomHeight];
+    
+}
+- (IBAction)editBtnClick:(UIButton *)sender {
+    [self routerEventWithName:BD_BOTTOM_CLICK data:@(0)];
+}
+- (IBAction)delBtnClick:(UIButton *)sender {
+    [self routerEventWithName:BD_BOTTOM_CLICK data:@(1)];
 }
 
 
