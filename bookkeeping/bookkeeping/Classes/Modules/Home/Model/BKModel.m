@@ -193,7 +193,7 @@
             [chartHudArr addObject:[NSMutableArray array]];
         }
         for (BKModel *model in models) {
-            chartArr[7 - [model.date weekday]].price += model.price;
+            chartArr[[model.date weekday] - 1].price += model.price;
             [chartHudArr[7 - [model.date weekday]] addObject:model];
         }
     }

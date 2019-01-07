@@ -11,9 +11,6 @@
 
 @property (nonatomic, strong) UICollectionView *collection;
 @property (nonatomic, strong) UIView *line;
-@property (nonatomic, strong) ChartSubModel *selectModel;
-@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexs;
-@property (nonatomic, strong) NSMutableArray<NSMutableArray<ChartSubModel *> *> *sModels;
 
 @end
 
@@ -35,6 +32,7 @@
 - (void)updateDateRange {
     // 没数据
     if (!_minModel && !_maxModel) {
+        [self.selectIndexs removeAllObjects];
         for (NSInteger i=0; i<3; i++) {
             [self.selectIndexs addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
             [self.sModels replaceObjectAtIndex:i withObject:({
@@ -166,6 +164,10 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self collectionDidSelect:self.selectIndexs[self.segmentIndex] animation:false];
     });
+}
+- (void)setNavigationIndex:(NSInteger)navigationIndex {
+    _navigationIndex = navigationIndex;
+    [self updateDateRange];
 }
 
 

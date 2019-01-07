@@ -58,6 +58,7 @@
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
+        [self setDate:[NSDate date]];
         [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
         [self updateDateRange];
     }];
@@ -162,6 +163,7 @@
 - (void)setNavigationIndex:(NSInteger)navigationIndex {
     _navigationIndex = navigationIndex;
     _navigation.navigationIndex = navigationIndex;
+    _subdate.navigationIndex = navigationIndex;
     _table.navigationIndex = navigationIndex;
 }
 - (void)setSegmentIndex:(NSInteger)segmentIndex {
@@ -190,10 +192,17 @@
         _seg = [ChartSegmentControl loadFirstNib:CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, countcoordinatesX(50))];
         [[_seg.seg rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl *seg) {
             @strongify(self)
-            [self setDate:[NSDate date]];
+            [self setDate:({
+                NSInteger index = seg.selectedSegmentIndex;
+                NSIndexPath *indexPath = self.subdate.selectIndexs[index];
+                ChartSubModel *model = self.subdate.sModels[index][indexPath.row];
+                NSInteger month = model.month == -1 ? 1 : model.month;
+                NSInteger day = model.day == -1 ? 1 : model.day;
+                NSDate *date = [NSDate dateWithYMD:[NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day]];
+                date;
+            })];
             [self setSegmentIndex:seg.selectedSegmentIndex];
             [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
-//            [self bookRangeRequest];
         }];
         [self.view addSubview:_seg];
     }
@@ -210,13 +219,6 @@
             NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
             [self setDate:[NSDate dateWithYMD:str]];
             [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
-            
-//            NSInteger month = model.month == -1 ? 1 : model.month;
-//            NSInteger day = model.day == -1 ? 1 : model.day;
-//            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
-//            [self setDate:[NSDate dateWithYMD:str]];
-//            [self.table setSubModel:model];
-//            [self bookRequest];
         }];
         [self.view addSubview:_subdate];
     }
@@ -240,8 +242,8 @@
         [_chud setComplete:^(NSInteger index) {
             @strongify(self)
             [self setNavigationIndex:index];
-            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
             [self updateDateRange];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
         }];
         [self.view addSubview:_chud];
     }
