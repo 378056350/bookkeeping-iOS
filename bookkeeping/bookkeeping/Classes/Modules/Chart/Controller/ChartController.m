@@ -11,6 +11,7 @@
 #import "ChartHUD.h"
 #import "ChartTableCell.h"
 #import "CHART_EVENT.h"
+#import "BDController.h"
 
 
 #pragma mark - 声明
@@ -177,12 +178,18 @@
     [invocation invoke];
     [super routerEventWithName:eventName data:data];
 }
+// 点击Cell
 - (void)chartTableClick:(NSIndexPath *)indexPath {
     BKModel *model = self.model.groupArr[indexPath.row];
-    
-    ChartController *vc = [[ChartController alloc] init];
-    vc.cmodel = model;
-    [self.navigationController pushViewController:vc animated:true];
+    if (!_cmodel) {
+        ChartController *vc = [[ChartController alloc] init];
+        vc.cmodel = model;
+        [self.navigationController pushViewController:vc animated:true];
+    } else {
+        BDController *vc = [[BDController alloc] init];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:true];
+    }
 }
 
 

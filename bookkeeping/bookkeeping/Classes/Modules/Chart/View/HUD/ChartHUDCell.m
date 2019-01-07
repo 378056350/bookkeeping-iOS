@@ -22,7 +22,7 @@
 - (void)initUI {
     [self setSelectedBackgroundView:[[UIView alloc] initWithFrame:self.frame]];
     [self.selectedBackgroundView setBackgroundColor:kColor_BG];
-    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
+    [self.nameLab setFont:[UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(12)]];
     [self.done setHidden:true];
 }
 

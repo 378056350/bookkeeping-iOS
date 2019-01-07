@@ -56,6 +56,19 @@
     return false;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone {
+    BKCModel *model = [[[self class] allocWithZone:zone] init];
+    model.Id = self.Id;
+    model.name = self.name;
+    model.icon_n = self.icon_n;
+    model.icon_l = self.icon_l;
+    model.icon_s = self.icon_s;
+    model.is_income = self.is_income;
+    model.is_system = self.is_system;
+    return model;
+}
+
+
 @end
 
 

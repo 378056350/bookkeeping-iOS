@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // 记账model
-@interface BKCModel : BaseModel<NSCoding>
+@interface BKCModel : BaseModel<NSCoding, NSCopying>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, strong) NSString *name;

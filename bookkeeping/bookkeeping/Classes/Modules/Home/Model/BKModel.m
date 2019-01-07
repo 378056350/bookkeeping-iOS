@@ -21,6 +21,23 @@
     [NSObject encodeClass:self encoder:aCoder];
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone {
+    BKModel *model = [[[self class] allocWithZone:zone] init];
+    model.Id = self.Id;
+    model.category_id = self.category_id;
+    model.price = self.price;
+    model.year = self.year;
+    model.month = self.month;
+    model.day = self.day;
+    model.week = self.week;
+    model.mark = self.mark;
+    model.dateStr = self.dateStr;
+    model.date = self.date;
+    model.dateNumber = self.dateNumber;
+    model.cmodel = [self.cmodel copy];
+    return model;
+}
+
 - (BOOL)isEqual:(id)object {
     if (![object isKindOfClass:[BKModel class]]) {
         return false;
@@ -149,6 +166,7 @@
     [NSObject encodeClass:self encoder:aCoder];
 }
 
+// 统计数据(图表首页)
 + (BKChartModel *)statisticalChart:(NSInteger)status isIncome:(BOOL)isIncome cmodel:(BKModel *)cmodel date:(NSDate *)date {
     NSMutableString *preStr = [NSMutableString string];
     NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
@@ -197,8 +215,8 @@
             [chartHudArr addObject:[NSMutableArray array]];
         }
         for (BKModel *model in models) {
-            chartArr[[model.date weekday] - 1].price += model.price;
-            [chartHudArr[7 - [model.date weekday]] addObject:model];
+            chartArr[7 - [model.date weekday]].price += model.price;
+            [chartHudArr[[model.date weekday] - 1] addObject:model];
         }
     }
     // 月
@@ -234,23 +252,40 @@
         }
     }
     
+    // 排序
+    for (NSMutableArray *arrm in chartHudArr) {
+        [arrm sortUsingComparator:^NSComparisonResult(BKModel *obj1, BKModel *obj2) {
+            return obj1.price < obj2.price;
+        }];
+    }
+    
     
     NSMutableArray<BKModel *> *groupArr = [NSMutableArray array];
-    for (BKModel *model in models) {
-        NSInteger index = -1;
-        for (NSInteger i=0; i<groupArr.count; i++) {
-            BKModel *submodel = groupArr[i];
-            if (submodel.category_id == model.category_id) {
-                index = i;
+    if (!cmodel) {
+        for (BKModel *model in models) {
+            NSInteger index = -1;
+            for (NSInteger i=0; i<groupArr.count; i++) {
+                BKModel *submodel = groupArr[i];
+                if (submodel.category_id == model.category_id) {
+                    index = i;
+                }
+            }
+            if (index == -1) {
+                BKModel *submodel = [model copy];
+                [groupArr addObject:submodel];
+            }
+            else {
+                groupArr[index].price += model.price;
             }
         }
-        if (index == -1) {
-            [groupArr addObject:model];
-        }
-        else {
-            groupArr[index].price += model.price;
+    } else {
+        for (BKModel *model in models) {
+            BKModel *submodel = [model copy];
+            [groupArr addObject:submodel];
         }
     }
+    
+    
     [groupArr sortUsingComparator:^NSComparisonResult(BKModel *obj1, BKModel *obj2) {
         return obj1.price < obj2.price;
     }];

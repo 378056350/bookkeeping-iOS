@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface BKModel : BaseModel<NSCoding>
+@interface BKModel : BaseModel<NSCoding, NSCopying>
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, assign) NSInteger category_id;
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<BKModel *> *chartArr;  // 图表
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<BKModel *> *> *chartHudArr;  // 图表
 
-// 统计数据
+// 统计数据(图表首页)
 + (BKChartModel *)statisticalChart:(NSInteger)status isIncome:(BOOL)isIncome cmodel:(BKModel *)cmodel date:(NSDate *)date;
 
 @end

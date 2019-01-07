@@ -24,9 +24,9 @@
 - (void)initUI {
     [self setBackgroundColor:kColor_Text_Black];
     [self.contentView setBackgroundColor:kColor_Text_Black];
-    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
-    [self.detailLab setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
-    [self.priceLab setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
+    [self.nameLab setFont:[UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(8)]];
+    [self.detailLab setFont:[UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(8)]];
+    [self.priceLab setFont:[UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(8)]];
     [self.detailConstraintL setConstant:countcoordinatesX(30)];
 }
 

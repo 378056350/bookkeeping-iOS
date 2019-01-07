@@ -91,6 +91,8 @@
         [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK];
         [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
+        
         // 返回
         [self.navigationController popViewControllerAnimated:true];
         
