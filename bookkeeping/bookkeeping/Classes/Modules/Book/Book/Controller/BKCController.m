@@ -47,22 +47,25 @@
     
     
     if (_model) {
-        BOOL is_income = _model.cmodel.is_income;
-        [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * is_income, 0) animated:false];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            BKCCollection *collection = _collections[is_income];
-            NSMutableArray *arrm = [NSMutableArray array];
-            if (is_income == false) {
-                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY]];
-                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY]];
-            } else {
-                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
-                [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
-            }
-            [collection setSelectIndex:[NSIndexPath indexPathForRow:[arrm indexOfObject:_model.cmodel] inSection:0]];
-            [collection reloadData];
-            [self bookClickItem:collection];
-            [self.keyboard setModel:_model];
+        dispatch_async(dispatch_get_main_queue(), ^{        
+            BOOL is_income = _model.cmodel.is_income;
+            [self.scroll setContentOffset:CGPointMake(SCREEN_WIDTH * is_income, 0) animated:false];
+            [self.navigation setOffsetX:self.scroll.contentOffset.x];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                BKCCollection *collection = _collections[is_income];
+                NSMutableArray *arrm = [NSMutableArray array];
+                if (is_income == false) {
+                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY]];
+                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+                } else {
+                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+                }
+                [collection setSelectIndex:[NSIndexPath indexPathForRow:[arrm indexOfObject:_model.cmodel] inSection:0]];
+                [collection reloadData];
+                [self bookClickItem:collection];
+                [self.keyboard setModel:_model];
+            });
         });
     }
     

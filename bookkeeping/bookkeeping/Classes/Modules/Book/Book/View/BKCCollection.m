@@ -62,8 +62,10 @@
 #pragma mark - 操作
 // 刷新index
 - (void)reloadSelectIndex {
-    _selectIndex = nil;
-    [self reloadData];
+    if (_selectIndex) {
+        _selectIndex = nil;
+        [self reloadData];
+    }
 }
 // 滚动scroll
 - (void)scrollToIndex:(NSIndexPath *)indexPath {
