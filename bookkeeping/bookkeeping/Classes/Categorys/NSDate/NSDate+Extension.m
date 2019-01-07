@@ -171,9 +171,9 @@
 }
 
 - (NSUInteger)weekOfYear {
-    NSDate *date = [self offsetDays:-1];
+//    NSDate *date = [self offsetDays:-1];
     NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear fromDate:date];
+    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear fromDate:self];
     NSInteger week = [dateComponents weekOfYear];
     return week;
     
@@ -265,7 +265,7 @@
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday) fromDate:date];
     NSInteger weekday = [comps weekday];
-    
+    weekday = weekday == 1 ? 7 : weekday - 1;
     return weekday;
 }
 
@@ -343,23 +343,30 @@
 + (NSInteger)compareWeek:(NSDate *)date1 withDate:(NSDate *)date2 {
     NSInteger day = [self compareDay:date1 withDate:date2];
     if ([date1 weekday] != 1) {
-        day -= (8 - [date1 weekday]);
+        day += [date1 weekday] - 1;
     }
     if ([date2 weekday] != 7) {
-        day -= [date2 weekday];
+        day += 8 - [date2 weekday];
     }
     NSInteger week = day / 7;
-    if (day != 0) {
-        if ([date1 weekday] != 1) {
-            week += 1;
-        }
-        if ([date2 weekday] != 7) {
-            week += 1;
-        }
-    } else {
-        week = 1;
-    }
     return week;
+    
+    
+    
+//    if ([date1 weekday] != 1) {
+//        day -= (8 - [date1 weekday]);
+//    }
+//    if ([date2 weekday] != 7) {
+//        day -= [date2 weekday];
+//    }
+//    NSInteger week = day / 7;
+//    if ([date1 weekday] != 1) {
+//        week += 1;
+//    }
+//    if ([date2 weekday] != 7) {
+//        week += 1;
+//    }
+//    return week;
 }
 
 

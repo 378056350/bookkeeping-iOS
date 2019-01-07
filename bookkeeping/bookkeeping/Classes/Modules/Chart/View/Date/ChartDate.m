@@ -33,6 +33,28 @@
 #pragma mark - 操作
 // 更新子控件
 - (void)updateDateRange {
+    // 没数据
+    if (!_minModel && !_maxModel) {
+        for (NSInteger i=0; i<3; i++) {
+            [self.selectIndexs addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [self.sModels replaceObjectAtIndex:i withObject:({
+                [NSMutableArray arrayWithObject:({
+                    NSDate *date = [NSDate createZeroDate:[NSDate date]];
+                    ChartSubModel *model = [[ChartSubModel alloc] init];
+                    model.year = date.year;
+                    model.month = date.month;
+                    model.day = date.day;
+                    model.week = [date weekOfYear];
+                    model.selectIndex = i;
+                    model;
+                })];
+            })];
+        }
+        [self.collection reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self collectionDidSelect:self.selectIndexs[self.segmentIndex] animation:false];
+        });
+    }
     if (!_minModel || !_maxModel) {
         return;
     }
@@ -48,6 +70,7 @@
         NSInteger weeks = [NSDate compareWeek:minDate withDate:maxDate];
         for (NSInteger i=0; i<weeks; i++) {
             NSDate *newDate = [minDate offsetDays:i * 7];
+            newDate = [newDate offsetDays:-[newDate weekday]+1];
             ChartSubModel *submodel = [ChartSubModel init];
             [submodel setYear:[newDate year]];
             [submodel setMonth:[newDate month]];
@@ -56,13 +79,6 @@
             [submodel setWeek_day:[newDate weekday]];
             [submodel setSelectIndex:0];
             [submodels addObject:submodel];
-            
-            NSDate *date1 = [NSDate dateWithYMD:@"2018-12-29"];
-            for (int i=0; i<12; i++) {
-                NSDate *date = [date1 offsetDays:i];
-                NSLog(@"%@ %ld", date, [date weekOfYear]);
-            }
-            
             
             if ([[submodel detail] isEqualToString:@"本周"] && self.selectIndexs.count == 0) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];

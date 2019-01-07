@@ -155,10 +155,11 @@
     [preStr appendFormat:@"cmodel.is_income == %d", isIncome];
     // 周
     if (status == 0) {
-        NSDate *start = [date offsetDays:[date weekday] - 7];
-        NSDate *end =  [date offsetDays:[date weekday] - 1];
+        NSDate *start = [date offsetDays:[date weekday] - 1];
+        NSDate *end = [date offsetDays:7 - [date weekday]];
         NSDateFormatter *fora = [[NSDateFormatter alloc] init];
         [fora setDateFormat:@"yyyyMMdd"];
+        [fora setTimeZone:[NSTimeZone localTimeZone]];
         NSInteger startStr = [[fora stringFromDate:start] integerValue];
         NSInteger endStr = [[fora stringFromDate:end] integerValue];
         
@@ -180,7 +181,7 @@
     NSMutableArray<NSMutableArray<BKModel *> *> *chartHudArr = [NSMutableArray array];
     // 周
     if (status == 0) {
-        NSDate *first = [date offsetDays:[date weekday] - 7];
+        NSDate *first = [date offsetDays:[date weekday] - 1];
         for (int i=0; i<7; i++) {
             NSDate *date = [first offsetDays:i];
             BKModel *model = [[BKModel alloc] init];

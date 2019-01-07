@@ -26,8 +26,6 @@
 @property (nonatomic, assign) NSInteger segmentIndex;
 
 @property (nonatomic, strong) NSDate *date;
-//@property (nonatomic, strong) ChartRangeModel *timeModel;
-//@property (nonatomic, strong) BKModel *model;
 @property (nonatomic, strong) BKChartModel *model;
 @property (nonatomic, strong) BKModel *minModel;
 @property (nonatomic, strong) BKModel *maxModel;
@@ -75,16 +73,30 @@
     // 最小时间
     _minModel = ({
         NSDate *minDate = [models valueForKeyPath:@"@min.date"];
-        preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", minDate.year, minDate.month, minDate.day];
+        if (minDate) {
+            preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", minDate.year, minDate.month, minDate.day];
+        }
         pre = [NSPredicate predicateWithFormat:preStr];
-        [models filteredArrayUsingPredicate:pre][0];
+        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+        BKModel *model;
+        if (arr.count != 0) {
+            model = arr[0];
+        }
+        model;
     });
     // 最大时间
     _maxModel = ({
         NSDate *maxDate = [models valueForKeyPath:@"@max.date"];
-        preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", maxDate.year, maxDate.month, maxDate.day];
+        if (maxDate) {
+            preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", maxDate.year, maxDate.month, maxDate.day];
+        }
         pre = [NSPredicate predicateWithFormat:preStr];
-        [models filteredArrayUsingPredicate:pre][0];
+        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+        BKModel *model;
+        if (arr.count != 0) {
+            model = arr[0];
+        }
+        model;
     });
     
     
@@ -198,6 +210,7 @@
             NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
             [self setDate:[NSDate dateWithYMD:str]];
             [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+            
 //            NSInteger month = model.month == -1 ? 1 : model.month;
 //            NSInteger day = model.day == -1 ? 1 : model.day;
 //            NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];

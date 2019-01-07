@@ -41,6 +41,7 @@
     [self setDate:[NSDate date]];
     [self monitorNotification];
     [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+    
 }
 // 监听通知
 - (void)monitorNotification {
@@ -142,6 +143,7 @@
 }
 // 删除Cell
 - (void)homeTableCellRemove:(HomeListSubCell *)cell {
+    NSLog(@"删除Cell");
     // 删除
     NSMutableArray<BKModel *> *bookArrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
     NSMutableArray<BKModel *> *bookSyncedArrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];

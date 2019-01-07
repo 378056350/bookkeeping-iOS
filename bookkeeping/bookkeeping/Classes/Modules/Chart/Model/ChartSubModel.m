@@ -20,7 +20,7 @@
 }
 
 - (NSString *)detail {
-    NSDate *date = [NSDate date];
+    NSDate *date = [NSDate createZeroDate:[NSDate date]];
     // 周
     if (_selectIndex == 0) {
         if ([date weekOfYear] == _week && [date year] == _year) {
