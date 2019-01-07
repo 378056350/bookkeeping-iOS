@@ -63,7 +63,7 @@
 - (UILabel *)nameLab {
     if (!_nameLab) {
         _nameLab = [[UILabel alloc] initWithFrame:CGRectMake(0, self.icn.bottom + 8, SCREEN_WIDTH, 20)];
-        _nameLab.font = [UIFont systemFontOfSize:AdjustFont(14) weight:UIFontWeightLight];
+        _nameLab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight];
         _nameLab.textColor = kColor_Text_Black;
         _nameLab.textAlignment = NSTextAlignmentCenter;
         _nameLab.text = @"暂无数据";

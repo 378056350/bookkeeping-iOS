@@ -13,6 +13,7 @@
 #pragma mark - 实现
 @implementation BaseNavigationController
 
+
 #pragma mark - 初始化
 + (instancetype)initWithRootViewController:(UIViewController *)vc {
     BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
@@ -22,11 +23,12 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count == 1) {
         BaseViewController *vc = (BaseViewController *)viewController;
-        vc.leftButton.hidden = NO;
-        vc.hidesBottomBarWhenPushed = YES;
+        vc.leftButton.hidden = true;
+        vc.hidesBottomBarWhenPushed = true;
     } else {
         BaseViewController *vc = (BaseViewController *)viewController;
-        vc.leftButton.hidden = YES;
+        vc.leftButton.hidden = true;
+        vc.hidesBottomBarWhenPushed = false;
     }
     
     

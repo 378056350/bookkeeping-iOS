@@ -159,7 +159,7 @@
     [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
     
     // 更新
-    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
 }
 // 点击Cell
 - (void)homeTableCellClick:(BKModel *)model {

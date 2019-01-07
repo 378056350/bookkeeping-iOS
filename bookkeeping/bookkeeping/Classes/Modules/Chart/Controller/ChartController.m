@@ -9,7 +9,8 @@
 #import "ChartDate.h"
 #import "ChartTableView.h"
 #import "ChartHUD.h"
-#import "BKModel.h"
+#import "ChartTableCell.h"
+#import "CHART_EVENT.h"
 
 
 #pragma mark - 声明
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) BKChartModel *model;
 @property (nonatomic, strong) BKModel *minModel;
 @property (nonatomic, strong) BKModel *maxModel;
+
+@property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
 
@@ -49,16 +52,23 @@
     
     [self updateDateRange];
     [self monitorNotification];
-    [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+    [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
 }
 // 监听通知
 - (void)monitorNotification {
-    // 记账完成
+    // 记账
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
         [self setDate:[NSDate date]];
-        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
+        [self updateDateRange];
+    }];
+    // 删除记账
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_DELETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self setDate:[NSDate date]];
+        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         [self updateDateRange];
     }];
 }
@@ -68,6 +78,9 @@
     NSInteger is_income = _navigationIndex == 1;
     NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"cmodel.is_income == %ld", is_income];
+    if (_cmodel) {
+        preStr = [preStr stringByAppendingString:[NSString stringWithFormat:@" AND cmodel.Id == %ld", _cmodel.cmodel.Id]];
+    }
     NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
     NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
     // 最小时间
@@ -154,6 +167,25 @@
 }
 
 
+#pragma mark - 事件
+- (void)routerEventWithName:(NSString *)eventName data:(id)data {
+    [self handleEventWithName:eventName data:data];
+}
+- (void)handleEventWithName:(NSString *)eventName data:(id)data {
+    NSInvocation *invocation = self.eventStrategy[eventName];
+    [invocation setArgument:&data atIndex:2];
+    [invocation invoke];
+    [super routerEventWithName:eventName data:data];
+}
+- (void)chartTableClick:(NSIndexPath *)indexPath {
+    BKModel *model = self.model.groupArr[indexPath.row];
+    
+    ChartController *vc = [[ChartController alloc] init];
+    vc.cmodel = model;
+    [self.navigationController pushViewController:vc animated:true];
+}
+
+
 #pragma mark - set
 - (void)setModel:(BKChartModel *)model {
     _model = model;
@@ -177,6 +209,7 @@
     if (!_navigation) {
         @weakify(self)
         _navigation = [ChartNavigation loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, NavigationBarHeight)];
+        [_navigation setCmodel:_cmodel];
         [[_navigation.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIControl *button) {
             @strongify(self)
             [self.chud show];
@@ -201,7 +234,7 @@
                 date;
             })];
             [self setSegmentIndex:seg.selectedSegmentIndex];
-            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         }];
         [self.view addSubview:_seg];
     }
@@ -217,7 +250,7 @@
             NSInteger day = model.day == -1 ? 1 : model.day;
             NSString *str = [NSString stringWithFormat:@"%ld-%02ld-%02ld", model.year, month, day];
             [self setDate:[NSDate dateWithYMD:str]];
-            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         }];
         [self.view addSubview:_subdate];
     }
@@ -227,7 +260,8 @@
     if (!_table) {
         _table = [ChartTableView initWithFrame:({
             CGFloat top = self.subdate.bottom;
-            CGFloat height = SCREEN_HEIGHT - top - TabbarHeight;
+            CGFloat height = SCREEN_HEIGHT - top;
+            height -= self.navigationController.viewControllers.count == 1 ? TabbarHeight : 0;
             CGRectMake(0, top, SCREEN_WIDTH, height);
         })];
         [self.view addSubview:_table];
@@ -242,11 +276,19 @@
             @strongify(self)
             [self setNavigationIndex:index];
             [self updateDateRange];
-            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex date:self.date]];
+            [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         }];
         [self.view addSubview:_chud];
     }
     return _chud;
+}
+- (NSDictionary<NSString *, NSInvocation *> *)eventStrategy {
+    if (!_eventStrategy) {
+        _eventStrategy = @{
+                           CHART_TABLE_CLICK: [self createInvocationWithSelector:@selector(chartTableClick:)]
+                           };
+    }
+    return _eventStrategy;
 }
 
 

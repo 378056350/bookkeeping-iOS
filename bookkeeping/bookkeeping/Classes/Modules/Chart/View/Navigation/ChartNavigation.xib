@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="389" height="58"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_down" translatesAutoresizingMaskIntoConstraints="NO" id="JEL-2G-tpD" customClass="time_down">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time_down" translatesAutoresizingMaskIntoConstraints="NO" id="JEL-2G-tpD">
                     <rect key="frame" x="215" y="-14" width="15" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="jeD-0j-bGd"/>
@@ -33,27 +33,56 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfQ-al-wNH">
                     <rect key="frame" x="157" y="0.0" width="93" height="58"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpk-Xb-u7I">
+                    <rect key="frame" x="173.5" y="14" width="42" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Im4-kp-llv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V32-DG-R9a">
+                    <rect key="frame" x="0.0" y="14" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="XuF-Ib-5A5"/>
+                        <constraint firstAttribute="width" secondItem="V32-DG-R9a" secondAttribute="height" multiplier="1:1" id="gJO-bU-x7w"/>
+                    </constraints>
+                    <state key="normal" image="nav_back_n"/>
+                    <connections>
+                        <action selector="backClick:" destination="55m-r8-Oau" eventType="touchUpInside" id="UWM-8t-uKP"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="kpk-Xb-u7I" firstAttribute="centerX" secondItem="55m-r8-Oau" secondAttribute="centerX" id="3PO-YV-vFh"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="centerY" secondItem="k2U-eq-6bW" secondAttribute="centerY" id="3Qs-nH-4UN"/>
+                <constraint firstItem="kpk-Xb-u7I" firstAttribute="centerY" secondItem="V32-DG-R9a" secondAttribute="centerY" id="D3R-F9-6Ow"/>
                 <constraint firstItem="LfQ-al-wNH" firstAttribute="top" secondItem="55m-r8-Oau" secondAttribute="top" id="F0p-nq-DaL"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="trailing" secondItem="LfQ-al-wNH" secondAttribute="trailing" constant="-20" id="HHd-ma-k7d"/>
                 <constraint firstItem="k2U-eq-6bW" firstAttribute="centerX" secondItem="55m-r8-Oau" secondAttribute="centerX" id="OPA-ee-bfE"/>
                 <constraint firstItem="LfQ-al-wNH" firstAttribute="leading" secondItem="k2U-eq-6bW" secondAttribute="leading" constant="-20" id="UVv-of-wqN"/>
                 <constraint firstAttribute="bottom" secondItem="LfQ-al-wNH" secondAttribute="bottom" id="VIl-pD-ysz"/>
+                <constraint firstItem="V32-DG-R9a" firstAttribute="leading" secondItem="55m-r8-Oau" secondAttribute="leading" id="bLS-qr-rcC"/>
+                <constraint firstAttribute="bottom" secondItem="kpk-Xb-u7I" secondAttribute="bottom" id="gcK-6q-QGt"/>
                 <constraint firstItem="JEL-2G-tpD" firstAttribute="leading" secondItem="k2U-eq-6bW" secondAttribute="trailing" constant="3" id="jbZ-a6-Tgw"/>
                 <constraint firstAttribute="bottom" secondItem="k2U-eq-6bW" secondAttribute="bottom" id="zXB-gr-vCb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backBtn" destination="V32-DG-R9a" id="R1B-GP-er5"/>
                 <outlet property="button" destination="LfQ-al-wNH" id="0sp-Wy-VII"/>
+                <outlet property="incomeBtn" destination="LfQ-al-wNH" id="def-qg-Vbl"/>
                 <outlet property="nameLab" destination="k2U-eq-6bW" id="cBJ-yq-WiU"/>
+                <outlet property="timeDown" destination="JEL-2G-tpD" id="hNZ-q0-xff"/>
+                <outlet property="titleLab" destination="kpk-Xb-u7I" id="IS8-Mq-7eE"/>
             </connections>
-            <point key="canvasLocation" x="-68" y="-450"/>
+            <point key="canvasLocation" x="1674" y="-589"/>
         </view>
     </objects>
     <resources>
+        <image name="nav_back_n" width="23" height="23"/>
         <image name="time_down" width="100" height="100"/>
     </resources>
 </document>

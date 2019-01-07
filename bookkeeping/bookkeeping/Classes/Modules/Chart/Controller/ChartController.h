@@ -4,10 +4,13 @@
  */
 
 #import "BaseViewController.h"
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChartController : BaseViewController
+
+@property (nonatomic, strong) BKModel *cmodel;  // 单分类(支出/收入)
 
 @end
 

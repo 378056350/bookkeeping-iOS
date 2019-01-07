@@ -105,9 +105,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return countcoordinatesX(50);
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ChartSectionHeader *header = [ChartSectionHeader loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, countcoordinatesX(40))];
     header.navigationIndex = _navigationIndex;
@@ -115,6 +112,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return countcoordinatesX(50);
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self routerEventWithName:CHART_TABLE_CLICK data:indexPath];
 }
 
 
