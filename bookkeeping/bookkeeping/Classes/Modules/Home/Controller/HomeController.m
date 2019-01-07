@@ -23,7 +23,6 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSMutableArray<BKMonthModel *> *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
-//@property (nonatomic, strong) BKModel *model;
 
 @end
 
@@ -45,9 +44,14 @@
 }
 // 监听通知
 - (void)monitorNotification {
-    // 登录完成
+    // 记账
     @weakify(self)
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
+    }];
+    // 删除记账
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:NOT_BOOK_DELETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
         [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];

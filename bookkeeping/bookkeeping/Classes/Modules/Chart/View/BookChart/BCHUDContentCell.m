@@ -1,10 +1,7 @@
-//
-//  BCHUDContentCell.m
-//  bookkeeping
-//
-//  Created by 郑业强 on 2018/12/30.
-//  Copyright © 2018年 kk. All rights reserved.
-//
+/**
+ * 弹框cell
+ * @author 郑业强 2019-01-07
+ */
 
 #import "BCHUDContentCell.h"
 

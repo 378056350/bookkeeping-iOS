@@ -1,10 +1,7 @@
-//
-//  ChartSubModel.m
-//  bookkeeping
-//
-//  Created by zhongke on 2018/12/29.
-//  Copyright © 2018年 kk. All rights reserved.
-//
+/**
+ * 子时间范围
+ * @author 郑业强 2018-12-29 创建文件
+ */
 
 #import "ChartSubModel.h"
 

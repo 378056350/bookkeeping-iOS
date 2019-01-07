@@ -6,7 +6,6 @@
 
 #import "BaseView.h"
 #import "ChartSubModel.h"
-#import "ChartRangeModel.h"
 #import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,12 +21,13 @@ typedef void (^ChartDateComplete)(ChartSubModel *model);
 @property (nonatomic, assign) NSInteger segmentIndex;
 @property (nonatomic, assign) NSInteger navigationIndex;
 @property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexs;
-@property (nonatomic, strong) ChartSubModel *selectModel;
-@property (nonatomic, copy  ) ChartDateComplete complete;
-@property (nonatomic, strong) ChartRangeModel *timeModel;
 @property (nonatomic, strong) NSMutableArray<NSMutableArray<ChartSubModel *> *> *sModels;
+
 @property (nonatomic, strong) BKModel *minModel;
 @property (nonatomic, strong) BKModel *maxModel;
+@property (nonatomic, strong) ChartSubModel *selectModel;
+
+@property (nonatomic, copy  ) ChartDateComplete complete;
 
 @end
 

@@ -67,7 +67,6 @@
 		327CEC3121C89479001D0086 /* BookChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3021C89479001D0086 /* BookChart.m */; };
 		327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 327CEC3721C89920001D0086 /* ChartTableHeader.m */; };
 		3299035A21CA6895000F4C14 /* BKCRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299035921CA6895000F4C14 /* BKCRefreshHeader.m */; };
-		329C28BD21D752C3003D6998 /* ChartRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 329C28BC21D752C3003D6998 /* ChartRangeModel.m */; };
 		32A04B2521DDFE06002B0766 /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A04B2421DDFE06002B0766 /* PINCacheManager.m */; };
 		32A04B2921DE04D8002B0766 /* SC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A04B2821DE04D8002B0766 /* SC.plist */; };
 		32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C21E21CB15B000DF4327 /* JHCollectionReusableView.m */; };
@@ -407,8 +406,6 @@
 		327CEC3721C89920001D0086 /* ChartTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartTableHeader.m; sourceTree = "<group>"; };
 		3299035821CA6895000F4C14 /* BKCRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKCRefreshHeader.h; sourceTree = "<group>"; };
 		3299035921CA6895000F4C14 /* BKCRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKCRefreshHeader.m; sourceTree = "<group>"; };
-		329C28BB21D752C3003D6998 /* ChartRangeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartRangeModel.h; sourceTree = "<group>"; };
-		329C28BC21D752C3003D6998 /* ChartRangeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartRangeModel.m; sourceTree = "<group>"; };
 		32A04B2221DDD1E5002B0766 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
 		32A04B2321DDFE06002B0766 /* PINCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCacheManager.h; sourceTree = "<group>"; };
 		32A04B2421DDFE06002B0766 /* PINCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PINCacheManager.m; sourceTree = "<group>"; };
@@ -2068,8 +2065,6 @@
 			children = (
 				32E35B1C21D703BA003B3040 /* ChartSubModel.h */,
 				32E35B1D21D703BA003B3040 /* ChartSubModel.m */,
-				329C28BB21D752C3003D6998 /* ChartRangeModel.h */,
-				329C28BC21D752C3003D6998 /* ChartRangeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2739,7 +2734,6 @@
 				4BE7846621C6799200B8EC46 /* BKCController.m in Sources */,
 				4B4852FD21C6974800891096 /* MineTableView.m in Sources */,
 				4B9798FD21CE744A0020B207 /* CountDown.m in Sources */,
-				329C28BD21D752C3003D6998 /* ChartRangeModel.m in Sources */,
 				321983FC21C6460100311885 /* UIButton+BarButtonItem.m in Sources */,
 				4BA68AEF21C7EEAA0063A5C2 /* CategoryCell.m in Sources */,
 			);

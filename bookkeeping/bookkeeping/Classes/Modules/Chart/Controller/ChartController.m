@@ -9,7 +9,6 @@
 #import "ChartDate.h"
 #import "ChartTableView.h"
 #import "ChartHUD.h"
-#import "ChartRangeModel.h"
 #import "BKModel.h"
 
 

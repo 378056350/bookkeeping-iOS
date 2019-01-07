@@ -11,5 +11,6 @@
 
 // 通知
 #define NOT_BOOK_COMPLETE @"NOT_BOOK_COMPLETE"          // 记账完成
+#define NOT_BOOK_DELETE   @"NOT_BOOK_DELETE"            // 记账删除
 
 #endif
