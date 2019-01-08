@@ -106,7 +106,7 @@
 
 + (NSMutableArray<BKMonthModel *> *)statisticalMonthWithYear:(NSInteger)year month:(NSInteger)month {
     // 根据时间过滤
-    NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"year == %ld AND month == %ld", year, month];
     NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
     NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
@@ -169,7 +169,7 @@
 // 统计数据(图表首页)
 + (BKChartModel *)statisticalChart:(NSInteger)status isIncome:(BOOL)isIncome cmodel:(BKModel *)cmodel date:(NSDate *)date {
     NSMutableString *preStr = [NSMutableString string];
-    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
+    NSMutableArray *arrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
     [preStr appendFormat:@"cmodel.is_income == %d", isIncome];
     if (cmodel) {
         [preStr appendFormat:@" AND cmodel.Id == %ld", cmodel.cmodel.Id];

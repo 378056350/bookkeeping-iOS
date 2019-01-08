@@ -55,11 +55,11 @@
                 BKCCollection *collection = _collections[is_income];
                 NSMutableArray *arrm = [NSMutableArray array];
                 if (is_income == false) {
-                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY]];
-                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+                    [arrm addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY]];
+                    [arrm addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY]];
                 } else {
-                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
-                    [arrm addObjectsFromArray:[[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+                    [arrm addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+                    [arrm addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
                 }
                 [collection setSelectIndex:[NSIndexPath indexPathForRow:[arrm indexOfObject:_model.cmodel] inSection:0]];
                 [collection reloadData];
@@ -75,8 +75,8 @@
     BKCIncomeModel *model1 = [[BKCIncomeModel alloc] init];
     model1.is_income = false;
     model1.list = ({
-        NSMutableArray<BKCModel *> *sysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
-        NSMutableArray<BKCModel *> *cusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
+        NSMutableArray<BKCModel *> *sysHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+        NSMutableArray<BKCModel *> *cusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
         NSMutableArray<BKCModel *> *payArr = ({
             NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasPayArr];
             [arrm addObjectsFromArray:cusHasPayArr];
@@ -89,8 +89,8 @@
     BKCIncomeModel *model2 = [[BKCIncomeModel alloc] init];
     model2.is_income = true;
     model2.list = ({
-        NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *cusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *cusHasIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
         NSMutableArray<BKCModel *> *incomeArr = ({
             NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
             [arrm addObjectsFromArray:cusHasIncomeArr];
@@ -130,12 +130,12 @@
     // 新增
     if (!_model) {
         
-        NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
-        NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+        NSMutableArray *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+        NSMutableArray *bookSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
         [bookArr addObject:model];
         [bookSyncedArr addObject:model];
-        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
-        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+        [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK];
+        [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK_SYNCED];
     }
     // 修改
     else {
@@ -148,15 +148,15 @@
         _model.cmodel = cmodel;
         model = _model;
         
-        NSMutableArray *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
-        NSMutableArray *bookSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+        NSMutableArray *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+        NSMutableArray *bookSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
         NSInteger index = [bookArr indexOfObject:model];
         [bookArr replaceObjectAtIndex:index withObject:model];
         if ([bookSyncedArr containsObject:model]) {
             [bookSyncedArr replaceObjectAtIndex:index withObject:model];
         }
-        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK];
-        [[PINDiskCache sharedCache] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+        [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK];
+        [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK_SYNCED];
     }
     
     

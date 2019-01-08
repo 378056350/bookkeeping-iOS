@@ -56,10 +56,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>monthDemo</string>
+			<string>zyq</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>widget</string>
+				<string>kbook</string>
 			</array>
 		</dict>
 	</array>

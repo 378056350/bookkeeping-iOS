@@ -5,12 +5,7 @@
 
 #import "MonthController.h"
 #import "ContentView.h"
-#import <NotificationCenter/NotificationCenter.h>
 
-// 获取屏幕 宽度、高度
-#define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define SCREEN_BOUNDS ([UIScreen mainScreen].bounds)
 
 #pragma mark - 声明
 @interface MonthController () <NCWidgetProviding>
@@ -26,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [self month];
 }
 
@@ -34,11 +30,27 @@
 }
 
 
+#pragma mark - 点击
+- (void)bookClick {
+    [self.extensionContext openURL:[NSURL URLWithString:@"kbook://month"] completionHandler:^(BOOL success) {
+        
+    }];
+    
+    
+    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"123"];
+    NSLog(@"12");
+    // 数据
+    NSMutableArray *arr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSLog(@"123");
+    
+}
+
 
 #pragma mark - get
 - (ContentView *)month {
     if (!_month) {
-        _month = [ContentView loadFirstNib:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+        _month = [ContentView loadFirstNib:self.view.bounds];
+        [_month.bookBtn addTarget:self action:@selector(bookClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_month];
     }
     return _month;

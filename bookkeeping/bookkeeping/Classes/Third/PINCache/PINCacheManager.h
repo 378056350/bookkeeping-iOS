@@ -8,7 +8,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PINCacheManager : NSObject
-SingleInterface(PINCacheManager)
+
+
++ (PINDiskCache *)sharedManager;
 
 /** 初始化配置 */
 + (void)pinCacheManager;

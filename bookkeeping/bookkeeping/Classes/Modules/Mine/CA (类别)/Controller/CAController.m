@@ -49,9 +49,9 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
        
-        NSMutableArray<BKCModel *> *sysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
-        NSMutableArray<BKCModel *> *cusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
-        NSMutableArray<BKCModel *> *sysRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+        NSMutableArray<BKCModel *> *sysHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+        NSMutableArray<BKCModel *> *cusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
+        NSMutableArray<BKCModel *> *sysRemovePayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
         
         CategoryListModel *model1 = [[CategoryListModel alloc] init];
         model1.is_income = 0;
@@ -63,9 +63,9 @@
         });
         
         
-        NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *cusHasIcomeEArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+        NSMutableArray<BKCModel *> *sysHasIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *cusHasIcomeEArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+        NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
         
         CategoryListModel *model2 = [[CategoryListModel alloc] init];
         model2.is_income = 1;
@@ -215,10 +215,10 @@
         
         if (index == 0) {
             NSIndexPath *indexPath = cell.indexPath;
-            NSMutableArray<BKCModel *> *sysHasArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
-            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
             [sysRemoveArr addObject:sysHasArr[indexPath.row]];
             if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
                 [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
@@ -227,17 +227,17 @@
             }
             [sysHasArr removeObjectAtIndex:indexPath.row];
             
-            [[PINDiskCache sharedCache] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
-            [[PINDiskCache sharedCache] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
-            [[PINDiskCache sharedCache] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-            [[PINDiskCache sharedCache] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
+            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
         }
         else if (index == 1) {
             NSIndexPath *indexPath = cell.indexPath;
-            NSMutableArray<BKCModel *> *sysHasArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
             [sysRemoveArr addObject:sysHasArr[indexPath.row]];
             if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
                 [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
@@ -246,10 +246,10 @@
             }
             [sysHasArr removeObjectAtIndex:indexPath.row];
             
-            [[PINDiskCache sharedCache] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
-            [[PINDiskCache sharedCache] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
-            [[PINDiskCache sharedCache] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-            [[PINDiskCache sharedCache] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
+            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
+            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
         }
     }
     // 自定义
@@ -263,31 +263,31 @@
         
         
         if (index == 0) {
-            NSMutableArray *cusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
-            NSMutableArray *cusHasPaySyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
-            NSMutableArray *cusRemovePaySyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+            NSMutableArray *cusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
+            NSMutableArray *cusHasPaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+            NSMutableArray *cusRemovePaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
             [cusHasPayArr removeObject:model];
             if ([cusHasPaySyncedArr containsObject:model]) {
                 [cusHasPaySyncedArr removeObject:model];
             } else {
                 [cusRemovePaySyncedArr addObject:model];
             }
-            [[PINDiskCache sharedCache] setObject:cusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
-            [[PINDiskCache sharedCache] setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
-            [[PINDiskCache sharedCache] setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
         } else if (index == 1) {
-            NSMutableArray *cusHasIcomeEArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
-            NSMutableArray *cusHasIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-            NSMutableArray *cusRemoveIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            NSMutableArray *cusHasIcomeEArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+            NSMutableArray *cusHasIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            NSMutableArray *cusRemoveIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
             [cusHasIcomeEArr removeObject:model];
             if ([cusHasIncomeSyncedArr containsObject:model]) {
                 [cusHasIncomeSyncedArr removeObject:model];
             } else {
                 [cusRemoveIncomeSyncedArr addObject:model];
             }
-            [[PINDiskCache sharedCache] setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
-            [[PINDiskCache sharedCache] setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-            [[PINDiskCache sharedCache] setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
+            [[PINCacheManager sharedManager] setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
         }
         
         
@@ -312,10 +312,10 @@
     
     if (index == 0) {
         NSIndexPath *indexPath = cell.indexPath;
-        NSMutableArray *sysHasArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
-        NSMutableArray *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-        NSMutableArray *sysHasSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-        NSMutableArray *sysRemoveSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+        NSMutableArray *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+        NSMutableArray *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+        NSMutableArray *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+        NSMutableArray *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
         
         [sysHasArr addObject:sysRemoveArr[indexPath.row]];
         if ([sysRemoveSyncedArr containsObject:sysRemoveArr[indexPath.row]]) {
@@ -326,16 +326,16 @@
         [sysRemoveArr removeObjectAtIndex:indexPath.row];
         
         
-        [[PINDiskCache sharedCache] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
-        [[PINDiskCache sharedCache] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
-        [[PINDiskCache sharedCache] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-        [[PINDiskCache sharedCache] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+        [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
+        [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
+        [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+        [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
     } else if (index == 1) {
         NSIndexPath *indexPath = cell.indexPath;
-        NSMutableArray *sysHasArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-        NSMutableArray *sysRemoveArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-        NSMutableArray *sysHasSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-        NSMutableArray *sysRemoveSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+        NSMutableArray *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+        NSMutableArray *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+        NSMutableArray *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+        NSMutableArray *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
         
         [sysHasArr addObject:sysRemoveArr[indexPath.row]];
         if ([sysRemoveSyncedArr containsObject:sysRemoveArr[indexPath.row]]) {
@@ -346,10 +346,10 @@
         [sysRemoveArr removeObjectAtIndex:indexPath.row];
         
         
-        [[PINDiskCache sharedCache] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
-        [[PINDiskCache sharedCache] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
-        [[PINDiskCache sharedCache] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-        [[PINDiskCache sharedCache] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+        [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
+        [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
+        [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+        [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
     }
     
     

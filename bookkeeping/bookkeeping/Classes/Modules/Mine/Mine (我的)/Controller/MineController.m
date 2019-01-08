@@ -240,15 +240,15 @@
 }
 // 切换声音
 - (void)soundClick:(NSNumber *)isOn {
-    NSNumber *sound = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_SOUND];
+    NSNumber *sound = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND];
     sound = @(![sound boolValue]);
-    [[PINDiskCache sharedCache] setObject:sound forKey:PIN_SETTING_SOUND];
+    [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
 }
 // 切换详情
 - (void)detailClick:(NSNumber *)isOn {
-    NSNumber *detail = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_DETAIL];
+    NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
     detail = @(![detail boolValue]);
-    [[PINDiskCache sharedCache] setObject:detail forKey:PIN_SETTING_DETAIL];
+    [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
 }
 
 

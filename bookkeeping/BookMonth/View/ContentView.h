@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ContentView : BaseView
 
+@property (weak, nonatomic) IBOutlet UIButton *bookBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

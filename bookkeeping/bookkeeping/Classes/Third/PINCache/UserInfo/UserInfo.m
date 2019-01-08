@@ -11,7 +11,7 @@
 // 是否登录
 + (BOOL)isLogin {
     // 有缓存
-    if ([[PINDiskCache sharedCache] containsObjectForKey:kUser]) {
+    if ([[PINCacheManager sharedManager] containsObjectForKey:kUser]) {
         return YES;
     }
     return NO;
@@ -20,16 +20,16 @@
 
 // 保存个人信息
 + (void)saveUserInfo:(NSDictionary *)param {
-    [[PINDiskCache sharedCache] setObject:param forKey:kUser];
+    [[PINCacheManager sharedManager] setObject:param forKey:kUser];
 }
 // 保存个人信息
 + (void)saveUserModel:(UserModel *)model {
     NSDictionary *param = [model mj_keyValues];
-    [[PINDiskCache sharedCache] setObject:param forKey:kUser];
+    [[PINCacheManager sharedManager] setObject:param forKey:kUser];
 }
 // 读取个人信息
 + (UserModel *)loadUserInfo {
-    NSDictionary *param = (NSDictionary *)[[PINDiskCache sharedCache] objectForKey:kUser];
+    NSDictionary *param = (NSDictionary *)[[PINCacheManager sharedManager] objectForKey:kUser];
     UserModel *model = [UserModel mj_objectWithKeyValues:param];
     return model;
 }
@@ -37,7 +37,7 @@
 
 // 清除登录信息
 + (void)clearUserInfo {
-    [[PINDiskCache sharedCache] removeObjectForKey:kUser];
+    [[PINCacheManager sharedManager] removeObjectForKey:kUser];
 }
 
 

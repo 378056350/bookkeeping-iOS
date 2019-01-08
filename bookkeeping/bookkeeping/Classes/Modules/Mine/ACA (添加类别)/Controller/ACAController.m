@@ -40,7 +40,7 @@
     [self collection];
 //    [self getCategoryListRequest];
 
-    NSMutableArray<ACAListModel *> *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_ACA_CATE];
+    NSMutableArray<ACAListModel *> *arrm = [[PINCacheManager sharedManager] objectForKey:PIN_ACA_CATE];
     [self setModels:arrm];
     
 }
@@ -53,17 +53,17 @@
         return;
     }
     
-    NSMutableArray *cateSysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_PAY];
-    NSMutableArray *cateSysRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-    NSMutableArray *cateCusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY];
-    NSMutableArray *cateCusHasPaySyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
-    NSMutableArray *cateCusRemovePaySyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+    NSMutableArray *cateSysHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+    NSMutableArray *cateSysRemovePayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+    NSMutableArray *cateCusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
+    NSMutableArray *cateCusHasPaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+    NSMutableArray *cateCusRemovePaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
     
-    NSMutableArray *cateSysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-    NSMutableArray *cateSysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-    NSMutableArray *cateCusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME];
-    NSMutableArray *cateCusHasIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-    NSMutableArray *cateCusRemoveIncomeSyncedArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+    NSMutableArray *cateSysHasIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+    NSMutableArray *cateSysRemoveIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+    NSMutableArray *cateCusHasIncomeArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+    NSMutableArray *cateCusHasIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+    NSMutableArray *cateCusRemoveIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
     
     
     
@@ -81,19 +81,19 @@
     // 支出
     if (_is_income == false) {
         [cateCusHasPayArr addObject:model];
-        [[PINDiskCache sharedCache] setObject:cateCusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
+        [[PINCacheManager sharedManager] setObject:cateCusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
         
         [cateCusHasPaySyncedArr addObject:model];
-        [[PINDiskCache sharedCache] setObject:cateCusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+        [[PINCacheManager sharedManager] setObject:cateCusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
         
     }
     // 收入
     else {
         [cateCusHasIncomeArr addObject:model];
-        [[PINDiskCache sharedCache] setObject:cateCusHasIncomeArr forKey:PIN_CATE_CUS_HAS_INCOME];
+        [[PINCacheManager sharedManager] setObject:cateCusHasIncomeArr forKey:PIN_CATE_CUS_HAS_INCOME];
         
         [cateCusHasIncomeSyncedArr addObject:model];
-        [[PINDiskCache sharedCache] setObject:cateCusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+        [[PINCacheManager sharedManager] setObject:cateCusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
     }
     
     

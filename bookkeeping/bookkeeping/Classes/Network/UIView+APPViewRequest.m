@@ -43,7 +43,7 @@ static void *kUIView_APPViewRequest;
 // 临时缓存
 - (void)useMemoryCache:(NSString *)url complete:(AFNManagerCompleteBlock)complete {
     if (complete) {
-        id responseObject = [[PINDiskCache sharedCache] objectForKey:url];
+        id responseObject = [[PINCacheManager sharedManager] objectForKey:url];
         APPResult *result = [[APPResult alloc] init];
         result.code = ServiceCodeMemoryCache;
         result.status = ServiceCodeSuccess;
@@ -55,7 +55,7 @@ static void *kUIView_APPViewRequest;
 // 本地缓存
 - (void)useDiskCache:(NSString *)url complete:(AFNManagerCompleteBlock)complete {
     if (complete) {
-        id responseObject = [[PINDiskCache sharedCache] objectForKey:url];
+        id responseObject = [[PINCacheManager sharedManager] objectForKey:url];
         APPResult *result = [[APPResult alloc] init];
         result.code = ServiceCodeMemoryCache;
         result.status = ServiceCodeSuccess;
@@ -118,7 +118,7 @@ static void *kUIView_APPViewRequest;
                 [self useMemoryCache:url complete:complete];
             }
             // 本地缓存
-            else if ([[PINDiskCache sharedCache] containsObjectForKey:url]) {
+            else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
                 [viewParameter.view hideEmpty];
                 [self useDiskCache:url complete:complete];
             }
@@ -156,7 +156,7 @@ static void *kUIView_APPViewRequest;
             // 解析
             complete(result);
             // 本地缓存
-            [[PINDiskCache sharedCache] setObjectAsync:result.data forKey:url completion:nil];
+            [[PINCacheManager sharedManager] setObjectAsync:result.data forKey:url completion:nil];
             // 临时缓存
             [[PINMemoryCache sharedCache] setObjectAsync:result.data forKey:url completion:nil];
         }
@@ -171,7 +171,7 @@ static void *kUIView_APPViewRequest;
                     [weak useMemoryCache:url complete:complete];
                 }
                 // 本地缓存
-                else if ([[PINDiskCache sharedCache] containsObjectForKey:url]) {
+                else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
                     [weak useDiskCache:url complete:complete];
                 }
                 // 失败

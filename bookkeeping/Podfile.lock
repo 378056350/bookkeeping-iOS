@@ -21,6 +21,7 @@ PODS:
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
   - JZNavigationExtension (2.1)
+  - KMNavigationBarTransition (1.1.5)
   - Masonry (1.1.0)
   - MGSwipeTableCell (1.6.8)
   - MJExtension (3.0.15)
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - JGProgressHUD (= 2.0.3)
   - JPush (= 3.1.1.1)
   - JZNavigationExtension (= 2.1)
+  - KMNavigationBarTransition (= 1.1.5)
   - Masonry (= 1.1.0)
   - MGSwipeTableCell (= 1.6.8)
   - MJExtension (= 3.0.15)
@@ -92,6 +94,7 @@ SPEC REPOS:
     - JGProgressHUD
     - JPush
     - JZNavigationExtension
+    - KMNavigationBarTransition
     - Masonry
     - MGSwipeTableCell
     - MJExtension
@@ -115,6 +118,7 @@ SPEC CHECKSUMS:
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   JZNavigationExtension: 45284fc63ba48a9e55b020656d39c86b01ff6a63
+  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
   MJExtension: 3f039575db1b135a20699ad298713b26acec1528
@@ -130,6 +134,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   ZLPhotoBrowser: 6dfadc4706429424f0a851fe40752aff076689ab
 
-PODFILE CHECKSUM: 3c0b2a196093b98a80a00aff6c5433de412376a1
+PODFILE CHECKSUM: 17880882becac946693b34cc822df4ec3094d522
 
 COCOAPODS: 1.6.0.beta.2

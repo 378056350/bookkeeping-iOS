@@ -41,6 +41,19 @@
     [self monitorNotification];
     [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
     
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"123"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"123"];
+    NSLog(@"12");
+    
+    // 数据
+    NSMutableArray *arr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSLog(@"123");
+    
+    
 }
 // 监听通知
 - (void)monitorNotification {
@@ -149,21 +162,21 @@
 - (void)homeTableCellRemove:(HomeListSubCell *)cell {
     NSLog(@"删除Cell");
     // 删除
-    NSMutableArray<BKModel *> *bookArrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK];
-    NSMutableArray<BKModel *> *bookSyncedArrm = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+    NSMutableArray<BKModel *> *bookArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookSyncedArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
     if ([bookSyncedArrm containsObject:cell.model]) {
         [bookSyncedArrm removeObject:cell.model];
     }
     [bookArrm removeObject:cell.model];
-    [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK];
-    [[PINDiskCache sharedCache] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
+    [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK];
+    [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
     
     // 更新
     [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
 }
 // 点击Cell
 - (void)homeTableCellClick:(BKModel *)model {
-    NSNumber *detail = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_DETAIL];
+    NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
     // 详情
     if ([detail boolValue] == true) {
         BDController *vc = [[BDController alloc] init];
