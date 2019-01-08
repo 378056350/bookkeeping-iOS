@@ -9,9 +9,9 @@
 
 
 // 颜色
-#define kColor_Main_Color          RGBA(255,217,68,1)
-#define kColor_Main_Dark_Color     RGBA(241,206,65,1)
-#define kColor_Text_Black          RGBA(52, 50, 51, 1)       // 深
+#define kColor_Main_Color          RGBA(255, 217, 68, 1)
+#define kColor_Main_Dark_Color     RGBA(241, 206, 65, 1)
+#define kColor_Text_Black          RGBA(50, 50, 50, 1)    // 深
 #define kColor_Text_Gary           HexColor(@"#999999")      // 灰
 #define kColor_Text_Light          HexColor(@"#8B8B8B")      // 浅
 #define kColor_Text_Red            HexColor(@"#FD4751")      // 红

@@ -1072,8 +1072,8 @@
 		321983B321C6459B00311885 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				321983B421C6459B00311885 /* BaseModel.m */,
 				321983B521C6459B00311885 /* BaseModel.h */,
+				321983B421C6459B00311885 /* BaseModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
