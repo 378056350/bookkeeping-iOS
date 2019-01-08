@@ -96,6 +96,9 @@
 		32D0B2C721C77B240030F5B2 /* ChartSegmentControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2C621C77B240030F5B2 /* ChartSegmentControl.xib */; };
 		32D0B2CB21C782270030F5B2 /* ChartDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2C921C782270030F5B2 /* ChartDateCell.m */; };
 		32D0B2CC21C782270030F5B2 /* ChartDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2CA21C782270030F5B2 /* ChartDateCell.xib */; };
+		32D99BEA21E421F90079C82B /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D99BE821E421F90079C82B /* FindCell.m */; };
+		32D99BEB21E421F90079C82B /* FindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D99BE921E421F90079C82B /* FindCell.xib */; };
+		32D99BEE21E4241C0079C82B /* FindFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D99BED21E4241C0079C82B /* FindFeatureCell.m */; };
 		32E35B1E21D703BA003B3040 /* ChartSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E35B1D21D703BA003B3040 /* ChartSubModel.m */; };
 		32EAB40B21D0EA820069DF99 /* CPAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EAB40921D0EA820069DF99 /* CPAController.m */; };
 		32EAB40C21D0EA820069DF99 /* CPAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32EAB40A21D0EA820069DF99 /* CPAController.xib */; };
@@ -457,6 +460,11 @@
 		32D0B2C821C782270030F5B2 /* ChartDateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartDateCell.h; sourceTree = "<group>"; };
 		32D0B2C921C782270030F5B2 /* ChartDateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartDateCell.m; sourceTree = "<group>"; };
 		32D0B2CA21C782270030F5B2 /* ChartDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartDateCell.xib; sourceTree = "<group>"; };
+		32D99BE721E421F90079C82B /* FindCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindCell.h; sourceTree = "<group>"; };
+		32D99BE821E421F90079C82B /* FindCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindCell.m; sourceTree = "<group>"; };
+		32D99BE921E421F90079C82B /* FindCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindCell.xib; sourceTree = "<group>"; };
+		32D99BEC21E4241C0079C82B /* FindFeatureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindFeatureCell.h; sourceTree = "<group>"; };
+		32D99BED21E4241C0079C82B /* FindFeatureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindFeatureCell.m; sourceTree = "<group>"; };
 		32E35B1C21D703BA003B3040 /* ChartSubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSubModel.h; sourceTree = "<group>"; };
 		32E35B1D21D703BA003B3040 /* ChartSubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSubModel.m; sourceTree = "<group>"; };
 		32EAB40821D0EA820069DF99 /* CPAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAController.h; sourceTree = "<group>"; };
@@ -1975,6 +1983,11 @@
 			children = (
 				4BE7846721C679BD00B8EC46 /* FindController.h */,
 				4BE7846821C679BD00B8EC46 /* FindController.m */,
+				32D99BE721E421F90079C82B /* FindCell.h */,
+				32D99BE821E421F90079C82B /* FindCell.m */,
+				32D99BE921E421F90079C82B /* FindCell.xib */,
+				32D99BEC21E4241C0079C82B /* FindFeatureCell.h */,
+				32D99BED21E4241C0079C82B /* FindFeatureCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2396,6 +2409,7 @@
 				4BEB72F821CE033300BEF013 /* dropdown_anim__00053@2x.png in Resources */,
 				32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */,
 				4BF0649821E10FE4005F1665 /* HomeNavigation.xib in Resources */,
+				32D99BEB21E421F90079C82B /* FindCell.xib in Resources */,
 				32A04B2921DE04D8002B0766 /* SC.plist in Resources */,
 				4BE8CC1221C93AC0007935E2 /* KKDate.xib in Resources */,
 				4BEB731A21CE033300BEF013 /* dropdown_anim__00040@2x.png in Resources */,
@@ -2698,6 +2712,8 @@
 				4BF0649E21E112B8005F1665 /* BDBottom.m in Sources */,
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
 				4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */,
+				32D99BEA21E421F90079C82B /* FindCell.m in Sources */,
+				32D99BEE21E4241C0079C82B /* FindFeatureCell.m in Sources */,
 				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
 				4BF8547E21DA20AC00A203DE /* BKModel.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
