@@ -88,6 +88,12 @@
 		32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */; };
 		32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */; };
 		32A5801221DF33C4008993B2 /* ACA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A5801121DF33C4008993B2 /* ACA.plist */; };
+		32BFA7E821E483F300B926F3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BFA7E721E483F300B926F3 /* NotificationCenter.framework */; };
+		32BFA7F321E483F400B926F3 /* BookMonth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 32BFA7E621E483F300B926F3 /* BookMonth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		32BFA80721E49DFA00B926F3 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BFA80621E49DFA00B926F3 /* ContentView.m */; };
+		32BFA80B21E4A0FD00B926F3 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983A321C6459B00311885 /* BaseView.m */; };
+		32BFA80D21E4A11000B926F3 /* ContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32BFA80C21E4A11000B926F3 /* ContentView.xib */; };
+		32BFA81021E4A2B600B926F3 /* MonthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BFA80F21E4A2B600B926F3 /* MonthController.m */; };
 		32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */; };
 		32D0B2BD21C778C20030F5B2 /* ChartNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0B2BC21C778C20030F5B2 /* ChartNavigation.m */; };
 		32D0B2BF21C778FA0030F5B2 /* ChartNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D0B2BE21C778FA0030F5B2 /* ChartNavigation.xib */; };
@@ -291,6 +297,30 @@
 		F5982707CC838EDD0692E0E0 /* libPods-bookkeeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		32BFA7F121E483F400B926F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3219836921C642BB00311885 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32BFA7E521E483F300B926F3;
+			remoteInfo = BookMonth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		32BFA7F721E483F400B926F3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				32BFA7F321E483F400B926F3 /* BookMonth.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		321431D721D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLPhotoActionSheet+Extension.h"; sourceTree = "<group>"; };
 		321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZLPhotoActionSheet+Extension.m"; sourceTree = "<group>"; };
@@ -445,6 +475,15 @@
 		32A5800D21DF08BC008993B2 /* NSObject+NSCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSCoding.h"; sourceTree = "<group>"; };
 		32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSCoding.m"; sourceTree = "<group>"; };
 		32A5801121DF33C4008993B2 /* ACA.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ACA.plist; sourceTree = "<group>"; };
+		32BFA7E621E483F300B926F3 /* BookMonth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BookMonth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BFA7E721E483F300B926F3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		32BFA7F021E483F400B926F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32BFA7F821E4847E00B926F3 /* bookkeeping.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bookkeeping.entitlements; sourceTree = "<group>"; };
+		32BFA80521E49DFA00B926F3 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
+		32BFA80621E49DFA00B926F3 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		32BFA80C21E4A11000B926F3 /* ContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentView.xib; sourceTree = "<group>"; };
+		32BFA80E21E4A2B600B926F3 /* MonthController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonthController.h; sourceTree = "<group>"; };
+		32BFA80F21E4A2B600B926F3 /* MonthController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonthController.m; sourceTree = "<group>"; };
 		32D0B2B621C76D0B0030F5B2 /* KKRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKRefreshNormalHeader.h; sourceTree = "<group>"; };
 		32D0B2B721C76D0B0030F5B2 /* KKRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKRefreshNormalHeader.m; sourceTree = "<group>"; };
 		32D0B2B921C76F570030F5B2 /* HOME_EVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOME_EVENT.h; sourceTree = "<group>"; };
@@ -766,6 +805,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32BFA7E321E483F300B926F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32BFA7E821E483F300B926F3 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -782,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				3219837321C642BB00311885 /* bookkeeping */,
+				32BFA7E921E483F300B926F3 /* BookMonth */,
 				3219837221C642BB00311885 /* Products */,
 				A1D1082896A0BADABB09EB51 /* Pods */,
 				5BA81AE5E9A23B63357F8783 /* Frameworks */,
@@ -792,6 +840,7 @@
 			isa = PBXGroup;
 			children = (
 				3219837121C642BB00311885 /* bookkeeping.app */,
+				32BFA7E621E483F300B926F3 /* BookMonth.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -799,6 +848,7 @@
 		3219837321C642BB00311885 /* bookkeeping */ = {
 			isa = PBXGroup;
 			children = (
+				32BFA7F821E4847E00B926F3 /* bookkeeping.entitlements */,
 				3219838A21C642F400311885 /* KKPrefixHeader.pch */,
 				3219839521C6446300311885 /* Common.h */,
 				3219838B21C6436A00311885 /* Classes */,
@@ -1375,6 +1425,19 @@
 				32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		32BFA7E921E483F300B926F3 /* BookMonth */ = {
+			isa = PBXGroup;
+			children = (
+				32BFA80E21E4A2B600B926F3 /* MonthController.h */,
+				32BFA80F21E4A2B600B926F3 /* MonthController.m */,
+				32BFA80521E49DFA00B926F3 /* ContentView.h */,
+				32BFA80621E49DFA00B926F3 /* ContentView.m */,
+				32BFA80C21E4A11000B926F3 /* ContentView.xib */,
+				32BFA7F021E483F400B926F3 /* Info.plist */,
+			);
+			path = BookMonth;
 			sourceTree = "<group>";
 		};
 		32D0B2B321C76CC50030F5B2 /* View */ = {
@@ -2322,6 +2385,7 @@
 			isa = PBXGroup;
 			children = (
 				A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */,
+				32BFA7E721E483F300B926F3 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2347,15 +2411,34 @@
 				3219836E21C642BB00311885 /* Frameworks */,
 				3219836F21C642BB00311885 /* Resources */,
 				72C9B65804051A60D201F0C8 /* [CP] Copy Pods Resources */,
+				32BFA7F721E483F400B926F3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				32BFA7F221E483F400B926F3 /* PBXTargetDependency */,
 			);
 			name = bookkeeping;
 			productName = bookkeeping;
 			productReference = 3219837121C642BB00311885 /* bookkeeping.app */;
 			productType = "com.apple.product-type.application";
+		};
+		32BFA7E521E483F300B926F3 /* BookMonth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32BFA7F621E483F400B926F3 /* Build configuration list for PBXNativeTarget "BookMonth" */;
+			buildPhases = (
+				32BFA7E221E483F300B926F3 /* Sources */,
+				32BFA7E321E483F300B926F3 /* Frameworks */,
+				32BFA7E421E483F300B926F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BookMonth;
+			productName = BookMonth;
+			productReference = 32BFA7E621E483F300B926F3 /* BookMonth.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -2367,6 +2450,14 @@
 				ORGANIZATIONNAME = kk;
 				TargetAttributes = {
 					3219837021C642BB00311885 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					32BFA7E521E483F300B926F3 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -2385,6 +2476,7 @@
 			projectRoot = "";
 			targets = (
 				3219837021C642BB00311885 /* bookkeeping */,
+				32BFA7E521E483F300B926F3 /* BookMonth */,
 			);
 		};
 /* End PBXProject section */
@@ -2515,6 +2607,14 @@
 				327CEC2921C88E45001D0086 /* ChartTableCell.xib in Resources */,
 				4BEB72E821CE033300BEF013 /* dropdown_anim__00012@2x.png in Resources */,
 				4B1E128821CA9410001F5B36 /* CategorySectionHeader.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32BFA7E421E483F300B926F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32BFA80D21E4A11000B926F3 /* ContentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2755,7 +2855,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32BFA7E221E483F300B926F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32BFA81021E4A2B600B926F3 /* MonthController.m in Sources */,
+				32BFA80721E49DFA00B926F3 /* ContentView.m in Sources */,
+				32BFA80B21E4A0FD00B926F3 /* BaseView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32BFA7F221E483F400B926F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32BFA7E521E483F300B926F3 /* BookMonth */;
+			targetProxy = 32BFA7F121E483F400B926F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3219837A21C642BB00311885 /* Main.storyboard */ = {
@@ -2894,6 +3012,7 @@
 			baseConfigurationReference = ADB606FFC3A28734EF5B4C6B /* Pods-bookkeeping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bookkeeping/bookkeeping.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/bookkeeping/KKPrefixHeader.pch";
@@ -2914,6 +3033,7 @@
 			baseConfigurationReference = E76EBA2977C0FF96F8D76960 /* Pods-bookkeeping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bookkeeping/bookkeeping.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/bookkeeping/KKPrefixHeader.pch";
@@ -2925,6 +3045,42 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.bookkeeping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		32BFA7F421E483F400B926F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KVDKFLYG8;
+				INFOPLIST_FILE = BookMonth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kk.bookkeeping.BookMonth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		32BFA7F521E483F400B926F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KVDKFLYG8;
+				INFOPLIST_FILE = BookMonth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kk.bookkeeping.BookMonth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2946,6 +3102,15 @@
 			buildConfigurations = (
 				3219838821C642BC00311885 /* Debug */,
 				3219838921C642BC00311885 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32BFA7F621E483F400B926F3 /* Build configuration list for PBXNativeTarget "BookMonth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32BFA7F421E483F400B926F3 /* Debug */,
+				32BFA7F521E483F400B926F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
