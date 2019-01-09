@@ -4,7 +4,8 @@
  */
 
 #import "MonthController.h"
-#import <NotificationCenter/NotificationCenter.h>
+#define PADDING 7
+#define VIEW_W (CGRectGetWidth(self.view.bounds) - PADDING * 2)
 
 
 #pragma mark - 声明
@@ -21,11 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self content];
     if (@available(iOS 10.0, *)) {
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
         self.preferredContentSize = CGSizeMake(0, 110);
     }
-    [self content];
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
@@ -36,7 +37,7 @@
     if (activeDisplayMode == NCWidgetDisplayModeCompact) {
         self.preferredContentSize = CGSizeMake(0, 110);
     } else {
-        self.preferredContentSize = CGSizeMake(0, SCREEN_WIDTH);
+        self.preferredContentSize = CGSizeMake(0, 110 + VIEW_W / 5.f * 4.f);
     }
 }
 
@@ -44,11 +45,11 @@
 #pragma mark - get
 - (StartView *)content {
     if (!_content) {
-        _content = [StartView loadCode:CGRectMake(0, 0, self.view.width, SCREEN_WIDTH)];
-        _content.backgroundColor = [UIColor orangeColor];
+        _content = [StartView loadCode:CGRectMake(0, 0, VIEW_W, 110 + VIEW_W / 5.f * 4.f)];
         [self.view addSubview:_content];
     }
     return _content;
 }
+
 
 @end

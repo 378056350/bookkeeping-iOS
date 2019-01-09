@@ -5,6 +5,8 @@
 
 #import "MonthController.h"
 #import "ContentView.h"
+#define PADDING 7
+#define VIEW_W (CGRectGetWidth(self.view.bounds) - PADDING * 2)
 
 
 #pragma mark - 声明
@@ -21,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor clearColor]];
     [self month];
 }
 
@@ -35,21 +36,13 @@
     [self.extensionContext openURL:[NSURL URLWithString:@"kbook://month"] completionHandler:^(BOOL success) {
         
     }];
-    
-    
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"123"];
-    NSLog(@"12");
-    // 数据
-    NSMutableArray *arr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
-    NSLog(@"123");
-    
 }
 
 
 #pragma mark - get
 - (ContentView *)month {
     if (!_month) {
-        _month = [ContentView loadFirstNib:self.view.bounds];
+        _month = [ContentView loadFirstNib:CGRectMake(0, 0, VIEW_W, 110)];
         [_month.bookBtn addTarget:self action:@selector(bookClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_month];
     }

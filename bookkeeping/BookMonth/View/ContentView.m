@@ -29,7 +29,6 @@
 
 
 - (void)initUI {
-    [self setBackgroundColor:[UIColor clearColor]];
     [self.monthLab setFont:[UIFont systemFontOfSize:AdjustFont(16)]];
     [self.monthLab setTextColor:kColor_Text_Black];
     [self.monthDescLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];

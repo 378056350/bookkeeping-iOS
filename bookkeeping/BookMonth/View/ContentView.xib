@@ -85,7 +85,7 @@
                     <state key="normal" title="记一笔"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="lga-0R-9vB" firstAttribute="height" secondItem="uv4-TH-s0a" secondAttribute="height" id="0Sh-Xd-IJD"/>
                 <constraint firstItem="lub-fl-lZV" firstAttribute="leading" secondItem="lga-0R-9vB" secondAttribute="trailing" constant="20" id="2N9-A9-jyk"/>

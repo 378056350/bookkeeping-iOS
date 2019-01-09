@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ContentKeyboard : BaseView
+@interface StartKeyboard : BaseView
 
 @end
 

@@ -29,5 +29,13 @@ end
 target ‘BookMonth’ do
   pod 'MJExtension', '3.0.15'
   pod 'PINCache', '3.0.1-beta.7'
+  
+end
 
+
+target ‘BookStart’ do
+  pod 'SDWebImage', '4.4.3'
+  pod 'MJExtension', '3.0.15'
+  pod 'PINCache', '3.0.1-beta.7'
+  
 end

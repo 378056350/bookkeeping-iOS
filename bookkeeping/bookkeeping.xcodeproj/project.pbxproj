@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3213180921E594FF000ADA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3219837D21C642BC00311885 /* Assets.xcassets */; };
+		3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213180B21E59727000ADA9A /* StartScrollCell.m */; };
+		3213180E21E59727000ADA9A /* StartScrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3213180C21E59727000ADA9A /* StartScrollCell.xib */; };
+		3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983AC21C6459B00311885 /* BaseCollectionCell.m */; };
+		3213181421E599FE000ADA9A /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B38C07821E4E35500D28B34 /* PINCacheManager.m */; };
+		3213181521E59A77000ADA9A /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
+		3213181621E59A83000ADA9A /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
+		3213181721E59A91000ADA9A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
 		321431D921D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */; };
 		3219837621C642BB00311885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219837521C642BB00311885 /* AppDelegate.m */; };
 		3219837C21C642BB00311885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3219837A21C642BB00311885 /* Main.storyboard */; };
@@ -44,8 +52,8 @@
 		3219841521C6474600311885 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219841121C6474500311885 /* UserModel.m */; };
 		32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32258E7D21CA29AC0017254D /* NSString+Calculation.m */; };
 		3233D7C621E57A50009342D7 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983A321C6459B00311885 /* BaseView.m */; };
-		3233D7CC21E57A94009342D7 /* ContentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CB21E57A94009342D7 /* ContentScroll.m */; };
-		3233D7CF21E57A9E009342D7 /* ContentKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */; };
+		3233D7CC21E57A94009342D7 /* StartScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CB21E57A94009342D7 /* StartScroll.m */; };
+		3233D7CF21E57A9E009342D7 /* StartKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CE21E57A9E009342D7 /* StartKeyboard.m */; };
 		324484A321C726E90051B8B6 /* BadgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484A221C726E80051B8B6 /* BadgeController.m */; };
 		324484AE21C728C00051B8B6 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484AC21C728C00051B8B6 /* LoginController.m */; };
 		324484AF21C728C00051B8B6 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324484AD21C728C00051B8B6 /* LoginController.xib */; };
@@ -320,6 +328,7 @@
 		4BFD381B21E4D7C000BAB0BB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */; };
 		4BFD381C21E4D84B00BAB0BB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983EB21C6460100311885 /* NSString+Extension.m */; };
 		AEA489C5440A548BEBD1304B /* libPods-BookMonth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2513416B4CCC355FFD281675 /* libPods-BookMonth.a */; };
+		EFBA7719833AD39F78BFEC4E /* libPods-BookStart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD782884DC71E9F3EA4954 /* libPods-BookStart.a */; };
 		F5982707CC838EDD0692E0E0 /* libPods-bookkeeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */; };
 /* End PBXBuildFile section */
 
@@ -356,9 +365,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		038BE0FA997ACBCDB88556ED /* Pods-BookStart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStart.debug.xcconfig"; path = "Target Support Files/Pods-BookStart/Pods-BookStart.debug.xcconfig"; sourceTree = "<group>"; };
 		1E85EB0ADA9DDFB82B8DA50B /* Pods-BookMonth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMonth.debug.xcconfig"; path = "Target Support Files/Pods-BookMonth/Pods-BookMonth.debug.xcconfig"; sourceTree = "<group>"; };
 		2513416B4CCC355FFD281675 /* libPods-BookMonth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BookMonth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF218BBC5103A7ADC00AB25 /* Pods-BookMonth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMonth.release.xcconfig"; path = "Target Support Files/Pods-BookMonth/Pods-BookMonth.release.xcconfig"; sourceTree = "<group>"; };
+		3213180A21E59727000ADA9A /* StartScrollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartScrollCell.h; sourceTree = "<group>"; };
+		3213180B21E59727000ADA9A /* StartScrollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartScrollCell.m; sourceTree = "<group>"; };
+		3213180C21E59727000ADA9A /* StartScrollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScrollCell.xib; sourceTree = "<group>"; };
 		321431D721D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLPhotoActionSheet+Extension.h"; sourceTree = "<group>"; };
 		321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZLPhotoActionSheet+Extension.m"; sourceTree = "<group>"; };
 		3219837121C642BB00311885 /* bookkeeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookkeeping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -437,10 +450,10 @@
 		3233D7C021E57983009342D7 /* KKPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKPrefixHeader.pch; sourceTree = "<group>"; };
 		3233D7C121E57997009342D7 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
 		3233D7C221E579A9009342D7 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		3233D7CA21E57A94009342D7 /* ContentScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentScroll.h; sourceTree = "<group>"; };
-		3233D7CB21E57A94009342D7 /* ContentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentScroll.m; sourceTree = "<group>"; };
-		3233D7CD21E57A9E009342D7 /* ContentKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentKeyboard.h; sourceTree = "<group>"; };
-		3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentKeyboard.m; sourceTree = "<group>"; };
+		3233D7CA21E57A94009342D7 /* StartScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartScroll.h; sourceTree = "<group>"; };
+		3233D7CB21E57A94009342D7 /* StartScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartScroll.m; sourceTree = "<group>"; };
+		3233D7CD21E57A9E009342D7 /* StartKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartKeyboard.h; sourceTree = "<group>"; };
+		3233D7CE21E57A9E009342D7 /* StartKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartKeyboard.m; sourceTree = "<group>"; };
 		3244849B21C721B90051B8B6 /* MINE_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINE_EVENT_MANAGER.h; sourceTree = "<group>"; };
 		324484A121C726E80051B8B6 /* BadgeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeController.h; sourceTree = "<group>"; };
 		324484A221C726E80051B8B6 /* BadgeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeController.m; sourceTree = "<group>"; };
@@ -854,6 +867,8 @@
 		4BFD382221E4DD4B00BAB0BB /* BookStart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookStart.entitlements; sourceTree = "<group>"; };
 		A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookkeeping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB606FFC3A28734EF5B4C6B /* Pods-bookkeeping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookkeeping.debug.xcconfig"; path = "Target Support Files/Pods-bookkeeping/Pods-bookkeeping.debug.xcconfig"; sourceTree = "<group>"; };
+		B851B6FB04282545CD2CBDE7 /* Pods-BookStart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStart.release.xcconfig"; path = "Target Support Files/Pods-BookStart/Pods-BookStart.release.xcconfig"; sourceTree = "<group>"; };
+		E3AD782884DC71E9F3EA4954 /* libPods-BookStart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BookStart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76EBA2977C0FF96F8D76960 /* Pods-bookkeeping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookkeeping.release.xcconfig"; path = "Target Support Files/Pods-bookkeeping/Pods-bookkeeping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -880,12 +895,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFD37FA21E4BDD400BAB0BB /* NotificationCenter.framework in Frameworks */,
+				EFBA7719833AD39F78BFEC4E /* libPods-BookStart.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3213180F21E5978C000ADA9A /* scroll */ = {
+			isa = PBXGroup;
+			children = (
+				3233D7CA21E57A94009342D7 /* StartScroll.h */,
+				3233D7CB21E57A94009342D7 /* StartScroll.m */,
+				3213180A21E59727000ADA9A /* StartScrollCell.h */,
+				3213180B21E59727000ADA9A /* StartScrollCell.m */,
+				3213180C21E59727000ADA9A /* StartScrollCell.xib */,
+			);
+			path = scroll;
+			sourceTree = "<group>";
+		};
+		3213181021E5978C000ADA9A /* header */ = {
+			isa = PBXGroup;
+			children = (
+				326EB89521E57ED3007CD5C6 /* StartHeader.h */,
+				326EB89621E57ED3007CD5C6 /* StartHeader.m */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		3213181121E5978C000ADA9A /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3233D7CD21E57A9E009342D7 /* StartKeyboard.h */,
+				3233D7CE21E57A9E009342D7 /* StartKeyboard.m */,
+			);
+			path = keyboard;
+			sourceTree = "<group>";
+		};
 		321431D621D3675000D7D1F5 /* ZLPhotoActionSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,12 +1301,9 @@
 			children = (
 				326EB89221E57D86007CD5C6 /* StartView.h */,
 				326EB89321E57D86007CD5C6 /* StartView.m */,
-				326EB89521E57ED3007CD5C6 /* StartHeader.h */,
-				326EB89621E57ED3007CD5C6 /* StartHeader.m */,
-				3233D7CA21E57A94009342D7 /* ContentScroll.h */,
-				3233D7CB21E57A94009342D7 /* ContentScroll.m */,
-				3233D7CD21E57A9E009342D7 /* ContentKeyboard.h */,
-				3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */,
+				3213181021E5978C000ADA9A /* header */,
+				3213180F21E5978C000ADA9A /* scroll */,
+				3213181121E5978C000ADA9A /* keyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2537,6 +2580,7 @@
 				A0876EDE7488D8385656CB1E /* libPods-bookkeeping.a */,
 				32BFA7E721E483F300B926F3 /* NotificationCenter.framework */,
 				2513416B4CCC355FFD281675 /* libPods-BookMonth.a */,
+				E3AD782884DC71E9F3EA4954 /* libPods-BookStart.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2548,6 +2592,8 @@
 				E76EBA2977C0FF96F8D76960 /* Pods-bookkeeping.release.xcconfig */,
 				1E85EB0ADA9DDFB82B8DA50B /* Pods-BookMonth.debug.xcconfig */,
 				2EF218BBC5103A7ADC00AB25 /* Pods-BookMonth.release.xcconfig */,
+				038BE0FA997ACBCDB88556ED /* Pods-BookStart.debug.xcconfig */,
+				B851B6FB04282545CD2CBDE7 /* Pods-BookStart.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2599,6 +2645,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BFD380821E4BDD400BAB0BB /* Build configuration list for PBXNativeTarget "BookStart" */;
 			buildPhases = (
+				7EF1C17F6E55AE743B440173 /* [CP] Check Pods Manifest.lock */,
 				4BFD37F521E4BDD400BAB0BB /* Sources */,
 				4BFD37F621E4BDD400BAB0BB /* Frameworks */,
 				4BFD37F721E4BDD400BAB0BB /* Resources */,
@@ -2808,6 +2855,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3213180921E594FF000ADA9A /* Assets.xcassets in Resources */,
+				3213180E21E59727000ADA9A /* StartScrollCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2876,6 +2925,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bookkeeping/Pods-bookkeeping-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EF1C17F6E55AE743B440173 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BookStart-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7F286FD2C65DAA4732C74105 /* [CP] Check Pods Manifest.lock */ = {
@@ -3095,18 +3166,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326EB89421E57D86007CD5C6 /* StartView.m in Sources */,
-				3233D7C621E57A50009342D7 /* BaseView.m in Sources */,
+				3213181721E59A91000ADA9A /* BaseModel.m in Sources */,
 				326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */,
-				4BFD380B21E4BE0300BAB0BB /* MonthController.m in Sources */,
 				326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */,
-				3233D7CF21E57A9E009342D7 /* ContentKeyboard.m in Sources */,
-				326EB88B21E57C0D007CD5C6 /* NSObject+NSCoding.m in Sources */,
+				3213181421E599FE000ADA9A /* PINCacheManager.m in Sources */,
 				326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */,
-				326EB88A21E57C05007CD5C6 /* NSString+Extension.m in Sources */,
-				326EB89721E57ED3007CD5C6 /* StartHeader.m in Sources */,
-				3233D7CC21E57A94009342D7 /* ContentScroll.m in Sources */,
+				3213181621E59A83000ADA9A /* ACAListModel.m in Sources */,
+				3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */,
+				3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */,
 				326EB88921E57C00007CD5C6 /* NSDate+Extension.m in Sources */,
+				3213181521E59A77000ADA9A /* BKCIncomeModel.m in Sources */,
+				326EB88A21E57C05007CD5C6 /* NSString+Extension.m in Sources */,
+				326EB88B21E57C0D007CD5C6 /* NSObject+NSCoding.m in Sources */,
+				3233D7C621E57A50009342D7 /* BaseView.m in Sources */,
+				4BFD380B21E4BE0300BAB0BB /* MonthController.m in Sources */,
+				326EB89421E57D86007CD5C6 /* StartView.m in Sources */,
+				326EB89721E57ED3007CD5C6 /* StartHeader.m in Sources */,
+				3233D7CC21E57A94009342D7 /* StartScroll.m in Sources */,
+				3233D7CF21E57A9E009342D7 /* StartKeyboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3343,6 +3420,7 @@
 		};
 		4BFD380621E4BDD400BAB0BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 038BE0FA997ACBCDB88556ED /* Pods-BookStart.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BookStart/BookStart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -3363,6 +3441,7 @@
 		};
 		4BFD380721E4BDD400BAB0BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B851B6FB04282545CD2CBDE7 /* Pods-BookStart.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BookStart/BookStart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
