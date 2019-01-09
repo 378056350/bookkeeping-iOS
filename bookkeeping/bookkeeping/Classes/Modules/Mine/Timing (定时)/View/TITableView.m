@@ -30,10 +30,15 @@
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<TIModel *> *)models {
+//- (void)setModels:(NSMutableArray<TIModel *> *)models {
+//    _models = models;
+//    [self reloadData];
+//}
+- (void)setModels:(NSMutableArray *)models {
     _models = models;
     [self reloadData];
 }
+
 
 
 #pragma mark - UITableViewDataSource
@@ -43,7 +48,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TITableCell *cell = [TITableCell loadFirstNib:tableView];
-    cell.model = self.models[indexPath.row];
+    cell.time = self.models[indexPath.row];
+//    cell.model = self.models[indexPath.row];
     cell.indexPath = indexPath;
     return cell;
 }
@@ -53,6 +59,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return countcoordinatesX(50);
 }
+
+
+#pragma mark - get
 
 
 

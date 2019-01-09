@@ -15,7 +15,7 @@
 
 
 #pragma mark - 声明
-@interface HomeController()
+@interface HomeController()<UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) HomeNavigation *navigation;
 @property (nonatomic, strong) HomeHeader *header;
@@ -31,6 +31,57 @@
 @implementation HomeController
 
 
+#pragma mark - UNUserNotificationCenterDelegate
+// iOS 10收到通知
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    UNNotificationRequest *request = notification.request; // 收到推送的请求
+    UNNotificationContent *content = request.content; // 收到推送的消息内容
+    NSNumber *badge = content.badge;  // 推送消息的角标
+    NSString *body = content.body;    // 推送消息体
+    UNNotificationSound *sound = content.sound;  // 推送消息的声音
+    NSString *subtitle = content.subtitle;  // 推送消息的副标题
+    NSString *title = content.title;  // 推送消息的标题
+    
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        NSLog(@"iOS10 前台收到远程通知:%@", body);
+        
+    } else {
+        // 判断为本地通知
+        NSLog(@"iOS10 前台收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo);
+    }
+    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = [NSString localizedUserNotificationStringForKey:@"" arguments:nil];
+        content.body = [NSString localizedUserNotificationStringForKey:@"记账时间到了，赶紧记一笔吧！" arguments:nil];
+        content.sound = [UNNotificationSound defaultSound];
+        
+        
+//        // 周一早上 8：00 上班
+//        NSDateComponents *components = [[NSDateComponents alloc] init];
+//        components.hour = 8;
+//        UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
+
+
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"TestRequest" content:content trigger:nil];
+
+        
+        [center addNotificationRequest:request withCompletionHandler:^(NSError *_Nullable error) {
+            NSLog(@"成功添加推送");
+        }];
+    }
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setJz_navigationBarHidden:true];
@@ -40,20 +91,6 @@
     [self setDate:[NSDate date]];
     [self monitorNotification];
     [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
-    
-    
-    [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"123"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    
-    NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:@"123"];
-    NSLog(@"12");
-    
-    // 数据
-    NSMutableArray *arr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
-    NSLog(@"123");
-    
-    
 }
 // 监听通知
 - (void)monitorNotification {

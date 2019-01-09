@@ -1785,11 +1785,11 @@
 		4B229A5E21E6182000152030 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4B229A5F21E6182000152030 /* FindFeatureCell.m */,
-				4B229A6021E6182000152030 /* FindCell.m */,
-				4B229A6121E6182000152030 /* FindFeatureCell.h */,
-				4B229A6221E6182000152030 /* FindCell.xib */,
 				4B229A6321E6182000152030 /* FindCell.h */,
+				4B229A6021E6182000152030 /* FindCell.m */,
+				4B229A6221E6182000152030 /* FindCell.xib */,
+				4B229A6121E6182000152030 /* FindFeatureCell.h */,
+				4B229A5F21E6182000152030 /* FindFeatureCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";

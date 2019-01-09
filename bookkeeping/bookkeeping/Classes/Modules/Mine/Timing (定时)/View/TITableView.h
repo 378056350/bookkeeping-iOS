@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TITableView : UITableView
 
-@property (nonatomic, strong) NSMutableArray<TIModel *> *models;
+@property (nonatomic, strong) NSMutableArray *models;
 
 + (instancetype)initWithFrame:(CGRect)frame;
 

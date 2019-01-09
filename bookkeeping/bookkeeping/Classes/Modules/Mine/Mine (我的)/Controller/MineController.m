@@ -154,17 +154,17 @@
         }
         // 定时
         else if (indexPath.row == 1) {
-            // 登录了
-            if ([UserInfo isLogin] == true) {
+//            // 登录了
+//            if ([UserInfo isLogin] == true) {
                 TIController *vc = [[TIController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
-            }
-            // 没登录
-            else {
-                LoginController *vc = [[LoginController alloc] init];
-                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-                [self.navigationController presentViewController:nav animated:YES completion:nil];
-            }
+//            }
+//            // 没登录
+//            else {
+//                LoginController *vc = [[LoginController alloc] init];
+//                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+//                [self.navigationController presentViewController:nav animated:YES completion:nil];
+//            }
         }
     }
     else if (indexPath.section == 2) {

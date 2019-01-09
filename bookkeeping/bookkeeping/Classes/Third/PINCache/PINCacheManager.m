@@ -22,23 +22,22 @@ static PINDiskCache *_disk;
 + (PINDiskCache *)sharedManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        if (!IS_SIMULATOR) {
-            NSFileManager *fm = [NSFileManager defaultManager];
-            NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-            path = [path stringByAppendingPathComponent:@"widget"];
-            if ([fm fileExistsAtPath:path] == false) {
-                [fm createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
-            }
-        }
+//        if (!IS_SIMULATOR) {
+//            NSFileManager *fm = [NSFileManager defaultManager];
+//            NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+//            path = [path stringByAppendingPathComponent:@"widget"];
+//            if ([fm fileExistsAtPath:path] == false) {
+//                [fm createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+//            }
+//        }
         _disk = [[PINDiskCache sharedCache] initWithName:@"book" rootPath:@"Library/Caches/widget"];
+        [[PINDiskCache sharedCache] removeAllObjects];
     });
     return _disk;
 }
 
 // 初始化
 + (void)pinCacheManager {
-    // Library/Caches/widget
-    
     BOOL isFirst = [[PINCacheManager sharedManager] containsObjectForKey:PIN_FIRST_RUN];
     // 第一次运行
     if (!isFirst) {
@@ -75,11 +74,9 @@ static PINDiskCache *_disk;
         acaArr = [ACAListModel mj_objectArrayWithKeyValuesArray:acaArr];
         [[PINCacheManager sharedManager] setObject:acaArr forKey:PIN_ACA_CATE];
         
-        
         // 记账
         [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_BOOK];
         [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
-        
         
         // 个人设置
         [[PINCacheManager sharedManager] setObject:@(0) forKey:PIN_SETTING_SOUND];
@@ -87,6 +84,9 @@ static PINDiskCache *_disk;
         [[PINCacheManager sharedManager] setObject:@(0) forKey:PIN_SETTING_SOUND_SYNCED];
         [[PINCacheManager sharedManager] setObject:@(0) forKey:PIN_SETTING_DETAIL_SYNCED];
         
+        // 定时
+        [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING];
+        [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING_SYNCED];
         
         
         [[PINCacheManager sharedManager] setObject:@(1) forKey:PIN_FIRST_RUN];

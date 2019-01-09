@@ -51,6 +51,9 @@
 #define PIN_SETTING_DETAIL_SYNCED    @"PIN_SETTING_DETAIL_SYNCED"     // 明细详情 - 未同步
 
 
+#define PIN_TIMING           @"PIN_TIMING"           // 定时通知b
+#define PIN_TIMING_SYNCED    @"PIN_TIMING_SYNCED"    // 定时通知 - 未同步
+
 
 
 

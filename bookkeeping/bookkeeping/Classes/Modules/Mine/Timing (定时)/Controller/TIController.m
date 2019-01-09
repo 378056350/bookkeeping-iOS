@@ -17,7 +17,8 @@
 
 @property (nonatomic, strong) TITableView *table;
 @property (nonatomic, strong) BottomButton *bottom;
-@property (nonatomic, strong) NSMutableArray<TIModel *> *models;
+//@property (nonatomic, strong) NSMutableArray<TIModel *> *models;
+@property (nonatomic, strong) NSMutableArray *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
 @end
@@ -34,7 +35,11 @@
     [self table];
     [self bottom];
     [self.view bringSubviewToFront:self.bottom];
-    [self timeListRequest];
+//    [self timeListRequest];
+    
+    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
+    [self setModels:arrm];
+    
 }
 
 
@@ -63,16 +68,44 @@
 }
 // 删除定时
 - (void)deleteTimeRequest:(TITableCell *)cell {
-    @weakify(self)
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@(cell.model.Id), @"id", nil];
-    [self showProgressHUD];
-    [AFNManager POST:RemoveTimeRequest params:param complete:^(APPResult *result) {
-        @strongify(self)
-        [self hideHUD];
-        [self.models removeObject:cell.model];
-        [self.table deleteRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }];
+//    @weakify(self)
+//    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@(cell.model.Id), @"id", nil];
+//    [self showProgressHUD];
+//    [AFNManager POST:RemoveTimeRequest params:param complete:^(APPResult *result) {
+//        @strongify(self)
+//        [self hideHUD];
+//        [self.models removeObject:cell.model];
+//        [self.table deleteRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }];
 }
+
+
+// 添加定时
+- (void)addTimingRequest:(NSString *)time {
+    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
+    NSMutableArray *arrm_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    // 时间已存在
+    if ([arrm containsObject:time]) {
+        [self showTextHUD:@"已经添加过该时间的提醒" delay:2.f];
+    }
+    // 时间不存在
+    else {
+        [arrm addObject:time];
+        [arrm_synced addObject:time];
+        [[PINDiskCache sharedCache] setObject:arrm forKey:PIN_TIMING];
+        [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
+        [self setModels:arrm];
+        [self.table reloadData];
+    }
+}
+// 删除定时
+- (void)deleteTimingRequest:(NSString *)time {
+    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
+    NSMutableArray *arrm_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    [arrm removeObject:time];
+    [arrm_synced removeObject:time];
+}
+
 
 
 #pragma mark - 事件
@@ -90,17 +123,23 @@
     @weakify(self)
     [BRDatePickerView showDatePickerWithTitle:@"每天" dateType:BRDatePickerModeHM defaultSelValue:nil resultBlock:^(NSString *selectValue) {
         @strongify(self)
-        [self addTimeRequest:selectValue];
+        [self addTimingRequest:selectValue];
+//        [self addTimeRequest:selectValue];
     }];
 }
 // 删除cell
 - (void)timeCellDelete:(TITableCell *)cell {
-    [self deleteTimeRequest:cell];
+//    [self deleteTimeRequest:cell];
+    [self deleteTimingRequest:cell.time];
 }
 
 
 #pragma mark - set
-- (void)setModels:(NSMutableArray<TIModel *> *)models {
+//- (void)setModels:(NSMutableArray<TIModel *> *)models {
+//    _models = models;
+//    _table.models = models;
+//}
+- (void)setModels:(NSMutableArray *)models {
     _models = models;
     _table.models = models;
 }

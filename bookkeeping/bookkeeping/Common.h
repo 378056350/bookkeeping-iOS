@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
 
 //================================= Third ===================================//
 #import <JGProgressHUD/JGProgressHUD.h>

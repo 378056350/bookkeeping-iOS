@@ -46,11 +46,18 @@
     [self setRightButtons:@[btn]];
 }
 
-- (void)setModel:(TIModel *)model {
-    _model = model;
+
+#pragma mark - set
+- (void)setTime:(NSString *)time {
+    _time = time;
     _nameLab.text = @"提醒时间";
-    _detailLab.text = model.time;
+    _detailLab.text = time;
 }
+//- (void)setModel:(TIModel *)model {
+//    _model = model;
+//    _nameLab.text = @"提醒时间";
+//    _detailLab.text = model.time;
+//}
 
 
 @end
