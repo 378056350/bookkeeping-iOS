@@ -48,6 +48,10 @@
 }
 // 记账
 - (void)startBook:(NSString *)price date:(NSDate *)date {
+    if (!price || price.length == 0 || [price isEqualToString:@"0"]) {
+        return;
+    }
+    
     BKCModel *cmodel = self.scroll.models[self.scroll.currentPage];
     BKModel *model = [[BKModel alloc] init];
     model.Id = random() % 1000000000;
@@ -70,7 +74,6 @@
     // 传递
     [super routerEventWithName:START_SEG_BOOK data:nil];
 }
-
 
 
 #pragma mark - get
