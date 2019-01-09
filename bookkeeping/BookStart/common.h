@@ -9,6 +9,7 @@
 #import <PINCache/PINMemoryCache.h>
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 
 // 分类
@@ -18,6 +19,9 @@
 #import "NSObject+NSCoding.h"
 #import "UIColor+HEX.h"
 #import "UIView+Extension.h"
+#import "UIResponder+QFEventHandle.h"
+#import "UIView+BorderLine.h"
+#import "NSString+Calculation.h"
 
 
 // 分类

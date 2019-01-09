@@ -20,6 +20,27 @@
 #define SCREEN_BOUNDS ([UIScreen mainScreen].bounds)
 
 
+// 单色
+#define kColor_White               HexColor(@"#FFFFFF")     // 白色
+
+
+// 背景色
+#define kColor_BG                  RGBA(250,250,250,1)      // 日间背景色
+#define kColor_Line_Color          RGBA(245,245,245,1)      // 日间背景色
+
+#define kColor_Night_Back_Small    HexColor(@"#232226")     // 夜间背景色 浅
+#define kColor_Night_Back_Medium   HexColor(@"#232226")     // 夜间背景色 中等
+#define kColor_Night_Back_Big      HexColor(@"#201523")     // 夜间背景色 深
+
+// 文字颜色
+#define kColor_Text_Black          RGBA(52, 50, 51, 1)       // 深
+#define kColor_Text_Gary           HexColor(@"#999999")      // 灰
+#define kColor_Text_Light          HexColor(@"#8B8B8B")      // 浅
+#define kColor_Text_Red            HexColor(@"#FD4751")      // 红
+
+#define kColor_Chart_Header        RGBA(79, 76, 77, 1)       // 图表头视图底部
+#define kColor_Chart_Text          RGBA(220, 220, 220, 1)    // 图表文字
+
 // 颜色
 #define kColor_Main_Color          RGBA(255, 217, 68, 1)
 #define kColor_Main_Dark_Color     RGBA(241, 206, 65, 1)

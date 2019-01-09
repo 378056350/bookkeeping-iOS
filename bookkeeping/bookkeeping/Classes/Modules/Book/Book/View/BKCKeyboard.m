@@ -324,8 +324,9 @@
         [btn setTitle:@"完成" forState:UIControlStateNormal];
         [btn setTitle:@"完成" forState:UIControlStateHighlighted];
     } else {
-        NSString *lastStr = [_money substringWithRange:NSMakeRange(_money.length - 1, 1)];
-        if (([_money containsString:@"+"] || [_money containsString:@"-"]) && ![lastStr isEqualToString:@"+"] && ![lastStr isEqualToString:@"-"]) {
+        NSString *subMoney = [_money substringFromIndex:1];
+        BOOL condition1 = ([subMoney containsString:@"+"] || [subMoney containsString:@"-"]) && ![_money hasSuffix:@"+"] && ![_money hasSuffix:@"-"];
+        if (condition1) {
             UIButton *btn = [self viewWithTag:FINISH_TAG];
             [btn setTitle:@"=" forState:UIControlStateNormal];
             [btn setTitle:@"=" forState:UIControlStateHighlighted];
@@ -366,78 +367,13 @@
         if ([_money hasSuffix:@"-"]) {
             [strm appendString:@"-"];
         }
+//        // 没加减
+//        if (![_money hasSuffix:@"+"] && ![_money hasSuffix:@"-"]) {
+//            [self reloadCompleteButton];
+//        }
+        
         [self setMoney:strm];
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    // 等于
-//    if ([[_money substringWithRange:NSMakeRange(_money.length - 1, 1)] isEqualToString:@"="]) {
-//        NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
-//        // 加
-//        if ([str containsString:@"+"]) {
-//            NSArray *arr = [str componentsSeparatedByString:@"+"];
-//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:true];
-//            _money = [NSMutableString stringWithString:newStr];
-//            [self setMoney:_money];
-//        }
-//        // 减
-//        else if ([str containsString:@"-"]) {
-//            NSArray *arr = [str componentsSeparatedByString:@"-"];
-//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:false];
-//            _money = [NSMutableString stringWithString:newStr];
-//            [self setMoney:_money];
-//        }
-//
-//    }
-//
-//
-//
-//    BOOL condition1 =
-//    ([_money containsString:@"+"]) &&
-//    (([_money componentsSeparatedByString:@"-"].count == 2 && ![[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ||
-//     ([_money componentsSeparatedByString:@"-"].count == 3 && [[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"])); // 加减
-//    BOOL condition2 = [_money componentsSeparatedByString:@"+"].count == 3;         // 加加
-//    BOOL condition3 = ([_money componentsSeparatedByString:@"-"].count == 3 &&
-//                       ![[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ||
-//                      ([_money componentsSeparatedByString:@"-"].count == 4 &&
-//                       [[_money substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"]) ;         // 减减
-//    // 需要计算
-//    if (condition1 == true || condition2 == true || condition3 == true) {
-//        if (condition1 == true) {
-//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
-//            NSArray<NSString *> *arr = [self getNumberWithString:str];
-//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:[str containsString:@"+"]];
-//
-//
-////            NSArray *arr = [str containsString:@"+"] ? [str componentsSeparatedByString:@"+"] : [str componentsSeparatedByString:@"-"];
-////            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:[str containsString:@"+"]];
-//            _money = [NSMutableString stringWithFormat:@"%@%@", newStr, [_money substringFromIndex:_money.length - 1]];
-//            [self setMoney:_money];
-//        }
-//        else if (condition2 == true) {
-//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
-//            NSArray *arr = [str componentsSeparatedByString:@"+"];
-//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:true];
-//            newStr = [newStr stringByAppendingString:@"+"];
-//            _money = [NSMutableString stringWithString:newStr];
-//            [self setMoney:_money];
-//        }
-//        else if (condition3 == true) {
-//            NSString *str = [_money substringWithRange:NSMakeRange(0, _money.length - 1)];
-//            NSArray *arr = [str componentsSeparatedByString:@"-"];
-//            NSString *newStr = [self calculation:arr[0] math:arr[1] isPlus:false];
-//            newStr = [newStr stringByAppendingString:@"-"];
-//            _money = [NSMutableString stringWithString:newStr];
-//            [self setMoney:_money];
-//        }
-//    }
 }
 
 

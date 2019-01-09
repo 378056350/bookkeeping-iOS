@@ -4,6 +4,7 @@
  */
 
 #import "StartHeader.h"
+#import "START_EVENT.h"
 
 #pragma mark - 声明
 @interface StartHeader()
@@ -24,7 +25,7 @@
 
 #pragma mark - 点击
 - (void)segValueChange:(UISegmentedControl *)seg {
-    
+    [self routerEventWithName:START_SEG_CLICK data:@(seg.selectedSegmentIndex)];
 }
 
 

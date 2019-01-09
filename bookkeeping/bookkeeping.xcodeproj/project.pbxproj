@@ -15,6 +15,11 @@
 		3213181521E59A77000ADA9A /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
 		3213181621E59A83000ADA9A /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
 		3213181721E59A91000ADA9A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
+		3213181821E5BAF4000ADA9A /* UIResponder+QFEventHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983C821C6460100311885 /* UIResponder+QFEventHandle.m */; };
+		3213181E21E5C3E1000ADA9A /* StartKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3213181D21E5C3E1000ADA9A /* StartKeyboard.xib */; };
+		3213181F21E5C913000ADA9A /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983D521C6460100311885 /* UIView+BorderLine.m */; };
+		3213182021E5CDB7000ADA9A /* NSString+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32258E7D21CA29AC0017254D /* NSString+Calculation.m */; };
+		3213182421E5E43C000ADA9A /* BKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8547D21DA20AC00A203DE /* BKModel.m */; };
 		321431D921D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */; };
 		3219837621C642BB00311885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219837521C642BB00311885 /* AppDelegate.m */; };
 		3219837C21C642BB00311885 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3219837A21C642BB00311885 /* Main.storyboard */; };
@@ -372,6 +377,8 @@
 		3213180A21E59727000ADA9A /* StartScrollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartScrollCell.h; sourceTree = "<group>"; };
 		3213180B21E59727000ADA9A /* StartScrollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartScrollCell.m; sourceTree = "<group>"; };
 		3213180C21E59727000ADA9A /* StartScrollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScrollCell.xib; sourceTree = "<group>"; };
+		3213181921E5BB8E000ADA9A /* START_EVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = START_EVENT.h; sourceTree = "<group>"; };
+		3213181D21E5C3E1000ADA9A /* StartKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartKeyboard.xib; sourceTree = "<group>"; };
 		321431D721D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLPhotoActionSheet+Extension.h"; sourceTree = "<group>"; };
 		321431D821D3675B00D7D1F5 /* ZLPhotoActionSheet+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZLPhotoActionSheet+Extension.m"; sourceTree = "<group>"; };
 		3219837121C642BB00311885 /* bookkeeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookkeeping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -928,6 +935,7 @@
 			children = (
 				3233D7CD21E57A9E009342D7 /* StartKeyboard.h */,
 				3233D7CE21E57A9E009342D7 /* StartKeyboard.m */,
+				3213181D21E5C3E1000ADA9A /* StartKeyboard.xib */,
 			);
 			path = keyboard;
 			sourceTree = "<group>";
@@ -2538,6 +2546,7 @@
 				3233D7C021E57983009342D7 /* KKPrefixHeader.pch */,
 				3233D7C121E57997009342D7 /* PINCache_Header.h */,
 				3233D7C221E579A9009342D7 /* common.h */,
+				3213181921E5BB8E000ADA9A /* START_EVENT.h */,
 				326EB88D21E57C72007CD5C6 /* Category */,
 				3233D7BE21E57977009342D7 /* Controller */,
 				3233D7BF21E57977009342D7 /* View */,
@@ -2855,6 +2864,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3213181E21E5C3E1000ADA9A /* StartKeyboard.xib in Resources */,
 				3213180921E594FF000ADA9A /* Assets.xcassets in Resources */,
 				3213180E21E59727000ADA9A /* StartScrollCell.xib in Resources */,
 			);
@@ -3169,14 +3179,18 @@
 				3213181721E59A91000ADA9A /* BaseModel.m in Sources */,
 				326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */,
 				326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */,
+				3213182021E5CDB7000ADA9A /* NSString+Calculation.m in Sources */,
 				3213181421E599FE000ADA9A /* PINCacheManager.m in Sources */,
+				3213181F21E5C913000ADA9A /* UIView+BorderLine.m in Sources */,
 				326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */,
 				3213181621E59A83000ADA9A /* ACAListModel.m in Sources */,
 				3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */,
 				3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */,
 				326EB88921E57C00007CD5C6 /* NSDate+Extension.m in Sources */,
+				3213181821E5BAF4000ADA9A /* UIResponder+QFEventHandle.m in Sources */,
 				3213181521E59A77000ADA9A /* BKCIncomeModel.m in Sources */,
 				326EB88A21E57C05007CD5C6 /* NSString+Extension.m in Sources */,
+				3213182421E5E43C000ADA9A /* BKModel.m in Sources */,
 				326EB88B21E57C0D007CD5C6 /* NSObject+NSCoding.m in Sources */,
 				3233D7C621E57A50009342D7 /* BaseView.m in Sources */,
 				4BFD380B21E4BE0300BAB0BB /* MonthController.m in Sources */,

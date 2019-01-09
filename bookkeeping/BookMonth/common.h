@@ -16,6 +16,9 @@
 #import <PINCache/PINDiskCache.h>
 #import <PINCache/PINMemoryCache.h>
 #import <MJExtension/MJExtension.h>
+#import <BRPickerView/BRPickerView.h>
+#import <BRPickerView/BRPickerView.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 
 // 分类

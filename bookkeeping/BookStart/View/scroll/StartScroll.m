@@ -5,18 +5,14 @@
 
 #import "StartScroll.h"
 #import "StartScrollCell.h"
-#import "BKCIncomeModel.h"
 
 
 #pragma mark - 声明
-@interface StartScroll()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
-    NSInteger _currentPage;
-}
+@interface StartScroll()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> 
 
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) UICollectionView *collection;
-@property (nonatomic, strong) NSMutableArray<BKCModel *> *models;
 
 @end
 
@@ -26,7 +22,6 @@
 
 
 - (void)initUI {
-    [self setBackgroundColor:[UIColor redColor]];
     [self leftBtn];
     [self rightBtn];
     [self collection];
@@ -41,10 +36,27 @@
     [self.collection setContentOffset:CGPointMake(self.collection.width * _currentPage, 0) animated:true];
 }
 - (void)rightBtnClick {
-    _currentPage += 1;
     NSInteger maxPage = self.models.count % 5 == 0 ? self.models.count / 5 : self.models.count / 5 + 1;
+    _currentPage += 1;
     _currentPage = _currentPage >= maxPage ? maxPage - 1 : _currentPage;
     [self.collection setContentOffset:CGPointMake(self.collection.width * _currentPage, 0) animated:true];
+}
+
+
+#pragma mark - set
+- (void)setSegIndex:(NSInteger)segIndex {
+    _segIndex = segIndex;
+    _currentPage = 0;
+    [self.models removeAllObjects];
+    if (segIndex == 0) {
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+    } else {
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY]];
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+    }
+    [self.collection setContentOffset:CGPointZero animated:false];
+    [self.collection reloadData];
 }
 
 
@@ -55,12 +67,16 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StartScrollCell *cell = [StartScrollCell loadItem:collectionView index:indexPath];
     cell.model = self.models[indexPath.row];
+    cell.choose = _currentPage == indexPath.row;
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    _currentPage = indexPath.row;
+    [self.collection reloadData];
+}
 
 
 #pragma mark - get
@@ -109,8 +125,8 @@
 - (NSMutableArray<BKCModel *> *)models {
     if (!_models) {
         _models = [NSMutableArray array];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY]];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
     }
     return _models;
 }

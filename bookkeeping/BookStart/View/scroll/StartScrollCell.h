@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StartScrollCell : BaseCollectionCell
 
 @property (nonatomic, strong) BKCModel *model;
+@property (nonatomic, assign) BOOL choose;
 
 @end
 

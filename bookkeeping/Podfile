@@ -37,5 +37,6 @@ target ‘BookStart’ do
   pod 'SDWebImage', '4.4.3'
   pod 'MJExtension', '3.0.15'
   pod 'PINCache', '3.0.1-beta.7'
+  pod 'ReactiveObjC', '3.1.0'
   
 end

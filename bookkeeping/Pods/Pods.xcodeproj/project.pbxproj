@@ -80,6 +80,7 @@
 		071598203E3CF36ECEE9A8F2D7246524 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B84E7CCD90E420F668033C7DE7D55F29 /* UIScrollView+MJRefresh.m */; };
 		0769A057F7E9AC5CC58D000215B6D1B9 /* UIControl+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 67858F5911763DFF4BE38C941D93B307 /* UIControl+RACSignalSupport.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		076DB767ECB059CA4A17ED281A791C95 /* GPUImageAdaptiveThresholdFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C54BC70E280B58765E55583354EE51 /* GPUImageAdaptiveThresholdFilter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		078768AF1E8BAD6FE66EE51AFA9AC580 /* Pods-BookStart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 409F57983D28115C50C00252C5D22DF7 /* Pods-BookStart-dummy.m */; };
 		07CD3D43970EABC5C0A0DCD51AB43D9A /* RACUnarySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = F9707467FDEEC6630392179EA4103388 /* RACUnarySequence.m */; };
 		086998C740FE827C3BA6ED8AD4BE73DA /* UISlider+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D93DB83DD07ADC7B32F40FD75166DA1 /* UISlider+RACSignalSupport.m */; };
 		08766266EAEE1E28BFE169148F26C3D5 /* GPUImageThreeInputFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D68A3C11DDF9D94C00D45C620E3020E /* GPUImageThreeInputFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -562,7 +563,6 @@
 		8BA093508EBBF0F7D5EB8E506CFC51BA /* ZLProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 023598CB35423BF3D625978D2111C6BD /* ZLProgressHUD.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8BCA92D6E9D6F96E4E62ADA13453C9BF /* RACDynamicSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = DBF4CF5CE7240855102783D7136C10E5 /* RACDynamicSequence.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8C19DB4590AD6411F6A8BA8F2A133BCA /* GPUImageHistogramGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0952525EAE4ADEE909E149664EFE73D5 /* GPUImageHistogramGenerator.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8CA207ECC63E5A64E088D17F12A99ED4 /* Pods-BookStart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 409F57983D28115C50C00252C5D22DF7 /* Pods-BookStart-dummy.m */; };
 		8DC720B953DF285E99BEFA9E5792B786 /* KMSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78256453AF96536306F0ADA394B3DD /* KMSwizzle.m */; };
 		8DF9715F5C3A443678DC5E7403AAA57C /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB76E88A31EF7E880B8891B8D32026 /* SDWebImageDownloaderOperation.m */; };
 		8E873CBC3CEADF3FA9F1973FA3FCC16E /* POPAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 906A5E325DBFDE4AD1F24F21110A308D /* POPAnimationInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1035,13 +1035,6 @@
 			remoteGlobalIDString = EF766DBD3885D27665C72522D94FBD83;
 			remoteInfo = JCore;
 		};
-		2E084305430D8CE9E668358FD9D0805F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 85E9312D40B3915DF0C7429C25268686;
-			remoteInfo = PINOperation;
-		};
 		34FA2DBF99F4077DA7EBE26240EB8B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -1084,12 +1077,19 @@
 			remoteGlobalIDString = E62CAA4010E6BDEB881FB709E40E9DA5;
 			remoteInfo = Masonry;
 		};
-		436256921E4776EDB61942CABB422E3E /* PBXContainerItemProxy */ = {
+		45E485619B05F7F6C9AB0AC64C7F50F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D27CA8B186CEDCCB1ABBE3385BA5201A;
-			remoteInfo = SDWebImage;
+			remoteGlobalIDString = 7233A2BC1EBC3B4E3495A9091932A4F7;
+			remoteInfo = PINCache;
+		};
+		460386CB976933F8940ACB0D7AFDC83D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDE2C47E2D60AE7740EA60996745639A;
+			remoteInfo = MJExtension;
 		};
 		4BA756B772B8D8659298ADAEEAF5FA9A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1111,13 +1111,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3D9D0BC3038A90786B170B6AC4B60F2C;
 			remoteInfo = GPUImage;
-		};
-		64684C1252CBF12B4DF4D291EE707FFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BDE2C47E2D60AE7740EA60996745639A;
-			remoteInfo = MJExtension;
 		};
 		64BDB3EFC5C4F830FCE50E94FF015023 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1146,6 +1139,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2301F260DA697F33970724D1DDAE1CAD;
 			remoteInfo = "JGProgressHUD-JGProgressHUD";
+		};
+		9016DAF36D805A01C580F6E67FF9D9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85E9312D40B3915DF0C7429C25268686;
+			remoteInfo = PINOperation;
+		};
+		968B1BFA2155708BD74C785FE8DAD063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2168B43CAC047488E0D7720A2576A55;
+			remoteInfo = ReactiveObjC;
 		};
 		9B8C4CE510FD08BC6AE9604DD3DD9217 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1189,6 +1196,13 @@
 			remoteGlobalIDString = 85E9312D40B3915DF0C7429C25268686;
 			remoteInfo = PINOperation;
 		};
+		E39F39B1409DBB12F5FCB18242359929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D27CA8B186CEDCCB1ABBE3385BA5201A;
+			remoteInfo = SDWebImage;
+		};
 		E43D9BAACA86CD83601A76B55DF264C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -1202,13 +1216,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 85E9312D40B3915DF0C7429C25268686;
 			remoteInfo = PINOperation;
-		};
-		E83BFD3A296177C63314897F94BA27BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7233A2BC1EBC3B4E3495A9091932A4F7;
-			remoteInfo = PINCache;
 		};
 		E899A28DDFDF7D4E9CE0A5C96854A3E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2291,13 +2298,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2DD7E0377FD53C22E7402C69390BB1FA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2DFDE4A313049FBFDC95E26C0175D4C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2355,6 +2355,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		814ED29060D8DCEA26308E6C2294BE44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		834142C8DCF5041B86567FEA020DB776 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -4415,7 +4422,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F8D161259A9E4AF4FF1629AF4C9380C /* Headers */ = {
+		7C69729422EDBD69CC74EAFDCE3B00B2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -4944,6 +4951,28 @@
 			productReference = C24A158C821C7763A2473A020E2ECDD7 /* libPods-BookMonth.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		46E5C3ABEBD5E72DCF1629EBA10154C5 /* Pods-BookStart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFE2A6AD0F14DF0EAFD8D5DE44B5C9E /* Build configuration list for PBXNativeTarget "Pods-BookStart" */;
+			buildPhases = (
+				7C69729422EDBD69CC74EAFDCE3B00B2 /* Headers */,
+				4FCA9841EBAB767EA7E299FC101F3880 /* Sources */,
+				834142C8DCF5041B86567FEA020DB776 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A172A5E3A956284F3E0F2EAF4F9C7FD /* PBXTargetDependency */,
+				923384084D1E79CF4431E6D661BA9A75 /* PBXTargetDependency */,
+				D962A62EF7188EACEB2F1C56391F0FD3 /* PBXTargetDependency */,
+				19676EAF0BCA320903359836BE64234C /* PBXTargetDependency */,
+				4699B905241359B0915BC9DA95538BEA /* PBXTargetDependency */,
+			);
+			name = "Pods-BookStart";
+			productName = "Pods-BookStart";
+			productReference = 7AE4300D1108DB7442AB39F6A534B30F /* libPods-BookStart.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		5C77378901975549C65734A32F2C84D0 /* JZNavigationExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E6331E78980771C6DE70D5F3C5ECA37 /* Build configuration list for PBXNativeTarget "JZNavigationExtension" */;
@@ -5046,27 +5075,6 @@
 			name = MJExtension;
 			productName = MJExtension;
 			productReference = 97B925736C5DD6BF546E8243BA876893 /* libMJExtension.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D1219D7BE9AA0CD1AFF7CFAEA91C46DC /* Pods-BookStart */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 456D72B75F2E5114FAC5338E2B245CD5 /* Build configuration list for PBXNativeTarget "Pods-BookStart" */;
-			buildPhases = (
-				7F8D161259A9E4AF4FF1629AF4C9380C /* Headers */,
-				523B83AD09CDD98FDADC4BFE831D1F33 /* Sources */,
-				2DD7E0377FD53C22E7402C69390BB1FA /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B38C359218F1E4C71B94635EC0CBFF48 /* PBXTargetDependency */,
-				7416E60EAF5162521E0CD7EC6F6637C3 /* PBXTargetDependency */,
-				22CB27466329093FDE9E386D10981A52 /* PBXTargetDependency */,
-				63055A5E0C8D4D4C9FE94D29A311100D /* PBXTargetDependency */,
-			);
-			name = "Pods-BookStart";
-			productName = "Pods-BookStart";
-			productReference = 7AE4300D1108DB7442AB39F6A534B30F /* libPods-BookStart.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D26F3AB9ED203A93A5B5AED393C27806 /* pop */ = {
@@ -5209,7 +5217,7 @@
 				85E9312D40B3915DF0C7429C25268686 /* PINOperation */,
 				086D256BFED21B9D9AB3B044D7BAA49A /* Pods-bookkeeping */,
 				4136F0CDB916C015B8E9C812F823F9D5 /* Pods-BookMonth */,
-				D1219D7BE9AA0CD1AFF7CFAEA91C46DC /* Pods-BookStart */,
+				46E5C3ABEBD5E72DCF1629EBA10154C5 /* Pods-BookStart */,
 				D26F3AB9ED203A93A5B5AED393C27806 /* pop */,
 				E2168B43CAC047488E0D7720A2576A55 /* ReactiveObjC */,
 				B9C63E3016935E9C5CE482184C4284DD /* SDCycleScrollView */,
@@ -5299,6 +5307,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FCA9841EBAB767EA7E299FC101F3880 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				078768AF1E8BAD6FE66EE51AFA9AC580 /* Pods-BookStart-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		519FC30CDBC22F9676B2659C7E64FBE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5314,14 +5330,6 @@
 				CAC063AD1FBE07ADDE816C8DB6637ABC /* NSObject+MJKeyValue.m in Sources */,
 				F2D29E13A5BC9925E0D6FDAC40794D19 /* NSObject+MJProperty.m in Sources */,
 				A8F0A58038991D74C79E2F01C0D4AAFD /* NSString+MJExtension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		523B83AD09CDD98FDADC4BFE831D1F33 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CA207ECC63E5A64E088D17F12A99ED4 /* Pods-BookStart-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5858,17 +5866,17 @@
 			target = 347B5C5200AB9FD634A00B71B116DCF4 /* JGProgressHUD */;
 			targetProxy = 12399A92AD2118F07555DC5C864C7A59 /* PBXContainerItemProxy */;
 		};
+		19676EAF0BCA320903359836BE64234C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReactiveObjC;
+			target = E2168B43CAC047488E0D7720A2576A55 /* ReactiveObjC */;
+			targetProxy = 968B1BFA2155708BD74C785FE8DAD063 /* PBXContainerItemProxy */;
+		};
 		1E5305F76E8E3E4EC4C986B41423D894 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PINCache;
 			target = 7233A2BC1EBC3B4E3495A9091932A4F7 /* PINCache */;
 			targetProxy = E915DC42A70C05EFE5C4D6497B91BC40 /* PBXContainerItemProxy */;
-		};
-		22CB27466329093FDE9E386D10981A52 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PINOperation;
-			target = 85E9312D40B3915DF0C7429C25268686 /* PINOperation */;
-			targetProxy = 2E084305430D8CE9E668358FD9D0805F /* PBXContainerItemProxy */;
 		};
 		3489CD4549F0BA5ED8F2A77BB2038ADE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5882,6 +5890,12 @@
 			target = EF766DBD3885D27665C72522D94FBD83 /* JCore */;
 			targetProxy = 23E7EF5B6858AA9BC8FFA35E3875A940 /* PBXContainerItemProxy */;
 		};
+		4699B905241359B0915BC9DA95538BEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = D27CA8B186CEDCCB1ABBE3385BA5201A /* SDWebImage */;
+			targetProxy = E39F39B1409DBB12F5FCB18242359929 /* PBXContainerItemProxy */;
+		};
 		4F0D0CF98896B73F90A5906239268098 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PINOperation;
@@ -5894,23 +5908,11 @@
 			target = 7233A2BC1EBC3B4E3495A9091932A4F7 /* PINCache */;
 			targetProxy = E899A28DDFDF7D4E9CE0A5C96854A3E3 /* PBXContainerItemProxy */;
 		};
-		63055A5E0C8D4D4C9FE94D29A311100D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SDWebImage;
-			target = D27CA8B186CEDCCB1ABBE3385BA5201A /* SDWebImage */;
-			targetProxy = 436256921E4776EDB61942CABB422E3E /* PBXContainerItemProxy */;
-		};
 		7273329490094BEA97F5847A9681DBF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = pop;
 			target = D26F3AB9ED203A93A5B5AED393C27806 /* pop */;
 			targetProxy = C2B06DE60E00674E143C47230B0773C2 /* PBXContainerItemProxy */;
-		};
-		7416E60EAF5162521E0CD7EC6F6637C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PINCache;
-			target = 7233A2BC1EBC3B4E3495A9091932A4F7 /* PINCache */;
-			targetProxy = E83BFD3A296177C63314897F94BA27BA /* PBXContainerItemProxy */;
 		};
 		74A1790219D5ACD4305DC48C4D27653A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5930,11 +5932,23 @@
 			target = 3D9D0BC3038A90786B170B6AC4B60F2C /* GPUImage */;
 			targetProxy = 1BBC0A73E369D0DE49824DF440D6351B /* PBXContainerItemProxy */;
 		};
+		8A172A5E3A956284F3E0F2EAF4F9C7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MJExtension;
+			target = BDE2C47E2D60AE7740EA60996745639A /* MJExtension */;
+			targetProxy = 460386CB976933F8940ACB0D7AFDC83D /* PBXContainerItemProxy */;
+		};
 		8E2E23C51CAA3F45B04DC7AC72F865EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JCore;
 			target = EF766DBD3885D27665C72522D94FBD83 /* JCore */;
 			targetProxy = F5C933AEFAE304B58651D3C882E90E7D /* PBXContainerItemProxy */;
+		};
+		923384084D1E79CF4431E6D661BA9A75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PINCache;
+			target = 7233A2BC1EBC3B4E3495A9091932A4F7 /* PINCache */;
+			targetProxy = 45E485619B05F7F6C9AB0AC64C7F50F6 /* PBXContainerItemProxy */;
 		};
 		99C03692B6936F7CA3A5757B2B0C8FDD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5984,12 +5998,6 @@
 			target = 85E9312D40B3915DF0C7429C25268686 /* PINOperation */;
 			targetProxy = E8114C04B4F2F2A691FEBD9B2AEC4CED /* PBXContainerItemProxy */;
 		};
-		B38C359218F1E4C71B94635EC0CBFF48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MJExtension;
-			target = BDE2C47E2D60AE7740EA60996745639A /* MJExtension */;
-			targetProxy = 64684C1252CBF12B4DF4D291EE707FFB /* PBXContainerItemProxy */;
-		};
 		B733857C73C510C5CB360B4FBE1EEC74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImage;
@@ -6019,6 +6027,12 @@
 			name = SDWebImage;
 			target = D27CA8B186CEDCCB1ABBE3385BA5201A /* SDWebImage */;
 			targetProxy = 19097235446238B064B3E6056A025B2B /* PBXContainerItemProxy */;
+		};
+		D962A62EF7188EACEB2F1C56391F0FD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PINOperation;
+			target = 85E9312D40B3915DF0C7429C25268686 /* PINOperation */;
+			targetProxy = 9016DAF36D805A01C580F6E67FF9D9A9 /* PBXContainerItemProxy */;
 		};
 		DCFE50791E32EE8E7E100DB422E1829F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -6382,30 +6396,6 @@
 			};
 			name = Debug;
 		};
-		27D4E57C1DF72C908315D557EB2AABEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8791A8A922068DF274323DF8FB7EE462 /* ReactiveObjC.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveObjC/ReactiveObjC-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = ReactiveObjC;
-				PRODUCT_NAME = ReactiveObjC;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		2CA481BA0E60F0ACF802E20F7359CAF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 629D9B456DB00FABBE8E9A9270396968 /* JGProgressHUD.xcconfig */;
@@ -6502,29 +6492,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		3BCDC174D36731DD5B31C423C278E8B7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B5C321D2E6031BA1ED0E1861950D49F /* Pods-BookStart.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
 		};
 		3DBDF1ABD82F1284C9BA93BA48FC00A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -6638,6 +6605,31 @@
 			};
 			name = Release;
 		};
+		5A975677F078EC373DDDA39955FF6165 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8791A8A922068DF274323DF8FB7EE462 /* ReactiveObjC.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveObjC/ReactiveObjC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = ReactiveObjC;
+				PRODUCT_NAME = ReactiveObjC;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		61043137FDFEA39D1DDD87644B047DEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 629D9B456DB00FABBE8E9A9270396968 /* JGProgressHUD.xcconfig */;
@@ -6667,6 +6659,30 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		6B467B98E3FD7682AFB906B1D24D26E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8791A8A922068DF274323DF8FB7EE462 /* ReactiveObjC.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveObjC/ReactiveObjC-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = ReactiveObjC;
+				PRODUCT_NAME = ReactiveObjC;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -6745,6 +6761,28 @@
 			baseConfigurationReference = 059B382AF43CC045F5A666DE68C1B974 /* Pods-bookkeeping.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84BA049E78C197C8A4D95AEF0A488932 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23054680BB3CE69EE21263947D48A988 /* Pods-BookStart.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -7053,6 +7091,29 @@
 			};
 			name = Release;
 		};
+		C3B09226CA6D7325B0942BD1FE85106F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B5C321D2E6031BA1ED0E1861950D49F /* Pods-BookStart.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C96E5A8BD5FA53167729F528C3A53284 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 78EBF12A170DA420DC2D95547BA95650 /* MGSwipeTableCell.xcconfig */;
@@ -7076,28 +7137,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		CD4EA412391AB5BBD200D2761D839B56 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23054680BB3CE69EE21263947D48A988 /* Pods-BookStart.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		CE1E38F792F568E0707B13FE1B4482C6 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -7131,29 +7170,6 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = JGProgressHUD;
 				PRODUCT_NAME = JGProgressHUD;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D7025CB7E2B7839F6B67119036DE3C50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8791A8A922068DF274323DF8FB7EE462 /* ReactiveObjC.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveObjC/ReactiveObjC-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = ReactiveObjC;
-				PRODUCT_NAME = ReactiveObjC;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7335,6 +7351,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		1FFE2A6AD0F14DF0EAFD8D5DE44B5C9E /* Build configuration list for PBXNativeTarget "Pods-BookStart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BA049E78C197C8A4D95AEF0A488932 /* Debug */,
+				C3B09226CA6D7325B0942BD1FE85106F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		20030ED0E611AB6D834B464119FAD4C2 /* Build configuration list for PBXNativeTarget "AFNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -7398,20 +7423,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		456D72B75F2E5114FAC5338E2B245CD5 /* Build configuration list for PBXNativeTarget "Pods-BookStart" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD4EA412391AB5BBD200D2761D839B56 /* Debug */,
-				3BCDC174D36731DD5B31C423C278E8B7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4DBB1695F12243B7797A9A5A12DFA4C8 /* Build configuration list for PBXNativeTarget "ReactiveObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7025CB7E2B7839F6B67119036DE3C50 /* Debug */,
-				27D4E57C1DF72C908315D557EB2AABEF /* Release */,
+				6B467B98E3FD7682AFB906B1D24D26E7 /* Debug */,
+				5A975677F078EC373DDDA39955FF6165 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

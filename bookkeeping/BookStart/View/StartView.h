@@ -4,6 +4,8 @@
  */
 
 #import "BaseView.h"
+#import "BKCIncomeModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 

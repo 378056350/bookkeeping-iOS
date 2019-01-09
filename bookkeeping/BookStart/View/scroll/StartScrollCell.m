@@ -30,8 +30,15 @@
 #pragma mark - set
 - (void)setModel:(BKCModel *)model {
     _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_l)]];
     [_nameLab setText:model.name];
+}
+- (void)setChoose:(BOOL)choose {
+    _choose = choose;
+    if (choose == true) {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
+    } else {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+    }
 }
 
 
