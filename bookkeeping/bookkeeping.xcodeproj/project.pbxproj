@@ -43,6 +43,9 @@
 		3219841421C6474600311885 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219841021C6474500311885 /* UserInfo.m */; };
 		3219841521C6474600311885 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219841121C6474500311885 /* UserModel.m */; };
 		32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32258E7D21CA29AC0017254D /* NSString+Calculation.m */; };
+		3233D7C621E57A50009342D7 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983A321C6459B00311885 /* BaseView.m */; };
+		3233D7CC21E57A94009342D7 /* ContentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CB21E57A94009342D7 /* ContentScroll.m */; };
+		3233D7CF21E57A9E009342D7 /* ContentKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */; };
 		324484A321C726E90051B8B6 /* BadgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484A221C726E80051B8B6 /* BadgeController.m */; };
 		324484AE21C728C00051B8B6 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324484AC21C728C00051B8B6 /* LoginController.m */; };
 		324484AF21C728C00051B8B6 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324484AD21C728C00051B8B6 /* LoginController.xib */; };
@@ -52,6 +55,14 @@
 		3257AED821C8774400787A34 /* TITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3257AED721C8774400787A34 /* TITableView.m */; };
 		3257AEDC21C877E500787A34 /* TITableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3257AEDA21C877E500787A34 /* TITableCell.m */; };
 		3257AEDD21C877E500787A34 /* TITableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3257AEDB21C877E500787A34 /* TITableCell.xib */; };
+		326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983E021C6460100311885 /* UIFont+Extension.m */; };
+		326EB88921E57C00007CD5C6 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */; };
+		326EB88A21E57C05007CD5C6 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983EB21C6460100311885 /* NSString+Extension.m */; };
+		326EB88B21E57C0D007CD5C6 /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */; };
+		326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983CB21C6460100311885 /* UIColor+HEX.m */; };
+		326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EB88F21E57C72007CD5C6 /* UIView+Extension.m */; };
+		326EB89421E57D86007CD5C6 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EB89321E57D86007CD5C6 /* StartView.m */; };
+		326EB89721E57ED3007CD5C6 /* StartHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EB89621E57ED3007CD5C6 /* StartHeader.m */; };
 		326F8F2421D4BFCA0030B329 /* TIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 326F8F2321D4BFCA0030B329 /* TIModel.m */; };
 		32751F0921C8E93000D9F415 /* BKCNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32751F0821C8E93000D9F415 /* BKCNavigation.m */; };
 		32751F0B21C8E97300D9F415 /* BKCNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32751F0A21C8E97300D9F415 /* BKCNavigation.xib */; };
@@ -423,6 +434,13 @@
 		3219841321C6474500311885 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		32258E7C21CA29AC0017254D /* NSString+Calculation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Calculation.h"; sourceTree = "<group>"; };
 		32258E7D21CA29AC0017254D /* NSString+Calculation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Calculation.m"; sourceTree = "<group>"; };
+		3233D7C021E57983009342D7 /* KKPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKPrefixHeader.pch; sourceTree = "<group>"; };
+		3233D7C121E57997009342D7 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
+		3233D7C221E579A9009342D7 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		3233D7CA21E57A94009342D7 /* ContentScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentScroll.h; sourceTree = "<group>"; };
+		3233D7CB21E57A94009342D7 /* ContentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentScroll.m; sourceTree = "<group>"; };
+		3233D7CD21E57A9E009342D7 /* ContentKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentKeyboard.h; sourceTree = "<group>"; };
+		3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentKeyboard.m; sourceTree = "<group>"; };
 		3244849B21C721B90051B8B6 /* MINE_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINE_EVENT_MANAGER.h; sourceTree = "<group>"; };
 		324484A121C726E80051B8B6 /* BadgeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeController.h; sourceTree = "<group>"; };
 		324484A221C726E80051B8B6 /* BadgeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeController.m; sourceTree = "<group>"; };
@@ -439,6 +457,12 @@
 		3257AED921C877E500787A34 /* TITableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TITableCell.h; sourceTree = "<group>"; };
 		3257AEDA21C877E500787A34 /* TITableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TITableCell.m; sourceTree = "<group>"; };
 		3257AEDB21C877E500787A34 /* TITableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TITableCell.xib; sourceTree = "<group>"; };
+		326EB88E21E57C72007CD5C6 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		326EB88F21E57C72007CD5C6 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		326EB89221E57D86007CD5C6 /* StartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
+		326EB89321E57D86007CD5C6 /* StartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
+		326EB89521E57ED3007CD5C6 /* StartHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartHeader.h; sourceTree = "<group>"; };
+		326EB89621E57ED3007CD5C6 /* StartHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartHeader.m; sourceTree = "<group>"; };
 		326F8F2221D4BFCA0030B329 /* TIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIModel.h; sourceTree = "<group>"; };
 		326F8F2321D4BFCA0030B329 /* TIModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIModel.m; sourceTree = "<group>"; };
 		326F8F2521D4CA470030B329 /* TIMING_EVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIMING_EVENT.h; sourceTree = "<group>"; };
@@ -1120,8 +1144,8 @@
 		321983CA21C6460100311885 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				321983CB21C6460100311885 /* UIColor+HEX.m */,
 				321983CC21C6460100311885 /* UIColor+HEX.h */,
+				321983CB21C6460100311885 /* UIColor+HEX.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -1215,6 +1239,30 @@
 				3219841121C6474500311885 /* UserModel.m */,
 			);
 			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		3233D7BE21E57977009342D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD380921E4BE0300BAB0BB /* MonthController.h */,
+				4BFD380A21E4BE0300BAB0BB /* MonthController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3233D7BF21E57977009342D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				326EB89221E57D86007CD5C6 /* StartView.h */,
+				326EB89321E57D86007CD5C6 /* StartView.m */,
+				326EB89521E57ED3007CD5C6 /* StartHeader.h */,
+				326EB89621E57ED3007CD5C6 /* StartHeader.m */,
+				3233D7CA21E57A94009342D7 /* ContentScroll.h */,
+				3233D7CB21E57A94009342D7 /* ContentScroll.m */,
+				3233D7CD21E57A9E009342D7 /* ContentKeyboard.h */,
+				3233D7CE21E57A9E009342D7 /* ContentKeyboard.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3244849C21C726570051B8B6 /* Mine (我的) */ = {
@@ -1315,6 +1363,15 @@
 				4BA68AEA21C7ED550063A5C2 /* BottomButton.m */,
 			);
 			path = BottomButton;
+			sourceTree = "<group>";
+		};
+		326EB88D21E57C72007CD5C6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				326EB88E21E57C72007CD5C6 /* UIView+Extension.h */,
+				326EB88F21E57C72007CD5C6 /* UIView+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		327CEC1921C88529001D0086 /* SubTable */ = {
@@ -2435,8 +2492,12 @@
 			isa = PBXGroup;
 			children = (
 				4BFD382221E4DD4B00BAB0BB /* BookStart.entitlements */,
-				4BFD380921E4BE0300BAB0BB /* MonthController.h */,
-				4BFD380A21E4BE0300BAB0BB /* MonthController.m */,
+				3233D7C021E57983009342D7 /* KKPrefixHeader.pch */,
+				3233D7C121E57997009342D7 /* PINCache_Header.h */,
+				3233D7C221E579A9009342D7 /* common.h */,
+				326EB88D21E57C72007CD5C6 /* Category */,
+				3233D7BE21E57977009342D7 /* Controller */,
+				3233D7BF21E57977009342D7 /* View */,
 				4BFD380221E4BDD400BAB0BB /* Info.plist */,
 			);
 			path = BookStart;
@@ -3034,7 +3095,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326EB89421E57D86007CD5C6 /* StartView.m in Sources */,
+				3233D7C621E57A50009342D7 /* BaseView.m in Sources */,
+				326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */,
 				4BFD380B21E4BE0300BAB0BB /* MonthController.m in Sources */,
+				326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */,
+				3233D7CF21E57A9E009342D7 /* ContentKeyboard.m in Sources */,
+				326EB88B21E57C0D007CD5C6 /* NSObject+NSCoding.m in Sources */,
+				326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */,
+				326EB88A21E57C05007CD5C6 /* NSString+Extension.m in Sources */,
+				326EB89721E57ED3007CD5C6 /* StartHeader.m in Sources */,
+				3233D7CC21E57A94009342D7 /* ContentScroll.m in Sources */,
+				326EB88921E57C00007CD5C6 /* NSDate+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3275,6 +3347,7 @@
 				CODE_SIGN_ENTITLEMENTS = BookStart/BookStart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BookStart/KKPrefixHeader.pch";
 				INFOPLIST_FILE = BookStart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3294,6 +3367,7 @@
 				CODE_SIGN_ENTITLEMENTS = BookStart/BookStart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BookStart/KKPrefixHeader.pch";
 				INFOPLIST_FILE = BookStart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

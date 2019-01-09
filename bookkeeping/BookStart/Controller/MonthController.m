@@ -6,8 +6,11 @@
 #import "MonthController.h"
 #import <NotificationCenter/NotificationCenter.h>
 
+
 #pragma mark - 声明
 @interface MonthController () <NCWidgetProviding>
+
+@property (nonatomic, strong) StartView *content;
 
 @end
 
@@ -22,6 +25,7 @@
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
         self.preferredContentSize = CGSizeMake(0, 110);
     }
+    [self content];
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
@@ -32,12 +36,19 @@
     if (activeDisplayMode == NCWidgetDisplayModeCompact) {
         self.preferredContentSize = CGSizeMake(0, 110);
     } else {
-        // 最多显示屏高
-        self.preferredContentSize = CGSizeMake(0, 300);
+        self.preferredContentSize = CGSizeMake(0, SCREEN_WIDTH);
     }
 }
 
 
-
+#pragma mark - get
+- (StartView *)content {
+    if (!_content) {
+        _content = [StartView loadCode:CGRectMake(0, 0, self.view.width, SCREEN_WIDTH)];
+        _content.backgroundColor = [UIColor orangeColor];
+        [self.view addSubview:_content];
+    }
+    return _content;
+}
 
 @end
