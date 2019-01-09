@@ -11,7 +11,8 @@
 
 
 // 图片
-#define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
+//#define KStatic(str) [NSString stringWithFormat:@"http://127.0.0.1:8080/media/%@", str]
+#define KStatic(str) [NSString stringWithFormat:@"http://192.168.1.7:8080/media/%@", str]
 
 
 // 获取屏幕 宽度、高度
@@ -66,6 +67,7 @@
 
 
 // 手机型号
+#define IS_SIMULATOR TARGET_IPHONE_SIMULATOR == 1 ? 1 : 0
 #define IS_IPHONEXR (SCREEN_WIDTH == 414.f && SCREEN_HEIGHT == 896.f ? YES : NO)
 #define IS_IPHONEX (SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f ? YES : NO)
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds].size.height == 568.0f)

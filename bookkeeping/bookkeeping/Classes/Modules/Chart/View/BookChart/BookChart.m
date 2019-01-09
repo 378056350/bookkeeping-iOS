@@ -52,11 +52,15 @@
 }
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self routerEventWithName:CHART_CHART_TOUCH_END data:nil];
-    [self.bhud setHidden:true];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.bhud setHidden:true];
+    });
 }
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self routerEventWithName:CHART_CHART_TOUCH_CANNEL data:nil];
-    [self.bhud setHidden:true];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.bhud setHidden:true];
+    });
 }
 // 获取当前点
 - (void)getIndexWithPoint:(NSSet<UITouch *> *)touches {

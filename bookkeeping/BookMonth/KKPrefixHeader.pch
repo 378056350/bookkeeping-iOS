@@ -33,6 +33,7 @@
 
 
 // 手机型号
+#define IS_SIMULATOR TARGET_IPHONE_SIMULATOR == 1 ? true : false
 #define IS_IPHONEXR (SCREEN_WIDTH == 414.f && SCREEN_HEIGHT == 896.f ? YES : NO)
 #define IS_IPHONEX (SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f ? YES : NO)
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds].size.height == 568.0f)

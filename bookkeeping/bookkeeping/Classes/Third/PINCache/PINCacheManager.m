@@ -22,6 +22,14 @@ static PINDiskCache *_disk;
 + (PINDiskCache *)sharedManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        if (!IS_SIMULATOR) {
+            NSFileManager *fm = [NSFileManager defaultManager];
+            NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+            path = [path stringByAppendingPathComponent:@"widget"];
+            if ([fm fileExistsAtPath:path] == false) {
+                [fm createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+            }
+        }
         _disk = [[PINDiskCache sharedCache] initWithName:@"book" rootPath:@"Library/Caches/widget"];
     });
     return _disk;
