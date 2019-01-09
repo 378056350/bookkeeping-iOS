@@ -203,101 +203,17 @@
 }
 // 删除cell
 - (void)deleteCellClick:(CategoryCell *)cell {
-    // 系统原有
-    if (cell.model.is_system == true) {
-//        [self removeSysCateRequest:cell];
-        
-        NSInteger index = self.header.seg.selectedSegmentIndex;
-        BKCModel *model = cell.model;
-        [self.models[index].insert removeObject:model];
-        [self.models[index].remove addObject:model];
-        [self setModels:self.models];
-        
-        if (index == 0) {
-            NSIndexPath *indexPath = cell.indexPath;
-            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
-            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
-            [sysRemoveArr addObject:sysHasArr[indexPath.row]];
-            if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
-                [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
-            } else {
-                [sysRemoveSyncedArr addObject:sysHasArr[indexPath.row]];
-            }
-            [sysHasArr removeObjectAtIndex:indexPath.row];
-            
-            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
-            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
-            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+    @weakify(self)
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"删除类别会同时删除该类别下的所有历史收支记录" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+    [[alert rac_buttonClickedSignal] subscribeNext:^(NSNumber *number) {
+        @strongify(self)
+        NSInteger index = [number integerValue];
+        // 确定
+        if (index == 1) {
+            [self deleteWithCell:cell];
         }
-        else if (index == 1) {
-            NSIndexPath *indexPath = cell.indexPath;
-            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
-            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
-            [sysRemoveArr addObject:sysHasArr[indexPath.row]];
-            if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
-                [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
-            } else {
-                [sysRemoveSyncedArr addObject:sysHasArr[indexPath.row]];
-            }
-            [sysHasArr removeObjectAtIndex:indexPath.row];
-            
-            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
-            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
-            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
-        }
-    }
-    // 自定义
-    else {
-//        [self removeCustrCateRequest:cell];
-        
-        NSInteger index = self.header.seg.selectedSegmentIndex;
-        BKCModel *model = cell.model;
-        [self.models[index].insert removeObject:model];
-        [self setModels:self.models];
-        
-        
-        if (index == 0) {
-            NSMutableArray *cusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
-            NSMutableArray *cusHasPaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
-            NSMutableArray *cusRemovePaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
-            [cusHasPayArr removeObject:model];
-            if ([cusHasPaySyncedArr containsObject:model]) {
-                [cusHasPaySyncedArr removeObject:model];
-            } else {
-                [cusRemovePaySyncedArr addObject:model];
-            }
-            [[PINCacheManager sharedManager] setObject:cusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
-            [[PINCacheManager sharedManager] setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
-            [[PINCacheManager sharedManager] setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
-        } else if (index == 1) {
-            NSMutableArray *cusHasIcomeEArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
-            NSMutableArray *cusHasIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-            NSMutableArray *cusRemoveIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
-            [cusHasIcomeEArr removeObject:model];
-            if ([cusHasIncomeSyncedArr containsObject:model]) {
-                [cusHasIncomeSyncedArr removeObject:model];
-            } else {
-                [cusRemoveIncomeSyncedArr addObject:model];
-            }
-            [[PINCacheManager sharedManager] setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
-            [[PINCacheManager sharedManager] setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-            [[PINCacheManager sharedManager] setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
-        }
-        
-        
-    }
-    
-    
-    if (self.complete) {
-        self.complete();
-    }
-    
+    }];
 }
 // 添加系统分类
 - (void)insertCellClick:(CategoryCell *)cell {
@@ -354,6 +270,118 @@
     
     
 }
+
+
+
+// 删除cell
+- (void)deleteWithCell:(CategoryCell *)cell {
+    // 系统原有
+    if (cell.model.is_system == true) {
+        //        [self removeSysCateRequest:cell];
+        
+        NSInteger index = self.header.seg.selectedSegmentIndex;
+        BKCModel *model = cell.model;
+        [self.models[index].insert removeObject:model];
+        [self.models[index].remove addObject:model];
+        [self setModels:self.models];
+        
+        if (index == 0) {
+            NSIndexPath *indexPath = cell.indexPath;
+            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY];
+            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            [sysRemoveArr addObject:sysHasArr[indexPath.row]];
+            if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
+                [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
+            } else {
+                [sysRemoveSyncedArr addObject:sysHasArr[indexPath.row]];
+            }
+            [sysHasArr removeObjectAtIndex:indexPath.row];
+            
+            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
+            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            
+        }
+        else if (index == 1) {
+            NSIndexPath *indexPath = cell.indexPath;
+            NSMutableArray<BKCModel *> *sysHasArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME];
+            NSMutableArray<BKCModel *> *sysRemoveArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+            NSMutableArray<BKCModel *> *sysHasSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            [sysRemoveArr addObject:sysHasArr[indexPath.row]];
+            if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
+                [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
+            } else {
+                [sysRemoveSyncedArr addObject:sysHasArr[indexPath.row]];
+            }
+            [sysHasArr removeObjectAtIndex:indexPath.row];
+            
+            [[PINCacheManager sharedManager] setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
+            [[PINCacheManager sharedManager] setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
+            [[PINCacheManager sharedManager] setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+        }
+    }
+    // 自定义
+    else {
+        //        [self removeCustrCateRequest:cell];
+        
+        NSInteger index = self.header.seg.selectedSegmentIndex;
+        BKCModel *model = cell.model;
+        [self.models[index].insert removeObject:model];
+        [self setModels:self.models];
+        
+        
+        if (index == 0) {
+            NSMutableArray *cusHasPayArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY];
+            NSMutableArray *cusHasPaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+            NSMutableArray *cusRemovePaySyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+            [cusHasPayArr removeObject:model];
+            if ([cusHasPaySyncedArr containsObject:model]) {
+                [cusHasPaySyncedArr removeObject:model];
+            } else {
+                [cusRemovePaySyncedArr addObject:model];
+            }
+            [[PINCacheManager sharedManager] setObject:cusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+        } else if (index == 1) {
+            NSMutableArray *cusHasIcomeEArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME];
+            NSMutableArray *cusHasIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            NSMutableArray *cusRemoveIncomeSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            [cusHasIcomeEArr removeObject:model];
+            if ([cusHasIncomeSyncedArr containsObject:model]) {
+                [cusHasIncomeSyncedArr removeObject:model];
+            } else {
+                [cusRemoveIncomeSyncedArr addObject:model];
+            }
+            [[PINCacheManager sharedManager] setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
+            [[PINCacheManager sharedManager] setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            [[PINCacheManager sharedManager] setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+        }
+        
+        
+    }
+    
+    
+    // 删除同类别信息
+    NSMutableArray<BKModel *> *arrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSString *preStr = [NSString stringWithFormat:@"cmodel.Id == %ld", cell.model.Id];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+    arrm = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+    [[PINCacheManager sharedManager] setObject:arrm forKey:PIN_BOOK];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
+    
+    
+    // 回调
+    if (self.complete) {
+        self.complete();
+    }
+}
+
 
 
 #pragma mark - get

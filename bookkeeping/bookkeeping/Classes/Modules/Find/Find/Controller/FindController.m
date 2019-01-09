@@ -6,6 +6,7 @@
 #import "FindController.h"
 #import "FindCell.h"
 #import "FindFeatureCell.h"
+#import "BillController.h"
 
 #pragma mark - 声明
 @interface FindController()<UITableViewDelegate, UITableViewDataSource>
@@ -57,7 +58,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    
+    if (indexPath.section == 0) {
+        BillController *vc = [[BillController alloc] init];
+        [self.navigationController pushViewController:vc animated:true];
+    }
 }
 
 
