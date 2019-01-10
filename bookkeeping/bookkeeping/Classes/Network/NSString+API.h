@@ -15,6 +15,9 @@
 
 
 
+// 同步数据
+#define SyncedDataRequest Request(@"/shayu/syncedDataRequest.action")
+
 // 我的徽章列表
 #define BadgeListRequest Request(@"/shayu/getBadgeListRequest.action")
 // 类别设置列表

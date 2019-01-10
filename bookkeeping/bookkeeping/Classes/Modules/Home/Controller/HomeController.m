@@ -33,13 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setJz_navigationBarHidden:true];
-    [self navigation];
-    [self header];
-    [self list];
-    [self setDate:[NSDate date]];
-    [self monitorNotification];
-    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+//    [self setJz_navigationBarHidden:true];
+//    [self navigation];
+//    [self header];
+//    [self list];
+//    [self setDate:[NSDate date]];
+//    [self monitorNotification];
+//    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
 }
 // 监听通知
 - (void)monitorNotification {
@@ -54,6 +54,13 @@
         @strongify(self)
         [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
+}
+
+
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self syncedDataRequest];
 }
 
 
@@ -94,6 +101,83 @@
 //        }
 //    }];
 }
+
+
+// 同步数据
+- (void)syncedDataRequest {
+    
+    // 类别
+    // 系统 - 添加的 - 支出
+    NSMutableArray<BKCModel *> *cateSysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+    // 系统 - 删除的 - 支出
+    NSMutableArray<BKCModel *> *cateSysRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+    // 用户 - 添加的 - 支出
+    NSMutableArray<BKCModel *> *cateCusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+    // 用户 - 删除的 - 支出
+    NSMutableArray<BKCModel *> *cateCusRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+    
+    
+    // 系统 - 添加的 - 收入
+    NSMutableArray *cateSysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+    // 系统 - 删除的 - 收入
+    NSMutableArray *cateSysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+    // 用户 - 添加的 - 收入
+    NSMutableArray *cateCusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+    // 用户 - 删除的 - 收入
+    NSMutableArray *cateCusRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+    
+    
+    // 记账信息
+    NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+    
+    
+    // 声音开关
+    NSNumber *sound = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_SOUND_SYNCED];
+    // 明细详情
+    NSNumber *detail = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_DETAIL_SYNCED];
+    
+    
+    // 定时
+    NSMutableArray *timing = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    
+    
+    // 参数
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysRemovePayArr] mj_JSONString], @"cateSysRemovePayArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysHasPayArr] mj_JSONString], @"cateSysHasPayArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusRemovePayArr] mj_JSONString], @"cateCusRemovePayArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusHasPayArr] mj_JSONString], @"cateCusHasPayArr",
+                                  
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysRemoveIncomeArr] mj_JSONString], @"cateSysRemoveIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysHasIncomeArr] mj_JSONString], @"cateSysHasIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusRemoveIncomeArr] mj_JSONString], @"cateCusRemoveIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusHasIncomeArr] mj_JSONString], @"cateCusHasIncomeArr",
+                                  
+                                  [[BKModel mj_keyValuesArrayWithObjectArray:bookArr] mj_JSONString], @"book",
+                                  sound, @"sound",
+                                  detail, @"detail",
+                                  timing, @"timing", nil];
+    
+    
+    @weakify(self)
+    [self showTextHUD:@"同步中...."];
+    [AFNManager POST:SyncedDataRequest params:param complete:^(APPResult *result) {
+        @strongify(self)
+        [self hideHUD];
+        // 成功
+        if (result.status == ServiceCodeSuccess) {
+//            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+//            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+//            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+//            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+        }
+        // 失败
+        else {
+            [self showTextHUD:result.message delay:1.5f];
+        }
+    }];
+}
+
 
 
 #pragma mark - set

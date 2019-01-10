@@ -8,6 +8,12 @@
 
 @implementation BKModel
 
++ (void)load {
+    [BKModel mj_setupIgnoredPropertyNames:^NSArray *{
+        return @[@"date"];
+    }];
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (!self) {
@@ -66,6 +72,12 @@
 - (NSInteger)week {
     return [self.date weekOfYear];
 }
+
+
+//+ (NSMutableArray *)mj_keyValuesArrayWithObjectArray:(NSArray<BKModel *> *)objectArray {
+//
+//}
+
 
 @end
 

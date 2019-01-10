@@ -245,14 +245,23 @@
 // 切换声音
 - (void)soundClick:(NSNumber *)isOn {
     NSNumber *sound = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND];
+    NSNumber *sound_synced = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND_SYNCED];
     sound = @(![sound boolValue]);
     [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
+    if (![sound isEqual:sound_synced]) {
+        [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND_SYNCED];
+    }
+    
 }
 // 切换详情
 - (void)detailClick:(NSNumber *)isOn {
     NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
+    NSNumber *detail_synced = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL_SYNCED];
     detail = @(![detail boolValue]);
     [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
+    if (![detail isEqual:detail_synced]) {
+        [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL_SYNCED];
+    }
 }
 
 

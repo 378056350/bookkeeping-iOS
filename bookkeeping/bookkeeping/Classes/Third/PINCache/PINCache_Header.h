@@ -47,7 +47,7 @@
 
 
 #pragma mark - 定时
-#define PIN_TIMING           @"PIN_TIMING"           // 定时通知b
+#define PIN_TIMING           @"PIN_TIMING"           // 定时通知
 #define PIN_TIMING_SYNCED    @"PIN_TIMING_SYNCED"    // 定时通知 - 未同步
 
 

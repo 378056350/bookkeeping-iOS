@@ -31,7 +31,7 @@ static PINDiskCache *_disk;
 //            }
 //        }
         _disk = [[PINDiskCache sharedCache] initWithName:@"book" rootPath:@"Library/Caches/widget"];
-        [[PINDiskCache sharedCache] removeAllObjects];
+//        [[PINDiskCache sharedCache] removeAllObjects];
     });
     return _disk;
 }
