@@ -36,7 +36,7 @@
 #pragma mark - set
 - (void)setModel:(ACAModel *)model {
     _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_s)]];
+    [_icon setImage:[UIImage imageNamed:model.icon_s]];
 }
 
 
