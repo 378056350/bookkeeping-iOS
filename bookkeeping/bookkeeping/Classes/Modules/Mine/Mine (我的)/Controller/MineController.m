@@ -174,14 +174,18 @@
         else if (indexPath.row == 1) {
             
         }
-        // 帮助
+        // 同步数据
         else if (indexPath.row == 2) {
+            
+        }
+        // 帮助
+        else if (indexPath.row == 3) {
             WebVC *vc = [[WebVC alloc] init];
             [vc setNavTitle:@"帮助"];
             [self.navigationController pushViewController:vc animated:YES];
         }
         // 关于
-        else if (indexPath.row == 3) {
+        else if (indexPath.row == 4) {
             AboutController *vc = [[AboutController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }

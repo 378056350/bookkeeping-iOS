@@ -126,17 +126,17 @@
                    @[
                        @[@"徽章"],
                        @[@"类别设置",@"定时提醒",@"声音开关",@"明细详情"],
-                       @[@"去App Store给鲨鱼记账评分",@"意见反馈",@"帮助",@"关于鲨鱼记账"],
+                       @[@"去App Store给鲨鱼记账评分",@"意见反馈",@"同步数据",@"帮助",@"关于鲨鱼记账"],
                        ],
                    @[
                        @[@"mine_badge"],
                        @[@"mine_tallytype",@"mine_remind",@"mine_sound",@"mine_detail"],
-                       @[@"mine_rating",@"mine_feedback",@"mine_help",@"mine_about"],
+                       @[@"mine_rating",@"mine_feedback",@"mine_merge",@"mine_help",@"mine_about"],
                        ],
                    @[
                        @[@(0)],
                        @[@(0),@(0),@(1),@(1)],
-                       @[@(0),@(0),@(0),@(0),@(0)],
+                       @[@(0),@(0),@(0),@(0),@(0),@(0)],
                        ]
                    ];
     }

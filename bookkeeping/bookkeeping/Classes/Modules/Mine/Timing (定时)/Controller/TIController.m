@@ -13,7 +13,7 @@
 
 
 #pragma mark - 声明
-@interface TIController()
+@interface TIController()<UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) TITableView *table;
 @property (nonatomic, strong) BottomButton *bottom;
@@ -26,6 +26,64 @@
 @implementation TIController
 
 
+#pragma mark - UNUserNotificationCenterDelegate
+// iOS 10收到通知
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler  API_AVAILABLE(ios(10.0)) {
+    
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    if (@available(iOS 10.0, *)) {
+        UNNotificationRequest *request = notification.request;
+        UNNotificationContent *content = request.content; // 收到推送的消息内容
+        NSNumber *badge = content.badge;  // 推送消息的角标
+        NSString *body = content.body;    // 推送消息体
+        UNNotificationSound *sound = content.sound;  // 推送消息的声音
+        NSString *subtitle = content.subtitle;  // 推送消息的副标题
+        NSString *title = (NSString *)content.title;  // 推送消息的标题
+        
+        if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            NSLog(@"iOS10 前台收到远程通知:%@", body);
+            
+        } else {
+            // 判断为本地通知
+            NSLog(@"iOS10 前台收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo);
+        }
+        completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+    }
+}
+
+- (void)addNotification:(NSString *)time {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = [NSString localizedUserNotificationStringForKey:@"" arguments:nil];
+        content.sound = [UNNotificationSound defaultSound];
+        content.body  = [NSString localizedUserNotificationStringForKey:@"记账时间到了，赶紧记一笔吧！" arguments:nil];
+        
+        
+        
+        // 周一早上 8：00 上班
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        components.hour = [[time componentsSeparatedByString:@":"][0] integerValue];
+        components.minute = [[time componentsSeparatedByString:@":"][1] integerValue];
+        UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
+        
+        
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"TestRequest" content:content trigger:trigger];
+        [center addNotificationRequest:request withCompletionHandler:^(NSError *_Nullable error) {
+            NSLog(@"成功添加推送");
+        }];
+        
+       
+        
+        [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+            NSLog(@"123");
+        }];
+        
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTitle:@"定时提醒"];
@@ -34,9 +92,9 @@
     [self table];
     [self bottom];
     [self.view bringSubviewToFront:self.bottom];
-//    [self timeListRequest];
-    
-    
+    //    [self timeListRequest];
+
+
     [self setModels:[[PINDiskCache sharedCache] objectForKey:PIN_TIMING]];
     
 }
@@ -67,15 +125,15 @@
 }
 // 删除定时
 - (void)deleteTimeRequest:(TITableCell *)cell {
-//    @weakify(self)
-//    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@(cell.model.Id), @"id", nil];
-//    [self showProgressHUD];
-//    [AFNManager POST:RemoveTimeRequest params:param complete:^(APPResult *result) {
-//        @strongify(self)
-//        [self hideHUD];
-//        [self.models removeObject:cell.model];
-//        [self.table deleteRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }];
+    //    @weakify(self)
+    //    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@(cell.model.Id), @"id", nil];
+    //    [self showProgressHUD];
+    //    [AFNManager POST:RemoveTimeRequest params:param complete:^(APPResult *result) {
+    //        @strongify(self)
+    //        [self hideHUD];
+    //        [self.models removeObject:cell.model];
+    //        [self.table deleteRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //    }];
 }
 
 
@@ -103,6 +161,8 @@
         [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
         [self setModels:arrm];
         [self.table reloadData];
+        
+        [self addNotification:time];
     }
 }
 // 删除定时
@@ -121,7 +181,6 @@
 }
 
 
-
 #pragma mark - 事件
 - (void)routerEventWithName:(NSString *)eventName data:(id)data {
     [self handleEventWithName:eventName data:data];
@@ -138,12 +197,12 @@
     [BRDatePickerView showDatePickerWithTitle:@"每天" dateType:BRDatePickerModeHM defaultSelValue:nil resultBlock:^(NSString *selectValue) {
         @strongify(self)
         [self addTimingRequest:selectValue];
-//        [self addTimeRequest:selectValue];
+        //        [self addTimeRequest:selectValue];
     }];
 }
 // 删除cell
 - (void)timeCellDelete:(TITableCell *)cell {
-//    [self deleteTimeRequest:cell];
+    //    [self deleteTimeRequest:cell];
     [self deleteTimingRequest:cell.time];
 }
 
