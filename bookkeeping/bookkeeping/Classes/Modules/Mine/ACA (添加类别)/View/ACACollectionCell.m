@@ -29,9 +29,11 @@
 - (void)setChoose:(BOOL)choose {
     _choose = choose;
     if (choose == YES) {
-        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
+        [_icon setImage:[UIImage imageNamed:_model.icon_s]];
+//        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
     } else {
-        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+        [_icon setImage:[UIImage imageNamed:_model.icon_n]];
+//        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
     }
 }
 

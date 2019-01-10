@@ -8,11 +8,11 @@
 			<key>id</key>
 			<integer>1</integer>
 			<key>icon_n</key>
-			<string>book/e_catering@3x.png</string>
+			<string>e_catering</string>
 			<key>icon_l</key>
-			<string>book/e_catering_l@3x.png</string>
+			<string>e_catering_l</string>
 			<key>icon_s</key>
-			<string>book/e_catering_s@3x.png</string>
+			<string>e_catering_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -24,11 +24,11 @@
 			<key>id</key>
 			<integer>2</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_snack</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_snack_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_snack_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -40,11 +40,11 @@
 			<key>id</key>
 			<integer>3</integer>
 			<key>icon_n</key>
-			<string>book/e_shopping@3x.png</string>
+			<string>e_shopping</string>
 			<key>icon_l</key>
-			<string>book/e_shopping_l@3x.png</string>
+			<string>e_shopping_l</string>
 			<key>icon_s</key>
-			<string>book/e_shopping_s@3x.png</string>
+			<string>e_shopping_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -56,11 +56,11 @@
 			<key>id</key>
 			<integer>4</integer>
 			<key>icon_n</key>
-			<string>book/e_traffic@3x.png</string>
+			<string>e_traffic</string>
 			<key>icon_l</key>
-			<string>book/e_traffic_l@3x.png</string>
+			<string>e_traffic_l</string>
 			<key>icon_s</key>
-			<string>book/e_traffic_s@3x.png</string>
+			<string>e_traffic_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -72,11 +72,11 @@
 			<key>id</key>
 			<integer>5</integer>
 			<key>icon_n</key>
-			<string>book/e_sport@3x.png</string>
+			<string>e_sport</string>
 			<key>icon_l</key>
-			<string>book/e_sport_l@3x.png</string>
+			<string>e_sport_l</string>
 			<key>icon_s</key>
-			<string>book/e_sport_s@3x.png</string>
+			<string>e_sport_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -88,11 +88,11 @@
 			<key>id</key>
 			<integer>6</integer>
 			<key>icon_n</key>
-			<string>book/e_car@3x.png</string>
+			<string>e_car</string>
 			<key>icon_l</key>
-			<string>book/e_car_l@3x.png</string>
+			<string>e_car_l</string>
 			<key>icon_s</key>
-			<string>book/e_car_s@3x.png</string>
+			<string>e_car_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -104,11 +104,11 @@
 			<key>id</key>
 			<integer>7</integer>
 			<key>icon_n</key>
-			<string>book/e_medical@3x.png</string>
+			<string>e_medical</string>
 			<key>icon_l</key>
-			<string>book/e_medical_l@3x.png</string>
+			<string>e_medical_l</string>
 			<key>icon_s</key>
-			<string>book/e_medical_s@3x.png</string>
+			<string>e_medical_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -120,11 +120,11 @@
 			<key>id</key>
 			<integer>8</integer>
 			<key>icon_n</key>
-			<string>book/e_pet@3x.png</string>
+			<string>e_pet</string>
 			<key>icon_l</key>
-			<string>book/e_pet_l@3x.png</string>
+			<string>e_pet_l</string>
 			<key>icon_s</key>
-			<string>book/e_pet_s@3x.png</string>
+			<string>e_pet_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -136,11 +136,11 @@
 			<key>id</key>
 			<integer>9</integer>
 			<key>icon_n</key>
-			<string>book/e_books@3x.png</string>
+			<string>e_books</string>
 			<key>icon_l</key>
-			<string>book/e_books_l@3x.png</string>
+			<string>e_books_l</string>
 			<key>icon_s</key>
-			<string>book/e_books_s@3x.png</string>
+			<string>e_books_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -152,11 +152,11 @@
 			<key>id</key>
 			<integer>10</integer>
 			<key>icon_n</key>
-			<string>book/e_study@3x.png</string>
+			<string>e_study</string>
 			<key>icon_l</key>
-			<string>book/e_study_l@3x.png</string>
+			<string>e_study_l</string>
 			<key>icon_s</key>
-			<string>book/e_study_s@3x.png</string>
+			<string>e_study_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -168,11 +168,11 @@
 			<key>id</key>
 			<integer>11</integer>
 			<key>icon_n</key>
-			<string>book/e_gift@3x.png</string>
+			<string>e_gift</string>
 			<key>icon_l</key>
-			<string>book/e_gift_l@3x.png</string>
+			<string>e_gift_l</string>
 			<key>icon_s</key>
-			<string>book/e_gift_s@3x.png</string>
+			<string>e_gift_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -184,11 +184,11 @@
 			<key>id</key>
 			<integer>12</integer>
 			<key>icon_n</key>
-			<string>book/e_office@3x.png</string>
+			<string>e_office</string>
 			<key>icon_l</key>
-			<string>book/e_office_l@3x.png</string>
+			<string>e_office_l</string>
 			<key>icon_s</key>
-			<string>book/e_office_s@3x.png</string>
+			<string>e_office_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -200,11 +200,11 @@
 			<key>id</key>
 			<integer>13</integer>
 			<key>icon_n</key>
-			<string>book/e_repair@3x.png</string>
+			<string>e_repair</string>
 			<key>icon_l</key>
-			<string>book/e_repair_l@3x.png</string>
+			<string>e_repair_l</string>
 			<key>icon_s</key>
-			<string>book/e_repair_s@3x.png</string>
+			<string>e_repair_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -216,11 +216,11 @@
 			<key>id</key>
 			<integer>14</integer>
 			<key>icon_n</key>
-			<string>book/e_donate@3x.png</string>
+			<string>e_donate</string>
 			<key>icon_l</key>
-			<string>book/e_donate_l@3x.png</string>
+			<string>e_donate_l</string>
 			<key>icon_s</key>
-			<string>book/e_donate_s@3x.png</string>
+			<string>e_donate_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -232,11 +232,11 @@
 			<key>id</key>
 			<integer>15</integer>
 			<key>icon_n</key>
-			<string>book/e_lottery@3x.png</string>
+			<string>e_lottery</string>
 			<key>icon_l</key>
-			<string>book/e_lottery_l@3x.png</string>
+			<string>e_lottery_l</string>
 			<key>icon_s</key>
-			<string>book/e_lottery_s@3x.png</string>
+			<string>e_lottery_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -248,11 +248,11 @@
 			<key>id</key>
 			<integer>16</integer>
 			<key>icon_n</key>
-			<string>book/e_express@3x.png</string>
+			<string>e_express</string>
 			<key>icon_l</key>
-			<string>book/e_express_l@3x.png</string>
+			<string>e_express_l</string>
 			<key>icon_s</key>
-			<string>book/e_express_s@3x.png</string>
+			<string>e_express_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -264,11 +264,11 @@
 			<key>id</key>
 			<integer>17</integer>
 			<key>icon_n</key>
-			<string>book/e_social@3x.png</string>
+			<string>e_social</string>
 			<key>icon_l</key>
-			<string>book/e_social_l@3x.png</string>
+			<string>e_social_l</string>
 			<key>icon_s</key>
-			<string>book/e_social_s@3x.png</string>
+			<string>e_social_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -280,11 +280,11 @@
 			<key>id</key>
 			<integer>18</integer>
 			<key>icon_n</key>
-			<string>book/e_beauty@3x.png</string>
+			<string>e_beauty</string>
 			<key>icon_l</key>
-			<string>book/e_beauty_l@3x.png</string>
+			<string>e_beauty_l</string>
 			<key>icon_s</key>
-			<string>book/e_beauty_s@3x.png</string>
+			<string>e_beauty_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -296,11 +296,11 @@
 			<key>id</key>
 			<integer>19</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_fruite</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_fruite_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_fruite_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -312,11 +312,11 @@
 			<key>id</key>
 			<integer>20</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_travel</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_travel_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_travel_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -328,11 +328,11 @@
 			<key>id</key>
 			<integer>21</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_entertainmente</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_entertainmente_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_entertainmente_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -344,11 +344,11 @@
 			<key>id</key>
 			<integer>22</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_money</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_money_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_money_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -360,11 +360,11 @@
 			<key>id</key>
 			<integer>23</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_vegetable</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_vegetable_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_vegetable_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -376,11 +376,11 @@
 			<key>id</key>
 			<integer>24</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_elder</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_elder_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_elder_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -392,11 +392,11 @@
 			<key>id</key>
 			<integer>25</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_house</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_house_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_house_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -408,11 +408,11 @@
 			<key>id</key>
 			<integer>26</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_child</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_child_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_child_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -424,11 +424,11 @@
 			<key>id</key>
 			<integer>27</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_communicate</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_communicate_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_communicate_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -440,11 +440,11 @@
 			<key>id</key>
 			<integer>28</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_dress</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_dress_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_dress_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -456,11 +456,11 @@
 			<key>id</key>
 			<integer>29</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_commodity</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_commodity_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_commodity_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -472,11 +472,11 @@
 			<key>id</key>
 			<integer>30</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_smoke</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_smoke_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_smoke_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -488,11 +488,11 @@
 			<key>id</key>
 			<integer>31</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_friend</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_friend_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_friend_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -504,11 +504,11 @@
 			<key>id</key>
 			<integer>32</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_digital</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_digital_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_digital_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -520,11 +520,11 @@
 			<key>id</key>
 			<integer>33</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>e_home</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>e_home_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>e_home_s</string>
 			<key>is_income</key>
 			<integer>0</integer>
 			<key>is_system</key>
@@ -539,11 +539,11 @@
 			<key>id</key>
 			<integer>34</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>i_wage</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>i_wage_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>i_wage_s</string>
 			<key>is_income</key>
 			<integer>1</integer>
 			<key>is_system</key>
@@ -555,11 +555,11 @@
 			<key>id</key>
 			<integer>35</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>i_parttimework</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>i_parttimework_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>i_parttimework_s</string>
 			<key>is_income</key>
 			<integer>1</integer>
 			<key>is_system</key>
@@ -571,11 +571,11 @@
 			<key>id</key>
 			<integer>36</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>i_finance</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>i_finance_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>i_finance_s</string>
 			<key>is_income</key>
 			<integer>1</integer>
 			<key>is_system</key>
@@ -587,11 +587,11 @@
 			<key>id</key>
 			<integer>37</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>i_money</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>i_money_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>i_money_s</string>
 			<key>is_income</key>
 			<integer>1</integer>
 			<key>is_system</key>
@@ -603,11 +603,27 @@
 			<key>id</key>
 			<integer>38</integer>
 			<key>icon_n</key>
-			<string>book/e_snack@3x.png</string>
+			<string>i_parttimework</string>
 			<key>icon_l</key>
-			<string>book/e_snack_l@3x.png</string>
+			<string>i_parttimework_l</string>
 			<key>icon_s</key>
-			<string>book/e_snack_s@3x.png</string>
+			<string>i_parttimework_s</string>
+			<key>is_income</key>
+			<integer>1</integer>
+			<key>is_system</key>
+			<integer>1</integer>
+			<key>name</key>
+			<string>兼职</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>39</integer>
+			<key>icon_n</key>
+			<string>i_other</string>
+			<key>icon_l</key>
+			<string>i_other_l</string>
+			<key>icon_s</key>
+			<string>i_other_s</string>
 			<key>is_income</key>
 			<integer>1</integer>
 			<key>is_system</key>

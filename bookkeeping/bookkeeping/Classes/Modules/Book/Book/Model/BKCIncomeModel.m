@@ -19,9 +19,9 @@
     BKCModel *set = [[BKCModel alloc] init];
     set.Id = 0;
     set.name = @"设置";
-    set.icon_n = @"book/cc_home_tools@3x.png";
-    set.icon_l = @"book/cc_home_tools_l@3x.png";
-    set.icon_s = @"book/cc_home_tools_s@3x.png";
+    set.icon_n = @"cc_home_tools.png";
+    set.icon_l = @"cc_home_tools_l.png";
+    set.icon_s = @"cc_home_tools_s.png";
     set.is_system = true;
     return set;
 }

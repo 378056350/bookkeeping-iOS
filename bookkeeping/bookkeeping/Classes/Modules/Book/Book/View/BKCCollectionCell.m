@@ -25,17 +25,17 @@
 - (void)setModel:(BKCModel *)model {
     _model = model;
     [_lab setText:model.name];
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+    [_icon setImage:[UIImage imageNamed:_model.icon_n]];
 }
 - (void)setChoose:(BOOL)choose {
     _choose = choose;
     // 选中
     if (choose == YES) {
-        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_s)]];
+        [_icon setImage:[UIImage imageNamed:_model.icon_s]];
     }
     // 未选中
     else {
-        [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(_model.icon_n)]];
+        [_icon setImage:[UIImage imageNamed:_model.icon_n]];
     }
 }
 

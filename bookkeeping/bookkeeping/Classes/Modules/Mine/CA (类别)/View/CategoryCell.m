@@ -70,7 +70,7 @@
     _model = model;
     [_nameLab setText:model.name];
     [_detailLab setText:model.is_system == false ? @"(自定义)" : @""];
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.icon_n)]];
+    [_icon setImage:[UIImage imageNamed:model.icon_n]];
 }
 
 

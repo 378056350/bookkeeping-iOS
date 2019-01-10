@@ -148,32 +148,35 @@
 //    }
 
 
-//    NSArray *arr = @[@"娱乐",@"饮食",@"医疗",@"学习",@"交通",@"购物",@"生活",@"个人",@"家居",@"家庭",@"健身",@"办公",@"收入",@"其他"];
-//    NSMutableString *strm = [[NSMutableString alloc] init];
-//    for (NSInteger i=1; i<arr.count + 1; i++) {
+//
+//NSInteger Id = 20;
+//NSArray *arr = @[@"饮食",@"医疗",@"学习",@"交通",@"购物",@"生活",@"个人",@"家居",@"家庭",@"健身",@"办公",@"收入",@"其他"];
+//NSArray *cou = @[@(20), @(10), @(10), @(15), @(28), @(12), @(11), @(15), @(10), @(12), @(9), @(10), @(7)];
+//NSMutableString *strm = [[NSMutableString alloc] init];
+//for (NSInteger i=2; i<arr.count + 2; i++) {
+//    [strm appendFormat:@"<dict>\n"];
+//    [strm appendFormat:@"<key>id</key>\n"];
+//    [strm appendFormat:@"<integer>%ld</integer>\n", i];
+//    [strm appendFormat:@"<key>name</key>\n"];
+//    [strm appendFormat:@"<string>%@</string>\n", arr[i - 2]];
+//    [strm appendFormat:@"<key>list</key>\n"];
+//    [strm appendFormat:@"<array>\n"];
+//    for (NSInteger y=1; y<=[cou[i-2] integerValue]; y++) {
 //        [strm appendFormat:@"<dict>\n"];
 //        [strm appendFormat:@"<key>id</key>\n"];
+//        [strm appendFormat:@"<integer>%ld</integer>\n", Id];
+//        [strm appendFormat:@"<key>section_id</key>\n"];
 //        [strm appendFormat:@"<integer>%ld</integer>\n", i];
-//        [strm appendFormat:@"<key>name</key>\n"];
-//        [strm appendFormat:@"<string>%@</string>\n", arr[i - 1]];
-//        [strm appendFormat:@"<key>list</key>\n"];
-//        [strm appendFormat:@"<array>\n"];
-//        for (NSInteger y=1; y<8; y++) {
-//            [strm appendFormat:@"<dict>\n"];
-//            [strm appendFormat:@"<key>id</key>\n"];
-//            [strm appendFormat:@"<integer>%ld</integer>\n", y + (i - 1) * 7];
-//            [strm appendFormat:@"<key>section_id</key>\n"];
-//            [strm appendFormat:@"<integer>%ld</integer>\n", i];
-//            [strm appendFormat:@"<key>icon_n</key>\n"];
-//            [strm appendFormat:@"<string>book/e_digital@3x.png</string>\n"];
-//            [strm appendFormat:@"<key>icon_l</key>\n"];
-//            [strm appendFormat:@"<string>book/e_digital_l@3x.png</string>\n"];
-//            [strm appendFormat:@"<key>icon_s</key>\n"];
-//            [strm appendFormat:@"<string>book/e_digital_s@3x.png</string>\n"];
-//            [strm appendFormat:@"</dict>\n"];
-//        }
-//        [strm appendFormat:@"</array>\n"];
+//        [strm appendFormat:@"<key>icon_n</key>\n"];
+//        [strm appendFormat:@"<string>e_digital@3x.png</string>\n"];
+//        [strm appendFormat:@"<key>icon_l</key>\n"];
+//        [strm appendFormat:@"<string>e_digital_l@3x.png</string>\n"];
+//        [strm appendFormat:@"<key>icon_s</key>\n"];
+//        [strm appendFormat:@"<string>e_digital_s@3x.png</string>\n"];
 //        [strm appendFormat:@"</dict>\n"];
+//        Id += 1;
 //    }
-
-
+//    [strm appendFormat:@"</array>\n"];
+//    [strm appendFormat:@"</dict>\n"];
+//}
+//NSLog(@"123");
