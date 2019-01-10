@@ -17,7 +17,6 @@
 
 @property (nonatomic, strong) TITableView *table;
 @property (nonatomic, strong) BottomButton *bottom;
-//@property (nonatomic, strong) NSMutableArray<TIModel *> *models;
 @property (nonatomic, strong) NSMutableArray *models;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
@@ -37,8 +36,8 @@
     [self.view bringSubviewToFront:self.bottom];
 //    [self timeListRequest];
     
-    NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
-    [self setModels:arrm];
+    
+    [self setModels:[[PINDiskCache sharedCache] objectForKey:PIN_TIMING]];
     
 }
 
@@ -92,6 +91,14 @@
     else {
         [arrm addObject:time];
         [arrm_synced addObject:time];
+        
+        [arrm sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+            return [obj1 compare:obj2];
+        }];
+        [arrm_synced sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+            return [obj1 compare:obj2];
+        }];
+        
         [[PINDiskCache sharedCache] setObject:arrm forKey:PIN_TIMING];
         [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
         [self setModels:arrm];
@@ -102,8 +109,15 @@
 - (void)deleteTimingRequest:(NSString *)time {
     NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
     NSMutableArray *arrm_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    
+    NSInteger row = [arrm indexOfObject:time];
+    [self.table.models removeObjectAtIndex:row];
+    [self.table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
     [arrm removeObject:time];
     [arrm_synced removeObject:time];
+    [[PINDiskCache sharedCache] setObject:arrm forKey:PIN_TIMING];
+    [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
 }
 
 
@@ -135,10 +149,6 @@
 
 
 #pragma mark - set
-//- (void)setModels:(NSMutableArray<TIModel *> *)models {
-//    _models = models;
-//    _table.models = models;
-//}
 - (void)setModels:(NSMutableArray *)models {
     _models = models;
     _table.models = models;
