@@ -759,11 +759,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_charge</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_charge_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_charge_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -771,11 +771,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_plane</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_plane_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_plane_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -783,11 +783,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_expressway</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_expressway_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_expressway_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -795,11 +795,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_taxi</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_taxi_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_taxi_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -807,11 +807,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_refuel</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_refuel_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_refuel_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -819,11 +819,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_parking</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_parking_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_parking_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -831,11 +831,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_truck</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_truck_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_truck_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -843,11 +843,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_motorbike</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_motorbike_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_motorbike_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -855,11 +855,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_car</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_car_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_car_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -867,11 +867,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_double_deck_bus</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_double_deck_bus_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_double_deck_bus_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -879,11 +879,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_car_wash</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_car_wash_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_car_wash_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -891,11 +891,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_gasoline</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_gasoline_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_gasoline_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -903,11 +903,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_car_insurance</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_car_insurance_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_car_insurance_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -915,11 +915,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_train</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_train_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_train_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -927,11 +927,11 @@
 				<key>section_id</key>
 				<integer>5</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_traffic_ship</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_traffic_ship_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_traffic_ship_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -948,11 +948,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_kettle</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_kettle_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_kettle_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -960,11 +960,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_baby</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_baby_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_baby_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -972,11 +972,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_ring</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_ring_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_ring_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -984,11 +984,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_high_heels</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_high_heels_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_high_heels_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -996,11 +996,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_watch</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_watch_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_watch_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1008,11 +1008,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_camera</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_camera_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_camera_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1020,11 +1020,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_necklace</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_necklace_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_necklace_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1032,11 +1032,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_boots</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_boots_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_boots_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1044,11 +1044,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_flowerpot</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_flowerpot_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_flowerpot_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1056,11 +1056,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_belt</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_belt_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_belt_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1068,11 +1068,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_skirt</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_skirt_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_skirt_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1080,11 +1080,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_knickers</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_knickers_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_knickers_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1092,11 +1092,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_bikini</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_bikini_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_bikini_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1104,11 +1104,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_headset</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_headset_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_headset_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1116,11 +1116,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_tie</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_tie_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_tie_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1128,11 +1128,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_trousers</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_trousers_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_trousers_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1140,11 +1140,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_necktie</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_necktie_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_necktie_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1152,11 +1152,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_hat</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_hat_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_hat_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1164,11 +1164,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_toiletries</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_toiletries_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_toiletries_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1176,11 +1176,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_lipstick</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_lipstick_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_lipstick_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1188,11 +1188,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_cosmetics</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_cosmetics_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_cosmetics_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1200,11 +1200,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_mascara</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_mascara_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_mascara_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1212,11 +1212,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_flower</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_flower_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_flower_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1224,11 +1224,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_package</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_package_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_package_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1236,11 +1236,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_eye_shadow</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_eye_shadow_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_eye_shadow_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1248,11 +1248,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_shopping_trolley</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_shopping_trolley_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_shopping_trolley_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1260,11 +1260,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_earrings</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_earrings_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_earrings_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1272,11 +1272,11 @@
 				<key>section_id</key>
 				<integer>6</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_shopping_hand_cream</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_shopping_hand_cream_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_shopping_hand_cream_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -1293,11 +1293,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_moods_of_love</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_moods_of_love_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_moods_of_love_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1305,11 +1305,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_hotel</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_hotel_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_hotel_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1317,11 +1317,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_bath</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_bath_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_bath_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1329,11 +1329,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_buddha</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_buddha_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_buddha_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1341,11 +1341,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_candlelight</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_candlelight_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_candlelight_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1353,11 +1353,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_sunbath</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_sunbath_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_sunbath_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1365,11 +1365,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_tent</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_tent_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_tent_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1377,11 +1377,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_tea</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_tea_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_tea_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1389,11 +1389,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_trip</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_trip_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_trip_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1401,11 +1401,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_date</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_date_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_date_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1413,11 +1413,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_spa</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_spa_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_spa_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1425,11 +1425,11 @@
 				<key>section_id</key>
 				<integer>7</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_life_holiday</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_life_holiday_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_life_holiday_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -1446,11 +1446,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_handshake</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_handshake_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_handshake_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1458,11 +1458,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_marry</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_marry_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_marry_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1470,11 +1470,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_bill</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_bill_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_bill_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1482,11 +1482,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_money</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_money_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_money_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1494,11 +1494,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_friend</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_friend_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_friend_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1506,11 +1506,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_pc</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_pc_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_pc_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1518,11 +1518,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_phone</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_phone_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_phone_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1530,11 +1530,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_love</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_love_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_love_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1542,11 +1542,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_clap</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_clap_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_clap_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1554,11 +1554,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_facial</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_facial_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_facial_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1566,11 +1566,11 @@
 				<key>section_id</key>
 				<integer>8</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_personal_favourite</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_personal_favourite_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_personal_favourite_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -1587,11 +1587,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_bathtub</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_bathtub_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_bathtub_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1599,11 +1599,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_renovate</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_renovate_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_renovate_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1611,11 +1611,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_washing_machine</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_washing_machine_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_washing_machine_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1623,11 +1623,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_water</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_water_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_water_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1635,11 +1635,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_bed</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_bed_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_bed_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1647,11 +1647,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_sofa</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_sofa_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_sofa_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1659,11 +1659,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_air_conditioner</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_air_conditioner_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_air_conditioner_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1671,11 +1671,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_wardrobe</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_wardrobe_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_wardrobe_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1683,11 +1683,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_bread_machine</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_bread_machine_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_bread_machine_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1695,11 +1695,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_microwave_oven</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_microwave_oven_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_microwave_oven_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1707,11 +1707,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_bulb</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_bulb_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_bulb_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1719,11 +1719,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_w_and_e</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_w_and_e_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_w_and_e_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1731,11 +1731,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_hair_drier</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_hair_drier_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_hair_drier_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1743,11 +1743,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_refrigerator</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_refrigerator_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_refrigerator_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1755,11 +1755,11 @@
 				<key>section_id</key>
 				<integer>9</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_home_tools</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_home_tools_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_home_tools_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -1776,11 +1776,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_pet_food</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_pet_food_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_pet_food_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1788,11 +1788,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_baby_carriage</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_baby_carriage_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_baby_carriage_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1800,11 +1800,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_toy_duck</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_toy_duck_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_toy_duck_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1812,11 +1812,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_teddy_bear</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_teddy_bear_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_teddy_bear_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1824,11 +1824,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_feeding_bottle</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_feeding_bottle_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_feeding_bottle_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1836,11 +1836,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_pet_home</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_pet_home_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_pet_home_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1848,11 +1848,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_baby</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_baby_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_baby_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1860,11 +1860,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_dog</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_dog_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_dog_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1872,11 +1872,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_nipple</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_nipple_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_nipple_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1884,11 +1884,11 @@
 				<key>section_id</key>
 				<integer>10</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_family_wooden_horse</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_family_wooden_horse_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_family_wooden_horse_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -1905,11 +1905,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_skating</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_skating_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_skating_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1917,11 +1917,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_treadmills</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_treadmills_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_treadmills_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1929,11 +1929,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_weightlifting</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_weightlifting_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_weightlifting_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1941,11 +1941,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_fitball</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_fitball_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_fitball_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1953,11 +1953,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_elliptical_machine</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_elliptical_machine_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_elliptical_machine_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1965,11 +1965,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_bodybuilding</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_bodybuilding_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_bodybuilding_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1977,11 +1977,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_barbell</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_barbell_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_barbell_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -1989,11 +1989,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_running</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_running_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_running_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2001,11 +2001,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_boxing</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_boxing_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_boxing_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2013,11 +2013,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_sit_in</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_sit_in_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_sit_in_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2025,11 +2025,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_dumbbell</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_dumbbell_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_dumbbell_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2037,11 +2037,11 @@
 				<key>section_id</key>
 				<integer>11</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_fitness_hand_muscle_developer</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_fitness_hand_muscle_developer_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_fitness_hand_muscle_developer_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -2058,11 +2058,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_mouse</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_mouse_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_mouse_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2070,11 +2070,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_computer</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_computer_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_computer_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2082,11 +2082,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_clip</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_clip_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_clip_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2094,11 +2094,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_keyboard</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_keyboard_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_keyboard_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2106,11 +2106,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_drawing_board</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_drawing_board_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_drawing_board_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2118,11 +2118,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_desk</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_desk_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_desk_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2130,11 +2130,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_pen_container</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_pen_container_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_pen_container_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2142,11 +2142,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_printer</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_printer_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_printer_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2154,11 +2154,11 @@
 				<key>section_id</key>
 				<integer>12</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_office_pen_ruler</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_office_pen_ruler_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_office_pen_ruler_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -2175,11 +2175,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_1</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_1_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_1_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2187,11 +2187,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_2</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_2_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_2_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2199,11 +2199,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_3</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_3_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_3_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2211,11 +2211,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_4</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_4_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_4_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2223,11 +2223,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_5</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_5_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_5_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2235,11 +2235,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_6</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_6_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_6_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2247,11 +2247,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_7</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_7_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_7_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2259,11 +2259,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_8</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_8_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_8_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2271,11 +2271,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_9</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_9_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_9_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2283,11 +2283,11 @@
 				<key>section_id</key>
 				<integer>13</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_income_10</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_income_10_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_income_10_s</string>
 			</dict>
 		</array>
 	</dict>
@@ -2304,11 +2304,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_diamond</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_diamond_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_diamond_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2316,11 +2316,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_memorial_day</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_memorial_day_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_memorial_day_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2328,11 +2328,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_flag</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_flag_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_flag_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2340,11 +2340,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_crown</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_crown_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_crown_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2352,11 +2352,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_zongzi</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_zongzi_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_zongzi_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2364,11 +2364,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_lantern</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_lantern_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_lantern_s</string>
 			</dict>
 			<dict>
 				<key>id</key>
@@ -2376,11 +2376,11 @@
 				<key>section_id</key>
 				<integer>14</integer>
 				<key>icon_n</key>
-				<string>e_digital@3x.png</string>
+				<string>cc_other_firecracker</string>
 				<key>icon_l</key>
-				<string>e_digital_l@3x.png</string>
+				<string>cc_other_firecracker_l</string>
 				<key>icon_s</key>
-				<string>e_digital_s@3x.png</string>
+				<string>cc_other_firecracker_s</string>
 			</dict>
 		</array>
 	</dict>
