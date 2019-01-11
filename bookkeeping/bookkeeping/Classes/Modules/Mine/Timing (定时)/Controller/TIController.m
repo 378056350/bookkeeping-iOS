@@ -140,7 +140,8 @@
 // 添加定时
 - (void)addTimingRequest:(NSString *)time {
     NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
-    NSMutableArray *arrm_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    NSMutableArray *arrm_has_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_HAS_SYNCED];
+    NSMutableArray *arrm_remove_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_REMOVE_SYNCED];
     // 时间已存在
     if ([arrm containsObject:time]) {
         [self showTextHUD:@"已经添加过该时间的提醒" delay:2.f];
@@ -148,36 +149,51 @@
     // 时间不存在
     else {
         [arrm addObject:time];
-        [arrm_synced addObject:time];
-        
         [arrm sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
             return [obj1 compare:obj2];
         }];
-        [arrm_synced sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
-            return [obj1 compare:obj2];
-        }];
-        
         [[PINDiskCache sharedCache] setObject:arrm forKey:PIN_TIMING];
-        [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
+        
+        
+        if ([arrm_remove_synced containsObject:time]) {
+            [arrm_remove_synced removeObject:time];
+            [[PINDiskCache sharedCache] setObject:arrm_remove_synced forKey:PIN_TIMING_REMOVE_SYNCED];
+        }
+        else {
+            [arrm_has_synced addObject:time];
+            [arrm_has_synced sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+                return [obj1 compare:obj2];
+            }];
+            [[PINDiskCache sharedCache] setObject:arrm_has_synced forKey:PIN_TIMING_HAS_SYNCED];
+        }
+        
+        
         [self setModels:arrm];
         [self.table reloadData];
         
-        [self addNotification:time];
     }
 }
 // 删除定时
 - (void)deleteTimingRequest:(NSString *)time {
     NSMutableArray *arrm = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING];
-    NSMutableArray *arrm_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
-    
-    NSInteger row = [arrm indexOfObject:time];
-    [self.table.models removeObjectAtIndex:row];
-    [self.table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSMutableArray *arrm_has_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_HAS_SYNCED];
+    NSMutableArray *arrm_remove_synced = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_REMOVE_SYNCED];
     
     [arrm removeObject:time];
-    [arrm_synced removeObject:time];
     [[PINDiskCache sharedCache] setObject:arrm forKey:PIN_TIMING];
-    [[PINDiskCache sharedCache] setObject:arrm_synced forKey:PIN_TIMING_SYNCED];
+    
+    if ([arrm_has_synced containsObject:time]) {
+        [arrm_has_synced removeObject:time];
+        [[PINDiskCache sharedCache] setObject:arrm_has_synced forKey:PIN_TIMING_HAS_SYNCED];
+    }
+    else {
+        [arrm_remove_synced addObject:time];
+        [[PINDiskCache sharedCache] setObject:arrm_remove_synced forKey:PIN_TIMING_REMOVE_SYNCED];
+    }
+        
+    [self setModels:arrm];
+    [self.table reloadData];
+    
 }
 
 

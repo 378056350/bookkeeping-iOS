@@ -47,8 +47,9 @@
 
 
 #pragma mark - 定时
-#define PIN_TIMING           @"PIN_TIMING"           // 定时通知
-#define PIN_TIMING_SYNCED    @"PIN_TIMING_SYNCED"    // 定时通知 - 未同步
+#define PIN_TIMING                  @"PIN_TIMING"                   // 定时通知
+#define PIN_TIMING_HAS_SYNCED       @"PIN_TIMING_HAS_SYNCED"        // 定时添加通知 - 未同步
+#define PIN_TIMING_REMOVE_SYNCED    @"PIN_TIMING_REMOVE_SYNCED"     // 定时删除通知 - 未同步
 
 
 #import "PINCacheManager.h"

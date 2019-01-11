@@ -118,13 +118,13 @@
     
     
     // 系统 - 添加的 - 收入
-    NSMutableArray *cateSysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
     // 系统 - 删除的 - 收入
-    NSMutableArray *cateSysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
     // 用户 - 添加的 - 收入
-    NSMutableArray *cateCusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
     // 用户 - 删除的 - 收入
-    NSMutableArray *cateCusRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
     
     
     // 记账信息
@@ -138,7 +138,8 @@
     
     
     // 定时
-    NSMutableArray *timing = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_SYNCED];
+    NSMutableArray *timing_has = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_HAS_SYNCED];
+    NSMutableArray *timing_remove = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_REMOVE_SYNCED];
     
     
     // 参数
@@ -148,15 +149,16 @@
                                   [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusRemovePayArr] mj_JSONString], @"cateCusRemovePayArr",
                                   [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusHasPayArr] mj_JSONString], @"cateCusHasPayArr",
 //
-//                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysRemoveIncomeArr] mj_JSONString], @"cateSysRemoveIncomeArr",
-//                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysHasIncomeArr] mj_JSONString], @"cateSysHasIncomeArr",
-//                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusRemoveIncomeArr] mj_JSONString], @"cateCusRemoveIncomeArr",
-//                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusHasIncomeArr] mj_JSONString], @"cateCusHasIncomeArr",
-//
-//                                  [[BKModel mj_keyValuesArrayWithObjectArray:bookArr] mj_JSONString], @"book",
-//                                  sound, @"sound",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysRemoveIncomeArr] mj_JSONString], @"cateSysRemoveIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateSysHasIncomeArr] mj_JSONString], @"cateSysHasIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusRemoveIncomeArr] mj_JSONString], @"cateCusRemoveIncomeArr",
+                                  [[BKCModel mj_keyValuesArrayWithObjectArray:cateCusHasIncomeArr] mj_JSONString], @"cateCusHasIncomeArr",
+
+                                  [[BKModel mj_keyValuesArrayWithObjectArray:bookArr] mj_JSONString], @"book",
+                                  sound, @"sound",
                                   detail, @"detail",
-//                                  timing, @"timing",
+                                  [timing_has mj_JSONString], @"timing_has",
+                                  [timing_remove mj_JSONString], @"timing_remove",
                                   nil];
     
     
@@ -170,11 +172,95 @@
         [self hideHUD];
         // 成功
         if (result.status == ServiceCodeSuccess) {
+            
             [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
             [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
             [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
             [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
+
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_TIMING_HAS_SYNCED];
+            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_TIMING_REMOVE_SYNCED];
             
+            
+            
+            
+            NSString *systemCatePath = [[NSBundle mainBundle] pathForResource:@"SC" ofType:@"plist"];
+            NSDictionary *systemCateDic = [NSDictionary dictionaryWithContentsOfFile:systemCatePath];
+            NSMutableArray<BKCModel *> *pay = [NSMutableArray arrayWithArray:systemCateDic[@"pay"]];
+            NSMutableArray<BKCModel *> *income = [NSMutableArray arrayWithArray:systemCateDic[@"income"]];
+            pay = [BKCModel mj_objectArrayWithKeyValuesArray:pay];
+            income = [BKCModel mj_objectArrayWithKeyValuesArray:income];
+
+            NSMutableArray<BKCModel *> *payRemove = [NSMutableArray array];
+            NSMutableArray<BKCModel *> *incomeRemove = [NSMutableArray array];
+
+            NSArray<NSArray *> *arr = result.data[@"delete_cate"];
+            for (NSArray *subarr in arr) {
+                NSInteger category_id = [subarr[0] integerValue];
+                NSString *preStr = [NSString stringWithFormat:@"Id == %ld", category_id];
+                NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+                if (category_id <= [pay lastObject].Id) {
+                    NSArray<BKModel *> *models = (NSArray *)[pay filteredArrayUsingPredicate:pre];
+                    BKModel *model = [models firstObject];
+                    [pay removeObject:model];
+                    [payRemove addObject:model];
+                } else {
+                    NSArray<BKModel *> *models = (NSArray *)[income filteredArrayUsingPredicate:pre];
+                    BKModel *model = [models firstObject];
+                    [income removeObject:model];
+                    [incomeRemove addObject:model];
+                }
+            }
+            
+            [[PINCacheManager sharedManager] setObject:pay forKey:PIN_CATE_SYS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:payRemove forKey:PIN_CATE_SYS_REMOVE_PAY];
+
+            [[PINCacheManager sharedManager] setObject:income forKey:PIN_CATE_SYS_HAS_INCOME];
+            [[PINCacheManager sharedManager] setObject:incomeRemove forKey:PIN_CATE_SYS_REMOVE_INCOME];
+            
+            
+            
+            NSMutableArray *insertArr = result.data[@"insert_cate"];
+            NSMutableArray<BKCModel *> *insertPayModel = [NSMutableArray array];
+            NSMutableArray<BKCModel *> *insertIncomeModel = [NSMutableArray array];
+            for (NSArray *arr in insertArr) {
+                BKCModel *model = [[BKCModel alloc] init];
+                model.Id = [arr[0] integerValue];
+                model.name = arr[1];
+                model.icon_n = arr[2];
+                model.icon_l = arr[3];
+                model.icon_s = arr[4];
+                model.is_income = [arr[5] boolValue];
+                model.is_system = [arr[6] boolValue];
+                if ([param[@"is_income"] boolValue] == true) {
+                    [insertIncomeModel addObject:model];
+                } else {
+                    [insertPayModel addObject:model];
+                }
+            }
+            [[PINCacheManager sharedManager] setObject:insertPayModel forKey:PIN_CATE_CUS_HAS_PAY];
+            [[PINCacheManager sharedManager] setObject:insertIncomeModel forKey:PIN_CATE_CUS_HAS_INCOME];
+            
+            
+            
+            NSArray *setting = result.data[@"setting"][0];
+            NSNumber *sound = setting[0];
+            NSNumber *detail = setting[1];
+            [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
+            [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
+            
+            
+            UserModel *model = [UserInfo loadUserInfo];
+            model.sound = [sound integerValue];
+            model.detail = [detail integerValue];
+            [UserInfo saveUserModel:model];
             
         }
         // 失败

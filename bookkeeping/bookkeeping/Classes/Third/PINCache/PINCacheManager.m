@@ -31,7 +31,7 @@ static PINDiskCache *_disk;
 //            }
 //        }
         _disk = [[PINDiskCache sharedCache] initWithName:@"book" rootPath:@"Library/Caches/widget"];
-//        [[PINDiskCache sharedCache] removeAllObjects];
+        [[PINDiskCache sharedCache] removeAllObjects];
     });
     return _disk;
 }
@@ -68,6 +68,7 @@ static PINDiskCache *_disk;
         [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
         [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
         
+        
         // 添加类别
         NSString *acaPath = [[NSBundle mainBundle] pathForResource:@"ACA" ofType:@"plist"];
         NSMutableArray *acaArr = [NSMutableArray arrayWithContentsOfFile:acaPath];
@@ -86,7 +87,10 @@ static PINDiskCache *_disk;
         
         // 定时
         [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING];
-        [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING_SYNCED];
+        [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING_HAS_SYNCED];
+        [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_TIMING_REMOVE_SYNCED];
+        
+        
         
         
         [[PINCacheManager sharedManager] setObject:@(1) forKey:PIN_FIRST_RUN];
