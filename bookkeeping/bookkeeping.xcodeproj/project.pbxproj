@@ -190,6 +190,7 @@
 		4B38C07E21E4E6A800D28B34 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
 		4B38C07F21E4E6CB00D28B34 /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
 		4B38C08021E4E6F000D28B34 /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
+		4B47931221E9DB4D0062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
 		4B4852F921C6938D00891096 /* cc_entertainmente_climbing_s@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4852F721C6938D00891096 /* cc_entertainmente_climbing_s@3x.png */; };
 		4B4852FA21C6938D00891096 /* cc_entertainmente_climbing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4852F821C6938D00891096 /* cc_entertainmente_climbing@3x.png */; };
 		4B4852FD21C6974800891096 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4852FC21C6974800891096 /* MineTableView.m */; };
@@ -681,6 +682,8 @@
 		4B38C07721E4E35400D28B34 /* PINCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINCacheManager.h; sourceTree = "<group>"; };
 		4B38C07821E4E35500D28B34 /* PINCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINCacheManager.m; sourceTree = "<group>"; };
 		4B38C07C21E4E5D400D28B34 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
+		4B47931021E9DB4D0062879D /* NSUserDefaults+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Extension.h"; sourceTree = "<group>"; };
+		4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Extension.m"; sourceTree = "<group>"; };
 		4B4852F721C6938D00891096 /* cc_entertainmente_climbing_s@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_entertainmente_climbing_s@3x.png"; sourceTree = "<group>"; };
 		4B4852F821C6938D00891096 /* cc_entertainmente_climbing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_entertainmente_climbing@3x.png"; sourceTree = "<group>"; };
 		4B4852FB21C6974800891096 /* MineTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableView.h; sourceTree = "<group>"; };
@@ -1018,7 +1021,6 @@
 			isa = PBXGroup;
 			children = (
 				3219840E21C6466700311885 /* Single.h */,
-				4B35F1A721CCC694007271BE /* Empty */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1071,6 +1073,7 @@
 		3219839121C6436A00311885 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4B35F1A721CCC694007271BE /* Empty */,
 				4BE8CBD921C93960007935E2 /* Popup */,
 				3257AED521C8761200787A34 /* BottomButton */,
 			);
@@ -1170,6 +1173,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				4B47930F21E9DB4D0062879D /* NSUserDefaults */,
 				4BFD381421E4D3CB00BAB0BB /* UIViewController */,
 				32A5801021DF090B008993B2 /* NSObject */,
 				4B769AEB21DA7346006EDE90 /* BaseNavigationController */,
@@ -1884,6 +1888,15 @@
 				4B35F1CC21CCD330007271BE /* KKBadge.xib */,
 			);
 			path = KKBadge;
+			sourceTree = "<group>";
+		};
+		4B47930F21E9DB4D0062879D /* NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				4B47931021E9DB4D0062879D /* NSUserDefaults+Extension.h */,
+				4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */,
+			);
+			path = NSUserDefaults;
 			sourceTree = "<group>";
 		};
 		4B5457CF21D4F08E002332B8 /* Table */ = {
@@ -3117,6 +3130,7 @@
 				4B769AEE21DA7351006EDE90 /* BaseNavigationController+Extension.m in Sources */,
 				3299035A21CA6895000F4C14 /* BKCRefreshHeader.m in Sources */,
 				4B35F1C421CCC694007271BE /* KKEmpty.m in Sources */,
+				4B47931221E9DB4D0062879D /* NSUserDefaults+Extension.m in Sources */,
 				321983FD21C6460100311885 /* UIView+BlockGesture.m in Sources */,
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,
 				4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */,

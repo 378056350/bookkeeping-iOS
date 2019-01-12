@@ -12,6 +12,7 @@
 #import "BKModel.h"
 #import "BDController.h"
 #import "HOME_EVENT.h"
+#import "ACAListModel.h"
 
 
 #pragma mark - 声明
@@ -33,13 +34,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setJz_navigationBarHidden:true];
-//    [self navigation];
-//    [self header];
-//    [self list];
-//    [self setDate:[NSDate date]];
-//    [self monitorNotification];
-//    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+    [self setJz_navigationBarHidden:true];
+    [self navigation];
+    [self header];
+    [self list];
+    [self setDate:[NSDate date]];
+    [self monitorNotification];
+    [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
+    
+    
 }
 // 监听通知
 - (void)monitorNotification {
@@ -255,6 +258,35 @@
             NSNumber *detail = setting[1];
             [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
             [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
+            
+            
+            
+            NSArray<NSArray *> *bookarr = result.data[@"book"];
+            NSMutableArray<BKModel *> *bookModels = [NSMutableArray array];
+            for (NSArray *subarr in bookarr) {
+                BKModel *model = [[BKModel alloc] init];
+                model.Id = random() % 1000000000;
+                model.price = [subarr[0] floatValue];
+                model.category_id = [subarr[1] integerValue];
+                model.year = [subarr[2] integerValue];
+                model.month = [subarr[3] integerValue];
+                model.day = [subarr[4] integerValue];
+                model.mark = subarr[5];
+                model.cmodel = ({
+                    BKCModel *submodel = [[BKCModel alloc] init];
+                    submodel.Id = [subarr[1] integerValue];
+                    submodel.name = subarr[8];
+                    submodel.icon_n = subarr[9];
+                    submodel.icon_l = subarr[10];
+                    submodel.icon_s = subarr[11];
+                    submodel.is_income = [subarr[6] boolValue];
+                    submodel.is_system = [subarr[7] boolValue];
+                    submodel;
+                });
+                [bookModels addObject:model];
+            }
+            [[PINCacheManager sharedManager] setObject:bookModels forKey:PIN_BOOK];
+            
             
             
             UserModel *model = [UserInfo loadUserInfo];
