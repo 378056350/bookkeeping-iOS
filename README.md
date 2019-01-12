@@ -17,9 +17,10 @@
 | :--------------------------------------: | :--------------------------------------: |
 |            记账            |            图表            |
 
-| ![3列效果图](https://github.com/91renb/BRPickerView/blob/fca58dbf6ac3c5f7f781e13cefdc27fdeaf59476/BRPickerViewDemo/%E6%95%88%E6%9E%9C%E5%9B%BE/string_more3.png?raw=true) | ![4列效果图](https://github.com/91renb/BRPickerView/blob/fca58dbf6ac3c5f7f781e13cefdc27fdeaf59476/BRPickerViewDemo/%E6%95%88%E6%9E%9C%E5%9B%BE/string_more4.png?raw=true) |
+| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/3.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/4.gif?raw=true) |
 | :--------------------------------------: | :--------------------------------------: |
-|            3列字符串选择器（自定义主题色样式）            |            4列字符串选择器（自定义主题色样式）            |
+|          增删类别          |            图表            |
+
 
 
 
