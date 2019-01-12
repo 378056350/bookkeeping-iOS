@@ -34,7 +34,7 @@
 #pragma mark - set
 - (void)setModel:(BKModel *)model {
     _model = model;
-    [_icon sd_setImageWithURL:[NSURL URLWithString:KStatic(model.cmodel.icon_l)]];
+    [_icon setImage:[UIImage imageNamed:model.cmodel.icon_l]];
     [_nameLab setText:[NSString stringWithFormat:@"%ld/%02ld/%02ld", model.year, model.month, model.day]];
     [_detailLab setText:model.cmodel.name];
     [_priceLab setText:[@(model.price) description]];
