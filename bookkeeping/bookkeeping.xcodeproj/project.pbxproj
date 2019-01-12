@@ -149,6 +149,8 @@
 		4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */; };
 		4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */; };
 		4B1E128821CA9410001F5B36 /* CategorySectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1E128721CA9410001F5B36 /* CategorySectionHeader.xib */; };
+		4B2214FD21E9E4A8000F619F /* UIImage+BlurGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2214FA21E9E4A7000F619F /* UIImage+BlurGlass.m */; };
+		4B2214FE21E9E4A8000F619F /* ScreenBlurry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2214FB21E9E4A7000F619F /* ScreenBlurry.m */; };
 		4B229A6421E6182000152030 /* FindController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B229A5C21E6182000152030 /* FindController.m */; };
 		4B229A6521E6182000152030 /* FindFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B229A5F21E6182000152030 /* FindFeatureCell.m */; };
 		4B229A6621E6182000152030 /* FindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B229A6021E6182000152030 /* FindCell.m */; };
@@ -615,6 +617,10 @@
 		4B1E128421CA93C1001F5B36 /* CategorySectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategorySectionHeader.h; sourceTree = "<group>"; };
 		4B1E128521CA93C1001F5B36 /* CategorySectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategorySectionHeader.m; sourceTree = "<group>"; };
 		4B1E128721CA9410001F5B36 /* CategorySectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySectionHeader.xib; sourceTree = "<group>"; };
+		4B2214F921E9E4A7000F619F /* ScreenBlurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenBlurry.h; sourceTree = "<group>"; };
+		4B2214FA21E9E4A7000F619F /* UIImage+BlurGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurGlass.m"; sourceTree = "<group>"; };
+		4B2214FB21E9E4A7000F619F /* ScreenBlurry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenBlurry.m; sourceTree = "<group>"; };
+		4B2214FC21E9E4A7000F619F /* UIImage+BlurGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurGlass.h"; sourceTree = "<group>"; };
 		4B229A5B21E6182000152030 /* FindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindController.h; sourceTree = "<group>"; };
 		4B229A5C21E6182000152030 /* FindController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindController.m; sourceTree = "<group>"; };
 		4B229A5F21E6182000152030 /* FindFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFeatureCell.m; sourceTree = "<group>"; };
@@ -1024,6 +1030,7 @@
 		3219838E21C6436A00311885 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				4B2214F821E9E4A7000F619F /* ScreenBlurry */,
 				321431D621D3675000D7D1F5 /* ZLPhotoActionSheet */,
 				32FADE5621D2297400DCD920 /* UMeng */,
 				4B9798FA21CE744A0020B207 /* CountDown */,
@@ -1740,6 +1747,17 @@
 				4B1E128221CA8BD3001F5B36 /* UIScrollView+Extension.m */,
 			);
 			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		4B2214F821E9E4A7000F619F /* ScreenBlurry */ = {
+			isa = PBXGroup;
+			children = (
+				4B2214F921E9E4A7000F619F /* ScreenBlurry.h */,
+				4B2214FB21E9E4A7000F619F /* ScreenBlurry.m */,
+				4B2214FC21E9E4A7000F619F /* UIImage+BlurGlass.h */,
+				4B2214FA21E9E4A7000F619F /* UIImage+BlurGlass.m */,
+			);
+			path = ScreenBlurry;
 			sourceTree = "<group>";
 		};
 		4B229A5921E6182000152030 /* Find */ = {
@@ -3101,6 +3119,7 @@
 				321983B821C6459B00311885 /* BaseNavigationController.m in Sources */,
 				4B252CE121C6A288002CD83D /* MineView.m in Sources */,
 				32A4C24D21CB834100DF4327 /* BookPunch.m in Sources */,
+				4B2214FD21E9E4A8000F619F /* UIImage+BlurGlass.m in Sources */,
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
 				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
@@ -3117,6 +3136,7 @@
 				4B47931221E9DB4D0062879D /* NSUserDefaults+Extension.m in Sources */,
 				321983FD21C6460100311885 /* UIView+BlockGesture.m in Sources */,
 				32D0B2B821C76D0B0030F5B2 /* KKRefreshNormalHeader.m in Sources */,
+				4B2214FE21E9E4A8000F619F /* ScreenBlurry.m in Sources */,
 				4B1E128321CA8BD3001F5B36 /* UIScrollView+Extension.m in Sources */,
 				4B1917B021CD333000137215 /* BKCIncomeModel.m in Sources */,
 				4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */,

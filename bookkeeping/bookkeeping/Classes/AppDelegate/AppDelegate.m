@@ -87,4 +87,16 @@
 }
 
 
+// 去后台
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [ScreenBlurry addBlurryScreenImage];
+}
+// 回前台
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [ScreenBlurry removeBlurryScreenImage];
+}
+
+
+
+
 @end

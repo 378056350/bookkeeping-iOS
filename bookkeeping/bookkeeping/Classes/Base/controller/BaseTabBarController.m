@@ -78,18 +78,19 @@
 #pragma mark - get
 - (BaseTabBar *)bar {
     if (!_bar) {
-        __weak typeof(self) weakSelf = self;
+        @weakify(self)
         for (UIView *view in self.tabBar.subviews) {
             [view removeFromSuperview];
         }
         
         _bar = [[BaseTabBar alloc] init];
         [_bar setClick:^(NSInteger index) {
+            @strongify(self)
             // 记账
             if (index == 2) {
                 BKCController *vc = [[BKCController alloc] init];
                 BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-                [weakSelf presentViewController:nav animated:YES completion:^{
+                [self presentViewController:nav animated:YES completion:^{
                     
                 }];
             }
@@ -98,10 +99,12 @@
                 if (index == 4) {
                     BaseNavigationController *nav = self.viewControllers[index];
                     MineController *vc = nav.viewControllers[0];
-                     [vc.mine.table setContentOffset:CGPointZero animated:YES];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [vc.mine.table setContentOffset:CGPointZero animated:true];
+                    });
                 }
-                [weakSelf setSelectedIndex:index];
-                [weakSelf.bar setIndex:index];
+                [self setSelectedIndex:index];
+                [self.bar setIndex:index];
             }
         }];
         [self setValue:_bar forKey:@"tabBar"];
