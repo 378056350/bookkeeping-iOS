@@ -26,13 +26,13 @@
     [self shareUMengConfig];
     
     
-    // 注册通知
-    if (@available(iOS 10.0, *)) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            
-        }];
-    }
+//    // 注册通知
+//    if (@available(iOS 10.0, *)) {
+//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//            
+//        }];
+//    }
     
     
     

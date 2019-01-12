@@ -3425,6 +3425,7 @@
 			baseConfigurationReference = ADB606FFC3A28734EF5B4C6B /* Pods-bookkeeping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bookkeeping/bookkeeping.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
@@ -3446,6 +3447,7 @@
 			baseConfigurationReference = E76EBA2977C0FF96F8D76960 /* Pods-bookkeeping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bookkeeping/bookkeeping.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVDKFLYG8;
