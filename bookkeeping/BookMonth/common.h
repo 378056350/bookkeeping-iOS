@@ -12,17 +12,10 @@
 
 // 第三方
 #import <NotificationCenter/NotificationCenter.h>
-#import <PINCache/PINCache.h>
-#import <PINCache/PINDiskCache.h>
-#import <PINCache/PINMemoryCache.h>
 #import <MJExtension/MJExtension.h>
 #import <BRPickerView/BRPickerView.h>
 #import <BRPickerView/BRPickerView.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-
-
-// 分类
-#import "PINCacheManager.h"
 
 
 // 分类
@@ -31,6 +24,7 @@
 #import "NSString+Extension.h"
 #import "NSObject+NSCoding.h"
 #import "UIColor+HEX.h"
+#import "NSUserDefaults+Extension.h"
 
 
 // model

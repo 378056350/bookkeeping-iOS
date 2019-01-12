@@ -4,9 +4,6 @@
 
 // 第三方
 #import <NotificationCenter/NotificationCenter.h>
-#import <PINCache/PINCache.h>
-#import <PINCache/PINDiskCache.h>
-#import <PINCache/PINMemoryCache.h>
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -22,10 +19,7 @@
 #import "UIResponder+QFEventHandle.h"
 #import "UIView+BorderLine.h"
 #import "NSString+Calculation.h"
-
-
-// 分类
-#import "PINCacheManager.h"
+#import "NSUserDefaults+Extension.h"
 
 
 // 控件

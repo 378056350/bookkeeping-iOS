@@ -19,7 +19,7 @@
 
 
 - (void)initUI {
-    self.lab.font = [UIFont systemFontOfSize:AdjustFont(12)];
+    self.lab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight];
     self.lab.textColor = kColor_Text_Gary;
 }
 - (void)setModel:(BKCModel *)model {

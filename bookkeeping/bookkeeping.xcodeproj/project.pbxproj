@@ -11,7 +11,6 @@
 		3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213180B21E59727000ADA9A /* StartScrollCell.m */; };
 		3213180E21E59727000ADA9A /* StartScrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3213180C21E59727000ADA9A /* StartScrollCell.xib */; };
 		3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983AC21C6459B00311885 /* BaseCollectionCell.m */; };
-		3213181421E599FE000ADA9A /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B38C07821E4E35500D28B34 /* PINCacheManager.m */; };
 		3213181521E59A77000ADA9A /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
 		3213181621E59A83000ADA9A /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
 		3213181721E59A91000ADA9A /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
@@ -183,14 +182,14 @@
 		4B35F1D021CCDA98007271BE /* ShareBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1CF21CCDA98007271BE /* ShareBadge.m */; };
 		4B35F1D221CCDACB007271BE /* ShareBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B35F1D121CCDACB007271BE /* ShareBadge.xib */; };
 		4B35F1D521CD0798007271BE /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
-		4B38C07921E4E35500D28B34 /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B38C07821E4E35500D28B34 /* PINCacheManager.m */; };
-		4B38C07A21E4E53700D28B34 /* PINCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B38C07821E4E35500D28B34 /* PINCacheManager.m */; };
 		4B38C07B21E4E59600D28B34 /* BKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8547D21DA20AC00A203DE /* BKModel.m */; };
 		4B38C07D21E4E65400D28B34 /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */; };
 		4B38C07E21E4E6A800D28B34 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
 		4B38C07F21E4E6CB00D28B34 /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
 		4B38C08021E4E6F000D28B34 /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
 		4B47931221E9DB4D0062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
+		4B47931621E9DF540062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
+		4B47931721E9DF540062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
 		4B4852F921C6938D00891096 /* cc_entertainmente_climbing_s@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4852F721C6938D00891096 /* cc_entertainmente_climbing_s@3x.png */; };
 		4B4852FA21C6938D00891096 /* cc_entertainmente_climbing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4852F821C6938D00891096 /* cc_entertainmente_climbing@3x.png */; };
 		4B4852FD21C6974800891096 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4852FC21C6974800891096 /* MineTableView.m */; };
@@ -514,7 +513,6 @@
 		327CEC3721C89920001D0086 /* ChartTableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartTableHeader.m; sourceTree = "<group>"; };
 		3299035821CA6895000F4C14 /* BKCRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKCRefreshHeader.h; sourceTree = "<group>"; };
 		3299035921CA6895000F4C14 /* BKCRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKCRefreshHeader.m; sourceTree = "<group>"; };
-		32A04B2221DDD1E5002B0766 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
 		32A04B2821DE04D8002B0766 /* SC.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SC.plist; sourceTree = "<group>"; };
 		32A4C21C21CB15B000DF4327 /* JHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		32A4C21D21CB15B000DF4327 /* JHCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
@@ -679,8 +677,6 @@
 		4B35F1D321CD0798007271BE /* ACAListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACAListModel.h; sourceTree = "<group>"; };
 		4B35F1D421CD0798007271BE /* ACAListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACAListModel.m; sourceTree = "<group>"; };
 		4B35F1D621CD10B1007271BE /* ACA_EVENT_MANAGER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACA_EVENT_MANAGER.h; sourceTree = "<group>"; };
-		4B38C07721E4E35400D28B34 /* PINCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINCacheManager.h; sourceTree = "<group>"; };
-		4B38C07821E4E35500D28B34 /* PINCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINCacheManager.m; sourceTree = "<group>"; };
 		4B38C07C21E4E5D400D28B34 /* PINCache_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PINCache_Header.h; sourceTree = "<group>"; };
 		4B47931021E9DB4D0062879D /* NSUserDefaults+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Extension.h"; sourceTree = "<group>"; };
 		4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Extension.m"; sourceTree = "<group>"; };
@@ -1028,7 +1024,6 @@
 		3219838E21C6436A00311885 /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				32A04B2021DDD159002B0766 /* PINCache */,
 				321431D621D3675000D7D1F5 /* ZLPhotoActionSheet */,
 				32FADE5621D2297400DCD920 /* UMeng */,
 				4B9798FA21CE744A0020B207 /* CountDown */,
@@ -1492,19 +1487,6 @@
 			path = BookChart;
 			sourceTree = "<group>";
 		};
-		32A04B2021DDD159002B0766 /* PINCache */ = {
-			isa = PBXGroup;
-			children = (
-				32A04B2221DDD1E5002B0766 /* PINCache_Header.h */,
-				4B38C07721E4E35400D28B34 /* PINCacheManager.h */,
-				4B38C07821E4E35500D28B34 /* PINCacheManager.m */,
-				32A04B2821DE04D8002B0766 /* SC.plist */,
-				32A5801121DF33C4008993B2 /* ACA.plist */,
-				3219840F21C6474500311885 /* UserInfo */,
-			);
-			path = PINCache;
-			sourceTree = "<group>";
-		};
 		32A4C21B21CB15B000DF4327 /* JHCollectionViewDelegateFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1895,6 +1877,9 @@
 			children = (
 				4B47931021E9DB4D0062879D /* NSUserDefaults+Extension.h */,
 				4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */,
+				32A04B2821DE04D8002B0766 /* SC.plist */,
+				32A5801121DF33C4008993B2 /* ACA.plist */,
+				3219840F21C6474500311885 /* UserInfo */,
 			);
 			path = NSUserDefaults;
 			sourceTree = "<group>";
@@ -3056,7 +3041,6 @@
 				327CEC2421C88D9D001D0086 /* ChartTableView.m in Sources */,
 				4B97990121CE784F0020B207 /* RE3Controller.m in Sources */,
 				4BC7820021C917FA00760DF9 /* BKCKeyboard.m in Sources */,
-				4B38C07921E4E35500D28B34 /* PINCacheManager.m in Sources */,
 				32A4C24121CB749B00DF4327 /* WebVC.m in Sources */,
 				4B7560B321D1224A00E63744 /* BaseViewController+Extension.m in Sources */,
 				327CEC1D21C88A04001D0086 /* HomeListHeader.m in Sources */,
@@ -3226,7 +3210,6 @@
 			files = (
 				32BFA81021E4A2B600B926F3 /* MonthController.m in Sources */,
 				32BFA80721E49DFA00B926F3 /* ContentView.m in Sources */,
-				4B38C07A21E4E53700D28B34 /* PINCacheManager.m in Sources */,
 				4B38C07E21E4E6A800D28B34 /* BaseModel.m in Sources */,
 				4BFD381B21E4D7C000BAB0BB /* NSDate+Extension.m in Sources */,
 				4BFD380D21E4C5D500BAB0BB /* UIFont+Extension.m in Sources */,
@@ -3237,6 +3220,7 @@
 				4B38C07D21E4E65400D28B34 /* NSObject+NSCoding.m in Sources */,
 				4BFD381C21E4D84B00BAB0BB /* NSString+Extension.m in Sources */,
 				4B38C07F21E4E6CB00D28B34 /* ACAListModel.m in Sources */,
+				4B47931621E9DF540062879D /* NSUserDefaults+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3248,10 +3232,10 @@
 				326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */,
 				326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */,
 				3213182021E5CDB7000ADA9A /* NSString+Calculation.m in Sources */,
-				3213181421E599FE000ADA9A /* PINCacheManager.m in Sources */,
 				3213181F21E5C913000ADA9A /* UIView+BorderLine.m in Sources */,
 				326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */,
 				3213181621E59A83000ADA9A /* ACAListModel.m in Sources */,
+				4B47931721E9DF540062879D /* NSUserDefaults+Extension.m in Sources */,
 				3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */,
 				3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */,
 				326EB88921E57C00007CD5C6 /* NSDate+Extension.m in Sources */,

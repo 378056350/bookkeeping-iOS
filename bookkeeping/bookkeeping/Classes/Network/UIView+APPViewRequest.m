@@ -43,7 +43,7 @@ static void *kUIView_APPViewRequest;
 // 临时缓存
 - (void)useMemoryCache:(NSString *)url complete:(AFNManagerCompleteBlock)complete {
     if (complete) {
-        id responseObject = [[PINCacheManager sharedManager] objectForKey:url];
+        id responseObject = [NSUserDefaults objectForKey:url];
         APPResult *result = [[APPResult alloc] init];
         result.code = ServiceCodeMemoryCache;
         result.status = ServiceCodeSuccess;
@@ -55,7 +55,7 @@ static void *kUIView_APPViewRequest;
 // 本地缓存
 - (void)useDiskCache:(NSString *)url complete:(AFNManagerCompleteBlock)complete {
     if (complete) {
-        id responseObject = [[PINCacheManager sharedManager] objectForKey:url];
+        id responseObject = [NSUserDefaults objectForKey:url];
         APPResult *result = [[APPResult alloc] init];
         result.code = ServiceCodeMemoryCache;
         result.status = ServiceCodeSuccess;
@@ -112,16 +112,16 @@ static void *kUIView_APPViewRequest;
         }
         // 使用缓存
         if ([viewParameter afn_useCache] == YES) {
-            // 临时缓存
-            if ([[PINMemoryCache sharedCache] containsObjectForKey:url]) {
-                [viewParameter.view hideEmpty];
-                [self useMemoryCache:url complete:complete];
-            }
-            // 本地缓存
-            else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
-                [viewParameter.view hideEmpty];
-                [self useDiskCache:url complete:complete];
-            }
+//            // 临时缓存
+//            if ([[PINMemoryCache sharedCache] containsObjectForKey:url]) {
+//                [viewParameter.view hideEmpty];
+//                [self useMemoryCache:url complete:complete];
+//            }
+//            // 本地缓存
+//            else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
+//                [viewParameter.view hideEmpty];
+//                [self useDiskCache:url complete:complete];
+//            }
         }
     }
     // 请求
@@ -156,9 +156,9 @@ static void *kUIView_APPViewRequest;
             // 解析
             complete(result);
             // 本地缓存
-            [[PINCacheManager sharedManager] setObjectAsync:result.data forKey:url completion:nil];
+//            [NSUserDefaults setObjectAsync:result.data forKey:url completion:nil];
             // 临时缓存
-            [[PINMemoryCache sharedCache] setObjectAsync:result.data forKey:url completion:nil];
+//            [[PINMemoryCache sharedCache] setObjectAsync:result.data forKey:url completion:nil];
         }
         // 失败
         else if (result.status == ServiceStatusFail) {
@@ -166,16 +166,16 @@ static void *kUIView_APPViewRequest;
             if (viewParameter && viewParameter.afn_useCache == YES) {
                 // 隐藏
                 [viewParameter.view hideEmpty];
-                // 临时缓存
-                if ([[PINMemoryCache sharedCache] containsObjectForKey:url]) {
-                    [weak useMemoryCache:url complete:complete];
-                }
-                // 本地缓存
-                else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
-                    [weak useDiskCache:url complete:complete];
-                }
-                // 失败
-                else {
+//                // 临时缓存
+//                if ([[PINMemoryCache sharedCache] containsObjectForKey:url]) {
+//                    [weak useMemoryCache:url complete:complete];
+//                }
+//                // 本地缓存
+//                else if ([[PINCacheManager sharedManager] containsObjectForKey:url]) {
+//                    [weak useDiskCache:url complete:complete];
+//                }
+//                // 失败
+//                else {
                     // 回调
                     [weak createErrorBlock:complete];
                     // 错误页
@@ -187,7 +187,7 @@ static void *kUIView_APPViewRequest;
                             [self createRequest:url params:params complete:complete];
                         }];
                     }
-                }
+//                }
             }
             // 失败
             else {

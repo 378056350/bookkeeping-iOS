@@ -82,14 +82,14 @@
     // 删除
     else if ([number integerValue] == 1) {
         // 删除
-        NSMutableArray<BKModel *> *bookArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
-        NSMutableArray<BKModel *> *bookSyncedArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
+        NSMutableArray<BKModel *> *bookArrm = [NSUserDefaults objectForKey:PIN_BOOK];
+        NSMutableArray<BKModel *> *bookSyncedArrm = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
         if ([bookSyncedArrm containsObject:_model]) {
             [bookSyncedArrm removeObject:_model];
         }
         [bookArrm removeObject:_model];
-        [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK];
-        [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
+        [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK];
+        [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK_SYNCED];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
         

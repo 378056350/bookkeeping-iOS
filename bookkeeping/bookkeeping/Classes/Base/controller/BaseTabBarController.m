@@ -94,6 +94,12 @@
                 }];
             }
             else {
+                // 我的
+                if (index == 4) {
+                    BaseNavigationController *nav = self.viewControllers[index];
+                    MineController *vc = nav.viewControllers[0];
+                     [vc.mine.table setContentOffset:CGPointZero animated:YES];
+                }
                 [weakSelf setSelectedIndex:index];
                 [weakSelf.bar setIndex:index];
             }

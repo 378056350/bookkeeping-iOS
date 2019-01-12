@@ -64,12 +64,12 @@
     model.cmodel = cmodel;
     
     // 新增
-    NSMutableArray *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
-    NSMutableArray *bookSyncedArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
+    NSMutableArray *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
+    NSMutableArray *bookSyncedArr = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
     [bookArr addObject:model];
     [bookSyncedArr addObject:model];
-    [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK];
-    [[PINCacheManager sharedManager] setObject:bookArr forKey:PIN_BOOK_SYNCED];
+    [NSUserDefaults setObject:bookArr forKey:PIN_BOOK];
+    [NSUserDefaults setObject:bookArr forKey:PIN_BOOK_SYNCED];
     
     // 传递
     [super routerEventWithName:START_SEG_BOOK data:nil];

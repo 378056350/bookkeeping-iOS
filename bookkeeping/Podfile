@@ -1,7 +1,6 @@
 platform :ios, '9.0'
 
 target ‘bookkeeping’ do
-    pod 'PINCache', '3.0.1-beta.7'
     pod 'pop', '1.0.12'
     pod 'SDWebImage', '4.4.3'
     pod 'JPush', '3.1.1.1'
@@ -28,7 +27,6 @@ end
 
 target ‘BookMonth’ do
   pod 'MJExtension', '3.0.15'
-  pod 'PINCache', '3.0.1-beta.7'
   
 end
 
@@ -36,7 +34,6 @@ end
 target ‘BookStart’ do
   pod 'SDWebImage', '4.4.3'
   pod 'MJExtension', '3.0.15'
-  pod 'PINCache', '3.0.1-beta.7'
   pod 'ReactiveObjC', '3.1.0'
   
 end

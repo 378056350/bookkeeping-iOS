@@ -111,38 +111,38 @@
     
     // 类别
     // 系统 - 添加的 - 支出
-    NSMutableArray<BKCModel *> *cateSysHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
     // 系统 - 删除的 - 支出
-    NSMutableArray<BKCModel *> *cateSysRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysRemovePayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
     // 用户 - 添加的 - 支出
-    NSMutableArray<BKCModel *> *cateCusHasPayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
     // 用户 - 删除的 - 支出
-    NSMutableArray<BKCModel *> *cateCusRemovePayArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusRemovePayArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
     
     
     // 系统 - 添加的 - 收入
-    NSMutableArray<BKCModel *> *cateSysHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysHasIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
     // 系统 - 删除的 - 收入
-    NSMutableArray<BKCModel *> *cateSysRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateSysRemoveIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
     // 用户 - 添加的 - 收入
-    NSMutableArray<BKCModel *> *cateCusHasIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusHasIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
     // 用户 - 删除的 - 收入
-    NSMutableArray<BKCModel *> *cateCusRemoveIncomeArr = [[PINDiskCache sharedCache] objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+    NSMutableArray<BKCModel *> *cateCusRemoveIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
     
     
     // 记账信息
-    NSMutableArray<BKModel *> *bookArr = [[PINDiskCache sharedCache] objectForKey:PIN_BOOK_SYNCED];
+    NSMutableArray<BKModel *> *bookArr = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
     
     
     // 声音开关
-    NSNumber *sound = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_SOUND_SYNCED];
+    NSNumber *sound = [NSUserDefaults objectForKey:PIN_SETTING_SOUND_SYNCED];
     // 明细详情
-    NSNumber *detail = [[PINDiskCache sharedCache] objectForKey:PIN_SETTING_DETAIL_SYNCED];
+    NSNumber *detail = [NSUserDefaults objectForKey:PIN_SETTING_DETAIL_SYNCED];
     
     
     // 定时
-    NSMutableArray *timing_has = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_HAS_SYNCED];
-    NSMutableArray *timing_remove = [[PINDiskCache sharedCache] objectForKey:PIN_TIMING_REMOVE_SYNCED];
+    NSMutableArray *timing_has = [NSUserDefaults objectForKey:PIN_TIMING_HAS_SYNCED];
+    NSMutableArray *timing_remove = [NSUserDefaults objectForKey:PIN_TIMING_REMOVE_SYNCED];
     
     
     // 参数
@@ -176,20 +176,20 @@
         // 成功
         if (result.status == ServiceCodeSuccess) {
             
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
 
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
 
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
 
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_TIMING_HAS_SYNCED];
-            [[PINDiskCache sharedCache] setObject:[NSMutableArray array] forKey:PIN_TIMING_REMOVE_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_TIMING_HAS_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_TIMING_REMOVE_SYNCED];
             
             
             
@@ -222,11 +222,11 @@
                 }
             }
             
-            [[PINCacheManager sharedManager] setObject:pay forKey:PIN_CATE_SYS_HAS_PAY];
-            [[PINCacheManager sharedManager] setObject:payRemove forKey:PIN_CATE_SYS_REMOVE_PAY];
+            [NSUserDefaults setObject:pay forKey:PIN_CATE_SYS_HAS_PAY];
+            [NSUserDefaults setObject:payRemove forKey:PIN_CATE_SYS_REMOVE_PAY];
 
-            [[PINCacheManager sharedManager] setObject:income forKey:PIN_CATE_SYS_HAS_INCOME];
-            [[PINCacheManager sharedManager] setObject:incomeRemove forKey:PIN_CATE_SYS_REMOVE_INCOME];
+            [NSUserDefaults setObject:income forKey:PIN_CATE_SYS_HAS_INCOME];
+            [NSUserDefaults setObject:incomeRemove forKey:PIN_CATE_SYS_REMOVE_INCOME];
             
             
             
@@ -248,16 +248,16 @@
                     [insertPayModel addObject:model];
                 }
             }
-            [[PINCacheManager sharedManager] setObject:insertPayModel forKey:PIN_CATE_CUS_HAS_PAY];
-            [[PINCacheManager sharedManager] setObject:insertIncomeModel forKey:PIN_CATE_CUS_HAS_INCOME];
+            [NSUserDefaults setObject:insertPayModel forKey:PIN_CATE_CUS_HAS_PAY];
+            [NSUserDefaults setObject:insertIncomeModel forKey:PIN_CATE_CUS_HAS_INCOME];
             
             
             
             NSArray *setting = result.data[@"setting"][0];
             NSNumber *sound = setting[0];
             NSNumber *detail = setting[1];
-            [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
-            [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
+            [NSUserDefaults setObject:sound forKey:PIN_SETTING_SOUND];
+            [NSUserDefaults setObject:detail forKey:PIN_SETTING_DETAIL];
             
             
             
@@ -285,7 +285,7 @@
                 });
                 [bookModels addObject:model];
             }
-            [[PINCacheManager sharedManager] setObject:bookModels forKey:PIN_BOOK];
+            [NSUserDefaults setObject:bookModels forKey:PIN_BOOK];
             
             
             
@@ -356,21 +356,21 @@
 - (void)homeTableCellRemove:(HomeListSubCell *)cell {
     NSLog(@"删除Cell");
     // 删除
-    NSMutableArray<BKModel *> *bookArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
-    NSMutableArray<BKModel *> *bookSyncedArrm = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK_SYNCED];
+    NSMutableArray<BKModel *> *bookArrm = [NSUserDefaults objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookSyncedArrm = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
     if ([bookSyncedArrm containsObject:cell.model]) {
         [bookSyncedArrm removeObject:cell.model];
     }
     [bookArrm removeObject:cell.model];
-    [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK];
-    [[PINCacheManager sharedManager] setObject:bookArrm forKey:PIN_BOOK_SYNCED];
+    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK];
+    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK_SYNCED];
     
     // 更新
     [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
 }
 // 点击Cell
 - (void)homeTableCellClick:(BKModel *)model {
-    NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
+    NSNumber *detail = [NSUserDefaults objectForKey:PIN_SETTING_DETAIL];
     // 详情
     if ([detail boolValue] == true) {
         BDController *vc = [[BDController alloc] init];

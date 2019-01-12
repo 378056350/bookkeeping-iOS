@@ -229,8 +229,8 @@
         NSInteger index = [number integerValue];
         if (index == 0) {
             [UserInfo clearUserInfo];
-            [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_BOOK];
-            [[PINCacheManager sharedManager] setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_BOOK];
+            [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
             [self.navigationController popViewControllerAnimated:true];
         }
     }];

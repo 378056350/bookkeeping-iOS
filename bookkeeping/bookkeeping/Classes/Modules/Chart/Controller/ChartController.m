@@ -77,7 +77,7 @@
 - (void)updateDateRange {
     // 收入
     NSInteger is_income = _navigationIndex == 1;
-    NSMutableArray<BKModel *> *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"cmodel.is_income == %ld", is_income];
     if (_cmodel) {
         preStr = [preStr stringByAppendingString:[NSString stringWithFormat:@" AND cmodel.Id == %ld", _cmodel.cmodel.Id]];

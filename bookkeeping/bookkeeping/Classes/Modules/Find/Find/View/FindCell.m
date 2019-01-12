@@ -52,7 +52,7 @@
     
     // 过滤
     NSDate *date = [NSDate date];
-    NSMutableArray<BKModel *> *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
     NSString *str = [NSString stringWithFormat:@"year == %ld AND month == %ld", date.year, date.month];
     NSPredicate *pre = [NSPredicate predicateWithFormat:str];
     bookArr = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];

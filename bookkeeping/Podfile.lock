@@ -26,14 +26,6 @@ PODS:
   - MGSwipeTableCell (1.6.8)
   - MJExtension (3.0.15)
   - MJRefresh (3.1.15.7)
-  - PINCache (3.0.1-beta.7):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.7)
-    - PINCache/Core (= 3.0.1-beta.7)
-  - PINCache/Arc-exception-safe (3.0.1-beta.7):
-    - PINCache/Core
-  - PINCache/Core (3.0.1-beta.7):
-    - PINOperation (~> 1.1.1)
-  - PINOperation (1.1.1)
   - pop (1.0.12)
   - ReactiveObjC (3.1.0)
   - SDCycleScrollView (1.75):
@@ -72,7 +64,6 @@ DEPENDENCIES:
   - MGSwipeTableCell (= 1.6.8)
   - MJExtension (= 3.0.15)
   - MJRefresh (= 3.1.15.7)
-  - PINCache (= 3.0.1-beta.7)
   - pop (= 1.0.12)
   - ReactiveObjC (= 3.1.0)
   - SDCycleScrollView (= 1.75)
@@ -99,8 +90,6 @@ SPEC REPOS:
     - MGSwipeTableCell
     - MJExtension
     - MJRefresh
-    - PINCache
-    - PINOperation
     - pop
     - ReactiveObjC
     - SDCycleScrollView
@@ -123,8 +112,6 @@ SPEC CHECKSUMS:
   MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
   MJExtension: 3f039575db1b135a20699ad298713b26acec1528
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  PINCache: 7cb9ae068c8f655717f7c644ef1dff9fd573e979
-  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
@@ -134,6 +121,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   ZLPhotoBrowser: 6dfadc4706429424f0a851fe40752aff076689ab
 
-PODFILE CHECKSUM: 9f3209f5a87d8922e76b30527d07a718b228bf58
+PODFILE CHECKSUM: 30f6db2c5d9793d3689bc544798f481cf442356f
 
 COCOAPODS: 1.6.0.beta.2

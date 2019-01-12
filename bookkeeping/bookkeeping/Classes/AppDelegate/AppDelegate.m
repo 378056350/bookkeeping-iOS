@@ -18,8 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 本地数据配置
-    [PINCacheManager pinCacheManager];
     // 根控制器
     [self makeRootController];
     // 系统配置
@@ -45,8 +43,7 @@
 - (void)makeRootController {
     [self setWindow:[[UIWindow alloc] initWithFrame:SCREEN_BOUNDS]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
-    [self.window setRootViewController:({BaseTabBarController *tab = [[BaseTabBarController alloc] init];tab;
-    })];
+    [self.window setRootViewController:[[BaseTabBarController alloc] init]];
     [self.window makeKeyAndVisible];
 }
 // 配置

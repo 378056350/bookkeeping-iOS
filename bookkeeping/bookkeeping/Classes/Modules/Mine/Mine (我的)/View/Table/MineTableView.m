@@ -72,10 +72,10 @@
     cell.badgeCount = 12;
     if (indexPath.section == 1) {
         if (indexPath.row == 2) {
-            NSNumber *sound = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND];
+            NSNumber *sound = [NSUserDefaults objectForKey:PIN_SETTING_SOUND];
             [cell.sw setOn:[sound boolValue]];
         } else if (indexPath.row == 3) {
-            NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
+            NSNumber *detail = [NSUserDefaults objectForKey:PIN_SETTING_DETAIL];
             [cell.sw setOn:[detail boolValue]];
         }
     }

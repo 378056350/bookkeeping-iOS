@@ -49,11 +49,11 @@
     _currentPage = 0;
     [self.models removeAllObjects];
     if (segIndex == 0) {
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME]];
     } else {
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_PAY]];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_PAY]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_PAY]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_PAY]];
     }
     [self.collection setContentOffset:CGPointZero animated:false];
     [self.collection reloadData];
@@ -125,8 +125,8 @@
 - (NSMutableArray<BKCModel *> *)models {
     if (!_models) {
         _models = [NSMutableArray array];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_SYS_HAS_INCOME]];
-        [_models addObjectsFromArray:[[PINCacheManager sharedManager] objectForKey:PIN_CATE_CUS_HAS_INCOME]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME]];
+        [_models addObjectsFromArray:[NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME]];
     }
     return _models;
 }

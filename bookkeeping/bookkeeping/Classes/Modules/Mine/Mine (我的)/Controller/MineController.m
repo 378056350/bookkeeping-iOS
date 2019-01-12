@@ -4,7 +4,6 @@
  */
 
 #import "MineController.h"
-#import "MineView.h"
 #import "BadgeController.h"
 #import "CAController.h"
 #import "WebVC.h"
@@ -19,7 +18,6 @@
 #pragma mark - 声明
 @interface MineController()
 
-@property (nonatomic, strong) MineView *mine;
 @property (nonatomic, strong) UserModel *model;
 @property (nonatomic, strong) NSDictionary<NSString *, NSInvocation *> *eventStrategy;
 
@@ -244,23 +242,23 @@
 }
 // 切换声音
 - (void)soundClick:(NSNumber *)isOn {
-    NSNumber *sound = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND];
-    NSNumber *sound_synced = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_SOUND_SYNCED];
+    NSNumber *sound = [NSUserDefaults objectForKey:PIN_SETTING_SOUND];
+    NSNumber *sound_synced = [NSUserDefaults objectForKey:PIN_SETTING_SOUND_SYNCED];
     sound = @(![sound boolValue]);
-    [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND];
+    [NSUserDefaults setObject:sound forKey:PIN_SETTING_SOUND];
     if (![sound isEqual:sound_synced]) {
-        [[PINCacheManager sharedManager] setObject:sound forKey:PIN_SETTING_SOUND_SYNCED];
+        [NSUserDefaults setObject:sound forKey:PIN_SETTING_SOUND_SYNCED];
     }
     
 }
 // 切换详情
 - (void)detailClick:(NSNumber *)isOn {
-    NSNumber *detail = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL];
-    NSNumber *detail_synced = [[PINCacheManager sharedManager] objectForKey:PIN_SETTING_DETAIL_SYNCED];
+    NSNumber *detail = [NSUserDefaults objectForKey:PIN_SETTING_DETAIL];
+    NSNumber *detail_synced = [NSUserDefaults objectForKey:PIN_SETTING_DETAIL_SYNCED];
     detail = @(![detail boolValue]);
-    [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL];
+    [NSUserDefaults setObject:detail forKey:PIN_SETTING_DETAIL];
     if (![detail isEqual:detail_synced]) {
-        [[PINCacheManager sharedManager] setObject:detail forKey:PIN_SETTING_DETAIL_SYNCED];
+        [NSUserDefaults setObject:detail forKey:PIN_SETTING_DETAIL_SYNCED];
     }
 }
 
@@ -298,7 +296,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.mine.table setContentOffset:CGPointZero animated:YES];
     [self setupUI];
 }
 

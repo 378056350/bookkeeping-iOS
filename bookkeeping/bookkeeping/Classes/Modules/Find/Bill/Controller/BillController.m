@@ -65,7 +65,7 @@
     [(UILabel *)[self.rightButton viewWithTag:10] setText:[NSString stringWithFormat:@"%ld年", self.date.year]];
     
     // 过滤
-    NSMutableArray<BKModel *> *bookArr = [[PINCacheManager sharedManager] objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
     NSString *str = [NSString stringWithFormat:@"year == %@", selectValue];
     NSPredicate *pre = [NSPredicate predicateWithFormat:str];
     bookArr = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
