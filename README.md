@@ -13,13 +13,9 @@
 
 ### 二. 效果展示
 
-| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/1.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/2.gif?raw=true) |
-| :--------------------------------------: | :--------------------------------------: |
-|            记账            |            图表            |
-
-| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/3.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/4.gif?raw=true) |
-| :--------------------------------------: | :--------------------------------------: |
-|          增删类别          |            图表            |
+| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/1.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/2.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/3.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/4.gif?raw=true) |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
+|            记账            |            图表            |            增删类别            |            账单            |
 
 
 
