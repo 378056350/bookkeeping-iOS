@@ -1,27 +1,12 @@
-//
-//  BaseTableCell.h
-//  KKTest
-//
-//  Created by RY on 17/6/12.
-//  Copyright © 2017年 OuDa. All rights reserved.
-//
+/**
+ * UITableViewCell父类
+ * @author 郑业强 2017-06-12 创建文件
+ */
 
 #import <UIKit/UIKit.h>
 
 @interface BaseTableCell : UITableViewCell
 
-/// 加载第一个NIB
-+ (instancetype)loadFirstNib:(UITableView *)table;
 
-/// 加载最后一个nib
-+ (instancetype)loadLastNib:(UITableView *)table;
-
-/// 从代码创建cell
-+ (instancetype)loadCode:(UITableView *)table;
-
-/// 加载指定xib
-+ (instancetype)loadNib:(NSInteger)index frame:(UITableView *)table;
-
-- (void)initUI;
 
 @end

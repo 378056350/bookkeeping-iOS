@@ -54,7 +54,7 @@
     
     BKCModel *cmodel = self.scroll.models[self.scroll.currentPage];
     BKModel *model = [[BKModel alloc] init];
-    model.Id = random() % 1000000000;
+    model.Id = [[BKModel getId] integerValue];
     model.price = [price floatValue];
     model.year = date.year;
     model.month = date.month;
