@@ -59,7 +59,6 @@
         _maxLab = [[UILabel alloc] initWithFrame:CGRectMake(countcoordinatesX(15), countcoordinatesX(5), SCREEN_WIDTH, countcoordinatesX(20))];
         _maxLab.textColor = kColor_Text_Black;
         _maxLab.font = [UIFont systemFontOfSize:AdjustFont(11) weight:UIFontWeightUltraLight];
-        _maxLab.text = [NSString stringWithFormat:@"总支出: 2240.22"];
         [self addSubview:_maxLab];
     }
     return _maxLab;
@@ -69,7 +68,6 @@
         _avgLab = [[UILabel alloc] initWithFrame:CGRectMake(_maxLab.left, _maxLab.bottom + countcoordinatesX(3), SCREEN_WIDTH, countcoordinatesX(20))];
         _avgLab.textColor = kColor_Text_Black;
         _avgLab.font = [UIFont systemFontOfSize:AdjustFont(10) weight:UIFontWeightUltraLight];
-        _avgLab.text = [NSString stringWithFormat:@"平均值: 123.68"];
         [self addSubview:_avgLab];
     }
     return _avgLab;

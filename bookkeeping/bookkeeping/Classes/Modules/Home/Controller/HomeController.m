@@ -210,12 +210,14 @@
                 NSString *preStr = [NSString stringWithFormat:@"Id == %ld", category_id];
                 NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
                 if (category_id <= [pay lastObject].Id) {
-                    NSArray<BKModel *> *models = (NSArray *)[pay filteredArrayUsingPredicate:pre];
+                    NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:pay];
+//                    NSArray<BKModel *> *models = (NSArray *)[pay filteredArrayUsingPredicate:pre];
                     BKModel *model = [models firstObject];
                     [pay removeObject:model];
                     [payRemove addObject:model];
                 } else {
-                    NSArray<BKModel *> *models = (NSArray *)[income filteredArrayUsingPredicate:pre];
+                    NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:income];
+//                    NSArray<BKModel *> *models = (NSArray *)[income filteredArrayUsingPredicate:pre];
                     BKModel *model = [models firstObject];
                     [income removeObject:model];
                     [incomeRemove addObject:model];

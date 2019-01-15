@@ -82,16 +82,18 @@
     if (_cmodel) {
         preStr = [preStr stringByAppendingString:[NSString stringWithFormat:@" AND cmodel.Id == %ld", _cmodel.cmodel.Id]];
     }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
-    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+//    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+//    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+    NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:bookArr];
     // 最小时间
     _minModel = ({
         NSDate *minDate = [models valueForKeyPath:@"@min.date"];
         if (minDate) {
             preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", minDate.year, minDate.month, minDate.day];
         }
-        pre = [NSPredicate predicateWithFormat:preStr];
-        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+//        pre = [NSPredicate predicateWithFormat:preStr];
+//        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+        NSMutableArray *arr = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:models];
         BKModel *model;
         if (arr.count != 0) {
             model = arr[0];
@@ -104,8 +106,9 @@
         if (maxDate) {
             preStr = [NSString stringWithFormat:@"year == %ld AND month == %02ld AND day == %02ld", maxDate.year, maxDate.month, maxDate.day];
         }
-        pre = [NSPredicate predicateWithFormat:preStr];
-        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+//        pre = [NSPredicate predicateWithFormat:preStr];
+//        NSArray *arr = [models filteredArrayUsingPredicate:pre];
+        NSMutableArray *arr = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:models];
         BKModel *model;
         if (arr.count != 0) {
             model = arr[0];

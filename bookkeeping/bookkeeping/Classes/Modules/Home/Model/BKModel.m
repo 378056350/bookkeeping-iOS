@@ -120,8 +120,9 @@
     // 根据时间过滤
     NSMutableArray<BKModel *> *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"year == %ld AND month == %ld", year, month];
-    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
-    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+//    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+//    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+    NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:bookArr];
     
     // 统计数据
     NSMutableDictionary *dictm = [NSMutableDictionary dictionary];
@@ -207,8 +208,9 @@
     else if (status == 2) {
         [preStr appendFormat:@" AND year == %ld", date.year];
     }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
-    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+//    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+//    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+    NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:arrm];
     
     
     NSMutableArray<BKModel *> *chartArr = [NSMutableArray array];
@@ -226,8 +228,12 @@
             [chartArr addObject:model];
             [chartHudArr addObject:[NSMutableArray array]];
         }
+        
         for (BKModel *model in models) {
-            chartArr[7 - [model.date weekday]].price += model.price;
+            NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:[@(chartArr[7 - [model.date weekday]].price) description]];
+            NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:[@(model.price) description]];
+            number1 = [number1 decimalNumberByAdding:number2];
+            chartArr[7 - [model.date weekday]].price += [number1 doubleValue];
             [chartHudArr[[model.date weekday] - 1] addObject:model];
         }
     }
@@ -287,7 +293,12 @@
                 [groupArr addObject:submodel];
             }
             else {
-                groupArr[index].price += model.price;
+                NSDecimalNumber *number1 = [NSDecimalNumber decimalNumberWithString:[@(groupArr[index].price) description]];
+                NSDecimalNumber *number2 = [NSDecimalNumber decimalNumberWithString:[@(model.price) description]];
+                number1 = [number1 decimalNumberByAdding:number2];
+                groupArr[index].price = [number1 doubleValue];
+                
+//                groupArr[index].price += model.price;
             }
         }
     } else {

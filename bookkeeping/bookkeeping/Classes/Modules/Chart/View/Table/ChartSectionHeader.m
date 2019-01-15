@@ -19,12 +19,10 @@
 
 
 - (void)initUI {
-    self.nameLab.font = [UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight];
-    self.nameLab.textColor = kColor_Text_Black;
-    
+    [self.nameLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
+    [self.nameLab setTextColor:kColor_Text_Black];
     [self.nameConstraintL setConstant:OUT_PADDING];
 }
-
 
 
 #pragma mark - set

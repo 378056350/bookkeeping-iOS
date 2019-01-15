@@ -110,6 +110,9 @@
 		32A4C25321CB84BA00DF4327 /* signin_gif@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C25121CB84BA00DF4327 /* signin_gif@3x.gif */; };
 		32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */; };
 		32A5801221DF33C4008993B2 /* ACA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A5801121DF33C4008993B2 /* ACA.plist */; };
+		32AF269821ED63C1004F46A2 /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF269721ED63C1004F46A2 /* NSMutableArray+Extension.m */; };
+		32AF269921ED6556004F46A2 /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF269721ED63C1004F46A2 /* NSMutableArray+Extension.m */; };
+		32AF269A21ED6556004F46A2 /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF269721ED63C1004F46A2 /* NSMutableArray+Extension.m */; };
 		32BFA7E821E483F300B926F3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BFA7E721E483F300B926F3 /* NotificationCenter.framework */; };
 		32BFA7F321E483F400B926F3 /* BookMonth.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 32BFA7E621E483F300B926F3 /* BookMonth.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		32BFA80721E49DFA00B926F3 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BFA80621E49DFA00B926F3 /* ContentView.m */; };
@@ -548,6 +551,8 @@
 		32A5800D21DF08BC008993B2 /* NSObject+NSCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSCoding.h"; sourceTree = "<group>"; };
 		32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSCoding.m"; sourceTree = "<group>"; };
 		32A5801121DF33C4008993B2 /* ACA.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ACA.plist; sourceTree = "<group>"; };
+		32AF269621ED63C1004F46A2 /* NSMutableArray+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extension.h"; sourceTree = "<group>"; };
+		32AF269721ED63C1004F46A2 /* NSMutableArray+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extension.m"; sourceTree = "<group>"; };
 		32BFA7E621E483F300B926F3 /* BookMonth.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BookMonth.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32BFA7E721E483F300B926F3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		32BFA7F021E483F400B926F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1175,6 +1180,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				32AF269521ED63A7004F46A2 /* NSMutableArray */,
 				4B47930F21E9DB4D0062879D /* NSUserDefaults */,
 				4BFD381421E4D3CB00BAB0BB /* UIViewController */,
 				32A5801021DF090B008993B2 /* NSObject */,
@@ -1586,6 +1592,15 @@
 				32A5800E21DF08BC008993B2 /* NSObject+NSCoding.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		32AF269521ED63A7004F46A2 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				32AF269621ED63C1004F46A2 /* NSMutableArray+Extension.h */,
+				32AF269721ED63C1004F46A2 /* NSMutableArray+Extension.m */,
+			);
+			path = NSMutableArray;
 			sourceTree = "<group>";
 		};
 		32BFA7E921E483F300B926F3 /* BookMonth */ = {
@@ -3123,6 +3138,7 @@
 				4BA68AC021C7E3960063A5C2 /* BadgeCollectionCell.m in Sources */,
 				4BE7846021C6791E00B8EC46 /* HomeController.m in Sources */,
 				4BA68ACC21C7E88F0063A5C2 /* BadgeReusableHeader.m in Sources */,
+				32AF269821ED63C1004F46A2 /* NSMutableArray+Extension.m in Sources */,
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				326F8F2421D4BFCA0030B329 /* TIModel.m in Sources */,
 				4B35F1C221CCC694007271BE /* KKEmptyLoading.m in Sources */,
@@ -3233,6 +3249,7 @@
 				4B38C07E21E4E6A800D28B34 /* BaseModel.m in Sources */,
 				4BFD381B21E4D7C000BAB0BB /* NSDate+Extension.m in Sources */,
 				4BFD380D21E4C5D500BAB0BB /* UIFont+Extension.m in Sources */,
+				32AF269921ED6556004F46A2 /* NSMutableArray+Extension.m in Sources */,
 				32BFA80B21E4A0FD00B926F3 /* BaseView.m in Sources */,
 				4BFD381021E4C6C700BAB0BB /* UIColor+HEX.m in Sources */,
 				4B38C07B21E4E59600D28B34 /* BKModel.m in Sources */,
@@ -3255,6 +3272,7 @@
 				3213181F21E5C913000ADA9A /* UIView+BorderLine.m in Sources */,
 				326EB89021E57C72007CD5C6 /* UIView+Extension.m in Sources */,
 				3213181621E59A83000ADA9A /* ACAListModel.m in Sources */,
+				32AF269A21ED6556004F46A2 /* NSMutableArray+Extension.m in Sources */,
 				4B47931721E9DF540062879D /* NSUserDefaults+Extension.m in Sources */,
 				3213180D21E59727000ADA9A /* StartScrollCell.m in Sources */,
 				3213181221E597C0000ADA9A /* BaseCollectionCell.m in Sources */,

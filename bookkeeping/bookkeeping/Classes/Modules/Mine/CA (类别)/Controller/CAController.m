@@ -370,8 +370,10 @@
     // 删除同类别信息
     NSMutableArray<BKModel *> *arrm = [NSUserDefaults objectForKey:PIN_BOOK];
     NSString *preStr = [NSString stringWithFormat:@"cmodel.Id == %ld", cell.model.Id];
-    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
-    arrm = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+//    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
+//    arrm = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
+    arrm = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:arrm];
+    
     [NSUserDefaults setObject:arrm forKey:PIN_BOOK];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
     
