@@ -37,20 +37,11 @@
 
 
 #pragma mark - set
-//- (void)setModel:(BKModel *)model {
-//    _model = model;
-//    _tHeader.model = model;
-//    [self reloadData];
-//}
 - (void)setModel:(BKChartModel *)model {
     _model = model;
     _tHeader.model = model;
     [self reloadData];
 }
-//- (void)setSubModel:(ChartSubModel *)subModel {
-//    _subModel = subModel;
-//    _tHeader.subModel = subModel;
-//}
 - (void)setNavigationIndex:(NSInteger)navigationIndex {
     _navigationIndex = navigationIndex;
     [self reloadData];

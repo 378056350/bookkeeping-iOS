@@ -197,7 +197,7 @@
 
     // 周
     if (status == 0) {
-        NSDate *start = [date offsetDays:[date weekday] - 1];
+        NSDate *start = [date offsetDays:-[date weekday] + 1];
         NSDate *end = [date offsetDays:7 - [date weekday]];
         NSDateFormatter *fora = [[NSDateFormatter alloc] init];
         [fora setDateFormat:@"yyyyMMdd"];

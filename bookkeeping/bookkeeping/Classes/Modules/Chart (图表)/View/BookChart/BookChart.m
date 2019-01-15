@@ -127,7 +127,7 @@
     [self drawLine:CGPointMake(CHART_L, CHART_T) point2:CGPointMake(CHART_W + CHART_L, CHART_T) color:kColor_Text_Gary isDash:NO];
     // 底部
     [self drawLine:CGPointMake(CHART_L, CHART_T + countcoordinatesX(80)) point2:CGPointMake(CHART_W + CHART_L, CHART_T + countcoordinatesX(80)) color:kColor_Text_Black isDash:NO];
-    
+    // 内容
     [self drawTable];
     
 //    if (_model.chartArr.count == 7) {
@@ -179,11 +179,22 @@
         BOOL conditionYear   = _model.chartArr.count == 12 && (i == 0 || (i + 1) % 3 == 0);
         if (conditionWeek || conditionMonth || conditionYear) {
             NSString *str;
+            // 周
             if (_model.chartArr.count == 7) {
-                str = [NSString stringWithFormat:@"%02ld-%02ld", _model.chartArr[i].month, _model.chartArr[i].day];
-            } else if (_model.chartArr.count > 20) {
+                NSDate *date = [NSDate date];
+                if (_model.chartArr[i].month == date.month && _model.chartArr[i].day == date.day) {
+                    str = @"今天";
+                } else {
+                    str = [NSString stringWithFormat:@"%02ld-%02ld", _model.chartArr[i].month, _model.chartArr[i].day];
+                }
+                
+            }
+            // 月
+            else if (_model.chartArr.count > 20) {
                 str = [NSString stringWithFormat:@"%d", i + 1];
-            } else if (_model.chartArr.count == 12) {
+            }
+            // 年
+            else if (_model.chartArr.count == 12) {
                 str = [NSString stringWithFormat:@"%d月", i + 1];
             }
             
