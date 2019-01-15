@@ -62,9 +62,9 @@
 
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self syncedDataRequest];
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    [self syncedDataRequest];
+//}
 
 
 #pragma mark - 请求

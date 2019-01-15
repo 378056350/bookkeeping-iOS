@@ -118,8 +118,9 @@
     BKCCollection *collection = self.collections[index];
     BKCModel *cmodel = collection.model.list[collection.selectIndex.row];
     BKModel *model = [[BKModel alloc] init];
+    
     model.Id = random() % 1000000000;
-    model.price = [price floatValue];
+    model.price = [[NSDecimalNumber decimalNumberWithString:price] doubleValue];
     model.year = date.year;
     model.month = date.month;
     model.day = date.day;
