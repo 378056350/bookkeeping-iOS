@@ -67,50 +67,16 @@
         @strongify(self)
         [self.view syncedDataRequest];
     }];
+    // 退出登录
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_LOGOUT_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
+    }];
     // 同步数据成功
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:SYNCED_DATA_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
         [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
-}
-
-
-#pragma mark - 请求
-// 查账
-- (void)bookRequest:(NSDate *)date {
-//    // 未登录
-//    if (![UserInfo isLogin]) {
-//        BKModel *model = [BKModel new];
-//        model.listSorts = @[].mutableCopy;
-//        model.group = @[].mutableCopy;
-//        model.list = @[].mutableCopy;
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self setModel:model];
-//            [self setDate:date];
-//        });
-//        return;
-//    }
-    
-//    // 已登录
-//    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-//                           @(date.year), @"year",
-//                           @(date.month), @"month",
-//                           @(1), @"hasList",
-//                           @(1), @"hasGroup", nil];
-//    @weakify(self)
-//    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
-//        @strongify(self)
-//        // 成功
-//        if (result.status == ServiceCodeSuccess) {
-//            [self setModel:[BKModel mj_objectWithKeyValues:result.data]];
-//            [self setDate:date];
-//        }
-//        // 失败
-//        else {
-//            [self showWindowTextHUD:result.message delay:1.f];
-//        }
-//    }];
 }
 
 

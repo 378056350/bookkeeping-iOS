@@ -11,6 +11,7 @@
 #import "ChartHUD.h"
 #import "ChartTableCell.h"
 #import "CHART_EVENT.h"
+#import "LOGIN_NOTIFICATION.h"
 #import "BDController.h"
 
 
@@ -72,6 +73,13 @@
         [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         [self updateDateRange];
     }];
+    // 退出登录
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:LOPGIN_LOGOUT_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self setDate:[NSDate date]];
+        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
+        [self updateDateRange];
+    }];
     // 同步数据成功
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:SYNCED_DATA_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         @strongify(self)
@@ -120,55 +128,6 @@
     
     _subdate.minModel = _minModel;
     _subdate.maxModel = _maxModel;
-}
-
-
-#pragma mark - 请求
-// 时间范围
-- (void)bookRangeRequest {
-//    @weakify(self)
-//    [AFNManager POST:GetBookRangeRequest params:nil complete:^(APPResult *result) {
-//        @strongify(self)
-//        if (result.status == ServiceCodeSuccess) {
-//            [self setTimeModel:[ChartRangeModel mj_objectWithKeyValues:result.data]];
-//        } else {
-//            [self showTextHUD:result.message delay:1.f];
-//        }
-//    }];
-}
-// 查账
-- (void)bookRequest {
-//    NSMutableDictionary *param = ({
-//        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-//        [param setObject:@(self.navigation.navigationIndex) forKey:@"isIncome"];
-//        [param setObject:@(1) forKey:@"hasList"];
-//        [param setObject:@(1) forKey:@"hasGroup"];
-//        if (_seg.seg.selectedSegmentIndex == 0) {
-//            [param setObject:@([self.date year]) forKey:@"year"];
-//            [param setObject:@([self.date month]) forKey:@"month"];
-//            [param setObject:@([self.date day]) forKey:@"day"];
-//            [param setObject:@([self.date weekOfYear]) forKey:@"week"];
-//            [param setObject:@(1) forKey:@"week_year"];
-//        } else if (_seg.seg.selectedSegmentIndex == 1) {
-//            [param setObject:@([self.date year]) forKey:@"year"];
-//            [param setObject:@([self.date month]) forKey:@"month"];
-//        } else if (_seg.seg.selectedSegmentIndex == 2) {
-//            [param setObject:@([self.date year]) forKey:@"year"];
-//        }
-//        param;
-//    });
-//    @weakify(self)
-//    [AFNManager POST:GetBookRequest params:param complete:^(APPResult *result) {
-//        @strongify(self)
-//        // 成功
-//        if (result.status == ServiceCodeSuccess) {
-//            [self setModel:[BKModel mj_objectWithKeyValues:result.data]];
-//        }
-//        // 失败
-//        else {
-//            [self showWindowTextHUD:result.message delay:1.f];
-//        }
-//    }];
 }
 
 

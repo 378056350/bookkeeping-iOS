@@ -82,9 +82,4 @@
 #define GetBookListRequest Request(@"/shayu/getBookListRequest.action")
 // 查账(组)
 #define getBookGroupRequest Request(@"/shayu/getBookGroupRequest.action")
-// 获取时间范围
-#define GetBookRangeRequest Request(@"/shayu/getBookRangeRequest.action")
 
-
-// 查账
-#define GetBookRequest Request(@"/shayu/getBookRequest.action")

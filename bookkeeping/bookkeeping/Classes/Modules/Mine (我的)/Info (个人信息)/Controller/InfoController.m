@@ -8,6 +8,7 @@
 #import "CPAController.h"
 #import "RE1Controller.h"
 #import "INFO_EVENT_MANAGER.h"
+#import "LOGIN_NOTIFICATION.h"
 
 
 #pragma mark - 声明
@@ -232,6 +233,7 @@
             [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_BOOK];
             [NSUserDefaults setObject:[NSMutableArray array] forKey:PIN_BOOK_SYNCED];
             [self.navigationController popViewControllerAnimated:true];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LOPGIN_LOGOUT_COMPLETE object:nil];
         }
     }];
 }

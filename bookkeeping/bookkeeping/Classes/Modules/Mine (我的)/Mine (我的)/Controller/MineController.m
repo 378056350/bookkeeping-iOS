@@ -138,52 +138,36 @@
     else if (indexPath.section == 1) {
         // 类别
         if (indexPath.row == 0) {
-//            // 登录了
-//            if ([UserInfo isLogin] == true) {
-                CAController *vc = [[CAController alloc] init];
-                [self.navigationController pushViewController:vc animated:YES];
-//            }
-//            // 没登录
-//            else {
-//                LoginController *vc = [[LoginController alloc] init];
-//                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//                [self.navigationController presentViewController:nav animated:YES completion:nil];
-//            }
+            CAController *vc = [[CAController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         // 定时
         else if (indexPath.row == 1) {
-//            // 登录了
-//            if ([UserInfo isLogin] == true) {
-                TIController *vc = [[TIController alloc] init];
-                [self.navigationController pushViewController:vc animated:YES];
-//            }
-//            // 没登录
-//            else {
-//                LoginController *vc = [[LoginController alloc] init];
-//                BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//                [self.navigationController presentViewController:nav animated:YES completion:nil];
-//            }
+            TIController *vc = [[TIController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
     else if (indexPath.section == 2) {
+        // 去App Store给鲨鱼记账评分
         if (indexPath.row == 0) {
             
         }
+        // 意见反馈
         else if (indexPath.row == 1) {
             
         }
         // 同步数据
-        else if (indexPath.row == 2) {
+        else if (indexPath.row == 2 && [UserInfo isLogin]) {
             
         }
         // 帮助
-        else if (indexPath.row == 3) {
+        else if ((indexPath.row == 3  && [UserInfo isLogin]) || (indexPath.row == 2  && [UserInfo isLogin])) {
             WebVC *vc = [[WebVC alloc] init];
             [vc setNavTitle:@"帮助"];
             [self.navigationController pushViewController:vc animated:YES];
         }
         // 关于
-        else if (indexPath.row == 4) {
+        else if ((indexPath.row == 4  && [UserInfo isLogin]) || (indexPath.row == 3  && [UserInfo isLogin])) {
             AboutController *vc = [[AboutController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
