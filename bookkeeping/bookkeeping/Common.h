@@ -77,6 +77,7 @@
 #import "ZLPhotoActionSheet+Extension.h"
 #import "CALayer+Extension.h"
 #import "BaseNavigationController+Extension.h"
+#import "UIView+SyncedData.h"
 
 
 //================================= Util =====================================//

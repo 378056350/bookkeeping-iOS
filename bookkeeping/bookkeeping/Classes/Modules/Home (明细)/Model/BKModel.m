@@ -215,8 +215,6 @@
     else if (status == 2) {
         [preStr appendFormat:@" AND year == %ld", date.year];
     }
-//    NSPredicate *pre = [NSPredicate predicateWithFormat:preStr];
-//    NSMutableArray<BKModel *> *models = [NSMutableArray arrayWithArray:[arrm filteredArrayUsingPredicate:pre]];
     NSMutableArray<BKModel *> *models = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:arrm];
     
     

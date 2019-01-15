@@ -263,7 +263,6 @@
 }
 
 
-
 #pragma mark - get
 - (MineView *)mine {
     if (!_mine) {

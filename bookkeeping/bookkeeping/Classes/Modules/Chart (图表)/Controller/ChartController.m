@@ -72,6 +72,13 @@
         [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
         [self updateDateRange];
     }];
+    // 同步数据成功
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:SYNCED_DATA_COMPLETE object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        @strongify(self)
+        [self setDate:[NSDate date]];
+        [self setModel:[BKChartModel statisticalChart:self.segmentIndex isIncome:self.navigationIndex cmodel:self.cmodel date:self.date]];
+        [self updateDateRange];
+    }];
 }
 // 更新时间范围
 - (void)updateDateRange {

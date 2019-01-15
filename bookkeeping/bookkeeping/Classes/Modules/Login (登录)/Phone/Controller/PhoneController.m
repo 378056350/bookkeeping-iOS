@@ -96,6 +96,7 @@
 
 
 #pragma mark - 请求
+// 登录
 - (void)getLoginRequest {
     NSString *account = [self.phoneField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:

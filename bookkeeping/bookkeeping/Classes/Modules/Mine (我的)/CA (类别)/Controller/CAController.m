@@ -291,6 +291,8 @@
             NSMutableArray<BKCModel *> *sysRemoveArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY];
             NSMutableArray<BKCModel *> *sysHasSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
             NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
+            BKCModel *model = sysHasArr[indexPath.row];
+            
             [sysRemoveArr addObject:sysHasArr[indexPath.row]];
             if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
                 [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
@@ -304,6 +306,15 @@
             [NSUserDefaults setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
             [NSUserDefaults setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
             
+            
+            NSString *preStr = [NSString stringWithFormat:@"cmodel.Id != %ld", model.Id];
+            NSMutableArray<BKModel *> *book = [NSUserDefaults objectForKey:PIN_BOOK];
+            NSMutableArray<BKModel *> *book_synced = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
+            book = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book];
+            book_synced = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book_synced];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK_SYNCED];
+            
         }
         else if (index == 1) {
             NSIndexPath *indexPath = cell.indexPath;
@@ -311,6 +322,8 @@
             NSMutableArray<BKCModel *> *sysRemoveArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
             NSMutableArray<BKCModel *> *sysHasSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
             NSMutableArray<BKCModel *> *sysRemoveSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            BKCModel *model = sysHasArr[indexPath.row];
+            
             [sysRemoveArr addObject:sysHasArr[indexPath.row]];
             if ([sysHasSyncedArr containsObject:sysHasArr[indexPath.row]]) {
                 [sysHasSyncedArr removeObject:sysHasArr[indexPath.row]];
@@ -323,12 +336,19 @@
             [NSUserDefaults setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
             [NSUserDefaults setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
             [NSUserDefaults setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
+            
+            
+            NSString *preStr = [NSString stringWithFormat:@"cmodel.Id != %ld", model.Id];
+            NSMutableArray<BKModel *> *book = [NSUserDefaults objectForKey:PIN_BOOK];
+            NSMutableArray<BKModel *> *book_synced = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
+            book = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book];
+            book_synced = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book_synced];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK_SYNCED];
         }
     }
     // 自定义
     else {
-        //        [self removeCustrCateRequest:cell];
-        
         NSInteger index = self.header.seg.selectedSegmentIndex;
         BKCModel *model = cell.model;
         [self.models[index].insert removeObject:model];
@@ -348,6 +368,18 @@
             [NSUserDefaults setObject:cusHasPayArr forKey:PIN_CATE_CUS_HAS_PAY];
             [NSUserDefaults setObject:cusHasPaySyncedArr forKey:PIN_CATE_CUS_HAS_PAY_SYNCED];
             [NSUserDefaults setObject:cusRemovePaySyncedArr forKey:PIN_CATE_CUS_REMOVE_PAY_SYNCED];
+            
+            
+            NSString *preStr = [NSString stringWithFormat:@"cmodel.Id != %ld", model.Id];
+            NSMutableArray<BKModel *> *book = [NSUserDefaults objectForKey:PIN_BOOK];
+            NSMutableArray<BKModel *> *book_synced = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
+            book = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book];
+            book_synced = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book_synced];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK_SYNCED];
+            
+            
+            
         } else if (index == 1) {
             NSMutableArray *cusHasIcomeEArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME];
             NSMutableArray *cusHasIncomeSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
@@ -361,6 +393,16 @@
             [NSUserDefaults setObject:cusHasIcomeEArr forKey:PIN_CATE_CUS_HAS_INCOME];
             [NSUserDefaults setObject:cusHasIncomeSyncedArr forKey:PIN_CATE_CUS_HAS_INCOME_SYNCED];
             [NSUserDefaults setObject:cusRemoveIncomeSyncedArr forKey:PIN_CATE_CUS_REMOVE_INCOME_SYNCED];
+            
+            
+            
+            NSString *preStr = [NSString stringWithFormat:@"cmodel.Id != %ld", model.Id];
+            NSMutableArray<BKModel *> *book = [NSUserDefaults objectForKey:PIN_BOOK];
+            NSMutableArray<BKModel *> *book_synced = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
+            book = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book];
+            book_synced = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:book_synced];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK];
+            [NSUserDefaults setObject:book forKey:PIN_BOOK_SYNCED];
         }
         
         

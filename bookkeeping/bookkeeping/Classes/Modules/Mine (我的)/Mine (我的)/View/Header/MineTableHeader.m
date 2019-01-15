@@ -46,13 +46,13 @@
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateNormal];
     [self.punchBtn setTitleColor:kColor_Text_Black forState:UIControlStateHighlighted];
     
-    [self.iconConstraintW setConstant:countcoordinatesX(60)];
-    [self.punchConstraintW setConstant:countcoordinatesX(70)];
-    [self.numberConstraintT setConstant:countcoordinatesX(10)];
+    [self.iconConstraintW setConstant:countcoordinatesX(70)];
     [self.infoConstraintT setConstant:StatusBarHeight + countcoordinatesX(40)];
+    [self.numberConstraintT setConstant:countcoordinatesX(10)];
+    [self.punchConstraintW setConstant:countcoordinatesX(70)];
     [self.punchConstraintT setConstant:StatusBarHeight + countcoordinatesX(5)];
     
-    [self.icon.layer setCornerRadius:countcoordinatesX(60) / 2];
+    [self.icon.layer setCornerRadius:countcoordinatesX(70) / 2];
     [self.icon.layer setMasksToBounds:true];
     
     
@@ -131,7 +131,6 @@
         
         [_punchBtn setImage:nil forState:UIControlStateNormal];
         [_punchBtn setImage:nil forState:UIControlStateHighlighted];
-
     }
     // 未打卡
     else {
@@ -140,7 +139,6 @@
         
         [_punchBtn setImage:[UIImage imageNamed:@"mine_siginin"] forState:UIControlStateNormal];
         [_punchBtn setImage:[UIImage imageNamed:@"mine_siginin"] forState:UIControlStateHighlighted];
-
     }
 }
 
