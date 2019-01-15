@@ -23,12 +23,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 @property (weak, nonatomic) IBOutlet UIView *textContent;
 
-@property (nonatomic, strong) NSDate *currentDate;
-@property (nonatomic, assign) BOOL isLess;      // 减
-@property (nonatomic, assign) BOOL animation;   // 动画中
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textConstraintH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyConstraintB;
+
+@property (nonatomic, strong) NSDate *currentDate;
+@property (nonatomic, assign) BOOL isLess;          // 减
+@property (nonatomic, assign) BOOL animation;       // 动画中
 
 @end
 
@@ -259,7 +259,7 @@
         NSDate *date = [NSDate date];
         NSDate *min = [NSDate br_setYear:2000 month:1 day:1];
         NSDate *max = [NSDate br_setYear:date.year + 3 month:12 day:31];
-        [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYMD defaultSelValue:nil minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
+        [BRDatePickerView showDatePickerWithTitle:@"选择日期" dateType:BRDatePickerModeYMD defaultSelValue:[self.currentDate formatYMD] minDate:min maxDate:max isAutoSelect:false themeColor:nil resultBlock:^(NSString *selectValue) {
             @strongify(self)
             [self setCurrentDate:({
                 NSDateFormatter *fora = [[NSDateFormatter alloc] init];
