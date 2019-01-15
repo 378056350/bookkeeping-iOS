@@ -158,7 +158,7 @@
         }
         // 同步数据
         else if (indexPath.row == 2 && [UserInfo isLogin]) {
-            
+            [self.view syncedDataRequest];
         }
         // 帮助
         else if ((indexPath.row == 3  && [UserInfo isLogin]) || (indexPath.row == 2  && [UserInfo isLogin])) {
