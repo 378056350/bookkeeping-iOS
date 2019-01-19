@@ -24,22 +24,29 @@
     [self setNavTitle:@"账单"];
     [self setDate:[NSDate date]];
     [self.rightButton setHidden:false];
-    [self.rightButton setFrame:CGRectMake(0, 0, 70, 44)];
     [self.rightButton addSubview:({
-        UIImageView *image = [[UIImageView alloc] init];
-        image.frame = CGRectMake(self.rightButton.width - 15, 0, 15, self.rightButton.height);
-        image.image = [UIImage imageNamed:@"time_down"];
-        image.contentMode = UIViewContentModeScaleAspectFit;
-        image;
-    })];
-    [self.rightButton addSubview:({
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
-        lab.text = @"2019年";
-        lab.font = [UIFont systemFontOfSize:AdjustFont(14)];
+        NSDate *date = [NSDate date];
+        NSString *year = [NSString stringWithFormat:@"%ld年", date.year];
+        UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:AdjustFont(14)];
+        CGFloat width = [year sizeWithMaxSize:CGSizeMake(MAXFLOAT, 0) font:font].width;
+        
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+        lab.text = year;
+        lab.font = font;
         lab.textColor = kColor_Text_Black;
         lab.textAlignment = NSTextAlignmentRight;
         lab.tag = 10;
         lab;
+    })];
+    [self.rightButton setFrame:CGRectMake(0, 0, [self.rightButton viewWithTag:10].width + 15, 44)];
+    [self.rightButton addSubview:({
+        CGFloat width = 15;
+        
+        UIImageView *image = [[UIImageView alloc] init];
+        image.frame = CGRectMake(self.rightButton.width - width, 0, width, self.rightButton.height);
+        image.image = [UIImage imageNamed:@"time_down"];
+        image.contentMode = UIViewContentModeScaleAspectFit;
+        image;
     })];
     [self table];
     dispatch_async(dispatch_get_main_queue(), ^{

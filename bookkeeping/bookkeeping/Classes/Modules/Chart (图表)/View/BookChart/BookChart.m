@@ -76,6 +76,9 @@
     CGFloat left = point.x;
     left += CHART_W / (count - 1) / 2;
     NSInteger index = (NSInteger)(left / (CHART_W / (count - 1)));
+    if (index >= self.points.count) {
+        index = self.points.count - 1;
+    }
 
     CGRect frame = [self.points[index] CGRectValue];
     frame = [self convertRect:frame toView:window];
