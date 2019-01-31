@@ -19,9 +19,9 @@
 | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
 |            记账            |            图表            |            增删类别            |            账单            |
 
-| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/4.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/5.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/6.gif?raw=true) |
+| ![记账](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/4.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/5.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/6.gif?raw=true) | ![图表](https://github.com/378056350/bookkeeping-iOS/blob/master/gif/7.gif?raw=true) |
 | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
-|            小组件            |            修改账单            |            删除账单            |
+|            小组件            |            修改账单            |            删除账单            |            添加类别            |
 
 
 
