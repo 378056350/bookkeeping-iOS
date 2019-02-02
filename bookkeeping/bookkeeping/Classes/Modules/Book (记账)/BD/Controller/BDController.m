@@ -82,20 +82,11 @@
     // 删除
     else if ([number integerValue] == 1) {
         // 删除
-        NSMutableArray<BKModel *> *bookArrm = [NSUserDefaults objectForKey:PIN_BOOK];
-        NSMutableArray<BKModel *> *bookSyncedArrm = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
-        if ([bookSyncedArrm containsObject:_model]) {
-            [bookSyncedArrm removeObject:_model];
-        }
-        [bookArrm removeObject:_model];
-        [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK];
-        [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK_SYNCED];
-        
+        [NSUserDefaults removeBookModel:_model];
+        // 通知
         [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
-        
         // 返回
         [self.navigationController popViewControllerAnimated:true];
-        
         // 回调
         if (self.complete) {
             self.complete();

@@ -1031,8 +1031,6 @@
 			isa = PBXGroup;
 			children = (
 				3219840E21C6466700311885 /* Single.h */,
-				32E2A27721EDBBF0009AD84C /* UIView+SyncedData.h */,
-				32E2A27821EDBBF0009AD84C /* UIView+SyncedData.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1185,6 +1183,7 @@
 		321983C321C6460100311885 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				4B466EBD220562760069F38E /* SyncedData */,
 				321983ED21C6460100311885 /* UITableView */,
 				32AF269B21ED72DB004F46A2 /* UITableViewCell */,
 				32AF269521ED63A7004F46A2 /* NSMutableArray */,
@@ -1916,6 +1915,15 @@
 				4B35F1CC21CCD330007271BE /* KKBadge.xib */,
 			);
 			path = KKBadge;
+			sourceTree = "<group>";
+		};
+		4B466EBD220562760069F38E /* SyncedData */ = {
+			isa = PBXGroup;
+			children = (
+				32E2A27721EDBBF0009AD84C /* UIView+SyncedData.h */,
+				32E2A27821EDBBF0009AD84C /* UIView+SyncedData.m */,
+			);
+			path = SyncedData;
 			sourceTree = "<group>";
 		};
 		4B47930F21E9DB4D0062879D /* NSUserDefaults */ = {

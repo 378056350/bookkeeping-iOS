@@ -77,6 +77,9 @@
         @strongify(self)
         [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
+    
+    
+    
 }
 
 
@@ -130,19 +133,11 @@
 }
 // 删除Cell
 - (void)homeTableCellRemove:(HomeListSubCell *)cell {
-    NSLog(@"删除Cell");
     // 删除
-    NSMutableArray<BKModel *> *bookArrm = [NSUserDefaults objectForKey:PIN_BOOK];
-    NSMutableArray<BKModel *> *bookSyncedArrm = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
-    if ([bookSyncedArrm containsObject:cell.model]) {
-        [bookSyncedArrm removeObject:cell.model];
-    }
-    [bookArrm removeObject:cell.model];
-    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK];
-    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK_SYNCED];
-    
+    [NSUserDefaults removeBookModel:cell.model];
     // 更新
     [[NSNotificationCenter defaultCenter] postNotificationName:NOT_BOOK_DELETE object:nil];
+    
 }
 // 点击Cell
 - (void)homeTableCellClick:(BKModel *)model {

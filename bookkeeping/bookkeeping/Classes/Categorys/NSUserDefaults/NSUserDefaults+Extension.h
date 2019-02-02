@@ -4,6 +4,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "BKModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)objectForKey:(NSString *)key;
 // 存值
 + (void)setObject:(id)obj forKey:(NSString *)key;
+
+// 删除记账
++ (void)removeBookModel:(BKModel *)model;
 
 @end
 

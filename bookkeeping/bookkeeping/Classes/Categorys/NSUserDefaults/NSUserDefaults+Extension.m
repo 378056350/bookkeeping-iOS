@@ -85,5 +85,19 @@
 }
 
 
+// 删除记账
++ (void)removeBookModel:(BKModel *)model {
+    // 删除
+    NSMutableArray<BKModel *> *bookArrm = [NSUserDefaults objectForKey:PIN_BOOK];
+    NSMutableArray<BKModel *> *bookSyncedArrm = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
+    if ([bookSyncedArrm containsObject:model]) {
+        [bookSyncedArrm removeObject:model];
+    }
+    [bookArrm removeObject:model];
+    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK];
+    [NSUserDefaults setObject:bookArrm forKey:PIN_BOOK_SYNCED];
+}
+
+
 
 @end
