@@ -44,40 +44,40 @@
     if (_is_income == true) {
         [_header.seg setSelectedSegmentIndex:1];
     }
-//    [self getCategoryListRequest];
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self setModels:[NSUserDefaults getCategoryModel]];
        
-        NSMutableArray<BKCModel *> *sysHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_PAY];
-        NSMutableArray<BKCModel *> *cusHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_PAY];
-        NSMutableArray<BKCModel *> *sysRemovePayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-        
-        CategoryListModel *model1 = [[CategoryListModel alloc] init];
-        model1.is_income = 0;
-        model1.remove = sysRemovePayArr;
-        model1.insert = ({
-            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasPayArr];
-            [arrm addObjectsFromArray:cusHasPayArr];
-            arrm;
-        });
-        
-        
-        NSMutableArray<BKCModel *> *sysHasIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *cusHasIcomeEArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME];
-        NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-        
-        CategoryListModel *model2 = [[CategoryListModel alloc] init];
-        model2.is_income = 1;
-        model2.remove = sysRemoveIncomeArr;
-        model2.insert = ({
-            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
-            [arrm addObjectsFromArray:cusHasIcomeEArr];
-            arrm;
-        });
-        
-        
-        [self setModels:[NSMutableArray arrayWithArray:@[model1, model2]]];
+//        NSMutableArray<BKCModel *> *sysHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_PAY];
+//        NSMutableArray<BKCModel *> *cusHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_PAY];
+//        NSMutableArray<BKCModel *> *sysRemovePayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+//        
+//        CategoryListModel *model1 = [[CategoryListModel alloc] init];
+//        model1.is_income = 0;
+//        model1.remove = sysRemovePayArr;
+//        model1.insert = ({
+//            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasPayArr];
+//            [arrm addObjectsFromArray:cusHasPayArr];
+//            arrm;
+//        });
+//        
+//        
+//        NSMutableArray<BKCModel *> *sysHasIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME];
+//        NSMutableArray<BKCModel *> *cusHasIcomeEArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME];
+//        NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+//        
+//        CategoryListModel *model2 = [[CategoryListModel alloc] init];
+//        model2.is_income = 1;
+//        model2.remove = sysRemoveIncomeArr;
+//        model2.insert = ({
+//            NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
+//            [arrm addObjectsFromArray:cusHasIcomeEArr];
+//            arrm;
+//        });
+//        
+//        
+//        [self setModels:[NSMutableArray arrayWithArray:@[model1, model2]]];
     });
 }
 
@@ -169,12 +169,6 @@
             self.complete();
         }
     }];
-//    [vc setComplete:^{
-//        [self.table.mj_header beginRefreshing];
-//        if (self.complete) {
-//            self.complete();
-//        }
-//    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 // 值改变
@@ -205,53 +199,7 @@
     [self setModels:self.models];
     // 添加
     [NSUserDefaults insertCategoryModel:model is_income:index];
-    
-    
-//    if (index == 0) {
-//        NSIndexPath *indexPath = cell.indexPath;
-//        NSMutableArray *sysHasArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_PAY];
-//        NSMutableArray *sysRemoveArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY];
-//        NSMutableArray *sysHasSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-//        NSMutableArray *sysRemoveSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
-//
-//        [sysHasArr addObject:sysRemoveArr[indexPath.row]];
-//        if ([sysRemoveSyncedArr containsObject:sysRemoveArr[indexPath.row]]) {
-//            [sysRemoveSyncedArr removeObject:sysRemoveArr[indexPath.row]];
-//        } else {
-//            [sysHasSyncedArr addObject:sysRemoveArr[indexPath.row]];
-//        }
-//        [sysRemoveArr removeObjectAtIndex:indexPath.row];
-//
-//
-//        [NSUserDefaults setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_PAY];
-//        [NSUserDefaults setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_PAY];
-//        [NSUserDefaults setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_PAY_SYNCED];
-//        [NSUserDefaults setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_PAY_SYNCED];
-//    } else if (index == 1) {
-//        NSIndexPath *indexPath = cell.indexPath;
-//        NSMutableArray *sysHasArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME];
-//        NSMutableArray *sysRemoveArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
-//        NSMutableArray *sysHasSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-//        NSMutableArray *sysRemoveSyncedArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
-//
-//        [sysHasArr addObject:sysRemoveArr[indexPath.row]];
-//        if ([sysRemoveSyncedArr containsObject:sysRemoveArr[indexPath.row]]) {
-//            [sysRemoveSyncedArr removeObject:sysRemoveArr[indexPath.row]];
-//        } else {
-//            [sysHasSyncedArr addObject:sysRemoveArr[indexPath.row]];
-//        }
-//        [sysRemoveArr removeObjectAtIndex:indexPath.row];
-//
-//
-//        [NSUserDefaults setObject:sysHasArr forKey:PIN_CATE_SYS_HAS_INCOME];
-//        [NSUserDefaults setObject:sysRemoveArr forKey:PIN_CATE_SYS_REMOVE_INCOME];
-//        [NSUserDefaults setObject:sysHasSyncedArr forKey:PIN_CATE_SYS_Has_INCOME_SYNCED];
-//        [NSUserDefaults setObject:sysRemoveSyncedArr forKey:PIN_CATE_SYS_REMOVE_INCOME_SYNCED];
-//    }
-//
-    
 }
-
 
 
 // 删除cell
@@ -281,7 +229,6 @@
         self.complete();
     }
 }
-
 
 
 #pragma mark - get

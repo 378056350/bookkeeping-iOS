@@ -34,11 +34,11 @@
     [self.monthDescLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
     [self.monthDescLab setTextColor:kColor_Text_Black];
     [self.descLab1 setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
-    [self.descLab1 setTextColor:kColor_Text_Gary];
+    [self.descLab1 setTextColor:kColor_Text_Black];
     [self.descLab2 setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
-    [self.descLab2 setTextColor:kColor_Text_Gary];
+    [self.descLab2 setTextColor:kColor_Text_Black];
     [self.descLab3 setFont:[UIFont systemFontOfSize:AdjustFont(8) weight:UIFontWeightLight]];
-    [self.descLab3 setTextColor:kColor_Text_Gary];
+    [self.descLab3 setTextColor:kColor_Text_Black];
     [self.bookBtn setTitle:@"记一笔" forState:UIControlStateNormal];
     [self.bookBtn.layer setCornerRadius:3];
     [self.bookBtn.layer setMasksToBounds:true];

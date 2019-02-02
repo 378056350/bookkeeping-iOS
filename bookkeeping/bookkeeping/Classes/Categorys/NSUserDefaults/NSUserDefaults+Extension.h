@@ -5,6 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BKModel.h"
+#import "CategoryListModel.h"
+#import "ACAListModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)insertCategoryModel:(BKCModel *)model is_income:(BOOL)is_income;
 // 删除分类
 + (void)removeCategoryModel:(BKCModel *)model is_income:(BOOL)is_income;
+// 获取分类
++ (NSMutableArray *)getCategoryModel;
 
 
 @end

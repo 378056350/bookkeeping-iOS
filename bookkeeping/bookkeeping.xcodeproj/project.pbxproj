@@ -193,6 +193,8 @@
 		4B38C07E21E4E6A800D28B34 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 321983B421C6459B00311885 /* BaseModel.m */; };
 		4B38C07F21E4E6CB00D28B34 /* ACAListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F1D421CD0798007271BE /* ACAListModel.m */; };
 		4B38C08021E4E6F000D28B34 /* BKCIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917AF21CD333000137215 /* BKCIncomeModel.m */; };
+		4B466EBF220574550069F38E /* CategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917B221CD391000137215 /* CategoryListModel.m */; };
+		4B466EC02205750F0069F38E /* CategoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1917B221CD391000137215 /* CategoryListModel.m */; };
 		4B47931221E9DB4D0062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
 		4B47931621E9DF540062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
 		4B47931721E9DF540062879D /* NSUserDefaults+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47931121E9DB4D0062879D /* NSUserDefaults+Extension.m */; };
@@ -3276,6 +3278,7 @@
 				4BFD381021E4C6C700BAB0BB /* UIColor+HEX.m in Sources */,
 				4B38C07B21E4E59600D28B34 /* BKModel.m in Sources */,
 				4B38C08021E4E6F000D28B34 /* BKCIncomeModel.m in Sources */,
+				4B466EC02205750F0069F38E /* CategoryListModel.m in Sources */,
 				4B38C07D21E4E65400D28B34 /* NSObject+NSCoding.m in Sources */,
 				4BFD381C21E4D84B00BAB0BB /* NSString+Extension.m in Sources */,
 				4B38C07F21E4E6CB00D28B34 /* ACAListModel.m in Sources */,
@@ -3288,6 +3291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3213181721E59A91000ADA9A /* BaseModel.m in Sources */,
+				4B466EBF220574550069F38E /* CategoryListModel.m in Sources */,
 				326EB88C21E57C15007CD5C6 /* UIColor+HEX.m in Sources */,
 				326EB88821E57BF7007CD5C6 /* UIFont+Extension.m in Sources */,
 				3213182021E5CDB7000ADA9A /* NSString+Calculation.m in Sources */,

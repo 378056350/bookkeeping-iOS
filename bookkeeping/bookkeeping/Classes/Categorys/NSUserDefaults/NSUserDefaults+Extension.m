@@ -4,7 +4,6 @@
  */
 
 #import "NSUserDefaults+Extension.h"
-#import "ACAListModel.h"
 
 
 @implementation NSUserDefaults (Extension)
@@ -222,6 +221,36 @@
     NSString *preStr = [NSString stringWithFormat:@"cmodel.Id == %ld", model.Id];
     arrm = [NSMutableArray kk_filteredArrayUsingPredicate:preStr array:arrm];
     [NSUserDefaults setObject:arrm forKey:PIN_BOOK];
+}
+// 获取分类
++ (NSMutableArray *)getCategoryModel {
+    NSMutableArray<BKCModel *> *sysHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_PAY];
+    NSMutableArray<BKCModel *> *cusHasPayArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_PAY];
+    NSMutableArray<BKCModel *> *sysRemovePayArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_PAY];
+    
+    CategoryListModel *model1 = [[CategoryListModel alloc] init];
+    model1.is_income = 0;
+    model1.remove = sysRemovePayArr;
+    model1.insert = ({
+        NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasPayArr];
+        [arrm addObjectsFromArray:cusHasPayArr];
+        arrm;
+    });
+
+    NSMutableArray<BKCModel *> *sysHasIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_HAS_INCOME];
+    NSMutableArray<BKCModel *> *cusHasIcomeEArr = [NSUserDefaults objectForKey:PIN_CATE_CUS_HAS_INCOME];
+    NSMutableArray<BKCModel *> *sysRemoveIncomeArr = [NSUserDefaults objectForKey:PIN_CATE_SYS_REMOVE_INCOME];
+
+    CategoryListModel *model2 = [[CategoryListModel alloc] init];
+    model2.is_income = 1;
+    model2.remove = sysRemoveIncomeArr;
+    model2.insert = ({
+        NSMutableArray *arrm = [NSMutableArray arrayWithArray:sysHasIncomeArr];
+        [arrm addObjectsFromArray:cusHasIcomeEArr];
+        arrm;
+    });
+
+    return [NSMutableArray arrayWithArray:@[model1, model2]];
 }
 
 
