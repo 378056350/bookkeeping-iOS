@@ -15,8 +15,20 @@ NS_ASSUME_NONNULL_BEGIN
 // 存值
 + (void)setObject:(id)obj forKey:(NSString *)key;
 
+
 // 删除记账
 + (void)removeBookModel:(BKModel *)model;
+// 添加记账
++ (void)insertBookModel:(BKModel *)model;
+// 修改记账
++ (void)replaceBookModel:(BKModel *)model;
+
+
+// 添加分类
++ (void)insertCategoryModel:(BKCModel *)model is_income:(BOOL)is_income;
+// 删除分类
++ (void)removeCategoryModel:(BKCModel *)model is_income:(BOOL)is_income;
+
 
 @end
 

@@ -42,13 +42,14 @@
     [self setDate:[NSDate date]];
     [self monitorNotification];
     [self setModels:[BKMonthModel statisticalMonthWithYear:_date.year month:_date.month]];
-    
+
     // 已经登录
     UserModel *model = [UserInfo loadUserInfo];
     if (model.token && model.token.length != 0) {
         [self.view syncedDataRequest];
     }
 }
+
 // 监听通知
 - (void)monitorNotification {
     // 记账
@@ -77,8 +78,6 @@
         @strongify(self)
         [self setModels:[BKMonthModel statisticalMonthWithYear:self.date.year month:self.date.month]];
     }];
-    
-    
     
 }
 

@@ -130,13 +130,8 @@
     
     // 新增
     if (!_model) {
-        
-        NSMutableArray *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
-        NSMutableArray *bookSyncedArr = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
-        [bookArr addObject:model];
-        [bookSyncedArr addObject:model];
-        [NSUserDefaults setObject:bookArr forKey:PIN_BOOK];
-        [NSUserDefaults setObject:bookArr forKey:PIN_BOOK_SYNCED];
+        // 添加记账
+        [NSUserDefaults insertBookModel:model];
     }
     // 修改
     else {
@@ -148,16 +143,8 @@
         _model.category_id = cmodel.Id;
         _model.cmodel = cmodel;
         model = _model;
-        
-        NSMutableArray *bookArr = [NSUserDefaults objectForKey:PIN_BOOK];
-        NSMutableArray *bookSyncedArr = [NSUserDefaults objectForKey:PIN_BOOK_SYNCED];
-        NSInteger index = [bookArr indexOfObject:model];
-        [bookArr replaceObjectAtIndex:index withObject:model];
-        if ([bookSyncedArr containsObject:model]) {
-            [bookSyncedArr replaceObjectAtIndex:index withObject:model];
-        }
-        [NSUserDefaults setObject:bookArr forKey:PIN_BOOK];
-        [NSUserDefaults setObject:bookArr forKey:PIN_BOOK_SYNCED];
+        // 修改记账
+        [NSUserDefaults replaceBookModel:model];
     }
     
     
