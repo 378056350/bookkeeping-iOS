@@ -1,12 +1,15 @@
-/**
- * 发现
- * @author 郑业强 2019-01-08 创建文件
- */
+//
+//  FindBookCell.m
+//  bookkeeping
+//
+//  Created by 郑业强 on 2019/2/3.
+//  Copyright © 2019年 kk. All rights reserved.
+//
 
-#import "FindCell.h"
+#import "FindBookCell.h"
 
 #pragma mark - 声明
-@interface FindCell()
+@interface FindBookCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *line;
 @property (weak, nonatomic) IBOutlet UILabel *billLab;
@@ -25,8 +28,7 @@
 
 
 #pragma mark - 实现
-@implementation FindCell
-
+@implementation FindBookCell
 
 - (void)initUI {
     [self.billLab setFont:[UIFont systemFontOfSize:AdjustFont(12) weight:UIFontWeightLight]];
@@ -58,16 +60,16 @@
     bookArr = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
     
     
-//    pre = [NSPredicate predicateWithFormat:@"cmodel.is_income == 1"];
-//    NSMutableArray<BKModel *> *arrm1 = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
+    //    pre = [NSPredicate predicateWithFormat:@"cmodel.is_income == 1"];
+    //    NSMutableArray<BKModel *> *arrm1 = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
     NSMutableArray<BKModel *> *arrm1 = [NSMutableArray kk_filteredArrayUsingPredicate:@"cmodel.is_income == 1" array:bookArr];
     
     CGFloat income = [[arrm1 valueForKeyPath:@"@sum.price.floatValue"] floatValue];
     NSString *incomeStr = [NSString stringWithFormat:@"%.2f", income];
     [self.moneyLab1 setAttributedText:[NSAttributedString createMath:incomeStr integer:[UIFont systemFontOfSize:AdjustFont(14)] decimal:[UIFont systemFontOfSize:AdjustFont(12)]]];
     
-//    pre = [NSPredicate predicateWithFormat:@"cmodel.is_income == 0"];
-//    NSMutableArray<BKModel *> *arrm2 = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];    
+    //    pre = [NSPredicate predicateWithFormat:@"cmodel.is_income == 0"];
+    //    NSMutableArray<BKModel *> *arrm2 = [NSMutableArray arrayWithArray:[bookArr filteredArrayUsingPredicate:pre]];
     NSMutableArray<BKModel *> *arrm2 = [NSMutableArray kk_filteredArrayUsingPredicate:@"cmodel.is_income == 0" array:bookArr];
     CGFloat pay = [[arrm2 valueForKeyPath:@"@sum.price.floatValue"] floatValue];
     NSString *payStr = [NSString stringWithFormat:@"%.2f", pay];
@@ -79,6 +81,5 @@
     
     
 }
-
 
 @end

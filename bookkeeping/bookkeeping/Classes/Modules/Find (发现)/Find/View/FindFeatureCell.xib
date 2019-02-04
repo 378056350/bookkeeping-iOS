@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FindFeatureCell">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="116"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="116"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhj-qK-ch9">
+                        <rect key="frame" x="20" y="23" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Mhj-qK-ch9" secondAttribute="height" multiplier="1:1" id="hZf-Bt-2Yv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-A9-QYa">
+                        <rect key="frame" x="0.0" y="78" width="90" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SDM-A9-QYa" firstAttribute="top" secondItem="Mhj-qK-ch9" secondAttribute="bottom" constant="5" id="2Q3-er-uMm"/>
+                <constraint firstAttribute="trailing" secondItem="SDM-A9-QYa" secondAttribute="trailing" id="Al0-0u-0nH"/>
+                <constraint firstItem="Mhj-qK-ch9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="DjV-RY-ySD"/>
+                <constraint firstItem="Mhj-qK-ch9" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-10" id="E3n-wn-bGz"/>
+                <constraint firstItem="SDM-A9-QYa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="W1T-Ta-gDE"/>
+                <constraint firstItem="Mhj-qK-ch9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wkf-2S-l0b"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="90" height="116"/>
+            <connections>
+                <outlet property="icon" destination="Mhj-qK-ch9" id="8Ct-rz-YCu"/>
+                <outlet property="name" destination="SDM-A9-QYa" id="Unm-na-lvQ"/>
+            </connections>
+            <point key="canvasLocation" x="0.0" y="65"/>
+        </collectionViewCell>
+    </objects>
+</document>
