@@ -8,6 +8,9 @@
 
 #import "CCReplyCell.h"
 #import "CCCellConfig.h"
+#import <YYLabel.h>
+#import <YYText/NSAttributedString+YYText.h>
+
 
 #define PADDING_W countcoordinatesX(5)
 #define PADDING_H countcoordinatesX(5)
@@ -17,8 +20,8 @@
 
 @property (nonatomic, strong) UIImageView *triangle;
 @property (nonatomic, strong) UIView *content;
-@property (nonatomic, strong) UIImageView *like;
 @property (nonatomic, strong) NSMutableArray *likes;
+@property (nonatomic, strong) YYLabel *like;
 
 @end
 
@@ -29,7 +32,6 @@
 
 - (void)initUI {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-//    [self triangle];
     [self content];
     [self like];
 }
@@ -78,16 +80,27 @@
     }
     return _content;
 }
-- (UIImageView *)like {
+- (YYLabel *)like {
     if (!_like) {
-        _like = [[UIImageView alloc] initWithFrame:({
-            CGFloat left = PADDING_W;
-            CGFloat top = PADDING_H;
-            CGRectMake(left, top, countcoordinatesX(10), countcoordinatesX(10));
-        })];
-        [_like setContentMode:UIViewContentModeScaleAspectFit];
-        [_like setImage:[UIImage imageNamed:@"like"]];
-        [_content addSubview:_like];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@" 123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123"];
+        [text setYy_color:[UIColor grayColor]];
+        [text insertAttributedString:({
+            UIImage *img = [UIImage imageNamed:@"like"];
+            UIFont *font = [UIFont systemFontOfSize:AdjustFont(12)];
+            CGSize imageSize = CGSizeMake(countcoordinatesX(12), countcoordinatesX(12));
+            NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:img contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageSize alignToFont:font alignment:YYTextVerticalAlignmentCenter];
+            attachment;
+        }) atIndex:0];
+        
+        
+        YYLabel *label = [[YYLabel alloc] init];
+        label.attributedText = text;
+        YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:CGSizeMake(CELL_NAME_W - CELL_IN_PADDING_W * 2, CGFLOAT_MAX) text:text];
+        label.size = layout.textBoundingSize;
+        label.textLayout = layout;
+        label.origin = CGPointMake(CELL_NAME_L + CELL_IN_PADDING_W, CELL_IN_PADDING_H);
+        [self addSubview:label];
+
     }
     return _like;
 }

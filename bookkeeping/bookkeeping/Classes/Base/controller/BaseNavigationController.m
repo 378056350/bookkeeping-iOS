@@ -4,6 +4,7 @@
  */
 
 #import "BaseNavigationController.h"
+#import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 #pragma mark - 声明
 @interface BaseNavigationController ()
@@ -21,15 +22,28 @@
     return nav;
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (self.viewControllers.count == 1) {
-        BaseViewController *vc = (BaseViewController *)viewController;
-        vc.leftButton.hidden = true;
-        vc.hidesBottomBarWhenPushed = true;
+    if (![viewController isKindOfClass:[ASBaseViewController class]]) {
+        if (self.viewControllers.count == 1) {
+            BaseViewController *vc = (BaseViewController *)viewController;
+            vc.leftButton.hidden = true;
+            vc.hidesBottomBarWhenPushed = true;
+        } else {
+            BaseViewController *vc = (BaseViewController *)viewController;
+            vc.leftButton.hidden = true;
+            vc.hidesBottomBarWhenPushed = false;
+        }
     } else {
-        BaseViewController *vc = (BaseViewController *)viewController;
-        vc.leftButton.hidden = true;
-        vc.hidesBottomBarWhenPushed = false;
+        if (self.viewControllers.count == 1) {
+            ASBaseViewController *vc = (ASBaseViewController *)viewController;
+//            vc.leftButton.hidden = true;
+            vc.hidesBottomBarWhenPushed = true;
+        } else {
+            ASBaseViewController *vc = (ASBaseViewController *)viewController;
+//            vc.leftButton.hidden = true;
+            vc.hidesBottomBarWhenPushed = false;
+        }
     }
+    
     
     
 //    BaseTabBarController *tab = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;

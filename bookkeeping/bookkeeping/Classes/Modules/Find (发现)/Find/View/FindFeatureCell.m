@@ -31,6 +31,9 @@
     if (indexPath.row == 0) {
         _name.text = @"朋友圈";
     }
+    else if (indexPath.row == 1) {
+        _name.text = @"Async朋友圈";
+    }
 }
 
 

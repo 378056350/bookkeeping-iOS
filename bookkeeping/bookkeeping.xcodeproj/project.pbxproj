@@ -136,6 +136,7 @@
 		32FA228E21D62AEC0000BC0E /* HomeListEmpty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FA228D21D62AEC0000BC0E /* HomeListEmpty.xib */; };
 		32FADE5921D2298200DCD920 /* UIViewController+UMengExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE5821D2298200DCD920 /* UIViewController+UMengExtension.m */; };
 		32FADE5C21D229FE00DCD920 /* KKSocialUserInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE5B21D229FE00DCD920 /* KKSocialUserInfoResponse.m */; };
+		4B0370EF220D36D500C7255F /* ACModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B0370EE220D36D500C7255F /* ACModel.m */; };
 		4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA121C68B2200D5B489 /* BaseTabBar.m */; };
 		4B132AA521C68DE500D5B489 /* BKCCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA421C68DE500D5B489 /* BKCCollection.m */; };
 		4B132AA921C68F4300D5B489 /* BKCCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B132AA721C68F4300D5B489 /* BKCCollectionCell.m */; };
@@ -203,6 +204,7 @@
 		4B48530821C69A2E00891096 /* MineTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B48530721C69A2E00891096 /* MineTableHeader.m */; };
 		4B48530B21C69F2800891096 /* MineHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B48530A21C69F2800891096 /* MineHeader.m */; };
 		4B48530D21C69F6E00891096 /* MineHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48530C21C69F6E00891096 /* MineHeader.xib */; };
+		4B5F93A2220C799B0061B2D3 /* ACTableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5F93A1220C799B0061B2D3 /* ACTableNode.m */; };
 		4B68DC3D21E1C0BF00CBF20C /* BDTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B68DC3B21E1C0BF00CBF20C /* BDTableCell.m */; };
 		4B68DC3E21E1C0BF00CBF20C /* BDTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B68DC3C21E1C0BF00CBF20C /* BDTableCell.xib */; };
 		4B6D569D2206D35100BE6720 /* FindBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6D569B2206D35100BE6720 /* FindBookCell.m */; };
@@ -215,6 +217,8 @@
 		4B8D636421D8D38C002AEB4A /* BCHUDContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D636321D8D38C002AEB4A /* BCHUDContent.m */; };
 		4B8D636A21D8D507002AEB4A /* BCHUDContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D636821D8D507002AEB4A /* BCHUDContentCell.m */; };
 		4B8D636B21D8D507002AEB4A /* BCHUDContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D636921D8D507002AEB4A /* BCHUDContentCell.xib */; };
+		4B93DC6D220C6740003D3102 /* ACController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B93DC6C220C6740003D3102 /* ACController.m */; };
+		4B93DC70220C75E5003D3102 /* ASBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B93DC6F220C75E5003D3102 /* ASBaseViewController.m */; };
 		4B9798F821CE69DB0020B207 /* RE2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798F621CE69DB0020B207 /* RE2Controller.m */; };
 		4B9798F921CE69DB0020B207 /* RE2Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9798F721CE69DB0020B207 /* RE2Controller.xib */; };
 		4B9798FD21CE744A0020B207 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9798FC21CE744A0020B207 /* CountDown.m */; };
@@ -259,6 +263,7 @@
 		4BE7846321C6796900B8EC46 /* ChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846221C6796900B8EC46 /* ChartController.m */; };
 		4BE7846621C6799200B8EC46 /* BKCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846521C6799200B8EC46 /* BKCController.m */; };
 		4BE7846C21C679F500B8EC46 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE7846B21C679F500B8EC46 /* MineController.m */; };
+		4BE85AD3220C81410007D6E5 /* ACCellMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE85AD2220C81410007D6E5 /* ACCellMode.m */; };
 		4BE8CC0021C93960007935E2 /* BaseView+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CBE221C93960007935E2 /* BaseView+Popup.m */; };
 		4BE8CC0121C93960007935E2 /* KKPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CBE321C93960007935E2 /* KKPopup.m */; };
 		4BE8CC1921C93F21007935E2 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8CC1621C93F21007935E2 /* NSDate+Extension.m */; };
@@ -342,6 +347,7 @@
 		4BF0649B21E11283005F1665 /* BDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0649A21E11283005F1665 /* BDTable.m */; };
 		4BF0649E21E112B8005F1665 /* BDBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0649D21E112B8005F1665 /* BDBottom.m */; };
 		4BF064A021E112C6005F1665 /* BDBottom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF0649F21E112C6005F1665 /* BDBottom.xib */; };
+		4BF53223220C82320042CB5A /* ASBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF53222220C82320042CB5A /* ASBaseTableCell.m */; };
 		4BF574A321C6A59A001890D1 /* HomeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF574A221C6A59A001890D1 /* HomeList.m */; };
 		4BF8547E21DA20AC00A203DE /* BKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8547D21DA20AC00A203DE /* BKModel.m */; };
 		4BFD37FA21E4BDD400BAB0BB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BFA7E721E483F300B926F3 /* NotificationCenter.framework */; };
@@ -605,6 +611,8 @@
 		32FADE5821D2298200DCD920 /* UIViewController+UMengExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UMengExtension.m"; sourceTree = "<group>"; };
 		32FADE5A21D229FE00DCD920 /* KKSocialUserInfoResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKSocialUserInfoResponse.h; sourceTree = "<group>"; };
 		32FADE5B21D229FE00DCD920 /* KKSocialUserInfoResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKSocialUserInfoResponse.m; sourceTree = "<group>"; };
+		4B0370ED220D36D500C7255F /* ACModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACModel.h; sourceTree = "<group>"; };
+		4B0370EE220D36D500C7255F /* ACModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACModel.m; sourceTree = "<group>"; };
 		4B132AA021C68B2200D5B489 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
 		4B132AA121C68B2200D5B489 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
 		4B132AA321C68DE500D5B489 /* BKCCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKCCollection.h; sourceTree = "<group>"; };
@@ -711,6 +719,8 @@
 		4B48530921C69F2800891096 /* MineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHeader.h; sourceTree = "<group>"; };
 		4B48530A21C69F2800891096 /* MineHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHeader.m; sourceTree = "<group>"; };
 		4B48530C21C69F6E00891096 /* MineHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHeader.xib; sourceTree = "<group>"; };
+		4B5F93A0220C799B0061B2D3 /* ACTableNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACTableNode.h; sourceTree = "<group>"; };
+		4B5F93A1220C799B0061B2D3 /* ACTableNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACTableNode.m; sourceTree = "<group>"; };
 		4B68DC3A21E1C0BF00CBF20C /* BDTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDTableCell.h; sourceTree = "<group>"; };
 		4B68DC3B21E1C0BF00CBF20C /* BDTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDTableCell.m; sourceTree = "<group>"; };
 		4B68DC3C21E1C0BF00CBF20C /* BDTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BDTableCell.xib; sourceTree = "<group>"; };
@@ -733,6 +743,10 @@
 		4B8D636721D8D507002AEB4A /* BCHUDContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCHUDContentCell.h; sourceTree = "<group>"; };
 		4B8D636821D8D507002AEB4A /* BCHUDContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCHUDContentCell.m; sourceTree = "<group>"; };
 		4B8D636921D8D507002AEB4A /* BCHUDContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BCHUDContentCell.xib; sourceTree = "<group>"; };
+		4B93DC6B220C6740003D3102 /* ACController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACController.h; sourceTree = "<group>"; };
+		4B93DC6C220C6740003D3102 /* ACController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACController.m; sourceTree = "<group>"; };
+		4B93DC6E220C75E5003D3102 /* ASBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASBaseViewController.h; sourceTree = "<group>"; };
+		4B93DC6F220C75E5003D3102 /* ASBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASBaseViewController.m; sourceTree = "<group>"; };
 		4B9798F521CE69DB0020B207 /* RE2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RE2Controller.h; sourceTree = "<group>"; };
 		4B9798F621CE69DB0020B207 /* RE2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RE2Controller.m; sourceTree = "<group>"; };
 		4B9798F721CE69DB0020B207 /* RE2Controller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RE2Controller.xib; sourceTree = "<group>"; };
@@ -809,6 +823,8 @@
 		4BE7846521C6799200B8EC46 /* BKCController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKCController.m; sourceTree = "<group>"; };
 		4BE7846A21C679F500B8EC46 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		4BE7846B21C679F500B8EC46 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		4BE85AD1220C81410007D6E5 /* ACCellMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACCellMode.h; sourceTree = "<group>"; };
+		4BE85AD2220C81410007D6E5 /* ACCellMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACCellMode.m; sourceTree = "<group>"; };
 		4BE8CBE121C93960007935E2 /* KKPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPopup.h; sourceTree = "<group>"; };
 		4BE8CBE221C93960007935E2 /* BaseView+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseView+Popup.m"; sourceTree = "<group>"; };
 		4BE8CBE321C93960007935E2 /* KKPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPopup.m; sourceTree = "<group>"; };
@@ -908,6 +924,8 @@
 		4BF0649C21E112B8005F1665 /* BDBottom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDBottom.h; sourceTree = "<group>"; };
 		4BF0649D21E112B8005F1665 /* BDBottom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDBottom.m; sourceTree = "<group>"; };
 		4BF0649F21E112C6005F1665 /* BDBottom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BDBottom.xib; sourceTree = "<group>"; };
+		4BF53221220C82320042CB5A /* ASBaseTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASBaseTableCell.h; sourceTree = "<group>"; };
+		4BF53222220C82320042CB5A /* ASBaseTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASBaseTableCell.m; sourceTree = "<group>"; };
 		4BF574A121C6A59A001890D1 /* HomeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeList.h; sourceTree = "<group>"; };
 		4BF574A221C6A59A001890D1 /* HomeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeList.m; sourceTree = "<group>"; };
 		4BF8547C21DA20AC00A203DE /* BKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKModel.h; sourceTree = "<group>"; };
@@ -1162,6 +1180,8 @@
 				3219839D21C6459B00311885 /* BaseTabBarController.m */,
 				3219839E21C6459B00311885 /* BaseViewController.h */,
 				3219839821C6459B00311885 /* BaseViewController.m */,
+				4B93DC6E220C75E5003D3102 /* ASBaseViewController.h */,
+				4B93DC6F220C75E5003D3102 /* ASBaseViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1185,6 +1205,8 @@
 				321983A721C6459B00311885 /* BaseTableView.m */,
 				321983AA21C6459B00311885 /* BaseView.h */,
 				321983A321C6459B00311885 /* BaseView.m */,
+				4BF53221220C82320042CB5A /* ASBaseTableCell.h */,
+				4BF53222220C82320042CB5A /* ASBaseTableCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2001,6 +2023,7 @@
 		4B6D56992206D1F400BE6720 /* Third (第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				4B93DC66220C66E2003D3102 /* AC (朋友圈) */,
 				4BD1EE63220816CC00758B41 /* CC (朋友圈) */,
 			);
 			path = "Third (第三方)";
@@ -2023,6 +2046,53 @@
 				4B769AED21DA7351006EDE90 /* BaseNavigationController+Extension.m */,
 			);
 			path = BaseNavigationController;
+			sourceTree = "<group>";
+		};
+		4B93DC66220C66E2003D3102 /* AC (朋友圈) */ = {
+			isa = PBXGroup;
+			children = (
+				4B93DC67220C66E2003D3102 /* Controller */,
+				4B93DC68220C66E2003D3102 /* Cell */,
+				4B93DC69220C66E2003D3102 /* Model */,
+				4B93DC6A220C66E2003D3102 /* View */,
+			);
+			path = "AC (朋友圈)";
+			sourceTree = "<group>";
+		};
+		4B93DC67220C66E2003D3102 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B93DC6B220C6740003D3102 /* ACController.h */,
+				4B93DC6C220C6740003D3102 /* ACController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B93DC68220C66E2003D3102 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4B93DC69220C66E2003D3102 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B0370ED220D36D500C7255F /* ACModel.h */,
+				4B0370EE220D36D500C7255F /* ACModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B93DC6A220C66E2003D3102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B5F93A0220C799B0061B2D3 /* ACTableNode.h */,
+				4B5F93A1220C799B0061B2D3 /* ACTableNode.m */,
+				4BE85AD1220C81410007D6E5 /* ACCellMode.h */,
+				4BE85AD2220C81410007D6E5 /* ACCellMode.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4B9798FA21CE744A0020B207 /* CountDown */ = {
@@ -2750,8 +2820,8 @@
 		4BFD381421E4D3CB00BAB0BB /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD381521E4D3CB00BAB0BB /* UIViewController+Extension.m */,
 				4BFD381621E4D3CB00BAB0BB /* UIViewController+Extension.h */,
+				4BFD381521E4D3CB00BAB0BB /* UIViewController+Extension.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -3199,6 +3269,7 @@
 				321983C221C6459B00311885 /* BaseModel.m in Sources */,
 				4B8D635F21D8D215002AEB4A /* BookChartHUD.m in Sources */,
 				4B68DC3D21E1C0BF00CBF20C /* BDTableCell.m in Sources */,
+				4B93DC6D220C6740003D3102 /* ACController.m in Sources */,
 				4BF0648D21E10A80005F1665 /* BDController.m in Sources */,
 				4BA68AE021C7EAAA0063A5C2 /* CAController.m in Sources */,
 				4BA68AFF21C7F61E0063A5C2 /* ACACollection.m in Sources */,
@@ -3211,6 +3282,7 @@
 				32A4C22721CB189100DF4327 /* BadgeReusableFooter.m in Sources */,
 				4B1E128621CA93C1001F5B36 /* CategorySectionHeader.m in Sources */,
 				4B35F1A221CCC641007271BE /* UIView+APPViewRequest.m in Sources */,
+				4BF53223220C82320042CB5A /* ASBaseTableCell.m in Sources */,
 				4B35F1C021CCC694007271BE /* KKEmptyNoNet.m in Sources */,
 				321983C021C6459B00311885 /* BaseCollectionCell.m in Sources */,
 				4B8D636421D8D38C002AEB4A /* BCHUDContent.m in Sources */,
@@ -3219,6 +3291,7 @@
 				4BEB72DD21CE033300BEF013 /* RequestTipRefreshFooter.m in Sources */,
 				4B35F1C121CCC694007271BE /* KKEmptyCommon.m in Sources */,
 				327CEC3821C89920001D0086 /* ChartTableHeader.m in Sources */,
+				4B93DC70220C75E5003D3102 /* ASBaseViewController.m in Sources */,
 				4BD1EE7C22081E8000758B41 /* CCIconCell.m in Sources */,
 				321983B721C6459B00311885 /* BaseViewController.m in Sources */,
 				4B1917B321CD391000137215 /* CategoryListModel.m in Sources */,
@@ -3236,6 +3309,7 @@
 				4B1917CE21CD45C900137215 /* UIViewController+JGProgressHUD.m in Sources */,
 				32258E7E21CA29AC0017254D /* NSString+Calculation.m in Sources */,
 				321983FA21C6460100311885 /* UIResponder+QFEventHandle.m in Sources */,
+				4BE85AD3220C81410007D6E5 /* ACCellMode.m in Sources */,
 				321983BD21C6459B00311885 /* BaseTableView.m in Sources */,
 				4BF0649021E10BAD005F1665 /* BDHeader.m in Sources */,
 				32A5800F21DF08BC008993B2 /* NSObject+NSCoding.m in Sources */,
@@ -3259,6 +3333,7 @@
 				32AF269821ED63C1004F46A2 /* NSMutableArray+Extension.m in Sources */,
 				4B132AA221C68B2200D5B489 /* BaseTabBar.m in Sources */,
 				326F8F2421D4BFCA0030B329 /* TIModel.m in Sources */,
+				4B0370EF220D36D500C7255F /* ACModel.m in Sources */,
 				4B35F1C221CCC694007271BE /* KKEmptyLoading.m in Sources */,
 				321983FB21C6460100311885 /* UIColor+HEX.m in Sources */,
 				4B132AA921C68F4300D5B489 /* BKCCollectionCell.m in Sources */,
@@ -3318,6 +3393,7 @@
 				4B252CE421C6A35D002CD83D /* HomeHeader.m in Sources */,
 				4B1917CD21CD45C900137215 /* UIView+JGProgressHUD.m in Sources */,
 				32A4C23521CB3F8200DF4327 /* ShareController.m in Sources */,
+				4B5F93A2220C799B0061B2D3 /* ACTableNode.m in Sources */,
 				4BF8547E21DA20AC00A203DE /* BKModel.m in Sources */,
 				3219840921C6460100311885 /* UITableView+Extension.m in Sources */,
 				32A4C22221CB15B100DF4327 /* JHCollectionReusableView.m in Sources */,

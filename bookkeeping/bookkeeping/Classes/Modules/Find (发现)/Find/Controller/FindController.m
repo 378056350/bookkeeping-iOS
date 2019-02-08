@@ -8,6 +8,7 @@
 #import "BillController.h"
 #import "FindBookCell.h"
 #import "CCController.h"
+#import "ACController.h"
 
 #pragma mark - 声明
 @interface FindController()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -55,6 +56,9 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             CCController *vc = [[CCController alloc] init];
+            [self.navigationController pushViewController:vc animated:true];
+        } else if (indexPath.row == 1) {
+            ACController *vc = [[ACController alloc] init];
             [self.navigationController pushViewController:vc animated:true];
         }
     }
