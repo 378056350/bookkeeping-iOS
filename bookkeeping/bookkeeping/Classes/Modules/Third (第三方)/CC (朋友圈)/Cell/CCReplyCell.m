@@ -10,6 +10,7 @@
 #import "CCCellConfig.h"
 #import <YYLabel.h>
 #import <YYText/NSAttributedString+YYText.h>
+#import "YYLabel+Extension.h"
 
 
 #define PADDING_W countcoordinatesX(5)
@@ -82,24 +83,24 @@
 }
 - (YYLabel *)like {
     if (!_like) {
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:@" 123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123"];
-        [text setYy_color:[UIColor grayColor]];
-        [text insertAttributedString:({
-            UIImage *img = [UIImage imageNamed:@"like"];
-            UIFont *font = [UIFont systemFontOfSize:AdjustFont(12)];
-            CGSize imageSize = CGSizeMake(countcoordinatesX(12), countcoordinatesX(12));
-            NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:img contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageSize alignToFont:font alignment:YYTextVerticalAlignmentCenter];
-            attachment;
-        }) atIndex:0];
+        _like = [[YYLabel alloc] init];
+        [_like setOrigin:CGPointMake(CELL_NAME_L + CELL_IN_PADDING_W, CELL_IN_PADDING_H)];
+        [_like createLabWithParam:({
+            CGSize imageSize = [UIImage imageNamed:@"like"].size;
+            CGFloat imageH = 17;
+            CGFloat imageW = imageH / imageSize.height * imageSize.width;
+            CGFloat labelW = CELL_NAME_W - CELL_IN_PADDING_W * 2;
+            @{
+                  YY_MaxSize: @(CGSizeMake(labelW, MAXFLOAT)),
+                  YY_String: @"正品迪士尼米奇苏格兰风格双层饭便当盒2L",
+                  YY_Icon: @"like",
+                  YY_LineSpacing: @(3),
+                  YY_Font: [UIFont systemFontOfSize:AdjustFont(13) weight:UIFontWeightLight],
+                  YY_ImageFrame: @(CGRectMake(0, 0, imageW, imageH))
+              };
+        })];
+        [self addSubview:_like];
         
-        
-        YYLabel *label = [[YYLabel alloc] init];
-        label.attributedText = text;
-        YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:CGSizeMake(CELL_NAME_W - CELL_IN_PADDING_W * 2, CGFLOAT_MAX) text:text];
-        label.size = layout.textBoundingSize;
-        label.textLayout = layout;
-        label.origin = CGPointMake(CELL_NAME_L + CELL_IN_PADDING_W, CELL_IN_PADDING_H);
-        [self addSubview:label];
 
     }
     return _like;

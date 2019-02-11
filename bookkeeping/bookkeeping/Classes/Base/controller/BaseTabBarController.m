@@ -16,6 +16,7 @@
 
 @end
 
+
 #pragma mark - 实现
 @implementation BaseTabBarController
 
@@ -40,7 +41,7 @@
     [self addChildViewController:mine title:@"我的" image:@"tabbar_mine_n" selImage:@"tabbar_mine_s"];
     
     
-//    [self setSelectedIndex:4];
+    [self setSelectedIndex:3];
 }
 
 - (void)hideTabbar:(BOOL)hidden {
