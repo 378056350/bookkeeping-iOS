@@ -25,9 +25,6 @@
     [super viewDidLoad];
     
     
-    HomeController *home = [[HomeController alloc] init];
-    [self addChildViewController:home title:@"明细" image:@"tabbar_detail_n" selImage:@"tabbar_detail_s"];
-
     ChartController *sort = [[ChartController alloc] init];
     [self addChildViewController:sort title:@"图表" image:@"tabbar_chart_n" selImage:@"tabbar_chart_s"];
 
@@ -36,12 +33,16 @@
 
     FindController *cart = [[FindController alloc] init];
     [self addChildViewController:cart title:@"发现" image:@"tabbar_discover_n" selImage:@"tabbar_discover_s"];
+    
+    HomeController *home = [[HomeController alloc] init];
+    [self addChildViewController:home title:@"明细" image:@"tabbar_detail_n" selImage:@"tabbar_detail_s"];
+
 
     MineController *mine = [[MineController alloc] init];
     [self addChildViewController:mine title:@"我的" image:@"tabbar_mine_n" selImage:@"tabbar_mine_s"];
     
     
-    [self setSelectedIndex:3];
+//    [self setSelectedIndex:3];
 }
 
 - (void)hideTabbar:(BOOL)hidden {
